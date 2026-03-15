@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { BookOpen, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { cn } from "@/lib/cn";
 
 export function AppHeader() {
@@ -9,8 +8,8 @@ export function AppHeader() {
   const isEditorMode = location.pathname.startsWith("/edit");
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="flex h-14 items-center justify-between px-4 md:px-6">
+    <header className="sticky top-0 z-40 w-full border-b bg-secondary/80 backdrop-blur">
+      <div className="flex h-12 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3">
           <Link
             to="/"
@@ -43,10 +42,6 @@ export function AppHeader() {
               <span className="hidden sm:inline">קריאה</span>
             </Link>
           </Button>
-
-          <div className="w-px h-6 bg-border mx-1" />
-
-          <ThemeToggle />
         </nav>
       </div>
     </header>

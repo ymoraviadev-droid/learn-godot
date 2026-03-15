@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme {
   --font-sans: "Heebo", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --radius: 0.625rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 0.625rem;
-  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-sm: 0.25rem;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -49,82 +47,69 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/*
+ * Godot Engine inspired dark theme
+ * Extracted from Godot 4.x editor screenshot
+ *
+ * Panel bg:     #25262b  — deep charcoal
+ * Card/surface: #2d2e33  — slightly lighter panels
+ * Toolbar:      #35363c  — toolbar/tab bar
+ * Borders:      #1c1d22  — subtle dark seams
+ * Text:         #cdcfd2  — warm light gray
+ * Muted text:   #808690  — for secondary info
+ * Godot blue:   #478cbf  — the primary accent
+ * Selection:    #264f78  — blue selection highlight
+ */
+
 :root {
-  --background: oklch(0.985 0.002 247);
-  --foreground: oklch(0.145 0.015 260);
+  color-scheme: dark;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0.015 260);
+  /* Main backgrounds */
+  --background: #25262b;
+  --foreground: #cdcfd2;
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0.015 260);
+  /* Cards & panels (Inspector, Scene tree panels) */
+  --card: #2d2e33;
+  --card-foreground: #cdcfd2;
 
-  --primary: oklch(0.5 0.155 277);
-  --primary-foreground: oklch(0.985 0.002 247);
+  /* Popovers & dropdowns */
+  --popover: #2d2e33;
+  --popover-foreground: #cdcfd2;
 
-  --secondary: oklch(0.955 0.01 260);
-  --secondary-foreground: oklch(0.205 0.015 260);
+  /* Primary accent — Godot blue */
+  --primary: #478cbf;
+  --primary-foreground: #ffffff;
 
-  --muted: oklch(0.955 0.01 260);
-  --muted-foreground: oklch(0.55 0.015 260);
+  /* Secondary — toolbar bg */
+  --secondary: #35363c;
+  --secondary-foreground: #cdcfd2;
 
-  --accent: oklch(0.955 0.01 260);
-  --accent-foreground: oklch(0.205 0.015 260);
+  /* Muted — subtle backgrounds */
+  --muted: #35363c;
+  --muted-foreground: #808690;
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
+  /* Accent — hover/active states */
+  --accent: #3a3c44;
+  --accent-foreground: #cdcfd2;
 
-  --border: oklch(0.92 0.005 260);
-  --input: oklch(0.92 0.005 260);
-  --ring: oklch(0.5 0.155 277);
+  /* Destructive */
+  --destructive: #e05252;
+  --destructive-foreground: #ffffff;
 
-  --sidebar-background: oklch(0.975 0.005 260);
-  --sidebar-foreground: oklch(0.345 0.015 260);
-  --sidebar-primary: oklch(0.5 0.155 277);
-  --sidebar-primary-foreground: oklch(0.985 0.002 247);
-  --sidebar-accent: oklch(0.955 0.01 260);
-  --sidebar-accent-foreground: oklch(0.205 0.015 260);
-  --sidebar-border: oklch(0.92 0.005 260);
-  --sidebar-ring: oklch(0.5 0.155 277);
-}
+  /* Borders & inputs */
+  --border: #1c1d22;
+  --input: #35363c;
+  --ring: #478cbf;
 
-.dark {
-  --background: oklch(0.13 0.015 260);
-  --foreground: oklch(0.935 0.005 260);
-
-  --card: oklch(0.16 0.015 260);
-  --card-foreground: oklch(0.935 0.005 260);
-
-  --popover: oklch(0.16 0.015 260);
-  --popover-foreground: oklch(0.935 0.005 260);
-
-  --primary: oklch(0.65 0.18 277);
-  --primary-foreground: oklch(0.13 0.015 260);
-
-  --secondary: oklch(0.22 0.015 260);
-  --secondary-foreground: oklch(0.935 0.005 260);
-
-  --muted: oklch(0.22 0.015 260);
-  --muted-foreground: oklch(0.55 0.015 260);
-
-  --accent: oklch(0.22 0.015 260);
-  --accent-foreground: oklch(0.935 0.005 260);
-
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-
-  --border: oklch(0.25 0.015 260);
-  --input: oklch(0.25 0.015 260);
-  --ring: oklch(0.65 0.18 277);
-
-  --sidebar-background: oklch(0.15 0.015 260);
-  --sidebar-foreground: oklch(0.935 0.005 260);
-  --sidebar-primary: oklch(0.65 0.18 277);
-  --sidebar-primary-foreground: oklch(0.13 0.015 260);
-  --sidebar-accent: oklch(0.22 0.015 260);
-  --sidebar-accent-foreground: oklch(0.935 0.005 260);
-  --sidebar-border: oklch(0.25 0.015 260);
-  --sidebar-ring: oklch(0.65 0.18 277);
+  /* Sidebar — slightly darker than main bg */
+  --sidebar-background: #22232a;
+  --sidebar-foreground: #cdcfd2;
+  --sidebar-primary: #478cbf;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d3040;
+  --sidebar-accent-foreground: #e0e0e4;
+  --sidebar-border: #1c1d22;
+  --sidebar-ring: #478cbf;
 }
 
 @layer base {
@@ -161,17 +146,70 @@
   }
 
   .tiptap-editor pre {
-    @apply bg-card border border-border rounded-lg p-4 font-mono text-sm my-4;
+    @apply rounded-lg font-mono text-sm my-4 overflow-x-auto p-4;
+    background: #1d1e22;
+    border: 1px solid #1a1b1f;
     direction: ltr;
     text-align: left;
   }
 
+  /* When inside custom code-block-wrapper, reset pre styling */
+  .code-block-wrapper pre {
+    @apply bg-transparent border-none rounded-none p-0 m-0;
+  }
+
   .tiptap-editor pre code {
-    @apply bg-transparent p-0 text-foreground;
+    @apply bg-transparent p-0;
+    color: #9cdcfe;
+  }
+
+  /* Code block with line numbers — custom node view */
+  .code-block-wrapper {
+    position: relative;
+    direction: ltr;
+    text-align: left;
+    background: #1d1e22;
+    border: 1px solid #1a1b1f;
+    @apply rounded-lg my-4 overflow-hidden;
+  }
+
+  .code-block-wrapper .code-block-header {
+    @apply flex items-center justify-between px-4 py-1.5 text-xs select-none;
+    background: #1a1b1f;
+    color: #808690;
+    border-bottom: 1px solid #1a1b1f;
+    direction: ltr;
+  }
+
+  .code-block-wrapper .code-block-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  .code-block-wrapper .line-numbers {
+    @apply select-none text-right py-4 px-3;
+    color: #4a4e57;
+    border-right: 1px solid #2a2b30;
+    line-height: 1.7;
+    font-size: 0.8em;
+  }
+
+  .code-block-wrapper .line-numbers span {
+    display: block;
+  }
+
+  .code-block-wrapper .code-content {
+    @apply p-4 overflow-x-auto;
+  }
+
+  .code-block-wrapper .code-content pre {
+    @apply bg-transparent border-none p-0 m-0 rounded-none;
   }
 
   .tiptap-editor code {
-    @apply bg-muted text-primary px-1.5 py-0.5 rounded font-mono text-[0.85em];
+    @apply px-1.5 py-0.5 rounded font-mono text-[0.85em];
+    background: #1d1e22;
+    color: #8ecdff;
   }
 
   .tiptap-editor blockquote {
@@ -200,9 +238,12 @@
     @apply rounded-lg max-w-full h-auto my-4;
   }
 
-  .tiptap-editor ul,
+  .tiptap-editor ul {
+    @apply pr-6 my-2 list-disc;
+  }
+
   .tiptap-editor ol {
-    @apply pr-6 my-2;
+    @apply pr-6 my-2 list-decimal;
   }
 
   .tiptap-editor li {
@@ -253,37 +294,135 @@
     @apply border-border my-8;
   }
 
+  /*
+   * Syntax highlighting — matched to Godot 4.x C# editor
+   * Extracted from user's Godot editor screenshot
+   */
+
+  /* Keywords: using, public, partial, class, private, override, void,
+     if, float, double, return — salmon pink */
   .tiptap-editor .hljs-keyword,
-  .tiptap-editor .hljs-selector-tag,
+  .tiptap-editor .hljs-selector-tag {
+    color: #ff7085;
+    font-weight: 500;
+  }
+
+  /* Built-in types used as keywords: float, int, double, bool, string, var */
   .tiptap-editor .hljs-built_in {
-    @apply text-primary font-medium;
+    color: #ff7085;
+    font-weight: 500;
   }
 
+  /* Strings — warm yellow */
   .tiptap-editor .hljs-string,
-  .tiptap-editor .hljs-attr {
-    color: oklch(0.65 0.18 150);
+  .tiptap-editor .hljs-selector-attr,
+  .tiptap-editor .hljs-selector-pseudo,
+  .tiptap-editor .hljs-regexp {
+    color: #ffeda1;
   }
 
-  .tiptap-editor .hljs-comment {
-    @apply text-muted-foreground italic;
+  /* Comments — muted gray */
+  .tiptap-editor .hljs-comment,
+  .tiptap-editor .hljs-quote {
+    color: #6b7480;
+    font-style: italic;
   }
 
+  /* Numbers & booleans (200f, -400f, true, false) — bright cyan-green */
   .tiptap-editor .hljs-number,
   .tiptap-editor .hljs-literal {
-    color: oklch(0.65 0.18 50);
+    color: #a1ffe0;
   }
 
+  /* Types & class names (CharacterBody2D, Vector2, ProjectSettings,
+     Input, Export) — teal green */
   .tiptap-editor .hljs-title,
-  .tiptap-editor .hljs-type {
-    color: oklch(0.65 0.18 200);
+  .tiptap-editor .hljs-type,
+  .tiptap-editor .hljs-title\.class_,
+  .tiptap-editor .hljs-title\.class\.inherited__ {
+    color: #4ec9b0;
   }
 
+  /* Function/method names (GetSetting, _PhysicsProcess, IsOnFloor,
+     MoveAndSlide, GetAxis) — soft yellow */
+  .tiptap-editor .hljs-title\.function_,
   .tiptap-editor .hljs-function {
-    color: oklch(0.65 0.15 230);
+    color: #dcdcaa;
+  }
+
+  /* Variables — light blue */
+  .tiptap-editor .hljs-variable,
+  .tiptap-editor .hljs-variable\.language_,
+  .tiptap-editor .hljs-variable\.constant_,
+  .tiptap-editor .hljs-template-variable {
+    color: #9cdcfe;
+  }
+
+  /* Properties (.X, .Y) — light blue */
+  .tiptap-editor .hljs-property {
+    color: #9cdcfe;
+  }
+
+  /* Attributes / XML names — teal green */
+  .tiptap-editor .hljs-attr,
+  .tiptap-editor .hljs-name {
+    color: #4ec9b0;
+  }
+
+  /* Parameters — near white */
+  .tiptap-editor .hljs-params {
+    color: #e0e0e4;
+  }
+
+  /* Meta/preprocessor, attributes like [Export] — teal green */
+  .tiptap-editor .hljs-meta {
+    color: #4ec9b0;
+  }
+
+  .tiptap-editor .hljs-meta .hljs-keyword {
+    color: #4ec9b0;
+  }
+
+  .tiptap-editor .hljs-doctag {
+    color: #6a9955;
+  }
+
+  /* Symbols, bullets */
+  .tiptap-editor .hljs-symbol,
+  .tiptap-editor .hljs-bullet,
+  .tiptap-editor .hljs-link,
+  .tiptap-editor .hljs-selector-id {
+    color: #4ec9b0;
+  }
+
+  /* Diff */
+  .tiptap-editor .hljs-deletion {
+    color: #ff7085;
+    background: rgba(255, 112, 133, 0.1);
+  }
+
+  .tiptap-editor .hljs-addition {
+    color: #b5cea8;
+    background: rgba(181, 206, 168, 0.1);
+  }
+
+  .tiptap-editor .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .tiptap-editor .hljs-strong {
+    font-weight: 700;
   }
 }
 
 @utility scrollbar-thin {
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+}
+
+/* Scrollbars on the left — RTL document direction */
+@layer base {
+  html {
+    direction: rtl;
+  }
 }

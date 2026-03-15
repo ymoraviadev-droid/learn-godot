@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import type { Editor } from "@tiptap/react";
 import {
   Bold,
@@ -28,10 +29,12 @@ import {
   Superscript,
   TableCellsMerge,
   TableCellsSplit,
-  RowsIcon,
   Columns3,
   Trash2,
   RemoveFormatting,
+  ArrowDownToLine,
+  ArrowLeftToLine,
+  DeleteIcon,
 } from "lucide-react";
 import { ToolbarButton } from "./ToolbarButton";
 import { ToolbarDivider } from "./ToolbarDivider";
@@ -70,11 +73,51 @@ const CODE_LANGUAGES = [
 ];
 
 export function EditorToolbar({ editor }: EditorToolbarProps) {
+  // Force re-render on selection/transaction changes so active states update
+  const [, setTick] = useState(0);
+  const forceUpdate = useCallback(() => setTick((t) => t + 1), []);
+
+  useEffect(() => {
+    editor.on("selectionUpdate", forceUpdate);
+    editor.on("transaction", forceUpdate);
+    return () => {
+      editor.off("selectionUpdate", forceUpdate);
+      editor.off("transaction", forceUpdate);
+    };
+  }, [editor, forceUpdate]);
+
   const addImage = () => {
-    const url = window.prompt("כתובת התמונה:");
-    if (url) {
-      editor.chain().focus().setImage({ src: url }).run();
-    }
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/*";
+    input.onchange = async () => {
+      const file = input.files?.[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append("image", file, file.name);
+
+      try {
+        const res = await fetch("/api/upload-image", {
+          method: "POST",
+          body: formData,
+        });
+        const data = await res.json();
+        if (data.url) {
+          editor.chain().focus().setImage({ src: data.url }).run();
+        }
+      } catch {
+        // Fallback to base64 if upload fails
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (typeof reader.result === "string") {
+            editor.chain().focus().setImage({ src: reader.result }).run();
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+    input.click();
   };
 
   const setLink = () => {
@@ -258,6 +301,20 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
 
         <ToolbarDivider />
 
+        {/* Text direction — per block */}
+        <ToolbarButton
+          icon={<span className="text-xs font-bold">RTL</span>}
+          label="ימין לשמאל"
+          onClick={() => editor.chain().focus().setTextDirection("rtl").run()}
+        />
+        <ToolbarButton
+          icon={<span className="text-xs font-bold">LTR</span>}
+          label="שמאל לימין"
+          onClick={() => editor.chain().focus().setTextDirection("ltr").run()}
+        />
+
+        <ToolbarDivider />
+
         {/* Lists */}
         <ToolbarButton
           icon={<List className="h-4 w-4" />}
@@ -316,9 +373,13 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
         {/* Code block with language picker */}
         <Select
           value=""
-          onValueChange={() =>
-            editor.chain().focus().toggleCodeBlock().run()
-          }
+          onValueChange={(language) => {
+            if (editor.isActive("codeBlock")) {
+              editor.chain().focus().updateAttributes("codeBlock", { language }).run();
+            } else {
+              editor.chain().focus().setCodeBlock({ language }).run();
+            }
+          }}
         >
           <SelectTrigger className="w-24 h-8 text-xs gap-1">
             <CodeSquare className="h-3.5 w-3.5 shrink-0" />
@@ -333,20 +394,35 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
           </SelectContent>
         </Select>
 
-        {/* Table operations (shown only when in a table) */}
-        {editor.isActive("table") && (
-          <>
-            <ToolbarDivider />
+      </div>
+
+      {/* Row 3: Table operations — only when cursor is in a table */}
+      {editor.isActive("table") && (
+        <>
+          <Separator />
+          <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5">
+            <span className="text-xs text-muted-foreground px-1">טבלה:</span>
             <ToolbarButton
-              icon={<RowsIcon className="h-4 w-4" />}
+              icon={<ArrowDownToLine className="h-4 w-4" />}
               label="הוסף שורה"
               onClick={() => editor.chain().focus().addRowAfter().run()}
             />
             <ToolbarButton
-              icon={<Columns3 className="h-4 w-4" />}
+              icon={<ArrowLeftToLine className="h-4 w-4" />}
               label="הוסף עמודה"
               onClick={() => editor.chain().focus().addColumnAfter().run()}
             />
+            <ToolbarButton
+              icon={<DeleteIcon className="h-4 w-4" />}
+              label="מחק שורה"
+              onClick={() => editor.chain().focus().deleteRow().run()}
+            />
+            <ToolbarButton
+              icon={<Columns3 className="h-4 w-4" />}
+              label="מחק עמודה"
+              onClick={() => editor.chain().focus().deleteColumn().run()}
+            />
+            <ToolbarDivider />
             <ToolbarButton
               icon={<TableCellsMerge className="h-4 w-4" />}
               label="מזג תאים"
@@ -357,14 +433,15 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
               label="פצל תאים"
               onClick={() => editor.chain().focus().splitCell().run()}
             />
+            <ToolbarDivider />
             <ToolbarButton
               icon={<Trash2 className="h-4 w-4" />}
               label="מחק טבלה"
               onClick={() => editor.chain().focus().deleteTable().run()}
             />
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

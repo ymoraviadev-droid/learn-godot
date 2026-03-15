@@ -1,0 +1,181 @@
+import type { Plugin } from "vite";
+import fs from "fs";
+import path from "path";
+
+const CONTENT_DIR = path.resolve(__dirname, "../content");
+const IMAGES_DIR = path.join(CONTENT_DIR, "images");
+const CHAPTERS_DIR = path.join(CONTENT_DIR, "chapters");
+
+export function contentPlugin(): Plugin {
+  return {
+    name: "content-plugin",
+    configureServer(server) {
+      // POST /api/upload-image — save image file to content/images/
+      server.middlewares.use("/api/upload-image", (req, res) => {
+        if (req.method !== "POST") {
+          res.statusCode = 405;
+          res.end("Method not allowed");
+          return;
+        }
+
+        const chunks: Buffer[] = [];
+        req.on("data", (chunk: Buffer) => chunks.push(chunk));
+        req.on("end", () => {
+          try {
+            const body = Buffer.concat(chunks);
+            const boundary = req.headers["content-type"]
+              ?.split("boundary=")[1];
+
+            if (!boundary) {
+              res.statusCode = 400;
+              res.end(JSON.stringify({ error: "Missing boundary" }));
+              return;
+            }
+
+            const { filename, fileData } = parseMultipart(body, boundary);
+            if (!filename || !fileData) {
+              res.statusCode = 400;
+              res.end(JSON.stringify({ error: "No file found" }));
+              return;
+            }
+
+            // Sanitize filename
+            const safeName = sanitizeFilename(filename);
+            const destPath = path.join(IMAGES_DIR, safeName);
+
+            // Ensure unique filename
+            const finalPath = getUniquePath(destPath);
+            const finalName = path.basename(finalPath);
+
+            fs.mkdirSync(IMAGES_DIR, { recursive: true });
+            fs.writeFileSync(finalPath, fileData);
+
+            const imageUrl = `/content/images/${finalName}`;
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify({ url: imageUrl, filename: finalName }));
+          } catch (err) {
+            res.statusCode = 500;
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+      });
+
+      // POST /api/save-content — save JSON to content/chapters/
+      server.middlewares.use("/api/save-content", (req, res) => {
+        if (req.method !== "POST") {
+          res.statusCode = 405;
+          res.end("Method not allowed");
+          return;
+        }
+
+        const chunks: Buffer[] = [];
+        req.on("data", (chunk: Buffer) => chunks.push(chunk));
+        req.on("end", () => {
+          try {
+            const body = JSON.parse(Buffer.concat(chunks).toString("utf-8"));
+
+            fs.mkdirSync(CHAPTERS_DIR, { recursive: true });
+
+            const filePath = path.join(
+              CHAPTERS_DIR,
+              "godot-tutorial-content.json"
+            );
+            fs.writeFileSync(filePath, JSON.stringify(body, null, 2), "utf-8");
+
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify({ ok: true, path: filePath }));
+          } catch (err) {
+            res.statusCode = 500;
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+      });
+
+      // Serve content/images/ as static files
+      server.middlewares.use("/content/images", (req, res, next) => {
+        if (req.method !== "GET") return next();
+        const filePath = path.join(IMAGES_DIR, decodeURIComponent(req.url || ""));
+        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+          const ext = path.extname(filePath).toLowerCase();
+          const mimeTypes: Record<string, string> = {
+            ".png": "image/png",
+            ".jpg": "image/jpeg",
+            ".jpeg": "image/jpeg",
+            ".gif": "image/gif",
+            ".webp": "image/webp",
+            ".svg": "image/svg+xml",
+          };
+          res.setHeader(
+            "Content-Type",
+            mimeTypes[ext] || "application/octet-stream"
+          );
+          fs.createReadStream(filePath).pipe(res);
+        } else {
+          next();
+        }
+      });
+    },
+  };
+}
+
+function sanitizeFilename(name: string): string {
+  return name.replace(/[^a-zA-Z0-9._-]/g, "_");
+}
+
+function getUniquePath(filePath: string): string {
+  if (!fs.existsSync(filePath)) return filePath;
+  const ext = path.extname(filePath);
+  const base = path.basename(filePath, ext);
+  const dir = path.dirname(filePath);
+  let counter = 1;
+  let candidate: string;
+  do {
+    candidate = path.join(dir, `${base}_${counter}${ext}`);
+    counter++;
+  } while (fs.existsSync(candidate));
+  return candidate;
+}
+
+function parseMultipart(
+  body: Buffer,
+  boundary: string
+): { filename: string | null; fileData: Buffer | null } {
+  const boundaryBuf = Buffer.from(`--${boundary}`);
+  const parts = splitBuffer(body, boundaryBuf);
+
+  for (const part of parts) {
+    const headerEnd = part.indexOf("\r\n\r\n");
+    if (headerEnd === -1) continue;
+
+    const headers = part.subarray(0, headerEnd).toString("utf-8");
+    const filenameMatch = headers.match(/filename="([^"]+)"/);
+    if (!filenameMatch) continue;
+
+    // File data starts after \r\n\r\n and ends before trailing \r\n
+    let fileData = part.subarray(headerEnd + 4);
+    if (fileData[fileData.length - 2] === 0x0d && fileData[fileData.length - 1] === 0x0a) {
+      fileData = fileData.subarray(0, fileData.length - 2);
+    }
+
+    return { filename: filenameMatch[1], fileData };
+  }
+
+  return { filename: null, fileData: null };
+}
+
+function splitBuffer(buf: Buffer, delimiter: Buffer): Buffer[] {
+  const parts: Buffer[] = [];
+  let start = 0;
+  while (start < buf.length) {
+    const idx = buf.indexOf(delimiter, start);
+    if (idx === -1) {
+      parts.push(buf.subarray(start));
+      break;
+    }
+    if (idx > start) {
+      parts.push(buf.subarray(start, idx));
+    }
+    start = idx + delimiter.length;
+  }
+  return parts;
+}

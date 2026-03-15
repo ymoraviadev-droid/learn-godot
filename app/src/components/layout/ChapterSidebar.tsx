@@ -51,6 +51,7 @@ export function ChapterSidebar({
             return (
               <div
                 key={chapter.id}
+                dir="ltr"
                 className={cn(
                   "group flex items-center gap-1 rounded-md text-sm transition-colors",
                   isActive
@@ -58,20 +59,6 @@ export function ChapterSidebar({
                     : "text-sidebar-foreground hover:bg-sidebar-accent/50"
                 )}
               >
-                {onDeleteChapter && (
-                  <GripVertical className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-40 mr-0.5 cursor-grab" />
-                )}
-
-                <Link
-                  to={`${basePath}/${chapter.slug}`}
-                  className="flex-1 py-2 px-2 truncate"
-                >
-                  <span className="text-xs text-muted-foreground ml-2">
-                    {chapter.order}.
-                  </span>
-                  {chapter.title}
-                </Link>
-
                 {onDeleteChapter && (
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -87,6 +74,21 @@ export function ChapterSidebar({
                     </TooltipTrigger>
                     <TooltipContent>מחק פרק</TooltipContent>
                   </Tooltip>
+                )}
+
+                <Link
+                  to={`${basePath}/${chapter.slug}`}
+                  dir="rtl"
+                  className="flex-1 py-2 px-2 truncate text-right"
+                >
+                  <span className="text-xs text-muted-foreground ml-2">
+                    {chapter.order}.
+                  </span>
+                  {chapter.title}
+                </Link>
+
+                {onDeleteChapter && (
+                  <GripVertical className="h-3.5 w-3.5 shrink-0 opacity-0 group-hover:opacity-40 ml-0.5 cursor-grab" />
                 )}
               </div>
             );

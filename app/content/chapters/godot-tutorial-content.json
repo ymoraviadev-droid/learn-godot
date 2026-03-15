@@ -1,0 +1,1719 @@
+{
+  "meta": {
+    "title": "למד Godot עם C#",
+    "description": "מדריך בעברית לפיתוח משחקים עם Godot ו-C#",
+    "author": "",
+    "language": "he",
+    "chapterOrder": [
+      "01-מבוא"
+    ]
+  },
+  "chapters": [
+    {
+      "id": "01-מבוא",
+      "title": "מבוא",
+      "slug": "מבוא",
+      "order": 1,
+      "createdAt": "2026-03-15T05:48:59.658Z",
+      "updatedAt": "2026-03-15T08:20:11.906Z",
+      "tags": [],
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "פרק 1: מבוא"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/icon.svg",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "1.1 מה זה - Godot?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " הוא מנוע משחק אשר נכתב בקוד פתוח - מה שמייחד אותו לעומת רוב מנועי המשחק הנפוצים כיום (אשר לא נכתבו בקוד פתוח, כלומר שהקוד שלהם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "פרטי"
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מה זה מנוע משחק?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם אי פעם ניסיתים לפתח משחק בעצמכם על ידי כתיבת קוד ושימוש בספרייה גרפית - אז כבר יש לכם רקע והבנה בסיסית של מה זה מנוע משחק וכיצד הוא יכול לשרת אותנו:"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "מציור תמונות וצורות על המסך, דרך מנגנון לזיהוי התנגשויות בין עצמים, שליטה בדמות המשחק ועד להשמיע צליל ברגע הנכון - כל אלו דברים שיכולים לקחת למתכנת לא מעט זמן יקר לכתוב בעצמו, עד כדי כך שתוכלו להשקיע שבועות שלמים על כתיבת כלים אלו - עוד לפני שכתבתם אפילו שורת קוד אחת במשחק שלכם…"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ובכן, מנוע משחק בא להקל עלינו בכך שמובנים בו כלים רבים כאלו ואחרים מראש, כגון:"
+              },
+              {
+                "type": "hardBreak"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מנוע רינדור"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - “מצייר” צורות דו\\תלת ממדיות על המסך, מסוגל לנהל שכבות, תאורה ומצלמות."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פיזיקה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מדמה גרביטציה (כח-משיכה), התנגשויות בין עצמים, ותנועה בהתאם (כך שדמות השחקן לא תעבור דרך קיר/תיפול דרך הרצפה וכו’)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מערכת שמע"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - לצורך השמעת מוזיקה/צלילים בזמן המשחק,  כולל שליטה בעוצמה ומיקום."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בקרת שליטה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - על מנת להקנות למשתמש הקצה שליטה בדמות השחקן באמצעות עכבר/מקלדת/בקר משחק ועוד."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "עורך סצנות"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - כלי ויזואלי ידידותי למשתמש אשר מאפשר שליטה ועריכה בקלות של סצנות המשחק ואובייקטים באמצעות גרירה של העכבר בין חלונות, כולל אפשרות עריכה/קביעת מיקום/שינוי הגדרות - ולראות חיווי בזמן אמת על גבי המסך בזמן העבודה (פידבק חי מבלי שנצטרך לכתוב אפילו שורת קוד אחת)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מערכת אנימציות "
+                      },
+                      {
+                        "type": "text",
+                        "text": " - להנפשה/הזזה/סיבוב/שינוי גודל של עצמים בעולם המשחק."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תהליכי ייצוא"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - כלים מוכנים ל-”אריזת” המשחק למערכות הפעלה שונות ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Windows"
+                      },
+                      {
+                        "type": "text",
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "MacOS"
+                      },
+                      {
+                        "type": "text",
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Linux"
+                      },
+                      {
+                        "type": "text",
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Android"
+                      },
+                      {
+                        "type": "text",
+                        "text": "/"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "iOS"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וכו’)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כלומר שמנוע משחק הוא מעין ארגז כלים מקצועי - אנו מביאים את היצירתיות ועיצוב המשחק, בעוד מנוע המשחק מקנה לנו כלים אשר מאוד יקלו עלינו בביצוע וכתיבה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אז למה כדאי לי להשתמש דווקא ב-Godot?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " (מבטאים - “גודו” ללא ת’) נכתב על ידי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "חואן לינטסקי"
+              },
+              {
+                "type": "text",
+                "text": " ו"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אריאל מנזור"
+              },
+              {
+                "type": "text",
+                "text": " ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Juan Linetsky"
+              },
+              {
+                "type": "text",
+                "text": " ו-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Ariel Manzur"
+              },
+              {
+                "type": "text",
+                "text": ") מארגנטינה."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הגירסא הראשונה שוחררה לציבור בשנת 2014 והפכה לתוכנת קוד פתוח תחת רשיון "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "MIT"
+              },
+              {
+                "type": "text",
+                "text": " - אחד הרשיונות המקלים ביותר אשר קיימים:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חינם לחלוטין "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- אין צורך בהרשמה, תמלוגים או תשלום עמלות - לעולם."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בעלות חוקית "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- התוכנה, הקוד אשר נכתב בה והקוד אשר היא מכילה שייך למשתמש ש-Godot מותקנת אצלו במחשב, כלומר שהמשחקים אשר תיצרו באמצעות "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " שייכים לכם מבחינה חוקית ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "100%"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "קוד המקור חשוף "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- אם יש תקלה (באג) במנוע המשחק - תוכלו לתקן אותו, אם תרצו להבין לעומק פיצ’ר כלשהו - תוכלו לקרוא את קוד המקור שלו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אין תאגיד מאחורי המוצר"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אין מאחורי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " חברה או תאגיד אשר יכולים בעתיד לשנות את כללי התמחור של המנוע, לבטל רשיונות ללקוחות או לאלץ לבצע עדכון תוכנה. (אין מדובר בדאגה תאורטית, אלו מקרים שקרו בעבר עם מנועי משחק אחרים - מה שהרים את הפופולריות ואחוז השימוש של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "  בקרב מפתחי משחקים בצורה אגרסיבית)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מאז שפורסם לראשונה, המנוע קיבל המון שיפורים במהלך השנים ונכון לכתיבת שורות אלו הוא מעודכן לגרסא 4 הבשלה והיציבה יותר - הוא הפך למנוע 2D (המומחיות של המנוע) עוצמתי ונוח ואף מתבלט מאוד בתחום לעומת מנועים מתחרים ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot "
+              },
+              {
+                "type": "text",
+                "text": "גם הולך ומשתפר בכל רגע בתחום התלת ממד עד כדי כך שהוא נותן “פייט” אפילו למנועים הגדולים)."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הקהילה הלכה וגדלה עם השנים, וכיום מדובר באחת מקהילות הקוד הפתוח הגדולות ביותר שקיימות בעולם."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot בהשוואה למנועי משחק אחרים"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "content": [
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "פיצ’ר"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Godot"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Unity"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Unreal Engine"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "מחיר"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "חינם "
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "דורשים תשלום כאשר המשחק מגיע לרווח מסוים *"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "דורשים תשלום כאשר המשחק מגיע לרווח של מיליון דולר לפחות *"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "קוד מקור"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "פתוח"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "סגור"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "פתוח, רשיון מוגבל וחלקי "
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "שפות תכנות"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "GDScript, C#"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "C#"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "C++, Blueprints"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "תמיכה ב-2D"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "מצוינת, טבעית"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "טובה (אך יותר מתאים ל-3D)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "מוגבלת"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "תמיכה ב-3D"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "סבירה עד טובה, אך משתפרת"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "מעולה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "רמה גבוהה, סטנדרט תעשייה"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "גודל הורדה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "~100 MB"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "~10 GB+"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": "ltr"
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "~50 GB+"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        118
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "עקומת למידה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        129
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "עדינה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        219
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "בינונית"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": null
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "חדה"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כלומר שניתן להסיק ש-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " לא בא להחליף את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Unreal Engine"
+              },
+              {
+                "type": "text",
+                "text": " ליצירת משחקי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "AAA"
+              },
+              {
+                "type": "text",
+                "text": " - אך ליצירת משחקים דו ממדיים, למידה/מצגות או לשימוש בסטודיו עצמאי - כנראה ש-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " היא הבחירה הטובה ביותר שניתן למצוא כיום (נתון לויכוח כמובן)."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

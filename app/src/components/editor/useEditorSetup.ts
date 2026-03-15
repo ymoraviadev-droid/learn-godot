@@ -1,4 +1,4 @@
-import { useEditor } from "@tiptap/react";
+import { useEditor, ReactNodeViewRenderer } from "@tiptap/react";
 import type { JSONContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
@@ -22,6 +22,8 @@ import Placeholder from "@tiptap/extension-placeholder";
 import CharacterCount from "@tiptap/extension-character-count";
 import Typography from "@tiptap/extension-typography";
 import { common, createLowlight } from "lowlight";
+import { CodeBlockView } from "./CodeBlockView";
+import { TextDirection } from "./TextDirection";
 
 const lowlight = createLowlight(common);
 
@@ -66,10 +68,15 @@ export function useEditorSetup({
         openOnClick: false,
         HTMLAttributes: { rel: "noopener noreferrer", target: "_blank" },
       }),
-      CodeBlockLowlight.configure({ lowlight }),
+      CodeBlockLowlight.configure({ lowlight }).extend({
+        addNodeView() {
+          return ReactNodeViewRenderer(CodeBlockView);
+        },
+      }),
       Placeholder.configure({ placeholder }),
       CharacterCount,
       Typography,
+      TextDirection,
     ],
     content,
     editable,

@@ -56,13 +56,26 @@ export function EditorPage() {
     setSaveStatus("unsaved");
   }, []);
 
-  const handleSave = useCallback(() => {
+  const handleSave = useCallback(async () => {
     if (!currentChapter || !pendingContent) return;
     setSaveStatus("saving");
     const updated = saveChapter({ ...currentChapter, content: pendingContent });
     setCurrentChapter(updated);
     setPendingContent(null);
     refreshChapters();
+
+    // Also save to disk (content/chapters/)
+    try {
+      const json = exportAllContent();
+      await fetch("/api/save-content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: json,
+      });
+    } catch {
+      // localStorage is already saved, disk write is best-effort
+    }
+
     setSaveStatus("saved");
   }, [currentChapter, pendingContent, refreshChapters]);
 

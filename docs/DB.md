@@ -59,15 +59,28 @@ The `content` field holds the Tiptap JSON document — the editor's native forma
 
 Images are stored as files, referenced by relative path in Tiptap content.
 
-## Content Loading
+## Content Persistence
 
 ### Editor Mode (dev)
 
-- Read/write JSON files directly via Vite dev server or a small file-system helper
-- On save: write Tiptap JSON → `/content/chapters/XX-slug.json`
+Content is saved in two places simultaneously:
+
+1. **localStorage** — primary storage during editing, instant read/write
+   - `godot-tutorial-chapters` — Chapter[] array
+   - `godot-tutorial-meta` — BookMeta object
+2. **Disk** — on every Ctrl+S, the full content is also written to `content/chapters/godot-tutorial-content.json` via the Vite plugin (`POST /api/save-content`)
+
+### Image Upload
+
+Images are uploaded via `POST /api/upload-image` (Vite plugin) and saved to `content/images/`. Filenames are sanitized and deduplicated. Falls back to base64 inline if the API is unavailable.
 
 ### Reader Mode (production build)
 
 - At build time: Vite imports all JSON files from `/content`
 - Bundled into the static output — no runtime file access needed
 - Alternative: fetch from `/content/*.json` served as static assets
+
+### Export/Import
+
+- **Export**: combines all chapters + meta into a single downloadable JSON file
+- **Import**: uploads a JSON file and restores to localStorage

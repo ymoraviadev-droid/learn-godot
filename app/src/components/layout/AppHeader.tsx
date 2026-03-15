@@ -3,6 +3,8 @@ import { BookOpen, PenLine } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
 
+const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
+
 export function AppHeader() {
   const location = useLocation();
   const isEditorMode = location.pathname.startsWith("/edit");
@@ -21,16 +23,18 @@ export function AppHeader() {
         </div>
 
         <nav className="flex items-center gap-1">
-          <Button
-            variant={isEditorMode ? "secondary" : "ghost"}
-            size="sm"
-            asChild
-          >
-            <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none")}>
-              <PenLine className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">עריכה</span>
-            </Link>
-          </Button>
+          {isDevMode && (
+            <Button
+              variant={isEditorMode ? "secondary" : "ghost"}
+              size="sm"
+              asChild
+            >
+              <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none")}>
+                <PenLine className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">עריכה</span>
+              </Link>
+            </Button>
+          )}
 
           <Button
             variant={!isEditorMode ? "secondary" : "ghost"}

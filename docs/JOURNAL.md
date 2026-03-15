@@ -24,10 +24,25 @@ Goal: learn Godot (C#) by writing a Hebrew tutorial book. Build a web-based edit
 
 ### Next Steps
 
-- [ ] Scaffold Vite + React + TypeScript project
-- [ ] Install and configure Tailwind + Shadcn/ui
-- [ ] Set up Tiptap with core extensions
-- [ ] Build basic editor page with toolbar
-- [ ] Create content directory structure
-- [ ] Implement save/load from JSON files
+- [x] Scaffold Vite + React + TypeScript project
+- [x] Install and configure Tailwind + Shadcn/ui
+- [x] Set up Tiptap with core extensions
+- [x] Build basic editor page with toolbar
+- [x] Create content directory structure
+- [x] Implement save/load from JSON files
 - [ ] Build reader mode
+
+---
+
+## 2026-03-15 — Editor Features & Theme
+
+### Changes
+
+1. **Code blocks** — custom NodeView with line numbers gutter, language selector header, VS Code-inspired syntax highlighting colors
+2. **Image upload** — file picker uploads to `content/images/` via Vite dev server plugin, base64 fallback
+3. **Save to disk** — Ctrl+S writes to localStorage AND `content/chapters/godot-tutorial-content.json` via Vite plugin
+4. **Godot dark theme** — removed light mode, color palette extracted from Godot 4.x editor (dark charcoal, Godot blue accent)
+5. **RTL fixes** — scrollbars on left, sidebar chapter order, code blocks LTR, per-block text direction (RTL/LTR buttons)
+6. **Table operations** — contextual row 3 in toolbar with add/delete row/column, merge/split, delete table
+7. **Lists** — restored bullet/number markers (Tailwind preflight was stripping them)
+8. **Tutorial structure** — 39 chapters across 10 parts in `docs/TUTORIAL.md`, Chapter 1 draft in `docs/chapters/`

@@ -1,4 +1,5 @@
 import type { Chapter, BookMeta } from "@/types/chapter";
+import bundledContent from "../../content/chapters/godot-tutorial-content.json";
 
 const CHAPTERS_STORAGE_KEY = "godot-tutorial-chapters";
 const META_STORAGE_KEY = "godot-tutorial-meta";
@@ -11,6 +12,15 @@ const DEFAULT_META: BookMeta = {
   chapterOrder: [],
 };
 
+// Reader uses bundled JSON, editor uses localStorage for live editing
+function readChapters(): Chapter[] {
+  if (import.meta.env.VITE_DEV_MODE === "true") {
+    const raw = localStorage.getItem(CHAPTERS_STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  }
+  return (bundledContent as any).chapters || [];
+}
+
 function readChaptersFromStorage(): Chapter[] {
   const raw = localStorage.getItem(CHAPTERS_STORAGE_KEY);
   return raw ? JSON.parse(raw) : [];
@@ -18,6 +28,14 @@ function readChaptersFromStorage(): Chapter[] {
 
 function writeChaptersToStorage(chapters: Chapter[]) {
   localStorage.setItem(CHAPTERS_STORAGE_KEY, JSON.stringify(chapters));
+}
+
+function readMeta(): BookMeta {
+  if (import.meta.env.VITE_DEV_MODE === "true") {
+    const raw = localStorage.getItem(META_STORAGE_KEY);
+    if (raw) return { ...DEFAULT_META, ...JSON.parse(raw) };
+  }
+  return (bundledContent as any).meta || { ...DEFAULT_META };
 }
 
 function readMetaFromStorage(): BookMeta {
@@ -30,11 +48,11 @@ function writeMetaToStorage(meta: BookMeta) {
 }
 
 export function getAllChapters(): Chapter[] {
-  return readChaptersFromStorage().sort((a, b) => a.order - b.order);
+  return readChapters().sort((a, b) => a.order - b.order);
 }
 
 export function getChapterBySlug(slug: string): Chapter | undefined {
-  return readChaptersFromStorage().find((chapter) => chapter.slug === slug);
+  return readChapters().find((chapter) => chapter.slug === slug);
 }
 
 export function saveChapter(chapter: Chapter): Chapter {
@@ -114,7 +132,7 @@ export function reorderChapters(orderedIds: string[]) {
 }
 
 export function getBookMeta(): BookMeta {
-  return readMetaFromStorage();
+  return readMeta();
 }
 
 export function saveBookMeta(meta: BookMeta) {

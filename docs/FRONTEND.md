@@ -41,6 +41,7 @@
 | Typography               | Smart quotes, dashes                       |
 | Placeholder              | Empty state placeholder text               |
 | CharacterCount           | Word/char count                            |
+| Quiz (custom)            | Multiple-choice quiz with 4 answers        |
 
 ### Code Block Highlighting
 
@@ -77,7 +78,7 @@ Three-row toolbar:
 - Direction: RTL, LTR (per-block)
 - Lists: bullet, ordered, task list
 - Block elements: blockquote, horizontal rule
-- Insert: image upload, link, table, code block (with language picker)
+- Insert: image upload, link, table, code block (with language picker), quiz
 
 **Row 3 — Table operations (contextual, shown when cursor is in a table):**
 - Add row, add column, delete row, delete column
@@ -94,12 +95,29 @@ Three-row toolbar:
 - Code blocks always LTR with explicit `direction: ltr`
 - Sidebar chapter items use `dir="ltr"` wrapper with `dir="rtl"` link for correct layout
 
+### Quiz System
+
+Custom `Quiz` Tiptap node (`QuizNode.ts`) with two views:
+
+- **Editor** (`QuizEditorView.tsx`) — form UI to add questions, 4 answer options, mark correct answer
+- **Reader** (`QuizReaderView.tsx`) — interactive quiz: select answers, submit all, reveal results with score
+
+Quiz data stored as Tiptap node attributes (array of `{ question, answers[4], correct }` objects).
+
+### Heading Anchors & Sidebar Navigation
+
+- H2 headings auto-generate `id` attributes from their text (via extended Heading extension)
+- H1 headings "סיכום" and "שאלון ידע" also get IDs for deep linking
+- Sidebar shows expandable subchapter list (h2 headings) under each chapter
+- "סיכום" and "שאלון ידע" always appear at the bottom of each chapter's subchapter list with a separator
+- Clicking a subchapter smooth-scrolls to the heading anchor
+
 ## Reader Mode
 
-- Uses Tiptap's `generateHTML()` or read-only Tiptap instance
-- Styled with Tailwind prose (RTL-aware)
+- Uses read-only Tiptap instance with all extensions (including Quiz in reader mode)
+- Styled with Tailwind (RTL-aware)
 - No editor chrome — clean reading experience
-- Chapter navigation sidebar
+- Chapter navigation sidebar with subchapter deep links
 - Responsive for mobile reading
 
 ## Routing

@@ -84,6 +84,7 @@ The Vite dev server doubles as a lightweight backend during authoring:
 
 - `POST /api/save-content` — writes full tutorial JSON to `content/chapters/godot-tutorial-content.json`
 - `POST /api/upload-image` — saves uploaded image to `content/images/`, returns URL
+- `GET /content/chapters/*` — serves chapter JSON (no-cache, always fresh from disk)
 - `GET /content/images/*` — serves uploaded images as static files
 
 ## Key Decisions

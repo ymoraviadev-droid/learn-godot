@@ -65,7 +65,7 @@ Images are stored as files, referenced by relative path in Tiptap content.
 
 No localStorage. Content lives in two layers:
 
-1. **In-memory cache** — JavaScript array initialized from the bundled JSON on page load. Every keystroke updates this cache instantly.
+1. **In-memory cache** — JavaScript array initialized via runtime `fetch` from `/content/chapters/godot-tutorial-content.json` on page load (cache-busted with timestamp). Every keystroke updates this cache instantly.
 2. **Disk** — the in-memory state is flushed to `content/chapters/godot-tutorial-content.json` via the Vite plugin (`POST /api/save-content`):
    - **Auto-save** every 30 seconds (only if there are unsaved changes)
    - **Ctrl+S** or save button for immediate save
@@ -77,9 +77,8 @@ Images are uploaded via `POST /api/upload-image` (Vite plugin) and saved to `con
 
 ### Reader Mode (production build)
 
-- At build time: Vite imports the JSON file from `/content/chapters/`
-- Bundled into the static output — no runtime file access needed
-- `content/` is symlinked into `public/` so images are included in the build
+- Content loaded via runtime `fetch` from `/content/chapters/godot-tutorial-content.json`
+- `content/` is symlinked into `public/` so chapters, images, and JSON are included in the static build
 
 ### Export/Import
 

@@ -217,13 +217,27 @@
     border-left: none;
   }
 
+  .tiptap-editor .tableWrapper {
+    @apply overflow-x-auto my-4;
+  }
+
   .tiptap-editor table {
-    @apply border-collapse w-full my-4;
+    @apply border-collapse w-full;
   }
 
   .tiptap-editor th,
   .tiptap-editor td {
-    @apply border border-border p-2.5 text-right min-w-[80px];
+    @apply border border-border text-right;
+    padding: 0.625rem;
+    min-width: 80px;
+  }
+
+  @media (max-width: 640px) {
+    .tiptap-editor th,
+    .tiptap-editor td {
+      min-width: 150px;
+      padding: 0.75rem;
+    }
   }
 
   .tiptap-editor th {

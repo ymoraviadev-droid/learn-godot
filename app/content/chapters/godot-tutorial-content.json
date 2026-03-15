@@ -15,7 +15,7 @@
       "slug": "מבוא",
       "order": 1,
       "createdAt": "2026-03-15T05:48:59.658Z",
-      "updatedAt": "2026-03-15T08:20:11.906Z",
+      "updatedAt": "2026-03-15T10:24:03.366Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -269,7 +269,7 @@
                             "type": "bold"
                           }
                         ],
-                        "text": "בקרת שליטה"
+                        "text": "מערכת קלט"
                       },
                       {
                         "type": "text",
@@ -1711,6 +1711,1727 @@
                 "text": " היא הבחירה הטובה ביותר שניתן למצוא כיום (נתון לויכוח כמובן)."
               }
             ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הארכיטקטורה של Nodes וסצנות (Scenes)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אחד הדברים שהופכים את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " לייחודי הוא הארכיטקטורה שלו. כל דבר ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " הוא "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": ", וה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " מאורגנים לתוך סצנות."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "תחשבו על זה ככה: "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " הוא אבן בניין בודדת עם מטרה אחת ספציפית. "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסוג "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Sprite2D"
+              },
+              {
+                "type": "text",
+                "text": " מציג תמונה על המסך. "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסוג "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "AudioStreamPlayer"
+              },
+              {
+                "type": "text",
+                "text": " מנגן צליל. "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסוג "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "CollisionShape2D"
+              },
+              {
+                "type": "text",
+                "text": " מגדיר אזור פגיעה. כל "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " עושה דבר אחד — ועושה אותו טוב."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "סצנה היא עץ של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " שמקובצים יחד. דמות השחקן שלכם למשל יכולה להיות סצנה שמכילה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " של ספרייט, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " של צורת התנגשות, ו-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " של סקריפט. גם שלב שלם במשחק הוא סצנה. גם התפריט הראשי הוא סצנה. סצנות יכולות להכיל סצנות אחרות — הסצנה של השלב עלולה להכיל 20 עותקים עצמאיים (“מופעים“) של הסצנה של האויב."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הארכיטקטורה הזו אלגנטית ואינטואיטיבית. נצלול לעומק בפרק 4, אבל שווה לדעת כבר עכשיו שזה המודל המנטלי של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " — וברגע שמתחילים לעבוד איתו, הוא נכנס לראש מהר."
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": " "
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl",
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "1.2 מדוע Godot עם #C?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מנוע המשחק "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " תומך בשתי שפות תכנות עיקריות: "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " ו-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": ". בקורס זה נתמקד בפיתוח באמצעות "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl",
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מה זה GDScript?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " היא שפת התכנות המובנית של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " (שפת סקריפטים). שפה זו פותחה במיוחד עבור "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " והיא בעלת תחביר אשר מזכיר מעט את התחביר של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Python"
+              },
+              {
+                "type": "text",
+                "text": ", זה נראה כך:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "gdscript"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "extends CharacterBody2D\n\nvar speed = 200.0\n\nfunc _physics_process(delta):\n    var direction = Input.get_axis(\"left\", \"right\")\n    velocity.x = direction * speed\n    move_and_slide()"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " היא שפה פשוטה, קלה לכתיבה, ומוטמעת היטב ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ". "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "רוב המדריכים שתמצאו ברשת מציגים דוגמאות ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " וזוהי הבחירה הטבעית והמועדפת בקהילת הפיתוח של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl",
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מה זה #C?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "שפת התכנות "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " (מבטאים "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C-Sharp"
+              },
+              {
+                "type": "text",
+                "text": ") היא שפת תכנות מקצועית, רב תכליתית אשר פותחה על ידי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Microsoft"
+              },
+              {
+                "type": "text",
+                "text": ", שפת תכנות זו פופולרית ונפוצה מאוד בקרב משתמשים במגוון תחומים שונים של תעשיית התוכנה - משתמשם בה במנועי משחק נוספים ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Unity"
+              },
+              {
+                "type": "text",
+                "text": " למשל), פיתוח ווב ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "ASP.NET"
+              },
+              {
+                "type": "text",
+                "text": "), אפליקציות דסקטופ, אפליקציות מובייל, שרותי ענן ועוד."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "את מקטע הקוד שכתבנו מקודם באמצעות "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": ", נכתוב באמצעות שימוש ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " כך:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "using Godot;\n\npublic partial class Player : CharacterBody2D\n{\n    private float _speed = 200.0f;\n\n    public override void _PhysicsProcess(double delta)\n    {\n        float direction = Input.GetAxis(\"left\", \"right\");\n        var velocity = Velocity;\n        velocity.X = direction * _speed;\n        Velocity = velocity;\n        MoveAndSlide();\n    }\n}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אז נכון שזה נראה קצת יותר מורכב, אך מצד שני זה נראה גם מאורגן ומסודר יותר."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מדוע שנרצה לכתוב באמצעות #C?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "יש מגוון של סיבות להעדפה זו, אך אלו הן הסיבות החשובות ביותר:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C היא שפה שימושית במגוון תחומים."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עובדת רק בתוך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", כלומר שאם תלמדו במשך שנה לעומק את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ואז תרצו לנסות את Unity, לפתח אפליקציה לווב או לעבוד בתכנות - הידע שרכשתם ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לא ממש רלוונטי."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " היא שפה נפוצה ורב תחומית, מדובר בסקיל בעל ערך רב אשר חוצה גבולות אל מעבר לעולם פיתוח המשחקים."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C היא שפה עוצמתית יותר."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "text": "ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " יש טיפוסיות חזקה ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "strong typing"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), גנריקס, ממשקים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "interfaces"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "LINQ, async/await, pattern matching"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", ואקוסיסטם בוגר של כלים וספריות. לסקריפטים קטנים, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מהירה יותר לכתיבה. אבל ככל שהפרויקט גדל - מאות סקריפטים, מערכות מורכבות, מודלים של נתונים משותפים - מערכת הטיפוסים והמבנה של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עוזרים לכם לנהל מורכבות ולתפוס באגים בזמן קומפילציה במקום בזמן ריצה."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "3. "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ל-#C יש כלי פיתוח טובים יותר"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "אתם מקבלים "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IntelliSense"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מלא (השלמה אוטומטית), כלי רפקטורינג, ניתוח סטטי, ותמיכה בדיבאגינג בעורכים כמו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ו-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "JetBrains"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Rider"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". הכלים של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " השתפרו, אבל הם עדיין לא באותה רמה."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "4. "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ל-#C יש את האקוסיסטם של NET."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "צריכים לפרסר "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "JSON"
+                      },
+                      {
+                        "type": "text",
+                        "text": "? יש ספרייה. צריכים להתחבר לבסיס נתונים? יש ספרייה. צריכים לעשות בקשות "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HTTP"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", להשתמש ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "regex"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", לעבוד עם מבני נתונים מורכבים? הכל נמצא בספרייה הסטנדרטית של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET."
+                      },
+                      {
+                        "type": "text",
+                        "text": " או ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NuGet."
+                      },
+                      {
+                        "type": "text",
+                        "text": " עם "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " תמצאו את עצמכם ממציאים את הגלגל מחדש."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "5. האינטגרציה של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " התבגרה."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בגרסאות קודמות של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (3 ומטה), התמיכה ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " הייתה גולמית - באגים, פיצ'רים חסרים, תיעוד דל. "
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "text": "ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "4"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", שפת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " היא אזרח מן המניין ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "first-class citizen"
+                      },
+                      {
+                        "type": "text",
+                        "text": "). ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "API"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נקי, התיעוד מוצק, והקהילה גדלה משמעותית."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מתי יהיה עדיף להשתמש ב-GDScript?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כמובן שיש גם יתרונות לשימוש דווקא ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScipt"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פרוטוטייפינג מהיר יותר"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - פחות קוד טקסי ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "boilerplate"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), איטרציה מהירה יותר."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "יותר מדריכים זמינים"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - רוב התוכן על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ברשת כתוב ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בלי שלב בנייה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - סקריפטים של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מפורשים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "interpreted"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), אז שינויים נכנסים לתוקף מיד. "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " דורש שלב בנייה (אם כי הוא מהיר)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פשוט יותר למתחילים בלי ניסיון בתכנות"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אם מעולם לא כתבתם קוד, הסינטקס של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " שדומה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Python"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מציע עקומת למידה עדינה יותר."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "המדריך הזה מניח שיש לכם ניסיון בסיסי בתכנות (ראו סעיף "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "1.4"
+              },
+              {
+                "type": "text",
+                "text": "), אז הנושא של עקומת הלמידה לא רלוונטי. ובעיית המדריכים? בדיוק בשביל זה הספר הזה קיים."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "השורה התחתונה"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם אתם לומדים לתכנת ספציפית בשביל פרויקטי תחביב ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " ותו לא, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " מספיק. אבל אם אתם רוצים שפה שגדלה איתכם, עם כלי פיתוח ברמה מקצועית, ושניתן להעביר אותה לתחומים אחרים - "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " היא ההשקעה הטובה יותר."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           }
         ]
       }

@@ -2,7 +2,6 @@ import { useParams, Navigate } from "react-router-dom";
 import { ChapterSidebar } from "@/components/layout/ChapterSidebar";
 import { MobileChapterDrawer } from "@/components/layout/MobileChapterDrawer";
 import { ChapterContent } from "@/components/reader/ChapterContent";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { BookOpen } from "lucide-react";
 import { getAllChapters, getChapterBySlug } from "@/lib/content";
 
@@ -29,7 +28,7 @@ export function ReaderPage() {
           )}
         </div>
 
-        <ScrollArea className="flex-1">
+        <div className="flex-1 overflow-y-auto">
           {currentChapter ? (
             <ChapterContent chapter={currentChapter} />
           ) : (
@@ -45,7 +44,7 @@ export function ReaderPage() {
               </div>
             </div>
           )}
-        </ScrollArea>
+        </div>
       </main>
     </div>
   );

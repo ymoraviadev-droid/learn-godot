@@ -1,5 +1,6 @@
 import { useEditor, ReactNodeViewRenderer } from "@tiptap/react";
 import type { JSONContent } from "@tiptap/react";
+import { useRef, useCallback } from "react";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
@@ -24,8 +25,10 @@ import Typography from "@tiptap/extension-typography";
 import { common, createLowlight } from "lowlight";
 import { CodeBlockView } from "./CodeBlockView";
 import { TextDirection } from "./TextDirection";
+import { gdscript } from "@/lib/gdscript";
 
 const lowlight = createLowlight(common);
+lowlight.register("gdscript", gdscript);
 
 interface UseEditorSetupOptions {
   content?: JSONContent;
@@ -40,6 +43,17 @@ export function useEditorSetup({
   placeholder = "התחל לכתוב כאן...",
   onUpdate,
 }: UseEditorSetupOptions) {
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const onUpdateRef = useRef(onUpdate);
+  onUpdateRef.current = onUpdate;
+
+  const debouncedUpdate = useCallback((editor: { getJSON: () => JSONContent }) => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => {
+      onUpdateRef.current?.(editor.getJSON());
+    }, 10_000);
+  }, []);
+
   return useEditor({
     extensions: [
       StarterKit.configure({
@@ -59,7 +73,7 @@ export function useEditorSetup({
       Superscript,
       TaskList,
       TaskItem.configure({ nested: true }),
-      Table.configure({ resizable: true }),
+      Table.configure({ resizable: true, renderWrapper: true }),
       TableRow,
       TableCell,
       TableHeader,
@@ -87,7 +101,7 @@ export function useEditorSetup({
       },
     },
     onUpdate: ({ editor }) => {
-      onUpdate?.(editor.getJSON());
+      debouncedUpdate(editor);
     },
   });
 }

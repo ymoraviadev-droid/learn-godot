@@ -10,6 +10,7 @@ import {
 
 const CODE_LANGUAGES = [
   { value: "csharp", label: "C#" },
+  { value: "gdscript", label: "GDScript" },
   { value: "javascript", label: "JavaScript" },
   { value: "typescript", label: "TypeScript" },
   { value: "xml", label: "XML / TSCN" },

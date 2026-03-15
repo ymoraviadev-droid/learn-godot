@@ -1,5 +1,4 @@
 import type { Chapter, BookMeta } from "@/types/chapter";
-import bundledContent from "../../content/chapters/godot-tutorial-content.json";
 
 const DEFAULT_META: BookMeta = {
   title: "למד Godot עם C#",
@@ -9,9 +8,27 @@ const DEFAULT_META: BookMeta = {
   chapterOrder: [],
 };
 
-// In-memory store — loaded from bundled JSON, saved to disk via API
-let chaptersCache: Chapter[] = [...((bundledContent as any).chapters || [])];
-let metaCache: BookMeta = { ...DEFAULT_META, ...((bundledContent as any).meta || {}) };
+// In-memory store — loaded from disk via fetch on init
+let chaptersCache: Chapter[] = [];
+let metaCache: BookMeta = { ...DEFAULT_META };
+let initialized = false;
+
+async function loadFromDisk() {
+  try {
+    const res = await fetch("/content/chapters/godot-tutorial-content.json?t=" + Date.now());
+    const data = await res.json();
+    chaptersCache = data.chapters || [];
+    metaCache = { ...DEFAULT_META, ...(data.meta || {}) };
+  } catch {
+    // First run — no content file yet
+  }
+}
+
+const initPromise = loadFromDisk();
+
+export async function waitForInit() {
+  await initPromise;
+}
 
 export function getAllChapters(): Chapter[] {
   return [...chaptersCache].sort((a, b) => a.order - b.order);

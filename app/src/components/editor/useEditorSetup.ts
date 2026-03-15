@@ -26,6 +26,11 @@ import { common, createLowlight } from "lowlight";
 import { CodeBlockView } from "./CodeBlockView";
 import { TextDirection } from "./TextDirection";
 import { gdscript } from "@/lib/gdscript";
+import { generateHeadingId } from "@/lib/headings";
+import Heading from "@tiptap/extension-heading";
+import { Quiz } from "./QuizNode";
+import { QuizEditorView } from "./QuizEditorView";
+import { QuizReaderView } from "../reader/QuizReaderView";
 
 const lowlight = createLowlight(common);
 lowlight.register("gdscript", gdscript);
@@ -50,7 +55,16 @@ export function useEditorSetup({
     extensions: [
       StarterKit.configure({
         codeBlock: false,
-        heading: { levels: [1, 2, 3, 4, 5, 6] },
+        heading: false,
+      }),
+      Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
+        renderHTML({ node, HTMLAttributes }) {
+          const level = node.attrs.level;
+          const text = node.textContent;
+          const needsId = level === 2 || (level === 1 && (text === "סיכום" || text?.startsWith("שאלון")));
+          const id = needsId && text ? generateHeadingId(text) : undefined;
+          return [`h${level}`, { ...HTMLAttributes, ...(id ? { id } : {}) }, 0];
+        },
       }),
       TextAlign.configure({
         types: ["heading", "paragraph"],
@@ -83,6 +97,11 @@ export function useEditorSetup({
       CharacterCount,
       Typography,
       TextDirection,
+      Quiz.extend({
+        addNodeView() {
+          return ReactNodeViewRenderer(editable ? QuizEditorView : QuizReaderView);
+        },
+      }),
     ],
     content,
     editable,

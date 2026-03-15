@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import type { JSONContent } from "@tiptap/react";
 import { Save, Download, Upload } from "lucide-react";
 import { RichTextEditor } from "@/components/editor/RichTextEditor";
@@ -31,6 +31,7 @@ const AUTO_SAVE_INTERVAL = 30_000;
 
 export function EditorPage() {
   const { slug } = useParams();
+  const { hash } = useLocation();
   const navigate = useNavigate();
   const [chapters, setChapters] = useState<Chapter[]>(getAllChapters);
   const [currentChapter, setCurrentChapter] = useState<Chapter | undefined>();
@@ -56,6 +57,21 @@ export function EditorPage() {
       setCurrentChapter(undefined);
     }
   }, [slug, updateSaveStatusUI]);
+
+  // Scroll to heading anchor
+  useEffect(() => {
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (attempts < 10) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+    tryScroll();
+  }, [hash, slug]);
 
   const refreshChapters = useCallback(() => {
     setChapters(getAllChapters());
@@ -199,10 +215,12 @@ export function EditorPage() {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <button
-                      ref={saveBtnRef}
+                      ref={(el) => {
+                        (saveBtnRef as React.MutableRefObject<HTMLButtonElement | null>).current = el;
+                        if (el) el.disabled = !dirtyRef.current;
+                      }}
                       className="inline-flex items-center justify-center rounded-md h-7 w-7 hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:pointer-events-none"
                       onClick={handleSave}
-                      disabled
                     >
                       <Save className="h-4 w-4" />
                     </button>

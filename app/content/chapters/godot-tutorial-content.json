@@ -15,7 +15,7 @@
       "slug": "מבוא",
       "order": 1,
       "createdAt": "2026-03-15T05:48:59.658Z",
-      "updatedAt": "2026-03-15T22:59:32.471Z",
+      "updatedAt": "2026-03-15T23:40:55.513Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -6173,11 +6173,93 @@
             "attrs": {
               "textAlign": "right",
               "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
             },
             "content": [
               {
-                "type": "hardBreak"
-              },
+                "type": "text",
+                "text": "שאלון ידע"
+              }
+            ]
+          },
+          {
+            "type": "quiz",
+            "attrs": {
+              "questions": [
+                {
+                  "question": "מה הרישיון שתחתיו Godot מופץ?",
+                  "answers": [
+                    "GPL (GNU General Public License)",
+                    "MIT",
+                    "Apache 2.0",
+                    "Creative Commons"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "question": "מה ההבדל העיקרי בין Node ל-Scene ב-Godot?",
+                  "answers": [
+                    "Node הוא קובץ ו-Scene הוא תיקייה",
+                    "Node הוא אבן בניין בודדת, ו-Scene הוא עץ של Nodes מקובצים יחד",
+                    "אין הבדל, הם שמות שונים לאותו דבר",
+                    "Scene הוא רק עבור תלת-ממד ו-Node רק עבור דו-ממד"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "question": "מה היתרון המרכזי של C# על פני GDScript?",
+                  "answers": [
+                    "#C רץ מהר יותר בתוך Godot",
+                    "#C קל יותר ללמידה",
+                    "#C היא שפה רב-תחומית בעלת ספריות וכלים רבים, ניתן להשתמש בה גם מחוץ ל-Godot ",
+                    "#C לא דורש שלב בנייה (build)"
+                  ],
+                  "correct": 2
+                },
+                {
+                  "question": "מה גודל ההורדה המשוער של Godot?",
+                  "answers": [
+                    " כ-10 GB",
+                    " כ-1 GB",
+                    " כ-50 GB",
+                    " כ-100 MB"
+                  ],
+                  "correct": 3
+                },
+                {
+                  "question": "מדוע המדריך שומר על מונחים טכניים באנגלית?",
+                  "answers": [
+                    "כי אין תרגום עברי לאף מונח טכני",
+                    "כי המדריך מיועד לדוברי אנגלית",
+                    " כי המנוע Godot, הודעות שגיאה וחיפוש עזרה ברשת - כולם באנגלית ",
+                    "כי עברית לא תומכת בתווים טכניים"
+                  ],
+                  "correct": 2
+                }
+              ]
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
               {
                 "type": "text",
                 "marks": [
@@ -6205,13 +6287,6 @@
                 "text": " הראשון שלכם."
               }
             ]
-          },
-          {
-            "type": "paragraph",
-            "attrs": {
-              "textAlign": "right",
-              "dir": null
-            }
           }
         ]
       }

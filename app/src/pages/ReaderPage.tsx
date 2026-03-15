@@ -1,4 +1,5 @@
-import { useParams, Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useLocation, Navigate } from "react-router-dom";
 import { ChapterSidebar } from "@/components/layout/ChapterSidebar";
 import { MobileChapterDrawer } from "@/components/layout/MobileChapterDrawer";
 import { ChapterContent } from "@/components/reader/ChapterContent";
@@ -7,7 +8,23 @@ import { getAllChapters, getChapterBySlug } from "@/lib/content";
 
 export function ReaderPage() {
   const { slug } = useParams();
+  const { hash } = useLocation();
   const chapters = getAllChapters();
+
+  // Scroll to heading anchor after content renders
+  useEffect(() => {
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else if (attempts < 10) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+    tryScroll();
+  }, [hash, slug]);
 
   if (!slug && chapters.length > 0) {
     return <Navigate to={`/chapter/${chapters[0].slug}`} replace />;

@@ -91,6 +91,19 @@ export function contentPlugin(): Plugin {
         });
       });
 
+      // Serve content/chapters/ as static files (no caching)
+      server.middlewares.use("/content/chapters", (req, res, next) => {
+        if (req.method !== "GET") return next();
+        const filePath = path.join(CHAPTERS_DIR, decodeURIComponent(req.url || ""));
+        if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+          res.setHeader("Content-Type", "application/json");
+          res.setHeader("Cache-Control", "no-store");
+          fs.createReadStream(filePath).pipe(res);
+        } else {
+          next();
+        }
+      });
+
       // Serve content/images/ as static files
       server.middlewares.use("/content/images", (req, res, next) => {
         if (req.method !== "GET") return next();

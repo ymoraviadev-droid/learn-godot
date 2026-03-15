@@ -35,6 +35,7 @@ import {
   ArrowDownToLine,
   ArrowLeftToLine,
   DeleteIcon,
+  HelpCircle,
 } from "lucide-react";
 import { ToolbarButton } from "./ToolbarButton";
 import { ToolbarDivider } from "./ToolbarDivider";
@@ -369,6 +370,12 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
           icon={<TableIcon className="h-4 w-4" />}
           label="הוסף טבלה"
           onClick={insertTable}
+        />
+
+        <ToolbarButton
+          icon={<HelpCircle className="h-4 w-4" />}
+          label="הוסף שאלון"
+          onClick={() => editor.chain().focus().insertQuiz().run()}
         />
 
         {/* Code block with language picker */}

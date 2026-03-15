@@ -3,7 +3,7 @@
 ## Stack Details
 
 - **Vite** — fast dev server, optimized builds
-- **React 18+** with TypeScript (strict mode)
+- **React 19** with TypeScript (strict mode)
 - **Tailwind CSS** — utility-first, RTL support via `rtl:` variant
 - **Shadcn/ui** — accessible, composable components (dialog, sidebar, dropdown, etc.)
 - **React Router** — client-side routing between editor and reader
@@ -48,10 +48,11 @@ Custom `CodeBlockView` React component with:
 - Language selector in header bar
 - Line numbers gutter
 - Syntax highlighting via lowlight (highlight.js)
-- VS Code-inspired color scheme
+- Godot editor-inspired color scheme (matching VS Code dark theme)
 
 Supported languages:
 - **C#** (primary — Godot scripting)
+- **GDScript** (custom highlight.js grammar in `src/lib/gdscript.ts`)
 - **JavaScript / TypeScript**
 - **JSON** (Godot scene/resource files)
 - **Shell** (terminal commands)

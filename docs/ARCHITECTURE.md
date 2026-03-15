@@ -13,7 +13,7 @@ No backend server. Content is stored as JSON files in the repository.
 | UI          | Shadcn/ui + Tailwind CSS                                     |
 | Editor      | Tiptap (ProseMirror-based)                                   |
 | Code blocks | lowlight (highlight.js) + custom NodeView with line numbers  |
-| Storage     | localStorage + JSON files in `/content` (via Vite plugin)    |
+| Storage     | In-memory + JSON files in `/content` (saved via Vite plugin) |
 | Dev server  | Vite plugin provides image upload & file saving endpoints    |
 | Hosting     | Static (Vercel / Netlify / Pages)                            |
 
@@ -65,7 +65,9 @@ learn-godot/
 ```
 Author writes in Tiptap editor
         ↓
-Ctrl+S saves to localStorage AND writes JSON to content/chapters/
+Every keystroke updates in-memory state
+        ↓
+Auto-save every 30s (or Ctrl+S) writes JSON to content/chapters/
         ↓
 Image uploads saved to content/images/ via Vite plugin
         ↓
@@ -90,4 +92,4 @@ The Vite dev server doubles as a lightweight backend during authoring:
 2. **Tiptap JSON as source of truth** — not Markdown, not HTML
 3. **Dark-only Godot-themed UI** — matches Godot editor color palette
 4. **RTL-first** — `dir="rtl"` on html, per-block direction override for mixed content
-5. **localStorage + disk** — dual persistence, localStorage for speed, disk for git
+5. **In-memory + disk** — edits update in-memory cache instantly, auto-saved to disk every 30s

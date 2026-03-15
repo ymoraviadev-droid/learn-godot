@@ -1,6 +1,6 @@
 import { useEditor, ReactNodeViewRenderer } from "@tiptap/react";
 import type { JSONContent } from "@tiptap/react";
-import { useRef, useCallback } from "react";
+import { useRef } from "react";
 import StarterKit from "@tiptap/starter-kit";
 import TextAlign from "@tiptap/extension-text-align";
 import { TextStyle } from "@tiptap/extension-text-style";
@@ -43,16 +43,8 @@ export function useEditorSetup({
   placeholder = "התחל לכתוב כאן...",
   onUpdate,
 }: UseEditorSetupOptions) {
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const onUpdateRef = useRef(onUpdate);
   onUpdateRef.current = onUpdate;
-
-  const debouncedUpdate = useCallback((editor: { getJSON: () => JSONContent }) => {
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      onUpdateRef.current?.(editor.getJSON());
-    }, 10_000);
-  }, []);
 
   return useEditor({
     extensions: [
@@ -101,7 +93,7 @@ export function useEditorSetup({
       },
     },
     onUpdate: ({ editor }) => {
-      debouncedUpdate(editor);
+      onUpdateRef.current?.(editor.getJSON());
     },
   });
 }

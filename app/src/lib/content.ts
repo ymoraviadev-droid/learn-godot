@@ -1,9 +1,6 @@
 import type { Chapter, BookMeta } from "@/types/chapter";
 import bundledContent from "../../content/chapters/godot-tutorial-content.json";
 
-const CHAPTERS_STORAGE_KEY = "godot-tutorial-chapters";
-const META_STORAGE_KEY = "godot-tutorial-meta";
-
 const DEFAULT_META: BookMeta = {
   title: "למד Godot עם C#",
   description: "מדריך בעברית לפיתוח משחקים עם Godot ו-C#",
@@ -12,52 +9,20 @@ const DEFAULT_META: BookMeta = {
   chapterOrder: [],
 };
 
-// Reader uses bundled JSON, editor uses localStorage for live editing
-function readChapters(): Chapter[] {
-  if (import.meta.env.VITE_DEV_MODE === "true") {
-    const raw = localStorage.getItem(CHAPTERS_STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  }
-  return (bundledContent as any).chapters || [];
-}
-
-function readChaptersFromStorage(): Chapter[] {
-  const raw = localStorage.getItem(CHAPTERS_STORAGE_KEY);
-  return raw ? JSON.parse(raw) : [];
-}
-
-function writeChaptersToStorage(chapters: Chapter[]) {
-  localStorage.setItem(CHAPTERS_STORAGE_KEY, JSON.stringify(chapters));
-}
-
-function readMeta(): BookMeta {
-  if (import.meta.env.VITE_DEV_MODE === "true") {
-    const raw = localStorage.getItem(META_STORAGE_KEY);
-    if (raw) return { ...DEFAULT_META, ...JSON.parse(raw) };
-  }
-  return (bundledContent as any).meta || { ...DEFAULT_META };
-}
-
-function readMetaFromStorage(): BookMeta {
-  const raw = localStorage.getItem(META_STORAGE_KEY);
-  return raw ? { ...DEFAULT_META, ...JSON.parse(raw) } : { ...DEFAULT_META };
-}
-
-function writeMetaToStorage(meta: BookMeta) {
-  localStorage.setItem(META_STORAGE_KEY, JSON.stringify(meta));
-}
+// In-memory store — loaded from bundled JSON, saved to disk via API
+let chaptersCache: Chapter[] = [...((bundledContent as any).chapters || [])];
+let metaCache: BookMeta = { ...DEFAULT_META, ...((bundledContent as any).meta || {}) };
 
 export function getAllChapters(): Chapter[] {
-  return readChapters().sort((a, b) => a.order - b.order);
+  return [...chaptersCache].sort((a, b) => a.order - b.order);
 }
 
 export function getChapterBySlug(slug: string): Chapter | undefined {
-  return readChapters().find((chapter) => chapter.slug === slug);
+  return chaptersCache.find((chapter) => chapter.slug === slug);
 }
 
 export function saveChapter(chapter: Chapter): Chapter {
-  const chapters = readChaptersFromStorage();
-  const existingIndex = chapters.findIndex((c) => c.id === chapter.id);
+  const existingIndex = chaptersCache.findIndex((c) => c.id === chapter.id);
 
   const updatedChapter = {
     ...chapter,
@@ -65,27 +30,25 @@ export function saveChapter(chapter: Chapter): Chapter {
   };
 
   if (existingIndex >= 0) {
-    chapters[existingIndex] = updatedChapter;
+    chaptersCache[existingIndex] = updatedChapter;
   } else {
     updatedChapter.createdAt = new Date().toISOString();
-    chapters.push(updatedChapter);
+    chaptersCache.push(updatedChapter);
   }
 
-  writeChaptersToStorage(chapters);
-  syncMetaChapterOrder(chapters);
+  syncMetaChapterOrder();
   return updatedChapter;
 }
 
 export function createChapter(title: string): Chapter {
-  const chapters = readChaptersFromStorage();
   const slug = generateSlug(title);
   const now = new Date().toISOString();
 
   const chapter: Chapter = {
-    id: `${String(chapters.length + 1).padStart(2, "0")}-${slug}`,
+    id: `${String(chaptersCache.length + 1).padStart(2, "0")}-${slug}`,
     title,
     slug,
-    order: chapters.length + 1,
+    order: chaptersCache.length + 1,
     createdAt: now,
     updatedAt: now,
     tags: [],
@@ -104,45 +67,42 @@ export function createChapter(title: string): Chapter {
     },
   };
 
-  chapters.push(chapter);
-  writeChaptersToStorage(chapters);
-  syncMetaChapterOrder(chapters);
+  chaptersCache.push(chapter);
+  syncMetaChapterOrder();
   return chapter;
 }
 
 export function deleteChapter(id: string) {
-  const chapters = readChaptersFromStorage().filter((c) => c.id !== id);
-  chapters.forEach((c, i) => (c.order = i + 1));
-  writeChaptersToStorage(chapters);
-  syncMetaChapterOrder(chapters);
+  chaptersCache = chaptersCache.filter((c) => c.id !== id);
+  chaptersCache.forEach((c, i) => (c.order = i + 1));
+  syncMetaChapterOrder();
 }
 
 export function reorderChapters(orderedIds: string[]) {
-  const chapters = readChaptersFromStorage();
   const reordered = orderedIds
     .map((id, index) => {
-      const chapter = chapters.find((c) => c.id === id);
+      const chapter = chaptersCache.find((c) => c.id === id);
       if (chapter) chapter.order = index + 1;
       return chapter;
     })
     .filter(Boolean) as Chapter[];
 
-  writeChaptersToStorage(reordered);
-  syncMetaChapterOrder(reordered);
+  chaptersCache = reordered;
+  syncMetaChapterOrder();
 }
 
 export function getBookMeta(): BookMeta {
-  return readMeta();
+  return { ...metaCache };
 }
 
 export function saveBookMeta(meta: BookMeta) {
-  writeMetaToStorage(meta);
+  metaCache = { ...meta };
 }
 
-function syncMetaChapterOrder(chapters: Chapter[]) {
-  const meta = readMetaFromStorage();
-  meta.chapterOrder = chapters.sort((a, b) => a.order - b.order).map((c) => c.id);
-  writeMetaToStorage(meta);
+function syncMetaChapterOrder() {
+  metaCache.chapterOrder = [...chaptersCache]
+    .sort((a, b) => a.order - b.order)
+    .map((c) => c.id);
 }
 
 function generateSlug(title: string): string {
@@ -155,13 +115,26 @@ function generateSlug(title: string): string {
 }
 
 export function exportAllContent(): string {
-  const meta = readMetaFromStorage();
-  const chapters = getAllChapters();
-  return JSON.stringify({ meta, chapters }, null, 2);
+  return JSON.stringify({ meta: metaCache, chapters: getAllChapters() }, null, 2);
 }
 
 export function importContent(jsonString: string) {
   const data = JSON.parse(jsonString);
-  if (data.meta) writeMetaToStorage(data.meta);
-  if (data.chapters) writeChaptersToStorage(data.chapters);
+  if (data.meta) metaCache = { ...DEFAULT_META, ...data.meta };
+  if (data.chapters) chaptersCache = [...data.chapters];
+}
+
+/** Save all content to disk via API */
+export async function saveToDisk(): Promise<boolean> {
+  try {
+    const json = exportAllContent();
+    const res = await fetch("/api/save-content", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: json,
+    });
+    return res.ok;
+  } catch {
+    return false;
+  }
 }

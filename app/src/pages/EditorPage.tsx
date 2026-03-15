@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import type { JSONContent } from "@tiptap/react";
 import { Save, Download, Upload } from "lucide-react";
@@ -21,27 +21,30 @@ import {
   saveChapter,
   createChapter,
   deleteChapter,
+  saveToDisk,
   exportAllContent,
   importContent,
 } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
+
+const AUTO_SAVE_INTERVAL = 30_000;
 
 export function EditorPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [chapters, setChapters] = useState<Chapter[]>(getAllChapters);
   const [currentChapter, setCurrentChapter] = useState<Chapter | undefined>();
-  const [pendingContent, setPendingContent] = useState<JSONContent | null>(null);
   const [showNewChapterDialog, setShowNewChapterDialog] = useState(false);
   const [newChapterTitle, setNewChapterTitle] = useState("");
   const [saveStatus, setSaveStatus] = useState<"saved" | "unsaved" | "saving">("saved");
+  const dirtyRef = useRef(false);
 
   useEffect(() => {
     if (slug) {
       const chapter = getChapterBySlug(slug);
       setCurrentChapter(chapter);
-      setPendingContent(null);
       setSaveStatus("saved");
+      dirtyRef.current = false;
     } else {
       setCurrentChapter(undefined);
     }
@@ -52,33 +55,23 @@ export function EditorPage() {
   }, []);
 
   const handleContentUpdate = useCallback((content: JSONContent) => {
-    setPendingContent(content);
+    if (!currentChapter) return;
+    saveChapter({ ...currentChapter, content });
+    setCurrentChapter((prev) => prev ? { ...prev, content } : prev);
+    refreshChapters();
+    dirtyRef.current = true;
     setSaveStatus("unsaved");
-  }, []);
+  }, [currentChapter, refreshChapters]);
 
   const handleSave = useCallback(async () => {
-    if (!currentChapter || !pendingContent) return;
+    if (!dirtyRef.current) return;
     setSaveStatus("saving");
-    const updated = saveChapter({ ...currentChapter, content: pendingContent });
-    setCurrentChapter(updated);
-    setPendingContent(null);
-    refreshChapters();
-
-    // Also save to disk (content/chapters/)
-    try {
-      const json = exportAllContent();
-      await fetch("/api/save-content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: json,
-      });
-    } catch {
-      // localStorage is already saved, disk write is best-effort
-    }
-
+    await saveToDisk();
+    dirtyRef.current = false;
     setSaveStatus("saved");
-  }, [currentChapter, pendingContent, refreshChapters]);
+  }, []);
 
+  // Ctrl+S
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "s") {
@@ -90,23 +83,35 @@ export function EditorPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleSave]);
 
+  // Auto-save every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (dirtyRef.current) {
+        handleSave();
+      }
+    }, AUTO_SAVE_INTERVAL);
+    return () => clearInterval(interval);
+  }, [handleSave]);
+
   const handleCreateChapter = () => {
     setNewChapterTitle("");
     setShowNewChapterDialog(true);
   };
 
-  const confirmCreateChapter = () => {
+  const confirmCreateChapter = async () => {
     if (!newChapterTitle.trim()) return;
     const chapter = createChapter(newChapterTitle.trim());
     refreshChapters();
     setShowNewChapterDialog(false);
+    await saveToDisk();
     navigate(`/edit/${chapter.slug}`);
   };
 
-  const handleDeleteChapter = (id: string) => {
+  const handleDeleteChapter = async (id: string) => {
     if (!confirm("למחוק את הפרק?")) return;
     deleteChapter(id);
     refreshChapters();
+    await saveToDisk();
     if (currentChapter?.id === id) {
       navigate("/edit");
     }
@@ -131,10 +136,11 @@ export function EditorPage() {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (!file) return;
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = async () => {
         try {
           importContent(reader.result as string);
           refreshChapters();
+          await saveToDisk();
           navigate("/edit");
         } catch {
           alert("קובץ לא תקין");

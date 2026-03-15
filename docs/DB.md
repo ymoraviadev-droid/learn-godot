@@ -63,12 +63,13 @@ Images are stored as files, referenced by relative path in Tiptap content.
 
 ### Editor Mode (dev)
 
-Content is saved in two places simultaneously:
+No localStorage. Content lives in two layers:
 
-1. **localStorage** — primary storage during editing, instant read/write
-   - `godot-tutorial-chapters` — Chapter[] array
-   - `godot-tutorial-meta` — BookMeta object
-2. **Disk** — on every Ctrl+S, the full content is also written to `content/chapters/godot-tutorial-content.json` via the Vite plugin (`POST /api/save-content`)
+1. **In-memory cache** — JavaScript array initialized from the bundled JSON on page load. Every keystroke updates this cache instantly.
+2. **Disk** — the in-memory state is flushed to `content/chapters/godot-tutorial-content.json` via the Vite plugin (`POST /api/save-content`):
+   - **Auto-save** every 30 seconds (only if there are unsaved changes)
+   - **Ctrl+S** or save button for immediate save
+   - **On create/delete/import** — saved immediately
 
 ### Image Upload
 
@@ -76,11 +77,11 @@ Images are uploaded via `POST /api/upload-image` (Vite plugin) and saved to `con
 
 ### Reader Mode (production build)
 
-- At build time: Vite imports all JSON files from `/content`
+- At build time: Vite imports the JSON file from `/content/chapters/`
 - Bundled into the static output — no runtime file access needed
-- Alternative: fetch from `/content/*.json` served as static assets
+- `content/` is symlinked into `public/` so images are included in the build
 
 ### Export/Import
 
 - **Export**: combines all chapters + meta into a single downloadable JSON file
-- **Import**: uploads a JSON file and restores to localStorage
+- **Import**: uploads a JSON file, loads into memory, and saves to disk immediately

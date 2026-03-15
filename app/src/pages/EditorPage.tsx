@@ -36,40 +36,52 @@ export function EditorPage() {
   const [currentChapter, setCurrentChapter] = useState<Chapter | undefined>();
   const [showNewChapterDialog, setShowNewChapterDialog] = useState(false);
   const [newChapterTitle, setNewChapterTitle] = useState("");
-  const [saveStatus, setSaveStatus] = useState<"saved" | "unsaved" | "saving">("saved");
   const dirtyRef = useRef(false);
+  const saveStatusRef = useRef<HTMLSpanElement>(null);
+  const saveBtnRef = useRef<HTMLButtonElement>(null);
+
+  const updateSaveStatusUI = useCallback((status: "saved" | "unsaved" | "saving") => {
+    const labels = { saved: "נשמר", unsaved: "שינויים לא שמורים", saving: "שומר..." };
+    if (saveStatusRef.current) saveStatusRef.current.textContent = labels[status];
+    if (saveBtnRef.current) saveBtnRef.current.disabled = status !== "unsaved";
+  }, []);
 
   useEffect(() => {
     if (slug) {
       const chapter = getChapterBySlug(slug);
       setCurrentChapter(chapter);
-      setSaveStatus("saved");
       dirtyRef.current = false;
+      updateSaveStatusUI("saved");
     } else {
       setCurrentChapter(undefined);
     }
-  }, [slug]);
+  }, [slug, updateSaveStatusUI]);
 
   const refreshChapters = useCallback(() => {
     setChapters(getAllChapters());
   }, []);
 
+  const currentChapterRef = useRef(currentChapter);
+  currentChapterRef.current = currentChapter;
+
   const handleContentUpdate = useCallback((content: JSONContent) => {
-    if (!currentChapter) return;
-    saveChapter({ ...currentChapter, content });
-    setCurrentChapter((prev) => prev ? { ...prev, content } : prev);
-    refreshChapters();
-    dirtyRef.current = true;
-    setSaveStatus("unsaved");
-  }, [currentChapter, refreshChapters]);
+    const chapter = currentChapterRef.current;
+    if (!chapter) return;
+    saveChapter({ ...chapter, content });
+    currentChapterRef.current = { ...chapter, content };
+    if (!dirtyRef.current) {
+      dirtyRef.current = true;
+      updateSaveStatusUI("unsaved");
+    }
+  }, [updateSaveStatusUI]);
 
   const handleSave = useCallback(async () => {
     if (!dirtyRef.current) return;
-    setSaveStatus("saving");
+    updateSaveStatusUI("saving");
     await saveToDisk();
     dirtyRef.current = false;
-    setSaveStatus("saved");
-  }, []);
+    updateSaveStatusUI("saved");
+  }, [updateSaveStatusUI]);
 
   // Ctrl+S
   useEffect(() => {
@@ -151,11 +163,6 @@ export function EditorPage() {
     input.click();
   };
 
-  const SAVE_STATUS_LABELS = {
-    saved: "נשמר",
-    unsaved: "שינויים לא שמורים",
-    saving: "שומר...",
-  } as const;
 
   return (
     <div className="flex flex-1 overflow-hidden">
@@ -186,19 +193,19 @@ export function EditorPage() {
           <div className="flex items-center gap-1.5">
             {currentChapter && (
               <>
-                <span className="text-xs text-muted-foreground hidden sm:inline">
-                  {SAVE_STATUS_LABELS[saveStatus]}
+                <span ref={saveStatusRef} className="text-xs text-muted-foreground hidden sm:inline">
+                  נשמר
                 </span>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="icon-sm"
+                    <button
+                      ref={saveBtnRef}
+                      className="inline-flex items-center justify-center rounded-md h-7 w-7 hover:bg-accent hover:text-accent-foreground disabled:opacity-50 disabled:pointer-events-none"
                       onClick={handleSave}
-                      disabled={saveStatus !== "unsaved"}
+                      disabled
                     >
                       <Save className="h-4 w-4" />
-                    </Button>
+                    </button>
                   </TooltipTrigger>
                   <TooltipContent>שמור (Ctrl+S)</TooltipContent>
                 </Tooltip>

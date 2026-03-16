@@ -6,7 +6,8 @@
     "language": "he",
     "chapterOrder": [
       "01-מבוא",
-      "02-התקנת-סביבת-הפיתוח"
+      "02-התקנת-סביבת-הפיתוח",
+      "03-עורך-godot"
     ]
   },
   "chapters": [
@@ -16261,6 +16262,95 @@
                 "text": " על מנת שתוכלו לנווט בו בביטחון"
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "03-עורך-godot",
+      "title": "עורך Godot",
+      "slug": "עורך-godot",
+      "order": 3,
+      "createdAt": "2026-03-16T20:07:46.242Z",
+      "updatedAt": "2026-03-16T20:12:24.034Z",
+      "tags": [],
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "פרק 3: עורך Godot"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/godot-editor.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "3.1 הפאנלים הראשיים (Scene, Inspector, FileSystem, Output)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בפרק הקודם, קיבלנו מבט מהיר על העורך תוך כדי שנאמר לנו ש-“אין צורך לשנן דברים”. כעת הגיעה השעה באמת להבין מה כל פאנל עושה, מפני שמעתה והלאה - העורך הולך להיות הבית השני שלנו."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           }
         ]
       }

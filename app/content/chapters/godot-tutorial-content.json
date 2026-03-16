@@ -6298,7 +6298,7 @@
       "slug": "התקנת-סביבת-הפיתוח",
       "order": 2,
       "createdAt": "2026-03-15T23:51:41.983Z",
-      "updatedAt": "2026-03-16T01:31:58.739Z",
+      "updatedAt": "2026-03-16T19:24:16.494Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -11000,11 +11000,5267 @@
             }
           },
           {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.4 פרויקט ה-Godot הראשון שלי"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לאחר שהכרנו את כל הקונספטים הבסיסיים וסיימנו את תהליכי ההתקנה, הגיעה העת שניצור משהו. הפעילו את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " והמתינו עד אשר תראו את “מנהל הפרויקטים ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Project Manager"
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          },
+          {
             "type": "paragraph",
             "attrs": {
               "textAlign": "right",
               "dir": null
             }
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/project_manager.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "יצירת פרויקט חדש"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחצו על כפתור ה-”"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Create"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בדיאלוג יצירת הפרויקט אשר נפתח:"
+                      },
+                      {
+                        "type": "hardBreak"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "שם הפרויקט: כתבו “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HelloGodot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“ או שם אחר לבחירתכם."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "נתיב הפרויקט: בחרו תיקייה שבה תרצו לאחסן את קבצי הפרויקט, מומלץ ליצור תיקייה ייעודית בשם “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GodotProjects"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“ (או שם דומה)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Renderer"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": בחרו ב-”"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "+Forward"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” לעת עתה (זו הבחירה הדיפולטיבית והתואמת ביותר לרוב המקרים, ניתן לשנות בשלב מאוחר יותר)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Version Control Metadata"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": בחרו “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“ (מומלץ)."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מה זה Version Control?"
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "text": "בקרת גרסאות ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Version Control"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") היא מערכת ששומרת את ההיסטוריה של השינויים בפרויקט שלכם. חשבו על זה כמו \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Ctrl"
+                      },
+                      {
+                        "type": "text",
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Z"
+                      },
+                      {
+                        "type": "text",
+                        "text": " על סטרואידים\" — אתם יכולים לחזור לכל נקודה בהיסטוריה של הפרויקט, לראות מה השתנה ומתי, ולעבוד עם אנשים אחרים על אותו קוד בלי לדרוס אחד את השני."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git"
+                      },
+                      {
+                        "type": "text",
+                        "text": " הוא הכלי הפופולרי ביותר לבקרת גרסאות, וכמעט כל פרויקט תוכנה בעולם משתמש בו. כשאתם בוחרים \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\" בהגדרות הפרויקט, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ייצור קובץ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "gitignore."
+                      },
+                      {
+                        "type": "text",
+                        "text": " שאומר ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אילו קבצים זמניים לא צריך לעקוב אחריהם."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "text": "לא צריך להכיר "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לעומק כדי להמשיך במדריך הזה, אבל אם תרצו ללמוד — זה אחד הכלים החשובים ביותר שמפתח יכול להכיר."
+                      },
+                      {
+                        "type": "hardBreak"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחצו על “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Create & Edit"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "לאחר שביצעתם את כל השלבים, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " יצור את תיקיית הפרויקט עם קבצים מסוימים - ויפתח את העורך."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מה Godot יוצר בתיקיית הפרויקט"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם תסתכלו בתיקיית הפרויקט שיצרתם (\"HelloGodot\" או שם אחר שבחרתם) תוכלו לראות את מבנה התיקייה הבא:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "HelloGodot/\n├── .godot/              # הקבצים הפנימיים של גודו, לא לגעת\n├── project.godot        # קובץ קונפיגורציית פרויקט גודו\n"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "project.godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - קובץ קונפיגורציית הפרויקט, נשמרות בו הגדרות כגון גודל חלון הפרויקט, הגדרת בקרים, פיזיקת משחק ועוד. נדיר שנערוך קובץ זה בעצמנו משום שלרוב "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " יעשה זאת עבורנו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "/godot."
+                      },
+                      {
+                        "type": "text",
+                        "text": " - זכרון פנימי המשמש את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", תיקייה זו נוצרת באופן אוטומטי וכדאי לצרף אותה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "gitignore."
+                      },
+                      {
+                        "type": "text",
+                        "text": " במידה ואתם באמת משתמשים ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Git."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": "* שימו לב שאין עדיין קבצי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " בתיקייה. פרויקט Godot חדש הוא “"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  },
+                  {
+                    "type": "italic"
+                  }
+                ],
+                "text": "אגנוסטי”"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " לשפת תכנות — הוא לא \"יודע\" על "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#c9701d",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " עד שתגידו לו. בואו נעשה את זה עכשיו:"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "יצירת C# Solution"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לפני שתוכלו לכתוב או לבנות קוד "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " כלשהו, חייבים ליצור "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C# Solution"
+              },
+              {
+                "type": "text",
+                "text": " עבור הפרויקט."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "בעורך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ", היכנסו ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Project - Tools - C# - Create C# Solution"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " ייצור שני קבצים חדשים בתיקיית הפרויקט:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "HelloGodot/\n├── .godot/\n├── HelloGodot.csproj    # C# קובץ פרוייקט\n├── HelloGodot.sln       # C# קובץ Solution\n├── project.godot\n"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HelloGodot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "csproj"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אומר ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET."
+                      },
+                      {
+                        "type": "text",
+                        "text": " כיצד \"לבנות\" את קוד ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". ישמרו בו הגדרות כמו מצביעים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "References"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), גרסאת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וכדומה (לרוב לא נערוך קובץ זה בעצמנו)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HelloGodot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "sln"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - קובץ ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Solution"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", מאגד בתוכו קובץ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "csproj."
+                      },
+                      {
+                        "type": "text",
+                        "text": " אחד או יותר, ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IDE"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (ריידר או "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": " למשל) משתמש בקובץ זה על מנת לפתוח את הפרויקט (לרוב לא נערוך קובץ זה בעצמנו)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#aa761d",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב זה הוא חובה"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": " בלעדיו אין צינור בנייה — "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "MSBuild"
+              },
+              {
+                "type": "text",
+                "text": " לא יופיע, ולא תוכלו לקמפל שום סקריפט "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C#"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בהזדמנות זו, בואו גם נגדיר את"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": " #C"
+              },
+              {
+                "type": "text",
+                "text": " כשפת הסקריפטים הדיפולטיבית כך שכל סקריפט חדש שתיצרו יהיה #C: "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Editor - Editor Settings - Text Editor - Script - Default Script Language"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הגדירו ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C#"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "ה-Build הראשון"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לפני שנכתוב אפילו שורת קוד אחת, בואו נוודא שה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C# Build Pipeline"
+              },
+              {
+                "type": "text",
+                "text": " עובד כמו שצריך (התהליך שמתרחש מאחורי הקלעים כשאתם לוחצים \""
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Build"
+              },
+              {
+                "type": "text",
+                "text": "\" ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ": הקוד שלכם עובר קומפילציה, נבדק לשגיאות, ומקושר לספריות של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " — והתוצאה היא קוד מוכן להרצה)."
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בעורך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", הביטו בפאנל התחתון, לחצו על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "MSBuild"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בצידו הימני העליון של הפאנל תראו סמל של פטיש, לחצו עליו ובחרו באפשרות - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Build"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "אם התהליך היה מוצלח תראו הודעת הצלחה בסיום התהליך."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/build.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "במידה והתהליך נכשל"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הסיבות הנפוצות לכשלון של תהליך build הן:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "טרם יצרתם"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " C# Solution"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". חזרו לשלב הקודם ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Project → Tools → C# → Create C# Solution"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "טרם התקנתם את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET SDK. "
+                      },
+                      {
+                        "type": "text",
+                        "text": "או שלא הותקן כמו שצריך, חזרו על חלק "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "2.2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " של פרק זה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא הורדתם את גירסאת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET. "
+                      },
+                      {
+                        "type": "text",
+                        "text": "של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", חזרו על חלק "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "2.1"
+                      },
+                      {
+                        "type": "text",
+                        "text": " של פרק זה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.5 עורך Godot - מבט ראשוני"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "במבט ראשון - העורך של המנוע "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " עלול להראות למשתמש מורכב ומסובך. יש מספר פאנלים במיקומים שונים, כפתורים במראה של אייקונים שבמבט ראשוני קשה להבין מה תפקידו של כל אחד מהם, תפריטים ועוד. בואו נבין את ממשק המשתמש וסידור ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Layout"
+              },
+              {
+                "type": "text",
+                "text": " של עורך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "שימו לב כי אין צורך לשנן את הדברים, זהו מבט מהיר על מנת לסייע לכם לנווט ולהתמצא בעורך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הפריסה הראשית (Main Layout)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "העורך מחולק למספר חלקים עיקריים:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "┌──────────────────────────────────────────────────────────┐\n│                      Toolbar                             │\n├──────────┬───────────────────────────────┬───────────────┤\n│          │                               │               │\n│  Scene   │        Viewport               │   Inspector   │\n│  Tree    │     (2D / 3D / Script)        │               │\n│          │                               │               │\n│          │                               │               │\n├──────────┼───────────────────────────────┴───────────────┤\n│   File   |         Bottom Panel                          │\n│   System |    (Output / Debugger / Audio)                │\n└──────────┴───────────────────────────────────────────────┘"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "עץ הסצנות (Scene Tree), שמאל "
+              },
+              {
+                "type": "text",
+                "text": "- מציג את ההיררכיה של ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " בסצנה הנוכחית, כאן נוכל לראות ממה מורכבת סצנה וכיצד מאורגנים ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " שלה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אזור תצוגה ראשי (Viewport), מרכז"
+              },
+              {
+                "type": "text",
+                "text": " - אזור העריכה הראשי של הפרויקט. בחלקו העליון תבחינו במספר לשוניות:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - עורך סצנה דו ממדי."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "3D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - עורך סצנה תלת ממדי."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Script"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - עורך קוד מובנה (לרוב נשתמש ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IDE"
+                      },
+                      {
+                        "type": "text",
+                        "text": " משלנו, אך אפשרות זו קיימת וניתנת לשימוש)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AssetLib"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - ספרייה חינמית של פלאגאינים, גרפיקות ותוגן שנוצר על ידי הקהילה (דורש חיבור אינטרנט לשימוש)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Inspector, ימין"
+              },
+              {
+                "type": "text",
+                "text": " - כאשר אנו בוחרים "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": ", ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Inspector"
+              },
+              {
+                "type": "text",
+                "text": " מציג לנו את כל המאפיינים שלו ומאפשר לנו לערוך אותם (צבע, מיקום, גודל, מהירות ועוד המון הגדרות אופציונליות אחרות)."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הפאנל התחתון"
+              },
+              {
+                "type": "text",
+                "text": " - מכיל את פלט התוכנית ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Output"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Logs"
+              },
+              {
+                "type": "text",
+                "text": "), דיבאגר ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Debugger"
+              },
+              {
+                "type": "text",
+                "text": ") וכלים נוספים. איזור ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Output"
+              },
+              {
+                "type": "text",
+                "text": " חשוב במיוחד, כאן נוכל לראות הודעות שגיאה וכדומה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מערכת הקבצים (File System), למטה משמאל"
+              },
+              {
+                "type": "text",
+                "text": " - אזור זה מציג את הקבצים של הפרויקט שלנו, מסייע בניווט בין סצנות וכדומה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הפאנל העליון"
+              },
+              {
+                "type": "text",
+                "text": " - הפאנל העליון כולל מספר כפתורים חשובים שיש להתייחס אליהם:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "▶ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Run Project"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F5"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") - הרצת הפרויקט (המשחק) מהסצנה הראשונה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "▶ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Run Current Scene"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F6"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") - מריץ רק את הסצנה שנמצאת בעריכה כרגע."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "■ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Stop"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F8"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") - עוצר את ההרצה לחלוטין."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "לשוניות סצנה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - בקצה העליון של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Viewport"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נוכל להבחין בלשונית עבור כל סצנה שיצרנו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "המסקנה"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כרגע אין צורך להבין לעומק כל אחד מהפאנלים והכפתורים, ככל שניצור ונעבוד עם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " נכיר יותר דברים “בעל פה”, אם כך, הגיע הזמן שנכתוב קצת קוד."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.6 הרצת “Hello World“ ב-#C"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כל מסע של למידת שפת תכנות כלשהי מתחיל תמיד מ-”"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Hello World"
+              },
+              {
+                "type": "text",
+                "text": "”. גם בקורס זה נפעל באותה הגישה, אך בצורה שתלמד אותנו תהליכי עבודה ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב ראשון: יצירת סצנה"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בעורך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", פתחו את תפריט הסצנות ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Scene"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") בחלקו העליון ביותר של המסך, וביחרו ב - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "New Scene"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (או שפשוט ניתן ללחוץ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Ctrl"
+                      },
+                      {
+                        "type": "text",
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "N"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בשלב זה נתבקש לבחור "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ראשי ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Root"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") לסצנה, בחרו ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Other"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "חפשו (אלא אם כבר זה מה שסומן) "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", מדובר "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בNode"
+                      },
+                      {
+                        "type": "text",
+                        "text": " הבסיסי (אמור להיות העליון ביותר ברשימה), בחרו אותו ולחצו על “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Create"
+                      },
+                      {
+                        "type": "text",
+                        "text": "”."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "image",
+                    "attrs": {
+                      "src": "/content/images/new_scene.png",
+                      "alt": null,
+                      "title": null,
+                      "width": null,
+                      "height": null
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כעת יש לנו סצנה ראשונה בעלת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ראשי בודד, בעץ הסצנות תוכלו לראות אותו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "באצעות קליק ימני עם העכבר על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", או לחיצה על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F2 "
+                      },
+                      {
+                        "type": "text",
+                        "text": "לאחר שסימנתם "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", או דאבל-קליק על ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אשר מופיע בעץ הסצנות - נוכל לשנות את השם של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", שנו אותו ל-”"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Main"
+                      },
+                      {
+                        "type": "text",
+                        "text": "”."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "שימרו את הסצנה באמצעות שימוש בתפריט הסצנות בקצה העליון של המסך (או פשוט לחיצה על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Ctrl"
+                      },
+                      {
+                        "type": "text",
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "S"
+                      },
+                      {
+                        "type": "text",
+                        "text": "), שמרו קובץ זה בשם “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Main"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "tscn"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“ בתיקיית השורש (הראשית) של הפרויקט."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב שני: קביעת הסצנה הראשית"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כאשר אנו מריצים את הפרויקט ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "F5"
+              },
+              {
+                "type": "text",
+                "text": "), על "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " לדעת מאיזה סצנה עליו להתחיל. כמובן שנוכל להגדיר זאת:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בעורך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", פתחו את תפריט הפרויקט ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Project"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") בחלקו העליון ביותר של המסך, וביחרו ב - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Project Settings"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בלשונית “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "General"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” בחרו: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Application"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Run"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ליחצו על אייקון התיקייה אשר נמצא על יד “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Main Scene"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“, בחרו בסצנה שיצרתם ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Main.tscn"
+                      },
+                      {
+                        "type": "text",
+                        "text": " או כל שם אחר שבחרתם לקובץ שבו שמרתם את הסצנה הראשית שייצרתם)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כעת לחיצה על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F5"
+                      },
+                      {
+                        "type": "text",
+                        "text": " תריץ את הפרויקט החל מסצנה זו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב שלישי: יצירת והצמדת סקריפט (מסמך קוד)"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בעץ הסצנות (Scene Tree) בחרו ב-Node שיצרתם (Main)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחצו על אייקון הצמדת הסקריפט (או שניתן גם ללחוץ באמצעות הלחצן הימני של העכבר על ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ולבחור ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Attach"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Script"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  },
+                  {
+                    "type": "image",
+                    "attrs": {
+                      "src": "/content/images/attach_script.png",
+                      "alt": null,
+                      "title": null,
+                      "width": null,
+                      "height": null
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בדיאלוג שנפתח נוכל להבחין במספר אפשרויות הניתנות לשינוי, החשובות הן:"
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Language"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ],
+                        "text": " -"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וודאו שבחרתם "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      },
+                      {
+                        "type": "hardBreak",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Path"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "italic"
+                          }
+                        ],
+                        "text": " - "
+                      },
+                      {
+                        "type": "text",
+                        "text": "באופו דיפולטיבי מפנה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "textStyle",
+                            "attrs": {
+                              "color": "rgb(226, 174, 16)",
+                              "fontFamily": "\"Droid Sans Mono\", monospace"
+                            }
+                          }
+                        ],
+                        "text": "res://Main.cs"
+                      },
+                      {
+                        "type": "text",
+                        "text": " זה תקין."
+                      },
+                      {
+                        "type": "hardBreak"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Template"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אין צורך לשנות כרגע."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחצו על “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Create"
+                      },
+                      {
+                        "type": "text",
+                        "text": "“."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כעת "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " ייצור סקריפט "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " ויפתח אותו (אם הורדתם, התקנתם והגדרתם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "IDE"
+              },
+              {
+                "type": "text",
+                "text": " ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " זה יפתח שם, אם לא זה יפתח בעורך הסקריפטים של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ", כמובן שגם תוכלו באופן ידני לפתוח ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "IDE"
+              },
+              {
+                "type": "text",
+                "text": " שלכם)."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב רביעי: כתיבת הקוד"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בשלב זה, מסמך הקוד יראה בערך כך:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "using Godot;\nusing System;\n\npublic partial class Main : Node\n{\n\t// Called when the node enters the scene tree for the first time.\n\tpublic override void _Ready()\n\t{\n\t}\n\n\t// Called every frame. 'delta' is the elapsed time since the previous frame.\n\tpublic override void _Process(double delta)\n\t{\n\t}\n}"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "using Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מייבא את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", מאפשר לנו גישה לכל המחלקות והטייפים של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "public partial class Main : Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מכריז על מחלקה בשם “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Main"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” אשר יורשת ממחלקת הבסיס - “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": "”, המילה השמורה partial מגיעה מהאינטגרציה של Godot עם שפת #C, זה יוצר קוד חשוב מאחורי הקלעים על מנת לאפשר לנו זאת."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()Ready_"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מתודה מובנית של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot "
+                      },
+                      {
+                        "type": "text",
+                        "text": "אשר נקראת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פעם אחת בלבד"
+                      },
+                      {
+                        "type": "text",
+                        "text": " כאשר ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נטען אל עץ הסצנות. כאן ניתן לכתוב קוד שנרצה שירוץ פעם אחת בתחילת התוכנית ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Initialization"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Process(double delta)_"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מתודה מובנית של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot "
+                      },
+                      {
+                        "type": "text",
+                        "text": "אשר "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "יוצא לפועל בכל פריים"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (60 מילישניות בדרך כלל) הפרמטר delta הוא הזמן שעבר מאז "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הפריים הקודם (האחרון) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "בשניות. כאן נכתוב לוגיקה שחוזרת על עצמה בכל פריים."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כעת, בואו נשנה את תוכן המתודה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "()Ready_"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "public override void _Ready()\n{\n    GD.Print(\"Hello, Godot!\");\n    GD.Print(\"C# is working!\");\n    GD.Print($\"Godot version: {Engine.GetVersionInfo()[\"string\"]}\");\n}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "()GD.Print"
+              },
+              {
+                "type": "text",
+                "text": " היא מתודה שנועדה להדפיס פלט לקונסול (בדומה ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "()Console.Writeline"
+              },
+              {
+                "type": "text",
+                "text": " הרגיל של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": ")"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב חמישי: בנייה והרצה (Build & Run)"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ראשית, לחצו על כפתור ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Build"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (או "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Alt"
+                      },
+                      {
+                        "type": "text",
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "B"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") על מנת לבדוק שהכל תקין ו-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מצליח לבנות את הפרויקט להרצה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לאחר מכן נריץ את המשחק באמצעות לחיצה על "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F5"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הלחיצה על "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "F5"
+              },
+              {
+                "type": "text",
+                "text": " תבנה ותריץ את המשחק ונוכל לראות שנפתח לנו חלון חדש (חלון המשחק), הוא יראה אפור וריק, וזה תקין - שכן טרם הכנסנו אובייקטים למשחק, אך אם נביט בעורך, נוכל להבחין בהדפסות ששלחנו לקונסול:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Hello, Godot!\nC# is working!\nGodot version: 4.4.stable.mono"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם אתם לא רואים שורות אלו בפאנל התחתון - וודאו את הצעדים מתחילת הפרק."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "ניתן לסגור את חלון המשחק באמצעות לחיצה על כפתור ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "X"
+              },
+              {
+                "type": "text",
+                "text": " או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "F8"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלב שישי: ניסוי"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לפני שנתקדם, זה הזמן לעצור ולנסות קצת דברים בעצמכם, נסו להכניס לוגיקה ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "()Process_"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "private double _timer = 0;\n\npublic override void _Process(double delta)\n{\n    _timer += delta;\n    if (_timer >= 3.0)\n    {\n        GD.Print(\"3 seconds have passed!\");\n        _timer = 0;\n    }\n}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הריצו את הפרויקט שוב, כעת בכל תום ספירה של 3 שניות תראו בקונסול (בפאנל התחתון) את ההודעה - "
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "3 seconds have passed!"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "זה למעשה מוכיח לנו שהמתודה רצה בכל פריים, שפריים מתחלף כל 60 מילישניות (שניה אחת) ושניתן להשתמש ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "delta"
+              },
+              {
+                "type": "text",
+                "text": " על מנת לעקוב אחרי זמנים."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "נסו לגרום לשגיאה מכוונת:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "public override void _Ready()\n{\n    GD.Print(\"About to cause an error...\");\n    int x = 0;\n    int y = 10 / x;  // Division by zero!\n}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הריצו את הפרויקט, מיד תוכלו לראות בקונסול את השגיאה, פרטי השגיאה, היכן קרתה ובאיזה שורת קוד:"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/error_example.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "לאחר שסיימתם להתנסות - החזירו את הקוד למצב תקין."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "סיכום"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בתרגיל הקטן הזה ביססנו את תהליך העבודה שילווה אתכם לאורך כל המדריך:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "יצירת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "סצנה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עם צמתים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Nodes"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "צירוף "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "סקריפט #C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לצומת."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כתיבת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "קוד"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IDE"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בנייה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Build"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") של הפרויקט ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Alt"
+                      },
+                      {
+                        "type": "text",
+                        "text": "+"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "B"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הרצה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " של הפרויקט ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "F5"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בדיקת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פאנל ה-Output"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עבור הודעות ושגיאות."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הלולאה הזו — עריכה, בנייה, הרצה, תצפית — היא פעימת הלב של פיתוח משחקים ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "לסיכום הפרק:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הורידו את גרסת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET."
+                      },
+                      {
+                        "type": "text",
+                        "text": " של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (לא את הגרסה הסטנדרטית) "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "http://מ-godotengine.org",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer",
+                              "class": null,
+                              "title": null
+                            }
+                          }
+                        ],
+                        "text": "מ-godotengine.org"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "התקינו את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": ".NET 9 SDK"
+                      },
+                      {
+                        "type": "text",
+                        "text": " או"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET 10 SDK."
+                      },
+                      {
+                        "type": "text",
+                        "text": " ואמתו עם "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "dotnet --version"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (עם תוספי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "C# Dev Kit"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ו-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "godot-tools"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") או "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "JetBrains Rider"
+                      },
+                      {
+                        "type": "text",
+                        "text": " כעורך הקוד שלכם."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לפתוח סקריפטים בעורך החיצוני."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "צרו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "C# Solution"
+                      },
+                      {
+                        "type": "text",
+                        "text": " דרך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Project - Tools - C# - Create C# Solution"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "צרו פרויקט, צרו סצנה, צרפו סקריפט "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", והריצו \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Hello"
+                      },
+                      {
+                        "type": "text",
+                        "text": " "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "World"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\"."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "תהליך העבודה: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "עריכה - בנייה - הרצה - תצפית"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". תתרגלו אליו - תחזרו עליו אלפי פעמים."
+                      },
+                      {
+                        "type": "hardBreak"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שאלון ידע"
+              }
+            ]
+          },
+          {
+            "type": "quiz",
+            "attrs": {
+              "questions": [
+                {
+                  "question": "מה ההבדל בין Godot Standard לבין Godot .NET?",
+                  "answers": [
+                    " גירסאת NET. מהירה יותר",
+                    " גירסאת NET. עולה כסף",
+                    " גירסאת Standard תומכת רק ב-GDScript, גירסאת NET. תומכת גם ב-C#",
+                    "ד. אין הבדל, שתיהן תומכות ב-C#"
+                  ],
+                  "correct": 2
+                },
+                {
+                  "question": "מה צריך להתקין על המחשב לפני שניתן לקמפל קוד C# ב-Godot?",
+                  "answers": [
+                    "Visual Studio Community",
+                    "NET SDK.",
+                    "Unity Runtime",
+                    "Java JDK"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "question": "איזו פקודת טרמינל מאמתת שה-NET SDK. הותקן בהצלחה?",
+                  "answers": [
+                    "dotnet --help",
+                    "dotnet --version",
+                    "dotnet run",
+                    "net --check"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "question": "מה חובה לעשות לפני שניתן לבנות (Build) קוד C# בפרויקט Godot חדש?",
+                  "answers": [
+                    " ליצור סצנה ראשונה",
+                    "לחבר IDE חיצוני",
+                    " ליצור C# Solution דרך Project - Tools - C# - Create C# Solution",
+                    "להתקין תוסף #C בתוך Godot"
+                  ],
+                  "correct": 2
+                },
+                {
+                  "question": "מהו קובץ ה-.sln שנוצר בתיקיית הפרויקט?",
+                  "answers": [
+                    "קובץ שמכיל את קוד המשחק המקומפל",
+                    "קובץ הגדרות של Godot",
+                    " קובץ גיבוי אוטומטי",
+                    "קובץ Solution שמאגד פרויקטי #C וה-IDE משתמש בו לפתוח את הפרויקט"
+                  ],
+                  "correct": 3
+                },
+                {
+                  "question": "למה לא מומלץ לכתוב #C בעורך הסקריפטים המובנה של Godot?",
+                  "answers": [
+                    "למה לא מומלץ לכתוב #C בעורך הסקריפטים המובנה של Godot?",
+                    " הוא מיועד ל-GDScript ומספק תמיכה מינימלית ב-C# — בלי IntelliSense, refactoring ו-debugging",
+                    "הוא עובד רק על Windows",
+                    " הוא דורש רישיון בתשלום"
+                  ],
+                  "correct": 1
+                },
+                {
+                  "question": "מה ההבדל בין ()Ready_ לבין Process(double delta)_?",
+                  "answers": [
+                    "()Ready_ רצה פעם אחת בהתחלה, ()Process_ רצה בכל פריים",
+                    "אין הבדל, שתיהן נקראות בכל פריים",
+                    "()Ready_ רצה בכל פריים, ()Process_ רצה פעם אחת",
+                    "()Process_ רצה רק כשיש קלט מהמשתמש"
+                  ],
+                  "correct": 0
+                },
+                {
+                  "question": "מה הגרסה המינימלית של NET SDK. הנדרשת עבור Godot?",
+                  "answers": [
+                    "NET 8.",
+                    "NET 6.",
+                    "NET 7.",
+                    "NET 10."
+                  ],
+                  "correct": 0
+                }
+              ]
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "בפרק הבא: פרק 3 — עורך Godot."
+              },
+              {
+                "type": "text",
+                "text": " נערוך סיור מעמיק בכל פאנל, תפריט וכלי בעורך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " על מנת שתוכלו לנווט בו בביטחון"
+              }
+            ]
           }
         ]
       }

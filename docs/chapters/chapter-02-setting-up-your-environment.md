@@ -202,25 +202,47 @@ If you look inside the `HelloGodot` folder, you'll see:
 ```
 HelloGodot/
 ├── .godot/              # Internal Godot files (don't touch)
-├── HelloGodot.csproj    # C# project file
-├── HelloGodot.sln       # C# solution file
 ├── project.godot        # Godot project configuration
 ```
 
 - **`project.godot`** — the main project configuration file. It stores settings like window size, input mappings, and physics parameters. You'll rarely edit this directly — the Godot editor manages it.
-- **`HelloGodot.csproj`** — tells .NET how to build your C# code, what references to include, and what version of Godot's C# bindings to use.
-- **`HelloGodot.sln`** — a "solution" file that groups one or more `.csproj` files. Your IDE uses this to open the project.
 - **`.godot/`** — internal cache and import data. This folder is auto-generated and should be added to `.gitignore` if you use Git.
 
-### First Build
+Notice that there are **no C# files yet**. A new Godot project is language-agnostic — it doesn't know about C# until you tell it. Let's do that now.
 
-Before writing any code, let's verify that the C# build pipeline works:
+### Creating the C# Solution
 
-1. In the Godot editor, look at the bottom panel. You should see a **"Build"** button (or you can use the menu **Build → Build Solution**).
-2. Click **Build**.
-3. The Output panel at the bottom should show something like: `Build succeeded.`
+Before you can write or build any C# code, you must create a **C# Solution** for the project:
 
-If it fails, the most common causes are:
+1. In the Godot editor, go to **Project → Tools → C# → Create C# Solution**.
+
+That's it. Godot will generate two new files in your project folder:
+
+```
+HelloGodot/
+├── .godot/
+├── HelloGodot.csproj    # C# project file
+├── HelloGodot.sln       # C# solution file (Solution file)
+├── project.godot
+```
+
+- **`HelloGodot.csproj`** — tells .NET how to build your C# code, what references to include, and what version of Godot's C# bindings to use.
+- **`HelloGodot.sln`** — a Solution file (קובץ `.sln`) that groups one or more `.csproj` files. Your IDE uses this to open the project.
+
+**This step is mandatory.** Without it, there is no build pipeline — MSBuild won't appear, and you won't be able to compile any C# scripts.
+
+While we're here, let's also set C# as the default scripting language so that every new script you create will be C# instead of GDScript: **Editor → Editor Settings → Text Editor → Script → Default Script Language** → set to **C#**.
+
+### The First Build
+
+Before writing any code, let's verify that the C# build pipeline works (the process that happens behind the scenes when you click "Build" in Godot: your code gets compiled, checked for errors, and linked to Godot's libraries — resulting in executable code):
+
+1. In the Godot editor, look at the bottom panel and click on **MSBuild**.
+2. In the top-right corner of the MSBuild panel, you'll see a hammer icon. Click it and select **Build**.
+3. If the process succeeds, you'll see a success message at the end.
+
+If the build fails, the most common causes are:
+- You haven't created the C# Solution yet. Go back to the step above (**Project → Tools → C# → Create C# Solution**).
 - The .NET SDK is not installed or not in your PATH. Go back to section 2.2.
 - You downloaded the non-.NET version of Godot. Go back to section 2.1.
 

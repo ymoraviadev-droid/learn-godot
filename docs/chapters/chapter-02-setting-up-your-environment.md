@@ -66,7 +66,7 @@ Godot uses the .NET SDK behind the scenes every time you build your C# scripts. 
 ### Step by Step
 
 1. Go to **https://dotnet.microsoft.com/download**
-2. Download the **.NET 8 SDK** (or newer — .NET 9 also works). Make sure you download the **SDK**, not just the "Runtime."
+2. Download the **.NET 9 SDK** or **.NET 10 SDK** (either works — .NET 10 is the current LTS release). Make sure you download the **SDK**, not just the "Runtime."
 3. Run the installer.
 
 **Windows:**
@@ -79,12 +79,12 @@ Download the `.pkg` installer and run it. If you're on Apple Silicon (M1/M2/M3/M
 The installation method varies by distribution. For Ubuntu/Debian:
 ```bash
 sudo apt-get update
-sudo apt-get install -y dotnet-sdk-8.0
+sudo apt-get install -y dotnet-sdk-9.0
 ```
 
 For Fedora:
 ```bash
-sudo dnf install dotnet-sdk-8.0
+sudo dnf install dotnet-sdk-9.0
 ```
 
 For other distributions, check the official .NET documentation for instructions specific to your distro.
@@ -97,13 +97,13 @@ Open a terminal (Command Prompt or PowerShell on Windows, Terminal on macOS/Linu
 dotnet --version
 ```
 
-You should see something like `8.0.401` or similar. Any `8.x.x` or `9.x.x` version is fine.
+You should see something like `9.0.312` or `10.0.201` or similar. Any version `8.x.x` or newer is fine.
 
 If you get "command not found" or an error, the SDK didn't install correctly. Try restarting your terminal or computer, then check again. If it still doesn't work, revisit the installation steps.
 
 ### A Note on Versions
 
-Godot 4.4 requires **.NET 8** or newer. Don't install .NET 6 or 7 — they won't work with the current version of Godot's C# integration. If you already have an older .NET version installed, you can install .NET 8 alongside it without conflicts.
+Godot requires **.NET 8** or newer (and .NET 9+ if you want to export to Android). Don't install .NET 6 or 7 — they won't work with Godot's C# integration. If you already have an older .NET version installed, you can install a newer version alongside it without conflicts.
 
 ---
 
@@ -440,7 +440,7 @@ This loop — edit, build, run, observe — is the heartbeat of game development
 ## Summary
 
 - Download the **.NET version** of Godot (not the standard version) from godotengine.org.
-- Install the **.NET 8 SDK** (or newer) and verify with `dotnet --version`.
+- Install the **.NET 9 or 10 SDK** and verify with `dotnet --version`.
 - Set up **VS Code** (with C# Dev Kit and godot-tools extensions) or **JetBrains Rider** as your code editor.
 - Configure Godot to open scripts in your external editor.
 - Create a project, create a scene, attach a C# script, and run "Hello World."

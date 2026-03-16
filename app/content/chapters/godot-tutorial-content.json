@@ -6298,7 +6298,7 @@
       "slug": "התקנת-סביבת-הפיתוח",
       "order": 2,
       "createdAt": "2026-03-15T23:51:41.983Z",
-      "updatedAt": "2026-03-15T23:57:37.038Z",
+      "updatedAt": "2026-03-16T01:31:58.739Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -6318,10 +6318,7 @@
                     "type": "bold"
                   }
                 ],
-                "text": "התקנת סביבת הפיתוח"
-              },
-              {
-                "type": "hardBreak"
+                "text": "פרק 2 - התקנת סביבת הפיתוח"
               }
             ]
           },
@@ -6334,6 +6331,2291 @@
               "width": null,
               "height": null
             }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.1 הורדת Gotot (.NET Version)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "המנוע "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " מגיע להורדה בשתי וריאציות:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot (Standard) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- כולל תמיכה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " בלבד."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot (.NET) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- כולל תמיכה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ו-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מכיוון שבמדריך זה אנו משתמשים ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": ", יש להוריד את גירסאת ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET."
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": "* "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "קריטי"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " - אם תורידו את הגירסא הסטנדרטית לא תוכלו ליצור או להריץ קוד "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#b36f0f",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "צעדים ראשונים"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "נווטו לכתובת האינטרנט: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://godotengine.org/download",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer",
+                              "class": null,
+                              "title": null
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "https://godotengine.org/download"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מתוך האפשרויות המוצגות, ביחרו את גירסאת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET. "
+                      },
+                      {
+                        "type": "text",
+                        "text": "להורדה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "וודאו שאתם מורידים את קובץ ההתקנה הנכון למערכת ההפעלה שלכם ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Windows"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "macOS"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Linux"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "התקנת Godot"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " היא אפליקציה ניידת ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "portable"
+              },
+              {
+                "type": "text",
+                "text": "), כלומר שהיא לא צריכה התקנה מסורתית."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Windows:"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "חלצו את קובץ ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "zip"
+              },
+              {
+                "type": "text",
+                "text": " לתיקייה לבחירתכם. מיקום מומלץ: "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "C:\\Godot"
+              },
+              {
+                "type": "text",
+                "text": " או"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": " C:\\Tools\\Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בתוך התיקייה שחולצה תמצאו את קובץ ההרצה של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " (למשל Godot_v4.4-stable_mono_win64.exe)."
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחצו עליו פעמיים על מנת להריץ."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "אופציונלי אבל מומלץ: לחצו קליק ימני על קובץ ההרצה ובחרו \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Pin to taskbar"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\" או צרו קיצור דרך בשולחן העבודה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "macOS:"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "חלצו את קובץ ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "zip"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גררו את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Godot.app"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לתיקיית "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "/Applications"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בפעם הראשונה שתפתחו, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "macOS"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עלול להזהיר שהאפליקציה מפתח לא מזוהה. היכנסו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "System Settings "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " Privacy & Security"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ולחצו על \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Open Anyway"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\"."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Linux:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "חלצו את קובץ ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "zip"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לתיקייה כמו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "~/Godot/"
+                      },
+                      {
+                        "type": "text",
+                        "text": " או "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "/opt/godot/"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הפכו את הבינארי לבר-הרצה: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "chmod +x Godot_v4.4-stable_mono_linux_x86_64"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הריצו מהטרמינל או צרו קובץ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "desktop."
+                      },
+                      {
+                        "type": "text",
+                        "text": " עבור תפריט האפליקציות."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הערה לגבי גרסאות"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "המדריך הזה נכתב עבור "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot 4.4"
+              },
+              {
+                "type": "text",
+                "text": " ואמור לעבוד עם כל גרסת "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " 4.x. אם אתם קוראים את זה בעתיד ו-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " 4.5 או 4.6 יצאו - זה בסדר, עקרונות הליבה לא השתנו. אם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " 5.x יצא, ייתכן שחלק מה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "APIs"
+              },
+              {
+                "type": "text",
+                "text": " השתנו, אבל העקרונות עדיין יהיו רלוונטיים."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כשתפעילו את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " לראשונה, תראו את ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Project Manager"
+              },
+              {
+                "type": "text",
+                "text": " - חלון שמציג את הפרויקטים שלכם. הוא יהיה ריק. אל תדאגו - ניצור את הפרויקט הראשון שלנו בסעיף "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.4"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.2 התקנת .NET SDK"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "קוד "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " רץ על פלטפורמת "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": ".NET"
+              },
+              {
+                "type": "text",
+                "text": ". כדי לקמפל ולהריץ קוד "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": ", צריך להתקין על המחשב את ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET SDK. "
+              },
+              {
+                "type": "text",
+                "text": "(ערכת כלי פיתוח - "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Software Development Kit"
+              },
+              {
+                "type": "text",
+                "text": ")."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מה זה NET SDK."
+              },
+              {
+                "type": "text",
+                "text": "?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET SDK."
+              },
+              {
+                "type": "text",
+                "text": " מספק:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "קומפיילר #C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מתרגם את קוד ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": " שלכם להוראות הרצה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "סביבת ריצה של NET."
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מריצה את הקוד המקומפל."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "כלי שורת הפקודה "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "dotnet"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - משמש לבנייה, הרצה וניהול פרויקטי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ספריית המחלקות הבסיסית (BCL)"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אלפי מחלקות מובנות למחרוזות, אוספים, קריאת/כתיבת קבצים, רשת ועוד."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " משתמש ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET SDK."
+              },
+              {
+                "type": "text",
+                "text": " מאחורי הקלעים בכל פעם שאתם בונים את סקריפטי ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " שלכם. רוב הזמן לא תעבדו איתו ישירות, אבל הוא חייב להיות מותקן."
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "צעד אחר צעד"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "היכנסו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://dotnet.microsoft.com/download",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer",
+                              "class": null,
+                              "title": null
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "https://dotnet.microsoft.com/download"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הורידו את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET 9 SDK."
+                      },
+                      {
+                        "type": "text",
+                        "text": " או "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET 10 SDK."
+                      },
+                      {
+                        "type": "text",
+                        "text": " (שניהם מתאימים - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NET 10."
+                      },
+                      {
+                        "type": "text",
+                        "text": " הוא גרסת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "LTS"
+                      },
+                      {
+                        "type": "text",
+                        "text": " הנוכחית). ודאו שאתם מורידים את ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "SDK"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", לא רק את ה-\""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Runtime"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\"."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הריצו את תוכנית ההתקנה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Windows:"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "תוכנית ההתקנה פשוטה. עברו על שלבי האשף וקבלו את ברירות המחדל."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "macOS:"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הורידו את המתקין בפורמט "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "pkg."
+              },
+              {
+                "type": "text",
+                "text": " והריצו אותו. אם יש לכם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Apple Silicon"
+              },
+              {
+                "type": "text",
+                "text": " ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "M1"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "M2"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "M3"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "M4"
+              },
+              {
+                "type": "text",
+                "text": "), ודאו שאתם מורידים את גרסת \""
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Arm64"
+              },
+              {
+                "type": "text",
+                "text": "\"."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Linux:"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "שיטת ההתקנה משתנה לפי הפצה. עבור Ubuntu/Debian:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "sudo apt-get update\nsudo apt-get install -y dotnet-sdk-9.0\n"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "עבור Fedora:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "sudo dnf install dotnet-sdk-9.0\n"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "עבור הפצות אחרות, בדקו בתיעוד הרשמי של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET."
+              },
+              {
+                "type": "text",
+                "text": " לגבי הוראות ספציפיות להפצה שלכם."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אימות ההתקנה"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "פתחו טרמינל ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Command Prompt"
+              },
+              {
+                "type": "text",
+                "text": " או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "PowerShell"
+              },
+              {
+                "type": "text",
+                "text": " ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Windows"
+              },
+              {
+                "type": "text",
+                "text": ", "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Terminal"
+              },
+              {
+                "type": "text",
+                "text": " ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "macOS"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Linux"
+              },
+              {
+                "type": "text",
+                "text": ") והריצו:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "dotnet --version\n"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אתם אמורים לראות משהו כמו "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "9.0.312"
+              },
+              {
+                "type": "text",
+                "text": " או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "10.0.201"
+              },
+              {
+                "type": "text",
+                "text": " או דומה. כל גרסה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "code"
+                  }
+                ],
+                "text": "8.x.x"
+              },
+              {
+                "type": "text",
+                "text": " ומעלה מתאימה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם אתם מקבלים \""
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "command not found"
+              },
+              {
+                "type": "text",
+                "text": "\" או שגיאה, ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "SDK"
+              },
+              {
+                "type": "text",
+                "text": " לא הותקן כראוי. נסו להפעיל מחדש את הטרמינל או המחשב, ובדקו שוב. אם זה עדיין לא עובד, חזרו לשלבי ההתקנה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הערה לגבי גרסאות"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " דורש "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": ".NET 8"
+              },
+              {
+                "type": "text",
+                "text": " ומעלה (ו-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "NET 9."
+              },
+              {
+                "type": "text",
+                "text": " ומעלה אם רוצים לייצא ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Android"
+              },
+              {
+                "type": "text",
+                "text": "). "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#9f7009",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אל תתקינו NET 6. או 7"
+              },
+              {
+                "type": "text",
+                "text": " - הם לא יעבדו עם אינטגרציית ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ". אם כבר מותקנת אצלכם גרסה ישנה יותר, אפשר להתקין גרסה חדשה לצדה ללא קונפליקטים."
+              }
+            ]
           },
           {
             "type": "paragraph",
@@ -6357,9 +8639,2365 @@
                     "type": "bold"
                   }
                 ],
-                "text": "2.1 הורדת Gotot (.NET Version)"
+                "text": "2.3 הגדרת סביבת פיתוח (VS Code / Rider)"
               }
             ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אתם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "italic"
+                  }
+                ],
+                "text": "יכולים"
+              },
+              {
+                "type": "text",
+                "text": " לכתוב "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " ישירות בעורך הסקריפטים המובנה של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ". אבל לא כדאי. העורך המובנה מיועד ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GDScript"
+              },
+              {
+                "type": "text",
+                "text": " ומספק תמיכה מינימלית ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " - בלי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "IntelliSense"
+              },
+              {
+                "type": "text",
+                "text": " אמיתי, בלי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "refactoring"
+              },
+              {
+                "type": "text",
+                "text": ", בלי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "debugging"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לפיתוח ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": ", אתם רוצים "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "IDE"
+              },
+              {
+                "type": "text",
+                "text": " (סביבת פיתוח משולבת) ראוי. יש שתי אפשרויות טובות:"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אפשרות א׳: Visual Studio Code (חינם)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "VS Code"
+              },
+              {
+                "type": "text",
+                "text": " הוא עורך קוד חינמי וקליל מבית "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Microsoft"
+              },
+              {
+                "type": "text",
+                "text": ". עם התוספים הנכונים, הוא הופך לסביבת פיתוח "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " מוצקה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "התקנה:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הורידו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מ-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://code.visualstudio.com/",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer",
+                              "class": null,
+                              "title": null
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "https://code.visualstudio.com"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "התקינו כרגיל."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "תוספים נדרשים:"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "פתחו "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "VS Code"
+              },
+              {
+                "type": "text",
+                "text": ", היכנסו לפאנל התוספים ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Ctrl"
+              },
+              {
+                "type": "text",
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Shift"
+              },
+              {
+                "type": "text",
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "X"
+              },
+              {
+                "type": "text",
+                "text": " / "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Cmd"
+              },
+              {
+                "type": "text",
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Shift"
+              },
+              {
+                "type": "text",
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "X"
+              },
+              {
+                "type": "text",
+                "text": "), והתקינו:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "C# Dev Kit"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (מאת Microsoft) - מספק "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IntelliSense"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "debugging"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "refactoring"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וניהול פרויקטים עבור "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". תוסף זה יתקין אוטומטית גם את תוסף הבסיס של \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "#C"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\"."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "godot-tools"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (מאת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Geequlim"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") - מספק אינטגרציה בין "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לעורך "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", כולל תצוגה מקדימה של סצנות ומשאבים ותמיכה ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GDScript"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "חיבור VS Code ל-Godot:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פתחו את "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "היכנסו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Editor "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " Editor Settings"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "חפשו \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "External Editor"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\" או נווטו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Text Editor "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " External"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Exec Path"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לנתיב של קובץ ההרצה של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "VS Code"
+                      },
+                      {
+                        "type": "text",
+                        "text": ":"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bulletList",
+                    "attrs": {
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "textAlign": "right",
+                              "dir": null
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "bold"
+                                  }
+                                ],
+                                "text": "Windows"
+                              },
+                              {
+                                "type": "text",
+                                "text": ": "
+                              },
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "code"
+                                  }
+                                ],
+                                "text": "C:\\Users\\{YourUsername}\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "textAlign": "right",
+                              "dir": null
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "bold"
+                                  }
+                                ],
+                                "text": "macOS"
+                              },
+                              {
+                                "type": "text",
+                                "text": ":"
+                              },
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "bold"
+                                  }
+                                ],
+                                "text": " "
+                              },
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "code"
+                                  }
+                                ],
+                                "text": "/Applications/Visual Studio Code.app/Contents/MacOS/Electron"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "textAlign": "right",
+                              "dir": null
+                            },
+                            "content": [
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "bold"
+                                  }
+                                ],
+                                "text": "Linux"
+                              },
+                              {
+                                "type": "text",
+                                "text": ": "
+                              },
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "code"
+                                  }
+                                ],
+                                "text": "/usr/bin/code"
+                              },
+                              {
+                                "type": "text",
+                                "text": " או היכן שמותקן "
+                              },
+                              {
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "code"
+                                  }
+                                ],
+                                "text": "code"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Exec Flags"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ל: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "{project} --goto {file}:{line}:{col}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מעכשיו כשתלחצו פעמיים על סקריפט "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ", הוא ייפתח ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "VS Code"
+              },
+              {
+                "type": "text",
+                "text": " אוטומטית."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "אפשרות ב׳: JetBrains Rider (בתשלום, עם אפשרויות חינמיות)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Rider"
+              },
+              {
+                "type": "text",
+                "text": " הוא "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "IDE"
+              },
+              {
+                "type": "text",
+                "text": " מקצועי ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " מבית "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "JetBrains"
+              },
+              {
+                "type": "text",
+                "text": ". זו חוויית עריכת ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " הטובה ביותר שקיימת - נקודה. "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הוא מספק:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "IntelliSense"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וניתוח קוד ברמה הגבוהה ביותר."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כלי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "refactoring"
+                      },
+                      {
+                        "type": "text",
+                        "text": " רבי עוצמה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פלאגין מובנה ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עם אינטגרציה ישירה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Debugger"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מעולה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "תמחור:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חינם לשימוש לא-מסחרי"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (נכון ל-2024, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "JetBrains"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מציעה רישיון חינמי לשימוש לא-מסחרי)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חינם לסטודנטים"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (עם כתובת מייל אקדמית תקפה)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "בתשלום לשימוש מסחרי"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (כ-$15 לחודש)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "התקנה:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הורידו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Rider"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מ-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "link",
+                            "attrs": {
+                              "href": "https://www.jetbrains.com/rider/",
+                              "target": "_blank",
+                              "rel": "noopener noreferrer",
+                              "class": null,
+                              "title": null
+                            }
+                          },
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "https://www.jetbrains.com/rider"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "התקינו והפעילו עם הרישיון שלכם."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "חיבור Rider ל-Godot:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Rider"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", התקינו את הפלאגין "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot Support"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": היכנסו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Settings "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Plugins"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", חפשו \""
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": "\", והתקינו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Godot"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", היכנסו ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Editor "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " Editor Settings"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Text Editor "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " External"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Exec Path"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לנתיב של קובץ ההרצה של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Rider"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגדירו "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Exec Flags"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ל: "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "{project} --line {line} {file}"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "טבלת השוואה בין VS Code ל-Rider לפיתוח משחקים ב-Godot"
+              }
+            ]
+          },
+          {
+            "type": "table",
+            "content": [
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "VS Code"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableHeader",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "Rider"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "מחיר"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "חינם"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "חינם (ללא מטרות מסחריות) או בתשלום"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "קושי התקנה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "בינוני (יש צורך בתוספים)"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "קל (המון אפשרויות מובנות)"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "חווית שימוש ב-#C"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "טובה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "מצויינת"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "מהירות"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "הרצה מהירה"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "הרצה איטית (משתפר לאחר ההפעלה)"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        162
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "bold"
+                              }
+                            ],
+                            "text": "ניצול משאבים"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        247
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "נמוך"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1,
+                      "colwidth": [
+                        284
+                      ]
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "attrs": {
+                          "textAlign": "right",
+                          "dir": null
+                        },
+                        "content": [
+                          {
+                            "type": "text",
+                            "text": "גבוה"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           },
           {
             "type": "paragraph",

@@ -40,6 +40,8 @@ Godot is a **portable application** — it doesn't need a traditional installer.
 2. Make the binary executable: `chmod +x Godot_v4.4-stable_mono_linux_x86_64`
 3. Run it from the terminal or create a `.desktop` file for your application menu.
 
+**Important for Linux users:** Download Godot directly from the website as a portable `.zip`. Do **not** install via Flatpak or Snap — sandboxing will prevent Godot from communicating with your IDE (VS Code / Rider), causing integration issues.
+
 ### Version Note
 
 This tutorial is written for **Godot 4.4** and should work with any Godot 4.x version. If you're reading this in the future and Godot 4.5 or 4.6 is out, that's fine — the core concepts haven't changed. If Godot 5.x is out, some APIs may have changed, but the principles will still apply.
@@ -190,7 +192,11 @@ Time to create something. Launch Godot — you'll see the **Project Manager**.
    - **Project Name**: Enter `HelloGodot`
    - **Project Path**: Choose a folder where you want to store your projects. Create a dedicated folder like `~/GodotProjects/` or `C:\GodotProjects\`. The project manager will create a subfolder with the project name.
    - **Renderer**: Select **"Forward+"** for now. (This is the default and best option for most cases. You can change it later if needed.)
-   - **Version Control Metadata**: Select **"Git"** if you plan to use Git (recommended), or **"None"** if you don't care about version control yet.
+   - **Version Control Metadata**: Select **"Git"** (recommended).
+
+   **What is Version Control?**
+   Version Control is a system that saves the history of changes in your project. Think of it as "Ctrl+Z on steroids" — you can go back to any point in the project's history, see what changed and when, and work with others on the same code without overwriting each other. **Git** is the most popular version control tool — nearly every software project in the world uses it. When you choose "Git" in the project settings, Godot will create a `.gitignore` file that tells Git which temporary files to ignore. You don't need to know Git in depth to continue with this tutorial, but it's one of the most important tools a developer can learn.
+
 3. Click **"Create & Edit"**.
 
 Godot will create the project folder, generate some configuration files, and open the editor.
@@ -465,7 +471,7 @@ This loop — edit, build, run, observe — is the heartbeat of game development
 - Install the **.NET 9 or 10 SDK** and verify with `dotnet --version`.
 - Set up **VS Code** (with C# Dev Kit and godot-tools extensions) or **JetBrains Rider** as your code editor.
 - Configure Godot to open scripts in your external editor.
-- Create a project, create a scene, attach a C# script, and run "Hello World."
+- Create a project, create a C# Solution (**Project → Tools → C# → Create C# Solution**), create a scene, attach a C# script, and run "Hello World."
 - The workflow is: **edit → build → run → observe**. Get comfortable with it — you'll repeat it thousands of times.
 
 **Next up: Chapter 3 — The Godot Editor.** We'll take a thorough tour of every panel, dock, and tool in the Godot editor so you can navigate it with confidence.

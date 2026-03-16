@@ -74,3 +74,24 @@ First chapter (מבוא) written in Hebrew covering:
 - Prerequisites
 - Technical terms language policy
 - Summary + 5-question quiz
+
+---
+
+## 2026-03-16 — Chapter 2 Complete
+
+### Chapter 2 — הכנת סביבת העבודה (Setting Up Your Environment)
+
+Written in Hebrew covering:
+- 2.1 Downloading Godot (.NET version) — portable install for Windows/macOS/Linux, warning against Flatpak/Snap on Linux due to sandboxing issues with IDE integration
+- 2.2 Installing .NET SDK — what it is, step-by-step install, verification with `dotnet --version`, version requirements (.NET 8+)
+- 2.3 Setting up an IDE — VS Code (with C# Dev Kit + godot-tools extensions) and JetBrains Rider, connecting each to Godot, comparison table
+- 2.4 First Godot project — Project Manager, creating project, Version Control/Git explanation, **creating C# Solution** (mandatory step: Project → Tools → C# → Create C# Solution), setting C# as default script language, first build via MSBuild panel, troubleshooting
+- 2.5 Godot Editor first look — layout overview (Scene Tree, Viewport, Inspector, Bottom Panel, FileSystem), toolbar, play buttons
+- 2.6 Hello World from C# — create scene, set main scene, attach C# script, _Ready() and _Process(), GD.Print(), build & run workflow, experimentation exercises
+- Summary + 10-question quiz
+
+### Key Discoveries
+
+- **C# Solution is a mandatory manual step** — new Godot projects do NOT auto-generate `.sln`/`.csproj`. User must go to Project → Tools → C# → Create C# Solution before any C# code can be built.
+- **Flatpak Godot breaks IDE integration** — sandboxing prevents Godot from communicating with VS Code/Rider. Portable `.zip` download recommended for Linux.
+- **Default script language** — new projects default to GDScript. Must set C# as default via Editor → Editor Settings → Text Editor → Script → Default Script Language.

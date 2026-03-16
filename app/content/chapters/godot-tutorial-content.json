@@ -5,7 +5,8 @@
     "author": "",
     "language": "he",
     "chapterOrder": [
-      "01-מבוא"
+      "01-מבוא",
+      "02-התקנת-סביבת-הפיתוח"
     ]
   },
   "chapters": [
@@ -6287,6 +6288,85 @@
                 "text": " הראשון שלכם."
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "02-התקנת-סביבת-הפיתוח",
+      "title": "התקנת סביבת הפיתוח",
+      "slug": "התקנת-סביבת-הפיתוח",
+      "order": 2,
+      "createdAt": "2026-03-15T23:51:41.983Z",
+      "updatedAt": "2026-03-15T23:57:37.038Z",
+      "tags": [],
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "התקנת סביבת הפיתוח"
+              },
+              {
+                "type": "hardBreak"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/godot-website.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2.1 הורדת Gotot (.NET Version)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           }
         ]
       }

@@ -47,7 +47,7 @@ export function ReaderPage() {
 
         <div className="flex-1 overflow-y-auto">
           {currentChapter ? (
-            <ChapterContent chapter={currentChapter} />
+            <ChapterContent key={currentChapter.id} chapter={currentChapter} />
           ) : (
             <div className="flex items-center justify-center h-full min-h-[60vh]">
               <div className="text-center space-y-4 p-8">

@@ -11,7 +11,6 @@ const DEFAULT_META: BookMeta = {
 // In-memory store — loaded from disk via fetch on init
 let chaptersCache: Chapter[] = [];
 let metaCache: BookMeta = { ...DEFAULT_META };
-let initialized = false;
 
 async function loadFromDisk() {
   try {

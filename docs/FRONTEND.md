@@ -19,29 +19,29 @@
 
 ### Extensions
 
-| Extension                | Purpose                                    |
-|--------------------------|--------------------------------------------|
-| StarterKit               | Basic formatting (bold, italic, etc)       |
-| Heading                  | h1–h6                                      |
-| TextAlign                | Right/center/left alignment                |
-| TextDirection (custom)   | Per-block RTL/LTR direction                |
-| TextStyle + Color        | Font color, background color               |
-| FontFamily               | Font selection                             |
-| Highlight                | Text highlighting (multicolor)             |
-| Underline                | Underline text                             |
-| Subscript / Superscript  | Sub/superscript                            |
-| BulletList / OrderedList | Lists                                      |
-| TaskList                 | Checkboxes                                 |
-| Table                    | Tables with merge/split/resize             |
-| Image                    | Upload to content/images/ (base64 fallback)|
-| Link                     | Hyperlinks                                 |
-| CodeBlockLowlight        | Syntax HL + custom NodeView + line numbers |
-| Blockquote               | Block quotes                               |
-| HorizontalRule           | Dividers                                   |
-| Typography               | Smart quotes, dashes                       |
-| Placeholder              | Empty state placeholder text               |
-| CharacterCount           | Word/char count                            |
-| Quiz (custom)            | Multiple-choice quiz with 4 answers        |
+| Extension                                           | Purpose                                     |
+|-----------------------------------------------------|---------------------------------------------|
+| StarterKit                                          | Basic formatting (bold, italic, etc)        |
+| Heading                                             | h1–h6                                       |
+| TextAlign                                           | Right/center/left alignment                 |
+| TextDirection (custom, name: `customTextDirection`) | Per-block RTL/LTR direction                 |
+| TextStyle + Color                                   | Font color, background color                |
+| FontFamily                                          | Font selection                              |
+| Highlight                                           | Text highlighting (multicolor)              |
+| Underline                                           | Underline text                              |
+| Subscript / Superscript                             | Sub/superscript                             |
+| BulletList / OrderedList                            | Lists                                       |
+| TaskList                                            | Checkboxes                                  |
+| Table                                               | Tables with merge/split/resize              |
+| Image                                               | Upload to content/images/ (base64 fallback) |
+| Link                                                | Hyperlinks                                  |
+| CodeBlockLowlight                                   | Syntax HL + custom NodeView + line numbers  |
+| Blockquote                                          | Block quotes                                |
+| HorizontalRule                                      | Dividers                                    |
+| Typography                                          | Smart quotes, dashes                        |
+| Placeholder                                         | Empty state placeholder text                |
+| CharacterCount                                      | Word/char count                             |
+| Quiz (custom)                                       | Multiple-choice quiz with 4 answers         |
 
 ### Code Block Highlighting
 
@@ -119,6 +119,20 @@ Quiz data stored as Tiptap node attributes (array of `{ question, answers[4], co
 - No editor chrome — clean reading experience
 - Chapter navigation sidebar with subchapter deep links
 - Responsive for mobile reading
+- Previous/next chapter navigation buttons at the bottom of each chapter (first chapter has no previous, last has no next)
+
+## Mobile Navigation
+
+- Hamburger menu opens a dialog with full chapter list
+- Accordion support with subchapter headings (matching desktop sidebar)
+- Clicking a chapter or subchapter navigates and closes the drawer
+- Active chapter accordion auto-expands, others auto-collapse on navigation
+
+## Sidebar Behavior
+
+- Chapter titles and subchapter headings use `wrap-break-word` (no truncation) to prevent chevron icons from being pushed off-screen
+- Navigating to a chapter auto-collapses other accordions and expands the active one
+- Uses ref-based state sync (not useEffect) to avoid React Router flushSync conflicts
 
 ## Routing
 

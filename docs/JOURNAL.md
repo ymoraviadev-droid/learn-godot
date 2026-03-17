@@ -95,3 +95,29 @@ Written in Hebrew covering:
 - **C# Solution is a mandatory manual step** — new Godot projects do NOT auto-generate `.sln`/`.csproj`. User must go to Project → Tools → C# → Create C# Solution before any C# code can be built.
 - **Flatpak Godot breaks IDE integration** — sandboxing prevents Godot from communicating with VS Code/Rider. Portable `.zip` download recommended for Linux.
 - **Default script language** — new projects default to GDScript. Must set C# as default via Editor → Editor Settings → Text Editor → Script → Default Script Language.
+
+---
+
+## 2026-03-17 — Chapter 3 Complete, Sidebar & Navigation Fixes
+
+### Chapter 3 — עורך Godot (The Godot Editor)
+
+Written in Hebrew covering:
+
+- 3.1 Main panels — Scene, Inspector, FileSystem, Output + bottom dock tabs (Debugger, Audio, Animation, Shader Editor, MSBuild)
+- 3.2 2D & 3D viewports — navigation controls, mode buttons (Q/W/E/S), grid snapping, Y-axis direction, fly mode for 3D, Script tab, AssetLib tab
+- 3.3 Scene tree & node hierarchy — parent-child relationships (transform inheritance, processing order, lifetime management, visibility), tree manipulation in editor, root node types, node naming conventions
+- 3.4 Creating & saving scenes — three creation methods, .tscn vs .scn formats, scene tabs, instancing scenes (composition pattern), property overrides on instances
+- 3.5 Project settings overview — General tab (Application, Display/Window, Input Map, Physics/2D, Rendering/Textures), Editor Settings vs Project Settings distinction
+- 3.6 Keyboard shortcuts & workflow tips — full shortcut tables, Ctrl+P quick open, F1 search help, 7 workflow tips (context menus, drag-and-drop, Inspector search, undo, F6, pinning, Remote tab)
+- Summary + 10-question quiz
+
+### App Fixes
+
+1. **Sidebar text wrapping** — replaced `truncate` with `wrap-break-word` on chapter titles and subchapter headings to prevent chevron icons from vanishing when text is long
+2. **Mobile drawer accordions** — MobileChapterDrawer now shows subchapter headings with expand/collapse chevrons, matching desktop sidebar functionality
+3. **Accordion auto-collapse** — navigating to a chapter now collapses all other accordions and expands only the active chapter's accordion (ref-based state sync to avoid flushSync warnings)
+4. **Previous/next chapter navigation** — reader mode now shows prev/next chapter buttons with labels at the bottom of each chapter (first chapter has no previous, last has no next)
+5. **Dialog accessibility** — DialogTitle and DialogDescription now use Radix primitives instead of plain HTML elements; added `aria-describedby={undefined}` to dialogs without descriptions
+6. **Tiptap flushSync fix** — added `immediatelyRender: false` to useEditor to prevent flushSync warnings during navigation
+7. **Duplicate extension fix** — disabled StarterKit's bundled `link` and `underline` (we configure them explicitly); renamed custom `textDirection` to `customTextDirection` to avoid clash with @tiptap/core's built-in extension

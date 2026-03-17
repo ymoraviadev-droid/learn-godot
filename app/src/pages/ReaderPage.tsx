@@ -31,6 +31,14 @@ export function ReaderPage() {
   }
 
   const currentChapter = slug ? getChapterBySlug(slug) : undefined;
+  const currentIndex = currentChapter
+    ? chapters.findIndex((c) => c.id === currentChapter.id)
+    : -1;
+  const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : undefined;
+  const nextChapter =
+    currentIndex >= 0 && currentIndex < chapters.length - 1
+      ? chapters[currentIndex + 1]
+      : undefined;
 
   return (
     <div className="flex flex-1 overflow-hidden">
@@ -47,7 +55,12 @@ export function ReaderPage() {
 
         <div className="flex-1 overflow-y-auto">
           {currentChapter ? (
-            <ChapterContent key={currentChapter.id} chapter={currentChapter} />
+            <ChapterContent
+              key={currentChapter.id}
+              chapter={currentChapter}
+              prevChapter={prevChapter}
+              nextChapter={nextChapter}
+            />
           ) : (
             <div className="flex items-center justify-center h-full min-h-[60vh]">
               <div className="text-center space-y-4 p-8">

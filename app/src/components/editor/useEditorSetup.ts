@@ -56,6 +56,8 @@ export function useEditorSetup({
       StarterKit.configure({
         codeBlock: false,
         heading: false,
+        link: false,
+        underline: false,
       }),
       Heading.configure({ levels: [1, 2, 3, 4, 5, 6] }).extend({
         renderHTML({ node, HTMLAttributes }) {
@@ -105,6 +107,7 @@ export function useEditorSetup({
     ],
     content,
     editable,
+    immediatelyRender: false,
     editorProps: {
       attributes: {
         class: "tiptap-editor min-h-[300px] px-1 py-2 focus:outline-none",

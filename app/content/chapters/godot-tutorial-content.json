@@ -16272,7 +16272,7 @@
       "slug": "עורך-godot",
       "order": 3,
       "createdAt": "2026-03-16T20:07:46.242Z",
-      "updatedAt": "2026-03-16T20:12:24.034Z",
+      "updatedAt": "2026-03-16T20:20:47.577Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -16307,13 +16307,6 @@
             }
           },
           {
-            "type": "paragraph",
-            "attrs": {
-              "textAlign": "right",
-              "dir": null
-            }
-          },
-          {
             "type": "heading",
             "attrs": {
               "textAlign": "right",
@@ -16341,9 +16334,69 @@
             "content": [
               {
                 "type": "text",
-                "text": "בפרק הקודם, קיבלנו מבט מהיר על העורך תוך כדי שנאמר לנו ש-“אין צורך לשנן דברים”. כעת הגיעה השעה באמת להבין מה כל פאנל עושה, מפני שמעתה והלאה - העורך הולך להיות הבית השני שלנו."
+                "text": "בפרק הקודם, קיבלנו מבט מהיר על העורך תוך כדי שנאמר לנו ש-“אין צורך לשנן דברים”. כעת הגיעה השעה באמת להבין מה כל פאנל עושה."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "עורך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " בנוי סביב מספר פאנלים עיקריים, כאשר כל אחד מהם ניתן לעגינה, שינוי גודל וסידור מחדש."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "הסידור הדיפולטיבי מאוד נוח והגיוני ולכן עדיף שנישאר איתו."
               }
             ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "פאנל הסצנה (Scene Panel), למעלה משמאל"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           },
           {
             "type": "paragraph",

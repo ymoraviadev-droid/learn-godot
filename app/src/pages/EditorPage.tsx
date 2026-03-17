@@ -279,7 +279,7 @@ export function EditorPage() {
 
       {/* New chapter dialog */}
       <Dialog open={showNewChapterDialog} onOpenChange={setShowNewChapterDialog}>
-        <DialogContent>
+        <DialogContent aria-describedby={undefined}>
           <DialogHeader>
             <DialogTitle>פרק חדש</DialogTitle>
           </DialogHeader>

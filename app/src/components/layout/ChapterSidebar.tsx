@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 import { Link, useParams, useLocation } from "react-router-dom";
 import { Plus, Trash2, GripVertical, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,13 @@ export function ChapterSidebar({
   const [expandedChapters, setExpandedChapters] = useState<Set<string>>(() => {
     return slug ? new Set([slug]) : new Set();
   });
+
+  // Auto-expand the active chapter and collapse others when slug changes
+  const prevSlugRef = useRef(slug);
+  if (slug && slug !== prevSlugRef.current) {
+    prevSlugRef.current = slug;
+    setExpandedChapters(new Set([slug]));
+  }
 
   const toggleExpanded = (chapterSlug: string) => {
     setExpandedChapters((prev) => {
@@ -102,10 +110,10 @@ export function ChapterSidebar({
                     </Tooltip>
                   )}
 
-                  <div dir="rtl" className="flex-1 flex items-center gap-1 py-2 px-2">
+                  <div dir="rtl" className="flex-1 flex items-center gap-1 py-2 px-2 min-w-0">
                     <Link
                       to={`${basePath}/${chapter.slug}`}
-                      className="flex-1 truncate text-right"
+                      className="flex-1 min-w-0 text-right wrap-break-word leading-snug"
                     >
                       <span className="text-xs text-muted-foreground ml-2">
                         {chapter.order}.
@@ -137,7 +145,7 @@ export function ChapterSidebar({
                 </div>
 
                 {isExpanded && (
-                  <div className="mr-6 pr-3 border-r border-sidebar-accent/50 space-y-0.5 py-0.5">
+                  <div className="mr-6 pr-3 border-r border-sidebar-accent/50 space-y-0.5 py-0.5 overflow-hidden">
                     {allHeadings.map((heading) => {
                       const headingHash = `#${heading.id}`;
                       const isHeadingActive =
@@ -153,7 +161,7 @@ export function ChapterSidebar({
                             to={`${basePath}/${chapter.slug}${headingHash}`}
                             dir="rtl"
                             className={cn(
-                              "block text-xs py-1 px-3 rounded-sm truncate transition-colors",
+                              "block text-xs py-1 px-3 rounded-sm wrap-break-word leading-snug transition-colors",
                               isSpecial && "font-medium",
                               isHeadingActive
                                 ? "text-sidebar-accent-foreground bg-sidebar-accent/60"

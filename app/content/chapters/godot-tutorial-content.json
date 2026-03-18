@@ -7,7 +7,8 @@
     "chapterOrder": [
       "01-מבוא",
       "02-התקנת-סביבת-הפיתוח",
-      "03-עורך-godot"
+      "03-עורך-godot",
+      "04-nodes-וסצנות"
     ]
   },
   "chapters": [
@@ -16272,7 +16273,7 @@
       "slug": "עורך-godot",
       "order": 3,
       "createdAt": "2026-03-16T20:07:46.242Z",
-      "updatedAt": "2026-03-17T13:54:25.275Z",
+      "updatedAt": "2026-03-18T12:15:26.270Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -16390,6 +16391,16 @@
                 "text": "פאנל הסצנה (Scene Panel), למעלה משמאל"
               }
             ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/scene_panel.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
           },
           {
             "type": "paragraph",
@@ -17072,6 +17083,16 @@
             ]
           },
           {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/inspector.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
             "type": "paragraph",
             "attrs": {
               "textAlign": "right",
@@ -17683,6 +17704,16 @@
             ]
           },
           {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/filesystem.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
             "type": "paragraph",
             "attrs": {
               "textAlign": "right",
@@ -18126,6 +18157,16 @@
                 "text": "פאנל הפלט (Output Panel), למטה במרכז"
               }
             ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/output_panel.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
           },
           {
             "type": "paragraph",
@@ -18665,6 +18706,16 @@
                 "text": "3.2 תצוגה דו ממדית ותלת ממדית ב-Viewport"
               }
             ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/viewport.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
           },
           {
             "type": "paragraph",
@@ -22554,10 +22605,13 @@
             ]
           },
           {
-            "type": "paragraph",
+            "type": "image",
             "attrs": {
-              "textAlign": "right",
-              "dir": null
+              "src": "/content/images/settings.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
             }
           },
           {
@@ -27320,6 +27374,198 @@
                 "text": " באמת, איך סצנות מורכבות, ואיך לחשוב במונחים של עץ הסצנה. כאן פילוסופיית העיצוב של המנוע מתחברת."
               }
             ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "04-nodes-וסצנות",
+      "title": "Nodes וסצנות",
+      "slug": "nodes-וסצנות",
+      "order": 4,
+      "createdAt": "2026-03-18T12:16:58.352Z",
+      "updatedAt": "2026-03-18T12:24:03.001Z",
+      "tags": [],
+      "content": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 1
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "פרק 4: Nodes וסצנות"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.1 מה זה Node?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "בפרק הקודם למדנו איך לעבוד עם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " ועם העורך באופן בסיסי - הוספה, יצירה, ארגון ועריכה. בפרק זה נתמקד בללמוד לעומק מהו "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": ", משום שאחרי שנבין ונפנים קונספט זה - הכל ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " יהפוך להיות יותר הגיוני וקל לתפיסה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " הוא מעין אבן בניין יחידה מתוך המשחק הכולל בכל פרויקט "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " שנעבוד עליו - כל קיר, דמות, צליל, טיימר או רכיבי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "UI"
+              },
+              {
+                "type": "text",
+                "text": " - כל דבר הוא בעצם Node (או עץ של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": "), וזהו למעשה הקונספט החשוב ביותר ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
           }
         ]
       }

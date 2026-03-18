@@ -27384,7 +27384,7 @@
       "slug": "nodes-וסצנות",
       "order": 4,
       "createdAt": "2026-03-18T12:16:58.352Z",
-      "updatedAt": "2026-03-18T14:18:43.986Z",
+      "updatedAt": "2026-03-18T17:59:37.916Z",
       "tags": [],
       "content": {
         "type": "doc",
@@ -29271,7 +29271,33 @@
               },
               {
                 "type": "text",
-                "text": "- כאשר הורה משוחרר מהזיכרון (מושמד, נמחק), כל הילדים שלו משתחררים גם - הכל לפי הסדר בצורה רקורסיבית. זהו מודל ניהול הזכרון של Godot, אין צורך באוסף זבל (Garbage Collector), כאשר אנו מסירים הורה - יוסרו גם הילדים שלו."
+                "text": "- כאשר הורה משוחרר מהזיכרון (מושמד, נמחק), כל הילדים שלו משתחררים גם - הכל לפי הסדר בצורה רקורסיבית. זהו מודל ניהול הזכרון של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ", אין צורך באוסף זבל ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Garbage Collector"
+              },
+              {
+                "type": "text",
+                "text": "), כאשר אנו מסירים הורה - יוסרו גם הילדים שלו."
               }
             ]
           },
@@ -29300,7 +29326,4883 @@
               },
               {
                 "type": "text",
-                "text": " - "
+                "text": " - כאשר אנו מוסיפים הורה לעץ, כל ילד מקבל הודעת “"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "ready"
+              },
+              {
+                "type": "text",
+                "text": "“ (מצב מוכן) לפי הסדר. כאשר הורה נמצא במצב השהיה ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Pause"
+              },
+              {
+                "type": "text",
+                "text": ") - כל הילדים שלו יושפעו, כאשר אנו מסתירים הורה ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Invisibility"
+              },
+              {
+                "type": "text",
+                "text": ") - לא נוכל לראות גם את הילדים שלו."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl",
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "נתיבי Nodes"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "לכל "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " בעץ יש נתיב ייחודי - מחרוזת ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "string"
+              },
+              {
+                "type": "text",
+                "text": ") המתארת את כל אילן היוחסין שלו ומהיכן הוא הגיע, הנתיבים משתמשים בלוכסן “"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "text": "”:"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "נתיבים אבסולוטיים"
+              },
+              {
+                "type": "text",
+                "text": " - מתחילים מהבסיס: "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "root"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Main"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Player"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Sprite2D"
+              },
+              {
+                "type": "text",
+                "text": "/."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "נתיבים יחסיים"
+              },
+              {
+                "type": "text",
+                "text": " - מתחילים מה-Node הנוכחי: "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Player"
+              },
+              {
+                "type": "text",
+                "text": "/"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Sprite2D "
+              },
+              {
+                "type": "text",
+                "text": "למשל."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": "rtl"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ניתן להשתמש בנתיבי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " בקוד:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "// From the Main node, get the Player node\nvar player = GetNode<CharacterBody2D>(\"Player\");\n\n// From the Player node, get its Sprite2D child\nvar sprite = GetNode<Sprite2D>(\"Sprite2D\");\n\n// From the Player node, get the Enemy (sibling — go up, then down)\nvar enemy = GetNode<CharacterBody2D>(\"../Enemy\");"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "נכסה את המתודה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "GetNode"
+              },
+              {
+                "type": "text",
+                "text": " באופן מקיף בפרק "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "5"
+              },
+              {
+                "type": "text",
+                "text": ". נכון לרגע זה, חשוב להבין שהמבנה בעץ משפיע על הצורה שבה אנו ניגש ל-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסויים מהקוד."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.3 סקירת סוגי Nodes מובנים"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot "
+              },
+              {
+                "type": "text",
+                "text": "מגיע עם מעל ל-100 סוגי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " שונים, אין צורך לשנן ולזכור בעל פה את כולם, ככל שנעבוד עם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסויים - כך נכיר אותו ואת המאפיינים שלו יותר טוב. אך הבנה בסיסית של מיפוי הקטגוריות תעזור לנו לדעת פחות או יותר מה קיים ואיפה למצוא את מה שאנחנו צריכים."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "2D Nodes - (Nodes אשר יורשים מ-  Node2D)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אלו הם ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " הנפוצים ביותר שנשתמש בהם לפיתוח משחקים דו ממדיים ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Visuals:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Sprite2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מציג תמונה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AnimatedSprite2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מנגן רצף של פריימים מ-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Sprite Sheet"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Polygon2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מצייר פולגון בצבעים."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Line2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מצייר קו בין 2 נקודות."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Parallax2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - יוצר אפקט "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Parallax"
+                      },
+                      {
+                        "type": "text",
+                        "text": " באמצעות גלילה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Physics bodies:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "CharacterBody2D "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- “גוף” שניתן להזיז באמצעות הקוד, משתמשים עבור דמות השחקן, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NPC’s"
+                      },
+                      {
+                        "type": "text",
+                        "text": " וכדומה. מנהל תגובה להתנגשויות עצמים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Collisions"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") באמצעות "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "()MoveAndSlide"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "RigidBody2D "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- “גוף” המושפע מפיזיקת המשחק, כלומר שמושפע מגרביטציה (כוח-משיכה), כוחות והתנגשויות. נשתמש בו עבור אובייקטים שצריכים להרגיש “פיזיקליים”."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "StaticBody2Ds "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- “גוף” סטטי וחסר תנועה. משתמשים בו לקירות, רצפות וכדומה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Area2D "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-מזהה ש”גופים” אחרים נכנסים או יוצאים מהאזור המוגדר שלו. נשתמש בו עבור אזורי יציאה, טריגרים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Triggers"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", מעין מנגנון זיהוי שמורה על ביצוע פעולה אוטומטית כאשר מתבצע זיהוי כזה של “גוף” אחר שיוצא או נכנס מהאזור שלו) וכו’."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Collision:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "CollisionShape2D "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מגדיר את הצורה של איזור ההתנגשות (ריבוע, עיגול, קפסולה, פוליגון). נוסיף אותו כילד של גוף פיזיקלי."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "CollisionPolygon2D "
+                      },
+                      {
+                        "type": "text",
+                        "text": "-אותו הרעיון, רק שכאן נצייר את האזור נקודה אחר נקודה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Other 2D:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Camera2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מגדיר את מצלמת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Viewport"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", יודע לעקוב אחרי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", לשלוט בגבולות, רמת פוקוס ועוד.."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "TileMapLayer"
+                      },
+                      {
+                        "type": "text",
+                        "text": " -בונה שלבים מבוסס אריחים ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Tile Based Level Building"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "RayCast2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - “יורה” קרן (בלתי נראית) לכיוון נתון ומדווח במה היא “פגעה”. דמיינו לכם קרן לייזר בלתי נראית למדידת מרחקים."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "NavigationAgent2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מתכנן “נתיבי הליכה” עבור דמויות. מנגנון אינטיליגנציה מלאכותית שנועד למצב שעלינו לקבוע כיצד דמות הנשלטת על ידי המחשב תדע “ללכת”/”לסייר” בעולם המשחק."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GPUParticles2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - אפקט חלקיקים \\ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Particle Effects"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (עשן, אש, ניצוצות)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "UI Nodes (יורשים מ-Control)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אלו הם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " אשר נועדו ליצירת ממשקי משתמש:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Label "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מציג טקסט."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Button "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מציג כפתור הניתן ללחיצה."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "TextureRect "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מציג תמונה בשכבת ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "UI"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ProgressBar "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- בר מתמלא (כוח חיים, תצוגת טעינה וכו’)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "LineEdit "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- שדה קלט טקסט בעל שורה בודדת."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "TextEdit "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- שדה קלט טקסט רב שורתי."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HBoxContainer/VBoxContainer "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- לצורך ארגון ילדים אנכית/אופקית."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GridContainer "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- ארגון ילדים בשיטת מרשתת ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Grid"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Panel "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מרובע מעוצב בעל רקע."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "MarginContainer "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- לצורך ריווח מסביב לילד נתון."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ScrollContainer "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- אזור תוכן בעל אפשרות גלילה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Utility Nodes (יורשים מ-Node)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מדובר בקטגוריה של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " שאין להם ייצוג פיזי או ויזואלי בעולם השחק, אך יודעים להביא איתם פונקציונליות חשובה:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Timer"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - סופר לאחור, שולח "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Signal"
+                      },
+                      {
+                        "type": "text",
+                        "text": " כשמגיע ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "0"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AudioStreamPlayer"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - משמיע צליל (ללא מיקום, ישמע באותה העוצמה בכל מקום)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AudioStreamPlayer2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - משמיע צליל  ביחס למיקום בעולם דו ממדי (העוצמה משתנה בהתאם למרחק מהמאזין)."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AnimationPlayer"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - מנגן רצף של אנימציות keyframes על כל מאפיין של כל "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "AnimationTree"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - נועד לניהול של מעברים בין אנימציות באמצעות “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מנהל מצבים"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "State Machine"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HTTPRequest"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - שולח קריאת "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "HTTP"
+                      },
+                      {
+                        "type": "text",
+                        "text": ". שימושי כשיש צורך בשימוש ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "API"
+                      },
+                      {
+                        "type": "text",
+                        "text": " חיצוני, ניהול טבלת שיאים, וכו’."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "CanvasLayer"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - יוצר שכבה נפרדת על גבי המסך ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "שכבת רינדור שונה"
+                      },
+                      {
+                        "type": "text",
+                        "text": "). אלמנטים של ממשק משתמש כגון HUD, קבועים במסך בשכבה עליונה ואינם זזים כתוצאה מהזזת המצלמה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "איך להכיר ולגלות Nodes נוספים"
+              }
+            ]
+          },
+          {
+            "type": "image",
+            "attrs": {
+              "src": "/content/images/new_node.png",
+              "alt": null,
+              "title": null,
+              "width": null,
+              "height": null
+            }
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "כאשר אנו לוחצים על אייקון ה-”"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "text": "” (או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Ctrl"
+              },
+              {
+                "type": "text",
+                "text": "+"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "A"
+              },
+              {
+                "type": "text",
+                "text": ") על מנת להוסיף "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " חדש לעץ - נוכל לראות את הרשימה המלאה של ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": ", ושורת חיפוש אשר מאוד עוזרת למצוא בדיוק את מה שאנחנו צריכים."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "לכל "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " יש תיאור קצר המסביר את אופן פעולתו (ניתן ללחוץ על "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "F1"
+              },
+              {
+                "type": "text",
+                "text": " ולחפש "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מסוים על מנת לקבל עליו פרטים מלאים ומידע נוסף)."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.4 מה היא סצנה (Scene)?"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ובכן, אנחנו משתמשים במילה “"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "סצנה"
+              },
+              {
+                "type": "text",
+                "text": "” מהפרק הראשון של הספר, כעת ניכנס לעומקו של המושג."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "סצנה ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Scene"
+              },
+              {
+                "type": "text",
+                "text": ") היא למעשה עץ שמור של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": ", זה הכל. זהו קובץ "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "tscn"
+              },
+              {
+                "type": "text",
+                "text": ". אשר מתאר את עץ ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " - איזה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " קיימים בסצנה זו, הסוגים שלהם, המאפיינים והערכים, יחסי הילד-הורה שלהם, והסקריפטים המוצמדים שלהם."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כאשר אנחנו שומרים סצנה, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " יוצר קובץ "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "tscn"
+              },
+              {
+                "type": "text",
+                "text": ". אשר מכיל את כל המידע הנ”ל, כלומר שכשאנחנו פותחים סצנה, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " קורא את הקובץ ויוצר בזיכרון את עץ ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": ". "
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "סצנות הן תבניות לשימוש חוזר (Reusable Templates)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אחד הפיצ’רים שהופך את הסצנות לכלי עוצמתי: ניתן לייצר מהן מופעים (Instances). מופע הוא העתק חי של הסצנה שאנו ממקמים בתוך סצנה אחרת. המופע פונה לקובץ ה-tscn. המקורי - כלומר שאם נשנה את המקורי - זה ישפיע על כולם."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "חישבו על סצנה כשבלונה ועל מופע כהעתק בנוי וחי. יוצרים את השבלונה פעם אחת - ומאותו הרגע יוצרים העתקים בנויים היכן שנרצה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "סצנות הן יחידות עצמאיות"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "סצנה בנויה היטב מכילה בתוכה כל מה שהיא צריכה על מנת לתפקד כהלכה: "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "למשל סצנת השחקן אמורה להכיל בתוכה את הגוף, איזור ההתנגשות, התמונה, האנימציה וסקריפט."
+              },
+              {
+                "type": "hardBreak"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כלומר שסצנות עצמאיות הן:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ניתנות לבדיקה בהפרדה "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- לחצו F6 על מנת להריץ סצנה ספציפית ולבדוק אותה באופן עצמאי ומבודד מבלי לטעון את כל השלב."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ניתנות לשימוש חוזר"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - למשל ניתן ליצור העתק של אויב בכל השלבים."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פשוטות להבנה"
+                      },
+                      {
+                        "type": "text",
+                        "text": " -מפתיחה של הסצנה ניתן לראות ישר ממה היא מורכבת במקום אחד."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "לא רק “שלבים”"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "המילה “סצנה” נוטה לגרום לנו לחשוב על שלב במשחק, אך ב-Godot אנחנו משתמשים בסצנות לכל דבר:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "דמויות"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אויבים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "יריות (Projectiles)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "רכיבי UI"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חפצים הניתנים לאיסוף"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אפקט חלקיקים (Particle Effect)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "שלב"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תפריט "
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "סצנות מסוימות הן קטנות (טיימר פשוט למשל) לעומת סמנות אחרות שיכולות להיות גם גדולות מאוד, אך העיקרון נשאר זהה - זה תמיד נשמר כעץ "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.5 סצנות מורכבות (Scene Composition) - סצנה בתוך סצנה"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "סצנות יכולות להכיל מופעים של סצנות אחרות (זה הרי הגיוני שזה מתאפשר, משום שסצנה היא למעשה עץ של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": "), שמכיות מופעים של סצנות אחרות וכן הלאה. זוהי "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "קומפוזיציה"
+              },
+              {
+                "type": "text",
+                "text": " ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Composition"
+              },
+              {
+                "type": "text",
+                "text": "), וכך תוכלו לבנות משחקים שלמים המורכבים מחלקים פשוטים."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "דוגמא"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "נניח ואנו בונים משחק פלטפורמר, זוהי הקומפוזיציה הצפויה לסצנת שלב:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Level01.tscn\n├── TileMapLayer          (the level geometry)\n├── Player.tscn           (instanced scene)\n│   ├── CharacterBody2D\n│   ├── Sprite2D\n│   ├── CollisionShape2D\n│   └── AnimationPlayer\n├── Enemy.tscn            (instanced scene — copy 1)\n│   ├── CharacterBody2D\n│   ├── Sprite2D\n│   ├── CollisionShape2D\n│   └── PatrolPath\n├── Enemy.tscn            (instanced scene — copy 2)\n├── Enemy.tscn            (instanced scene — copy 3)\n├── Coin.tscn             (instanced — copy 1)\n├── Coin.tscn             (instanced — copy 2)\n├── Coin.tscn             (instanced — copy 3)\n├── HUD.tscn              (instanced scene)\n│   ├── ScoreLabel\n│   ├── HealthBar.tscn    (instanced scene within HUD)\n│   └── LivesCounter\n└── Camera2D"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "סצנת השלב לא מודעת באופן ישיר להעתקי הסצנות שהיא מכילה, היא רק מייצרת וממקמת אותם במקום הנכון, דמות השחקן לא באמת “יודעת” שהיא נמצאת בתוך שלב - היא פשוט מתנהגת כמו שאמורה להתנהג."
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "כל סצנה מנהלת את הדברים שהיא אחראית עליהם."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "דריסת (Overriding) מאפיינים של העתק (Instance)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כאשר אנו יוצרים העתק של סצנה, נקבל העתק מדויק של המאפיינים שלה, אך נוכל לדרוס\\לעקוף ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Override"
+              },
+              {
+                "type": "text",
+                "text": ") מאפיינים ספציפיים בעותק מבלי להשפיע על המקור. מאפיינים שדרסנו בהעתק יופיעו עם אייקון איפוס ליד ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Inspector"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "למשל, אם הסצנה המקורית של האויב ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Enemy"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "tscn"
+              },
+              {
+                "type": "text",
+                "text": " למשל) בעלת המאפיינים והערכים:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Speed"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": 80"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Health"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": 3"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Color"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": red"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אבל בשלב מסוים היינו רוצים שהאויב יהיה כחול ומהיר יותר, אז מאפיניו של ההעתק שניצור באותו השלב יראו בערך ככה:"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Speed"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": 150 - נדרס."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Health"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": 3 - נשאר כמו במקורי."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Color"
+                      },
+                      {
+                        "type": "text",
+                        "text": ": blue - נדרס."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": "* אם אחר כך ניגש לסצנה המקורית ונשנה את מאפיין ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Health"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " של האויב ל-5, זה ישתנה בכל ההעתקים "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "שלא"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " דרסו את ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Health"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#ab7517",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " המקורי."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "עריכת ילדים של מופע"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "באופן רגיל - במופעים לא ניתן לערוך Nodes של ההורה - הם לרוב יהיו “נעולים” להגדרת הסצנה, אך לעיתים נרצה לשנות משהו ספציפי. לחיצה ימנית עם העכבר ובחירה ב-”"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Editable Children"
+              },
+              {
+                "type": "text",
+                "text": "” תאפשר לנו לערוך "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " ומאפיינים, ואפילו למחוק "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " - וכל זה יתבצע על ההעתק בלבד ולא ישפיע על הסצנה המקורית."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "עדיף להשתדל למעט את השימוש באפשרות זו, בדרך כלל (לא תמיד זה המצב), אם אנחנו מוצאים את עצמנו במצב שאנחנו עורכים ילדים של מופע - זה סימן שהיינו צריכים לייצא מאפיינים מסוימים או לתכנן אחרת."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "חשיבה בקומפוזיציה"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כאשר אנחנו מתכננים משחק, יש לחשוב במושגים של סצנות:"
+              }
+            ]
+          },
+          {
+            "type": "blockquote",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "“מה הם החלקים העצמאיים במשחק שלי?“"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כל אחד מהם הוא הרי סצנה, אז השאלה הבאה המתבקשת היא:"
+              }
+            ]
+          },
+          {
+            "type": "blockquote",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "“ממה כל אחד מהם מורכב?”"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כל רכיב הוא "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": "/עץ של "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " או סצנה כלשהי, יש לבנות מלמעלה למטה. "
+              },
+              {
+                "type": "hardBreak"
+              },
+              {
+                "type": "text",
+                "text": "נתחיל קודם מסצנות קטנות, ואז נרכיב אותם לסצנות גדולות."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "עקרון זה מזכיר לנו עקרונות של תכנון עיצוב מבוסס קומפוננטות ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Component Based Design"
+              },
+              {
+                "type": "text",
+                "text": ") בהנדסת תוכנה. אם יצא לכם לעבוד בעבר עם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "React"
+              },
+              {
+                "type": "text",
+                "text": " לוגיקה זו כנראה מוכרת לכם."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.6 יצירת העתקים בזמן ריצת התוכנית"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "הדרך שדיברנו עליה עד כה ליצירת מופעים היא פשוט לגרור אותם לעץ, זה מצב שבו אנחנו מייצרים העתק בסצנה מראש לפני טעינת השלב. אך בפיתוח משחקים, לעיתים קרובות, יש לנו צורך ליצור מופעים ולצרף לעץ בזמן שהמשחק כבר רץ, תחשבו על סיטואציות כמו מטבע הניתנת לאיסוף שמופיעה כאשר אויב מושמד, לייזר שנורה מחללית אויב באופן אקראי, וכו’."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "על מנת שנוכל לעשות זאת, נצטרך לייצר מופעים בזמן ריצה."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "שיטת שני הצעדים"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "יצירת מופע ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "#C"
+              },
+              {
+                "type": "text",
+                "text": " נעשית ב-2 צעדים:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "טעינת הסצנה "
+                      },
+                      {
+                        "type": "text",
+                        "text": "ויצירת מופע (העתק של עץ "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Nodes"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הוספת המופע "
+                      },
+                      {
+                        "type": "text",
+                        "text": "לעץ הסצנות כילד של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " כלשהו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "// צעד ראשון: טעינת הסצנה ויצירת מופע\nvar bulletScene = GD.Load<PackedScene>(\"res://scenes/Bullet.tscn\");\nvar bullet = bulletScene.Instantiate<Node2D>();\n\n// צעד שני: הוספת המופע לעץ הסצנות כילד\nbullet.Position = new Vector2(100, 200);\nGetTree().CurrentScene.AddChild(bullet);"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "הסבר"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "attrs": {
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GD.Load<PackedScene>(\"res://scenes/Bullet.tscn\")"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - טוען את הסצנה ומחזיר משאב "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "PackedScene"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - זוהי גירסא מינימליסטית של הסצנה - מוכנה שניצור ממנה מופע."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "()<bulletScene.Instantiate<Node2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - יוצר מופע חדש מהסצנה. הפרמטר הגנרי "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "<Node2D>"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אומר לקומפיילר איזה סוג יש ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Root Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", כך שנקבל את הסוג הנכון עם המאפיינים שלו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "bullet.Position = new Vector2(100, 200)"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - המופע קיים כעת בזיכרון, אך עדיין לא הוספנו אותו לעץ, ניתן לערוך את מאפייניו לפני שנוסיף אותו."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GetTree().CurrentScene.AddChild(bullet) "
+                      },
+                      {
+                        "type": "text",
+                        "text": "- מוסיף את המופע לעץ כילד של ה-Root Node של הסצנה הנוכחית. כעת המופע חי וקיים בעולם המשחק, הוא מתרנדר ומעובד."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "טעינה מוקדמת למען שיפור ביצועים"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "המתודה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "()GD.Load"
+              },
+              {
+                "type": "text",
+                "text": " קוראת מהדיסק ישר ברגע שאנחנו קוראים לה ("
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " זוכר משאבים ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "cache"
+              },
+              {
+                "type": "text",
+                "text": ", אך הטעינה הראשונה יכולה להיות “יקרה” מבחינת צריכת משאבים בכל אופן), כך שאם אנחנו יוצרים מופעים באופן תכוף - כמו יריה של אקדח למשל - מומלץ שנטען את הסצנה פעם אחת ונשתמש שוב ושוב ב-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "PackedScene"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "public partial class Player : CharacterBody2D\n{\n    // נטען פעם אחת בלבד כאשר הסקריפט נטען לשימוש בפעם הראשונה\n    private readonly PackedScene _bulletScene = GD.Load<PackedScene>(\"res://scenes/Bullet.tscn\");\n\n    private void Shoot()\n    {\n        var bullet = _bulletScene.Instantiate<Node2D>();\n        bullet.GlobalPosition = GlobalPosition;\n        GetTree().CurrentScene.AddChild(bullet);\n    }\n}"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "על ידי כך ששמרנו את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "PackedScene "
+              },
+              {
+                "type": "text",
+                "text": "במשתנה לקריאה בלבד, הסצנה נטענת פעם אחת, ואנחנו יוצרים ממנה מופע בכל פעם שאנחנו קוראים למתודה "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "()Shoot"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "היכן להוסיף את המופע"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " שאליו נוסיף את המופע יכול להיות ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "RootNode"
+              },
+              {
+                "type": "text",
+                "text": " של הסצנה, "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " ספציפי או ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " הנוכחי. כפי שכבר למדנו את חשוב ומשנה היכן נוסיף את המופע."
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "// מוסיף כילד של נוד הבסיס בסצנה הנוכחית - הכי שכיח בשימוש\nGetTree().CurrentScene.AddChild(bullet);\n\n// מוסיף כילד של הנוד הנוכחי\nAddChild(bullet);\n\n// מוסיף כילד של נוד ספציפי\nGetNode<Node2D>(\"BulletContainer\").AddChild(bullet);"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "אם נוסיף את כדור האקדח כילד של השחקן - אז מיקום הכדור יהיה יחסי לשחקן, הוא יזוז כאשר השחקן זז - וכנראה שלא זאת ההתנהגות שרצינו. אך אם היינו מוסיפים את הכדור כילד של ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Root Node"
+              },
+              {
+                "type": "text",
+                "text": " או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " של קונטיינר ייעודי כלשהו - זה היה משאיר את הכדור עצמאי."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "שיטה נפוצה ונהוגה היא ליצור "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node2D"
+              },
+              {
+                "type": "text",
+                "text": " ריק ולתת לו שם כמו "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "BulletContainer"
+              },
+              {
+                "type": "text",
+                "text": " או "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "EnemyContainer"
+              },
+              {
+                "type": "text",
+                "text": " בסצנת השלב, נוכל להוסיף לשם מופעים שאנחנו מייצרים על מנת להשאיר את "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "העץ מסודר"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מחיקת מופעים"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "כאשר אנחנו רוצים להסיר מופע שיצרנו (יריה שפוגעת בקיר, אויב שהושמד, וכו’) נוכל לעשות זאת כך:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "csharp"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "// מסיר מהעץ ומשחרר את הזיכרון\nQueueFree();"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "זוהי דרך בטוחה להסיר "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " מהעץ. "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Godot"
+              },
+              {
+                "type": "text",
+                "text": " ממתינה שהפריים האחרון יסיים לעבד, מסירה את ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " וכל הילדים שלו מהעץ ומשחררת את הזיכרון. "
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#a25916",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": "* יש מתודה בשם "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#a25916",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "()Free"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#a25916",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " ולא מומלץ להשתמש בה אלא אם אתם באמת מבינים מה אתם עושים - זה יכול לגרום לקריסה אם ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#a25916",
+                      "fontFamily": null
+                    }
+                  },
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "textStyle",
+                    "attrs": {
+                      "color": "#a25916",
+                      "fontFamily": null
+                    }
+                  }
+                ],
+                "text": " נמצא עדיין בשלב העיבוד."
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 3
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "מחזור החיים של מופע (Lifecycle)"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " שעבר "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "instancing"
+              },
+              {
+                "type": "text",
+                "text": " (יצירת מופע) עובר את השלבים הבאים:"
+              }
+            ]
+          },
+          {
+            "type": "orderedList",
+            "attrs": {
+              "dir": null,
+              "start": 1,
+              "type": null
+            },
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "נוצר"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — הפונקציה "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()Instantiate"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נקראת. ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " קיים בזיכרון אבל עדיין לא בעץ."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מוגדר"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — מגדירים לו מיקום, מאפיינים וכו'."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מתווסף לעץ"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — הפונקציה "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()AddChild"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נקראת. ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " עכשיו פעיל."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()_Ready"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " נקראת"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — פעם אחת, כשה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " נכנס לעץ בפעם הראשונה. כאן שמים קוד אתחול."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()_Process"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " / "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()_PhysicsProcess"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " נקראות כל פריים"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " פעיל ורץ."
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "()QueueFree"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": " נקראת"
+                      },
+                      {
+                        "type": "text",
+                        "text": " — ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Node"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מוסר מהעץ ונהרס בסוף הפריים."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "מחזור החיים הזה זהה בין אם יצרתם את ה-"
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Node"
+              },
+              {
+                "type": "text",
+                "text": " בעורך או מקוד. "
+              },
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "Nodes"
+              },
+              {
+                "type": "text",
+                "text": " שנוצרו דרך העורך פשוט עוברים את שלבים 1-5 באופן אוטומטי כשהסצנה נטענת."
+              }
+            ]
+          },
+          {
+            "type": "horizontalRule"
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null,
+              "level": 2
+            },
+            "content": [
+              {
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "bold"
+                  }
+                ],
+                "text": "4.7 תרגול מעשי - יצירת היררכיית סצנות"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "textAlign": "right",
+              "dir": null
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "צרו את היררכיית הסצנות הבאה:"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "attrs": {
+              "language": "bash"
+            },
+            "content": [
+              {
+                "type": "text",
+                "text": "Main (Node2D)\n├── Background (Sprite2D)\n├── Player (Node2D)\n│   ├── Body (Sprite2D)\n│   └── Marker (Sprite2D)\n├── Obstacle (StaticBody2D)     — instanced scene\n│   ├── Sprite2D\n│   └── CollisionShape2D\n├── Obstacle (StaticBody2D)     — instanced scene (copy 2)\n└── Obstacle (StaticBody2D)     — instanced scene (copy 3)"
               }
             ]
           },

@@ -4,7 +4,7 @@
   "slug": "c-ב-godot",
   "order": 5,
   "createdAt": "2026-03-19T04:39:57.016Z",
-  "updatedAt": "2026-03-19T05:52:27.720Z",
+  "updatedAt": "2026-03-19T10:27:07.902Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -29,10 +29,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/new_script.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -1081,14 +1084,53 @@
         "content": [
           {
             "type": "text",
-            "text": "כל Node יכול לכלול סקריפט אחד מוצמד בלבד. כלומר שלא ניתן להצמיד מספר סקריפטים ל-Node מסוים. "
+            "text": "כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " יכול לכלול סקריפט אחד מוצמד בלבד. כלומר שלא ניתן להצמיד מספר סקריפטים ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוים. "
           },
           {
             "type": "hardBreak"
           },
           {
             "type": "text",
-            "text": "במידה ונצטרך התנהגות מורכבת כלשהי - נשתמש בטכניקה של יצירת ילדים והצמדת הסקריפט אליהם - כל אחד עם הסקריפט הייחודי שלו (שוב טכניקת הקומפוזיציה על פני ירושה). לדוגמא:"
+            "text": "במידה ונצטרך התנהגות מורכבת כלשהי - נשתמש בטכניקה של יצירת ילדים והצמדת הסקריפט אליהם - כל אחד עם הסקריפט הייחודי שלו (שוב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טכניקת הקומפוזיציה על פני ירושה"
+          },
+          {
+            "type": "text",
+            "text": "). לדוגמא:"
           }
         ]
       },
@@ -1119,6 +1161,4387 @@
             }
           ]
         }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "5.2 יצירה, הצמדה, וכתיבה של סקריפט #C"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם עקבתם אחרי הספר מהפרק הראשון אז הצעדים הבאים כבר יהיו מוכרים לכם, אם לא - אז לא נורא, הכל יוסבר שוב ובאופן מעמיק יותר. נתחיל מהיכן שעצרנו בסוף התירגול של פרק 4 (ניתן פשוט לפתוח פרויקט חדש וליצור סמנה ראשית שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " הראשי שלה הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " שיש לו ילד מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": ", אבל באמת מומלץ לסיים את התירגול ולהמשיך מנקודה זו לשם הבנה מלאה). "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יצירת סקריפט חדש והצמדתו ל-Node"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "פתח את הסצנה ובחר את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של דמות השחקן ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2d"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", זה שנרצה להצמיד אליו את הסקריפט)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בפאנל הסצנה - לאחר סימון ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לחצו על אייקון הוספת הסקריפט (ניתן גם להקיש באמצעות הלחצן הימני של העכבר על ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " המבוקש ולבחור ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Attach"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Script"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בתפריט הנפתח)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "יפתח לנו דיאלוג עם מספר אופציות, אנא ודאו את ההגדרות או שנו:"
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Language "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- שפת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "#C"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inherits "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- אמור לרשת מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אם בחרתם את ה-Node הנכון כמובן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Path "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- הנתיב שיופיע באופן דיפולטיבי יהיה - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "res://Sprite2D.cs"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", אך מומלץ ליצור תיקיית /"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "scripts"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למען הסדר הטוב ולשנות את הנתיב ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "res://scripts/Spinner.cs"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Template "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- תבנית הסקריפט, בחרו ב-Default, התבנית הדיפולטיבית עונה על הצרכים שלנו."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 4,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על Create."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/new_script.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יצור עבורנו קובץ "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "cs."
+          },
+          {
+            "type": "text",
+            "text": " ויצמיד אותו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": ", כעת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " יציג אייקון של סקריפט בעץ הסצנה, קליק על אייקון זה (או על הסקריפט בפאנל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FileSystem"
+          },
+          {
+            "type": "text",
+            "text": ") יפתח את הסקריפט בעורך הקוד שהגדרתם (אם הגדרתם לפי ההוראות בפרק 2)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ה-Template הדיפולטיבי"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\nusing System;\n\npublic partial class Spinner : Sprite2D\n{\n    // Called when the node enters the scene tree for the first time.\n    public override void _Ready()\n    {\n    }\n\n    // Called every frame. 'delta' is the elapsed time since the previous frame.\n    public override void _Process(double delta)\n    {\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זהו השלד של כל סקריפט ב-Godot, והוא מגיע עם 2 מתודות שכבר דיברנו עליהן: ()Ready_ ו-()_Process_ - אלו הן מתודות מחזור חיים (Lifecycle) שהמנוע קורא להן באופן אוטומטי. נרחיב עליהן עוד בהמשך הפרק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עבודה על המשחק דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש מגוון של דברים שנוכל לעשות בקוד בהקשר של המשחק, בואו נראה דוגמא קטנה. נניח והיינו רוצים שהתמונה תסתובב קצת בכל פריים, עירכו כך את המתודה ()Process_:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Process(double delta)\n{\n    Rotation += 2.0f * (float)delta;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אתגר: "
+          },
+          {
+            "type": "text",
+            "text": "נסו לעשות זאת על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " השחקן במקום על התמונה כולה לשם התנסות, נסו גם מאפיינים אחרים."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "בנו את הפרויקט ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alt"
+          },
+          {
+            "type": "text",
+            "text": "+"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "B"
+          },
+          {
+            "type": "text",
+            "text": ") והריצו את הסצנה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "F6"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך זה קורה?"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "המתודה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()Process_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נקראת לפעולה בכל פריים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "60"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פעמים בשניה במסך טיפוסי)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " זה הזמן בשניות מהפריים הקודם (כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "0.016"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במצב של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "60"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פריימים בשניה). ההכפלה ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " גורמת למהירות הסיבוב להיות תלויה בקצב הפריימים - כלומר שזה מסתובב באותה המהירות בין אם המשחק רץ על תדירות של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "30"
+                  },
+                  {
+                    "type": "text",
+                    "text": " או על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "144"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פריימים לשניה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Rotation"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא מאפיין אשר מגיע מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (הגיע בירושה מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), מאפיין זה קובע את הסיבוב של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ברדיאנים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Radians"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), שינוי הסיבוב בכל פריים גורם לסיבוב מתמשך בזמן הפעלת התוכנית."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "המשמעות של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "2.0f"
+                  },
+                  {
+                    "type": "text",
+                    "text": " היא שהוא מסתובב ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "2"
+                  },
+                  {
+                    "type": "text",
+                    "text": " רדיאנים לשניה (בערך כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "115"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מעלות לשניה), ככל שנגדיל את המספר - נקבל סיבוב מהיר יותר."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב הבניה (Build)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בכל פעם שאנו משנים קוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C,"
+          },
+          {
+            "type": "text",
+            "text": " עלינו לבצע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Build"
+          },
+          {
+            "type": "text",
+            "text": " על מנת שהשינויים יתממשו במשחק (לא תמיד זה המקרה, לרוב הרצה באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "F5"
+          },
+          {
+            "type": "text",
+            "text": " או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "F6"
+          },
+          {
+            "type": "text",
+            "text": " אמורה לבצע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Build"
+          },
+          {
+            "type": "text",
+            "text": " באופן אוטומטי טרם ההרצה), כפי שהוסבר בפרקים הקודמים, נוכל לעשות זאת באמצעות הקשה על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alt"
+          },
+          {
+            "type": "text",
+            "text": "+"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "B"
+          },
+          {
+            "type": "text",
+            "text": " או לחיצה על האייקון בצורת פטיש אשר נמצא בפאנל התחתון."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/build.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "באזור זה יופיעו גם הודעות שגיאה, הודעות ששלחנו לקונסולה דרך הקוד ועוד. הקפידו לתקן שגיאות טרם ההרצה - אחרת התוכנית לא תרוץ."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "5.3 Ready, Process"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              }
+            ],
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "text": "_PhysicsProcess_"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שלושת המתודות האלו הן  הליבה של כל סקריפט ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": ", הבנה של מתי כל אחת מהן יוצאת לפועל, ומה היעוד של כל אחת מהן - זה דבר חיוני."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Ready_ - אתחול"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Ready()\n{\n    GD.Print(\"I'm alive!\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Ready_"
+          },
+          {
+            "type": "text",
+            "text": " נקראת לפעולה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פעם אחת בלבד"
+          },
+          {
+            "type": "text",
+            "text": " כאשר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " נכנס לעץ הסצנה בפעם הראשונה. בשלב הזה:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נמצא בעץ."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כל הילדים שלו נמצאים בעץ וכבר נקראה מתודת ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()Ready_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלהם (הילדים מוכנים לפני ההורים)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ניתן לגשת באופן בטוח ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ילדים, לשנות להם ערכים ולחבר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זוהי מתודת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אתחול"
+          },
+          {
+            "type": "text",
+            "text": ", נשתמש בה בדרך כלל עבור:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "זכירת מצביעים ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחרים (ראינו הדגמה אחת וגם נראה עוד בהמשך)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "קביעת “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מצב"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "State"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") התחלתי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חיבור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " דרך הקוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "התחלת ריצה של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "טיימר"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private Sprite2D _sprite;\nprivate int _score = 0;\n\npublic override void _Ready()\n{\n    _sprite = GetNode<Sprite2D>(\"Sprite2D\");\n    _score = 0;\n    GD.Print(\"Player is ready!\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "* חשוב: ילדים מוכנים לפני ההורים. "
+          },
+          {
+            "type": "text",
+            "text": "אם"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "העץ שלנו נראה כך"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Player",
+              "children": [
+                {
+                  "name": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "הסדר של הקריאות למתודות ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Ready_"
+          },
+          {
+            "type": "text",
+            "text": " יהיה: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D - CollisionShape2D - Player"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "זה מבטיח לנו שכשהמתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Ready_"
+          },
+          {
+            "type": "text",
+            "text": " של ההורה רצה - הילדים כבר מוכנים ומאותחלים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "(double delta)Process_ - בכל פריים"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Process(double delta)\n{\n    // Runs every frame (every ~16ms at 60 FPS)\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Process_"
+          },
+          {
+            "type": "text",
+            "text": " מתרנדרת ונקראת לפעולה בכל פריים, הפרמטר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "text": " הוא הזמן המוערך שעבר מאז הפריים האחרון בשניות. נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Delta"
+          },
+          {
+            "type": "text",
+            "text": " על מנת להפוך את הלוגיקה שלנו לתלוית תדירות פריימים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Frame-Rate"
+          },
+          {
+            "type": "text",
+            "text": "). נשתמש במתודה זו עבור:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עדכונים ויזואליים "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- אנימציות, סיבובים, שינוי צבעים, וכו’."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תנועה לא פיזיקלית "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- רכיבי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", חלקיקים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Particles"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), אפקטי מצלמה, ועוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בדיקת מצב בקרי שליטה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- נכסה את הנושא בפרק 7."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל לוגיקה שאמורה לרוץ באופן תכוף "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- או בכל פריים. "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Process(double delta)\n{\n    // Move right at 200 pixels per second\n    Position += new Vector2(200 * (float)delta, 0);\n\n    // Rotate at 1 radian per second\n    Rotation += 1.0f * (float)delta;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Frame Rate "
+          },
+          {
+            "type": "text",
+            "text": "לא מובטח או יציב - ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "text": " יהיה גדול יותר במערכות המספקות תדירות פריימים נמוכה, לכן תמיד נרצה להכפיל תנועה וערכים מבוססי תנועה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "(double delta)PhysicsProcess_ - קצב עדכון קבוע"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    // Runs at a fixed rate (60 times per second by default)\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " היא מתודה שנקראת בקצב עדכון קבוע - באופן דיפולטיבי מדובר ב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "60"
+          },
+          {
+            "type": "text",
+            "text": " פעמים בשניה, לא משנה מהו קצב תדירות הפריימים הנוכחי, זה מסונכרן עם המנוע. נשתמש במתודה זו עבור:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תנועה מבוססת פיזיקה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- שינוי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", שימוש במתודה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()MoveAndSlide"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל לוגיקה שיש לה אינטרקציה עם המנוע הפיזיקלי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - בדיקות התנגשות, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "RayCasting"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל לוגיקה שצריכה לצאת לפועל בכל פרק זמן צפוי וקבוע"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    Velocity = new Vector2(200, 0);\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Process_ ו-()PhysicsProcess_ - טבלת השוואה ומתי להשתמש בכל אחת מהן"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פרמטר"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "()Process_ "
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "()PhysicsProcess_"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תזמון"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בכל פריים (קצב משתנה)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בכל זמן קבוע"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "delta"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "משתנה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קבוע ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "כ-0.0167"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "שימוש"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ויזואלים, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "UI"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", אנימציות"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פיזיקה, תנועה, התנגשויות"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "דוגמא"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "סיבוב תפאורה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הזזת “גוף” ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "CharacterBody2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כלומר שהכלל הוא פשוט: "
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם זה מערב גופים פיזקליים או זיהוי התנגשויות עצמים - השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()PhysicsProcess_"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לכל דבר אחר השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()Process_"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם יש לכם ספק - השתמשו ב-השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()PhysicsProcess_"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", זה יהיה הדבר הבטוח ביותר לעשות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתודות מחזור חיים (Lifecycle) נוספות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש מתודות מחזור חיים נוספות אשר ניתקל בהן בהמשך:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()EnterTree_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - נקראת לפעולה כאשר ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נכנס לעץ - לפני ש-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()Ready_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נקראת לפעולה, לא נשתמש בה הרבה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()ExitTree_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - נקראת לפעולה כאשר ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יוצא מהעץ, נשתמש לניקוי ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Cleanup"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "(InputEvent @event)Input_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - נקרא לפעולה בכל פעם שיש ארוע חיווי מהמשתמש (ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ניכנס לעומק העניין בפרק "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "7"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "(InputEvent @event)UnhandledInput_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " -  נקרא לפעולה בכל פעם שיש ארוע חיווי מהמשתמש (שלא נוהל על ידי ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ניכנס לעומקו גם של העניין הזה בפרק "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "7"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כמובן שאין צורך להשתמש במתודות אלו כל הזמן, ברוב הסקריפטים יספיק לנו השימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Ready_"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "5.4 גישה למאפיינים של Node דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כפי שכבר ראינו בפרקים הקודמים, לכל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " יש מאפיינים - מיקום, סיבוב, גודל, ועוד רבים אחרים."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "כאשר אנו מצמידים סקריפט ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": ", ניתן לקרוא ולערוך מאפיינים אלו דרך הקוד, וזה מתאפשר משום שהמחלקה של הסקריפט האמור יורשת את הטייפ ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Type"
+          },
+          {
+            "type": "text",
+            "text": ") של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שאליו הצמדנו את הסקריפט."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים שהגיעו בירושה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מכיוון שהמחלקה של הסקריפט המוצמד יורשת את הטייפ של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שאליו הצמדנו את הסקריפט, כל המאפיינים יהיו נגישים לנו בתור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני #C"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    public override void _Ready()\n    {\n        // Properties inherited from Node2D\n        Position = new Vector2(100, 200);\n        Rotation = 0.5f;                    // radians\n        Scale = new Vector2(2, 2);           // double size\n\n        // Properties inherited from CanvasItem (parent of Node2D)\n        Visible = true;\n        Modulate = new Color(1, 0, 0);       // tint red\n\n        // Properties inherited from Node\n        Name = \"PlayerOne\";\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אלו הם אותם המאפיינים שאנחנו יכולים לראות ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": ". לשינוי שלהם דרך הקוד יש את אותה ההשפעה כמו שינוי דרך העורך. ההבדל הוא שמה שקורה בקוד - קורה בזמן ריצת התוכנית ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Runtime"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים נפוצים שנעבוד איתם בדרך כלל"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני Node2D:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Position\nPosition = new Vector2(100, 200);        // local (relative to parent)\nGlobalPosition = new Vector2(500, 300);  // world position\n\n// Rotation\nRotation = Mathf.Pi / 4;                // 45 degrees in radians\nRotationDegrees = 45;                    // same thing, in degrees\n\n// Scale\nScale = new Vector2(1.5f, 1.5f);        // 150% size"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני CanvasItem (ויזואל דו ממדי):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Visible = false;                         // hide the node (and all children)\nModulate = new Color(1, 1, 1, 0.5f);    // 50% transparent\nSelfModulate = Colors.Red;               // tint only this node, not children\nZIndex = 5;                              // draw order (higher = in front)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני Sprite2D:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var sprite = GetNode<Sprite2D>(\"Sprite2D\");\nsprite.FlipH = true;                    // flip horizontally\nsprite.FlipV = false;                   // flip vertically\nsprite.Texture = GD.Load<Texture2D>(\"res://assets/player.png\");"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שינוי מאפיינים בהתאם לזמן/פרק זמן"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "העוצמה האמיתי מגיעה משינוי מאפיינים בתוך המתודות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()Process_"
+          },
+          {
+            "type": "text",
+            "text": " או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "כך ניתן ליצור אנימציות, תנועה, והתנהגות דינאמית:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class FloatingItem : Sprite2D\n{\n    private float _time = 0;\n\n    public override void _Process(double delta)\n    {\n        _time += (float)delta;\n\n        // Bob up and down using a sine wave\n        Position = new Vector2(Position.X, Mathf.Sin(_time * 2) * 20);\n\n        // Pulse the opacity\n        Modulate = new Color(1, 1, 1, 0.5f + Mathf.Sin(_time * 3) * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה יתן לאובייקט מראה “מהבהב ומרחף”, ללא מערכת אנימציה - אלא פעולות מתמטיות על המאפיינים בכל פריים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתודות של Nodes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מעבר למאפיינים, ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " יש גם מתודות שנוכל להשתמש בהן, למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Node methods\nQueueFree();                             // destroy this node\nGetChildren();                           // get all child nodes\nAddChild(someNode);                      // add a child node\n\n// Node2D methods\nLookAt(targetPosition);                  // rotate to face a point\nGlobalPosition.DistanceTo(other);        // distance to another point\n\n// Sprite2D methods\nGetRect();                               // get the bounding rectangle"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נכיר עוד ועוד מתודות ככל שנשתמש בהן בפרויקטים, אך העקרון נשאר תמיד זהה: מחלקת הסקריפט יורשת את כל מה שיש ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שאליו היא מוצמדת להציע."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "5.5 המתודה ()<GetNode<T והתכונה (Attribute) המיוחדת [Export]"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עד כה, התמקדנו רק במאפיינים הנגישים בירושה מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " המוצמד, אך במשחקים לעתים יש צורך לאפשר ל-Nodes שונים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לתקשר"
+          },
+          {
+            "type": "text",
+            "text": " בינהם, לדוגמא: הסקריפט של השחקן צריך גישה לאחד מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " הילדים שלו, ממשק ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HUD"
+          },
+          {
+            "type": "text",
+            "text": " צריך לדעת כמה כוח\\חיים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Health"
+          },
+          {
+            "type": "text",
+            "text": ") נשארו לשחקן על מנת להציג לנו אותם, קליע רובה צריך לדעת לאיזה כיוון עליו “לעוף”. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מספקת לנו שני כלים עיקריים על מנת לאפשר זאת:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()<GetNode<T "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- תשמש אותנו למציאת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בעץ."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "[Export]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - על מנת “לחשוף” ערכים לעורך."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()GetNode_ - מציאת Nodes לפי נתיב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()<GetNode<T "
+          },
+          {
+            "type": "text",
+            "text": "מקבלת נתיב של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " כפרמטר (דיברנו על כך בפרק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "4.2"
+          },
+          {
+            "type": "text",
+            "text": "), ומחזיר את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " עם הטייפ הנכון שלו (המרה על ידי הטייפ הגנרי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "<T>"
+          },
+          {
+            "type": "text",
+            "text": "). דוגמאות שימוש:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    private Sprite2D _sprite;\n    private AnimationPlayer _animPlayer;\n    private Label _scoreLabel;\n\n    public override void _Ready()\n    {\n        // Get a direct child by name\n        _sprite = GetNode<Sprite2D>(\"Sprite2D\");\n\n        // Get a nested child\n        _animPlayer = GetNode<AnimationPlayer>(\"Sprite2D/AnimationPlayer\");\n\n        // Go up to parent, then down to a sibling's child\n        _scoreLabel = GetNode<Label>(\"../HUD/ScoreLabel\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כללים חשובים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קרא למתודה ()GetNode מתוך המתודה ()Ready_ ושמור בזיכרון את התוצאה"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". אל תקראו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()GetNode"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מתוך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()Process"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - זה יקרה בכל פריים וסתם יוביל לבזבוז משאבים מיותר. הדרך הנכונה היא לשמור את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במשתנה נגיש (שהכרזנו עליו בראש המחלקה) ולפנות אל המשתנה כשאנחנו צריכים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הנתיב צריך להיות נכון"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "במידה והנתיב שגוי - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot "
+                  },
+                  {
+                    "type": "text",
+                    "text": "יזרוק שגיאה, יש לוודא בקפידה את השמות והנתיבים שאנחנו כותבים כמחרוזת ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "string"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הטייפ חייב להיות תואם"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". במידה ונכתוב (“"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Timerr"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“)"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "<GetNode<Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בנתיב נקרא “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Timer"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“‘, נקבל בוודאות שגיאה."
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()GetNodeOrNull - חיפוש “בטוח”"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה וזה מצב ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שאנחנו רוצים לפנות אליו לא יהיה קיים בשלב שנעשה זאת, נוכל להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()GetNodeOrNull"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var optionalNode = GetNodeOrNull<Sprite2D>(\"MaybeMissing\");\nif (optionalNode != null)\n{\n    optionalNode.Visible = false;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה מחזיר לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Null"
+          },
+          {
+            "type": "text",
+            "text": " במקום להקריס את המשחק במידה וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " האמור לא נמצא - נשתמש כאשר קיומו של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסויים הוא אופציונלי (עלול להימחק באיזשהו שלב)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "[Export] - חשיפת ערכים לעורך Godot"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Attribute זה הוא אחד מהפיצ’רים החשובים ב-Godot."
+          }
+        ]
       },
       {
         "type": "paragraph",

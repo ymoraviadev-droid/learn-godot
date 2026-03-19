@@ -12,7 +12,7 @@ No backend server. Content is stored as JSON files in the repository.
 | Framework   | React + TypeScript + Vite                                    |
 | UI          | Shadcn/ui + Tailwind CSS                                     |
 | Editor      | Tiptap (ProseMirror-based)                                   |
-| Code blocks | lowlight (highlight.js) + custom NodeView with line numbers  |
+| Code blocks | Shiki (TextMate grammars) + custom NodeView + line numbers   |
 | Storage     | In-memory + per-chapter JSON files in `/content` (saved via Vite plugin) |
 | Dev server  | Vite plugin provides image upload & file saving endpoints    |
 | Hosting     | Static (Vercel / Netlify / Pages)                            |

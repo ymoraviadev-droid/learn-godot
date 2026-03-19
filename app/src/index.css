@@ -187,11 +187,10 @@
   }
 
   .code-block-wrapper .line-numbers {
-    @apply select-none text-right py-4 px-3;
+    @apply select-none text-right py-4 px-3 font-mono text-sm;
     color: #4a4e57;
     border-right: 1px solid #2a2b30;
     line-height: 1.7;
-    font-size: 0.8em;
   }
 
   .code-block-wrapper .line-numbers span {
@@ -199,11 +198,39 @@
   }
 
   .code-block-wrapper .code-content {
-    @apply p-4 overflow-x-auto;
+    @apply p-4 overflow-x-auto font-mono text-sm;
+    line-height: 1.7;
   }
 
   .code-block-wrapper .code-content pre {
     @apply bg-transparent border-none p-0 m-0 rounded-none;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .code-block-wrapper .code-content pre code {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  /* Hide ProseMirror's trailing empty lines in code blocks */
+  .code-block-wrapper .code-content pre code br:last-child {
+    display: none;
+  }
+
+  .code-block-wrapper .code-content pre code .ProseMirror-trailingBreak {
+    display: none;
+  }
+
+  /* Copy button */
+  .code-copy-btn {
+    @apply flex items-center justify-center rounded p-1 transition-colors;
+    color: #808690;
+  }
+
+  .code-copy-btn:hover {
+    color: #cdcfd2;
+    background: #35363c;
   }
 
   .tiptap-editor code {
@@ -308,125 +335,6 @@
     @apply border-border my-8;
   }
 
-  /*
-   * Syntax highlighting — matched to Godot 4.x C# editor
-   * Extracted from user's Godot editor screenshot
-   */
-
-  /* Keywords: using, public, partial, class, private, override, void,
-     if, float, double, return — salmon pink */
-  .tiptap-editor .hljs-keyword,
-  .tiptap-editor .hljs-selector-tag {
-    color: #ff7085;
-    font-weight: 500;
-  }
-
-  /* Built-in types used as keywords: float, int, double, bool, string, var */
-  .tiptap-editor .hljs-built_in {
-    color: #ff7085;
-    font-weight: 500;
-  }
-
-  /* Strings — warm yellow */
-  .tiptap-editor .hljs-string,
-  .tiptap-editor .hljs-selector-attr,
-  .tiptap-editor .hljs-selector-pseudo,
-  .tiptap-editor .hljs-regexp {
-    color: #ffeda1;
-  }
-
-  /* Comments — muted gray */
-  .tiptap-editor .hljs-comment,
-  .tiptap-editor .hljs-quote {
-    color: #6b7480;
-    font-style: italic;
-  }
-
-  /* Numbers & booleans (200f, -400f, true, false) — bright cyan-green */
-  .tiptap-editor .hljs-number,
-  .tiptap-editor .hljs-literal {
-    color: #a1ffe0;
-  }
-
-  /* Types & class names (CharacterBody2D, Vector2, ProjectSettings,
-     Input, Export) — teal green */
-  .tiptap-editor .hljs-title,
-  .tiptap-editor .hljs-type,
-  .tiptap-editor .hljs-title\.class_,
-  .tiptap-editor .hljs-title\.class\.inherited__ {
-    color: #4ec9b0;
-  }
-
-  /* Function/method names (GetSetting, _PhysicsProcess, IsOnFloor,
-     MoveAndSlide, GetAxis) — soft yellow */
-  .tiptap-editor .hljs-title\.function_,
-  .tiptap-editor .hljs-function {
-    color: #dcdcaa;
-  }
-
-  /* Variables — light blue */
-  .tiptap-editor .hljs-variable,
-  .tiptap-editor .hljs-variable\.language_,
-  .tiptap-editor .hljs-variable\.constant_,
-  .tiptap-editor .hljs-template-variable {
-    color: #9cdcfe;
-  }
-
-  /* Properties (.X, .Y) — light blue */
-  .tiptap-editor .hljs-property {
-    color: #9cdcfe;
-  }
-
-  /* Attributes / XML names — teal green */
-  .tiptap-editor .hljs-attr,
-  .tiptap-editor .hljs-name {
-    color: #4ec9b0;
-  }
-
-  /* Parameters — near white */
-  .tiptap-editor .hljs-params {
-    color: #e0e0e4;
-  }
-
-  /* Meta/preprocessor, attributes like [Export] — teal green */
-  .tiptap-editor .hljs-meta {
-    color: #4ec9b0;
-  }
-
-  .tiptap-editor .hljs-meta .hljs-keyword {
-    color: #4ec9b0;
-  }
-
-  .tiptap-editor .hljs-doctag {
-    color: #6a9955;
-  }
-
-  /* Symbols, bullets */
-  .tiptap-editor .hljs-symbol,
-  .tiptap-editor .hljs-bullet,
-  .tiptap-editor .hljs-link,
-  .tiptap-editor .hljs-selector-id {
-    color: #4ec9b0;
-  }
-
-  /* Diff */
-  .tiptap-editor .hljs-deletion {
-    color: #ff7085;
-    background: rgba(255, 112, 133, 0.1);
-  }
-
-  .tiptap-editor .hljs-addition {
-    color: #b5cea8;
-    background: rgba(181, 206, 168, 0.1);
-  }
-
-  .tiptap-editor .hljs-emphasis {
-    font-style: italic;
-  }
-
-  .tiptap-editor .hljs-strong {
-    font-weight: 700;
-  }
 }
 
 @utility scrollbar-thin {

@@ -113,6 +113,66 @@ export function contentPlugin(): Plugin {
         });
       });
 
+      // GET /api/list-images — return image metadata
+      server.middlewares.use("/api/list-images", (req, res, next) => {
+        if (req.method !== "GET") return next();
+        try {
+          if (!fs.existsSync(IMAGES_DIR)) {
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify([]));
+            return;
+          }
+          const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg"]);
+          const images = fs.readdirSync(IMAGES_DIR)
+            .filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()))
+            .map((filename) => {
+              const stat = fs.statSync(path.join(IMAGES_DIR, filename));
+              return {
+                filename,
+                url: `/content/images/${encodeURIComponent(filename)}`,
+                sizeBytes: stat.size,
+                modifiedAt: stat.mtime.toISOString(),
+              };
+            })
+            .sort((a, b) => b.modifiedAt.localeCompare(a.modifiedAt));
+          res.setHeader("Content-Type", "application/json");
+          res.end(JSON.stringify(images));
+        } catch (err) {
+          res.statusCode = 500;
+          res.end(JSON.stringify({ error: String(err) }));
+        }
+      });
+
+      // POST /api/delete-image — delete an image file
+      server.middlewares.use("/api/delete-image", (req, res) => {
+        if (req.method !== "POST") {
+          res.statusCode = 405;
+          res.end("Method not allowed");
+          return;
+        }
+        const chunks: Buffer[] = [];
+        req.on("data", (chunk: Buffer) => chunks.push(chunk));
+        req.on("end", () => {
+          try {
+            const { filename } = JSON.parse(Buffer.concat(chunks).toString("utf-8"));
+            if (!filename || filename.includes("/") || filename.includes("..")) {
+              res.statusCode = 400;
+              res.end(JSON.stringify({ error: "Invalid filename" }));
+              return;
+            }
+            const filePath = path.join(IMAGES_DIR, filename);
+            if (fs.existsSync(filePath)) {
+              fs.unlinkSync(filePath);
+            }
+            res.setHeader("Content-Type", "application/json");
+            res.end(JSON.stringify({ ok: true }));
+          } catch (err) {
+            res.statusCode = 500;
+            res.end(JSON.stringify({ error: String(err) }));
+          }
+        });
+      });
+
       // Serve content/chapters/ as static files (no caching)
       server.middlewares.use("/content/chapters", (req, res, next) => {
         if (req.method !== "GET") return next();

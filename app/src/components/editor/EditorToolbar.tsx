@@ -37,6 +37,7 @@ import {
   DeleteIcon,
   HelpCircle,
 } from "lucide-react";
+import { ImageGalleryDialog } from "@/components/gallery/ImageGalleryDialog";
 import { ToolbarButton } from "./ToolbarButton";
 import { ToolbarDivider } from "./ToolbarDivider";
 import { ColorPickerButton } from "./ColorPickerButton";
@@ -88,39 +89,7 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
     };
   }, [editor, forceUpdate]);
 
-  const addImage = () => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*";
-    input.onchange = async () => {
-      const file = input.files?.[0];
-      if (!file) return;
-
-      const formData = new FormData();
-      formData.append("image", file, file.name);
-
-      try {
-        const res = await fetch("/api/upload-image", {
-          method: "POST",
-          body: formData,
-        });
-        const data = await res.json();
-        if (data.url) {
-          editor.chain().focus().setImage({ src: data.url }).run();
-        }
-      } catch {
-        // Fallback to base64 if upload fails
-        const reader = new FileReader();
-        reader.onload = () => {
-          if (typeof reader.result === "string") {
-            editor.chain().focus().setImage({ src: reader.result }).run();
-          }
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-    input.click();
-  };
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   const setLink = () => {
     if (editor.isActive("link")) {
@@ -142,7 +111,7 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
   const currentHighlight = editor.getAttributes("highlight").color || "";
 
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <div className="border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
       {/* Row 1: Text formatting */}
       <div className="flex flex-wrap items-center gap-0.5 px-2 py-1.5">
         {/* History */}
@@ -358,7 +327,7 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
         <ToolbarButton
           icon={<ImagePlus className="h-4 w-4" />}
           label="הוסף תמונה"
-          onClick={addImage}
+          onClick={() => setGalleryOpen(true)}
         />
         <ToolbarButton
           icon={<LinkIcon className="h-4 w-4" />}
@@ -450,6 +419,15 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
           </div>
         </>
       )}
+
+      <ImageGalleryDialog
+        open={galleryOpen}
+        onOpenChange={setGalleryOpen}
+        mode="pick"
+        onSelect={(url) => {
+          editor.chain().focus().setImage({ src: url }).run();
+        }}
+      />
     </div>
   );
 }

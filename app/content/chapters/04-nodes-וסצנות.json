@@ -4,7 +4,7 @@
   "slug": "nodes-וסצנות",
   "order": 4,
   "createdAt": "2026-03-18T12:16:58.352Z",
-  "updatedAt": "2026-03-18T19:43:40.280Z",
+  "updatedAt": "2026-03-19T04:20:21.172Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -1134,7 +1134,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {
@@ -1505,7 +1505,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {
@@ -1660,7 +1660,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {
@@ -4761,7 +4761,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {
@@ -6078,7 +6078,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": null
+          "language": "csharp"
         },
         "content": [
           {
@@ -6837,7 +6837,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {

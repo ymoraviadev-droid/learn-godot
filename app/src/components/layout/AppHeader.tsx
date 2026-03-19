@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, PenLine } from "lucide-react";
+import { BookOpen, PenLine, Images } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/cn";
+import { ImageGalleryDialog } from "@/components/gallery/ImageGalleryDialog";
 
 const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
 
 export function AppHeader() {
   const location = useLocation();
   const isEditorMode = location.pathname.startsWith("/edit");
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-secondary/80 backdrop-blur">
@@ -24,16 +27,28 @@ export function AppHeader() {
 
         <nav className="flex items-center gap-1">
           {isDevMode && (
-            <Button
-              variant={isEditorMode ? "secondary" : "ghost"}
-              size="sm"
-              asChild
-            >
-              <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none")}>
-                <PenLine className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">עריכה</span>
-              </Link>
-            </Button>
+            <>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="gap-1.5"
+                onClick={() => setGalleryOpen(true)}
+              >
+                <Images className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">גלריה</span>
+              </Button>
+
+              <Button
+                variant={isEditorMode ? "secondary" : "ghost"}
+                size="sm"
+                asChild
+              >
+                <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none")}>
+                  <PenLine className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">עריכה</span>
+                </Link>
+              </Button>
+            </>
           )}
 
           <Button
@@ -48,6 +63,14 @@ export function AppHeader() {
           </Button>
         </nav>
       </div>
+
+      {isDevMode && (
+        <ImageGalleryDialog
+          open={galleryOpen}
+          onOpenChange={setGalleryOpen}
+          mode="manage"
+        />
+      )}
     </header>
   );
 }

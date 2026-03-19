@@ -130,3 +130,7 @@ Written in Hebrew covering:
 
 1. **Per-chapter JSON files** — replaced single monolithic `godot-tutorial-content.json` (~1.1MB) with individual `{chapter-id}.json` files + `meta.json`. Better git diffs (editing one chapter doesn't touch others), smaller files. Loading fetches `meta.json` first, then all chapters in parallel by ID. Saving writes each chapter as a separate file and cleans up stale files (from deletions). Backward-compatible: falls back to old single-file format if `meta.json` doesn't exist.
 2. **Sidebar scroll-to-top** — clicking a main chapter link in the sidebar (desktop and mobile) now scrolls to top after navigation. Subchapter links still smooth-scroll to their heading anchors.
+3. **Shiki syntax highlighting** — replaced lowlight/highlight.js with Shiki (TextMate grammars, same engine as VS Code). Highlighting applied via ProseMirror inline decorations — no overlay layer, clean text selection. Uses `dark-plus` theme. Removed custom `csharp-enhanced.ts` grammar (Shiki's built-in C# grammar is far superior). GDScript also uses Shiki's built-in grammar.
+4. **Copy-to-clipboard button** — code blocks now have a copy button in the header bar.
+5. **Text language** — added "Text" option to code block language selector for plain textual content (no syntax highlighting).
+6. **Code block line alignment** — line numbers and code content now share identical `font-size`, `font-family`, and `line-height` to stay perfectly aligned. Trailing empty lines hidden via CSS (`.ProseMirror-trailingBreak`).

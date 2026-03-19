@@ -18,22 +18,19 @@ import TableCell from "@tiptap/extension-table-cell";
 import TableHeader from "@tiptap/extension-table-header";
 import Image from "@tiptap/extension-image";
 import Link from "@tiptap/extension-link";
-import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
+import CodeBlock from "@tiptap/extension-code-block";
 import Placeholder from "@tiptap/extension-placeholder";
 import CharacterCount from "@tiptap/extension-character-count";
 import Typography from "@tiptap/extension-typography";
-import { common, createLowlight } from "lowlight";
 import { CodeBlockView } from "./CodeBlockView";
+import { ImageView } from "./ImageView";
 import { TextDirection } from "./TextDirection";
-import { gdscript } from "@/lib/gdscript";
+import { shikiPlugin, setShikiEditorView } from "./ShikiPlugin";
 import { generateHeadingId } from "@/lib/headings";
 import Heading from "@tiptap/extension-heading";
 import { Quiz } from "./QuizNode";
 import { QuizEditorView } from "./QuizEditorView";
 import { QuizReaderView } from "../reader/QuizReaderView";
-
-const lowlight = createLowlight(common);
-lowlight.register("gdscript", gdscript);
 
 interface UseEditorSetupOptions {
   content?: JSONContent;
@@ -85,14 +82,25 @@ export function useEditorSetup({
       TableRow,
       TableCell,
       TableHeader,
-      Image.configure({ allowBase64: true }),
+      Image.configure({ allowBase64: true }).extend(
+        editable
+          ? {
+              addNodeView() {
+                return ReactNodeViewRenderer(ImageView);
+              },
+            }
+          : {}
+      ),
       Link.configure({
         openOnClick: false,
         HTMLAttributes: { rel: "noopener noreferrer", target: "_blank" },
       }),
-      CodeBlockLowlight.configure({ lowlight }).extend({
+      CodeBlock.extend({
         addNodeView() {
           return ReactNodeViewRenderer(CodeBlockView);
+        },
+        addProseMirrorPlugins() {
+          return [shikiPlugin()];
         },
       }),
       Placeholder.configure({ placeholder }),
@@ -108,6 +116,9 @@ export function useEditorSetup({
     content,
     editable,
     immediatelyRender: false,
+    onCreate: ({ editor }) => {
+      setShikiEditorView(editor.view);
+    },
     editorProps: {
       attributes: {
         class: "tiptap-editor min-h-[300px] px-1 py-2 focus:outline-none",

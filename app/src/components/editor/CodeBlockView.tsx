@@ -1,5 +1,7 @@
 import { NodeViewContent, NodeViewWrapper } from "@tiptap/react";
 import type { NodeViewProps } from "@tiptap/react";
+import { useCallback, useState } from "react";
+import { Copy, Check } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -19,6 +21,7 @@ const CODE_LANGUAGES = [
   { value: "python", label: "Python" },
   { value: "css", label: "CSS" },
   { value: "html", label: "HTML" },
+  { value: "text", label: "Text" },
 ];
 
 export function CodeBlockView({
@@ -27,7 +30,19 @@ export function CodeBlockView({
   editor,
 }: NodeViewProps) {
   const language = node.attrs.language || "";
-  const lineCount = node.textContent.split("\n").length;
+  const rawText = node.textContent;
+  // Count visible lines: strip all trailing newlines, then count
+  const trimmed = rawText.replace(/\n+$/, "");
+  const lineCount = trimmed ? trimmed.split("\n").length : 1;
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(node.textContent).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }, [node.textContent]);
 
   return (
     <NodeViewWrapper className="code-block-wrapper" data-language={language}>
@@ -55,6 +70,14 @@ export function CodeBlockView({
               "code"}
           </span>
         )}
+        <button
+          type="button"
+          onClick={handleCopy}
+          className="code-copy-btn"
+          title="העתק קוד"
+        >
+          {copied ? <Check size={14} /> : <Copy size={14} />}
+        </button>
       </div>
       <div className="code-block-body">
         <div className="line-numbers" contentEditable={false} aria-hidden>

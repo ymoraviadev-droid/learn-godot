@@ -1,3 +1,4 @@
+import type { JSONContent } from "@tiptap/react";
 import type { Chapter, BookMeta } from "@/types/chapter";
 
 const DEFAULT_META: BookMeta = {
@@ -156,8 +157,31 @@ function generateSlug(title: string): string {
     .replace(/-+/g, "-");
 }
 
+/** Normalize code block text: trim trailing newlines to exactly one */
+function normalizeCodeBlocks(node: JSONContent): JSONContent {
+  if (node.type === "codeBlock" && node.content) {
+    return {
+      ...node,
+      content: node.content.map((child) => {
+        if (child.type === "text" && typeof child.text === "string") {
+          return { ...child, text: child.text.replace(/\n+$/, "\n") };
+        }
+        return child;
+      }),
+    };
+  }
+  if (node.content) {
+    return { ...node, content: node.content.map(normalizeCodeBlocks) };
+  }
+  return node;
+}
+
 export function exportAllContent(): string {
-  return JSON.stringify({ meta: metaCache, chapters: getAllChapters() }, null, 2);
+  const chapters = getAllChapters().map((ch) => ({
+    ...ch,
+    content: normalizeCodeBlocks(ch.content),
+  }));
+  return JSON.stringify({ meta: metaCache, chapters }, null, 2);
 }
 
 export function importContent(jsonString: string) {

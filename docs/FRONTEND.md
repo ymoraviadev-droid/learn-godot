@@ -35,7 +35,7 @@
 | Table                                               | Tables with merge/split/resize              |
 | Image                                               | Upload to content/images/ (base64 fallback) |
 | Link                                                | Hyperlinks                                  |
-| CodeBlockLowlight                                   | Syntax HL + custom NodeView + line numbers  |
+| CodeBlock + Shiki                                   | Syntax HL + custom NodeView + line numbers  |
 | Blockquote                                          | Block quotes                                |
 | HorizontalRule                                      | Dividers                                    |
 | Typography                                          | Smart quotes, dashes                        |
@@ -47,18 +47,21 @@
 
 Custom `CodeBlockView` React component with:
 - Language selector in header bar
-- Line numbers gutter
-- Syntax highlighting via lowlight (highlight.js)
-- Godot editor-inspired color scheme (matching VS Code dark theme)
+- Line numbers gutter (aligned via shared font-size + line-height)
+- Copy-to-clipboard button
+- Syntax highlighting via **Shiki** (TextMate grammars — same as VS Code)
+- Highlighting applied as ProseMirror inline decorations (no overlay, clean selection)
+- Dark Plus theme (VS Code default dark)
 
 Supported languages:
 - **C#** (primary — Godot scripting)
-- **GDScript** (custom highlight.js grammar in `src/lib/gdscript.ts`)
+- **GDScript** (built-in Shiki grammar)
 - **JavaScript / TypeScript**
 - **JSON** (Godot scene/resource files)
 - **Shell** (terminal commands)
 - **XML** (Godot .tscn/.tres files)
 - **Python, CSS, HTML**
+- **Text** (plain, no highlighting — single color)
 
 ### Toolbar
 

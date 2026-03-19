@@ -43,7 +43,7 @@ Every node type in Godot comes with built-in signals. Here are some you'll use c
 - `Ready` — the node entered the tree (same as `_Ready()`, but as a signal).
 - `TreeExiting` — the node is about to leave the tree.
 
-You can see all signals for any node by selecting it in the editor and clicking the **Node** tab (next to the Inspector tab). Every signal the node can emit is listed there.
+You can see all signals for any node by selecting it in the editor and clicking the **Signals** tab (next to the Inspector tab). Every signal the node can emit is listed there.
 
 ### The Three Parts of Signal Communication
 
@@ -65,7 +65,7 @@ The fastest way to connect a signal is through the Godot editor — no code requ
 
 1. Create a scene with a `Control` root node. Add a `Button` child and a `Label` child.
 2. Select the `Button` node.
-3. Click the **Node** tab on the right side of the editor (next to the Inspector tab).
+3. Click the **Signals** tab on the right side of the editor (next to the Inspector tab).
 4. You'll see a list of signals. Find `pressed()` under **BaseButton**.
 5. Double-click `pressed()` (or select it and click **Connect...**).
 6. A dialog appears:
@@ -101,13 +101,13 @@ Build and run. Click the button, and the label updates. The button emitted its `
 
 After connecting a signal in the editor, you'll notice:
 
-- The **Node** tab shows a green connection icon next to the signal.
+- The **Signals** tab shows a green connection icon next to the signal.
 - The connected method in your script has a **green arrow icon** in the margin (in the Godot script editor).
 - The connection is saved in the `.tscn` scene file — it's part of the scene data, not the code.
 
 ### Disconnecting
 
-To remove a connection, go back to the **Node** tab, right-click the connection, and select **Disconnect**. The method in your script remains (it's just a regular method now), but the signal no longer calls it.
+To remove a connection, go back to the **Signals** tab, right-click the connection, and select **Disconnect**. The method in your script remains (it's just a regular method now), but the signal no longer calls it.
 
 ### When to Use Editor Connections
 
@@ -278,7 +278,7 @@ The naming convention is important and required:
 - The delegate must end with `EventHandler`.
 - Godot strips the `EventHandler` suffix to create the signal name. So `HealthChangedEventHandler` becomes the signal `HealthChanged`.
 
-After declaring the signal and building (Alt+B), Godot's source generator creates the machinery behind the scenes. The signal appears in the editor's **Node** tab alongside the built-in signals.
+After declaring the signal and building (Alt+B), Godot's source generator creates the machinery behind the scenes. The signal appears in the editor's **Signals** tab alongside the built-in signals.
 
 ### Emitting a Custom Signal
 
@@ -514,7 +514,7 @@ private void OnTimeout()
 }
 ```
 
-To know what parameters a built-in signal provides, check the **Node** tab in the editor or the Godot API documentation. The editor shows the signal signature, including parameter names and types.
+To know what parameters a built-in signal provides, check the **Signals** tab in the editor or the Godot API documentation. The editor shows the signal signature, including parameter names and types.
 
 ---
 
@@ -743,8 +743,8 @@ Keep your signals focused. Each signal should represent one clear event. If a si
 ## Summary
 
 - **Signals are Godot's event system** — a node emits a signal, and any connected node responds. The emitter doesn't know or care who's listening.
-- **Built-in signals** cover common node events: `Pressed`, `Timeout`, `BodyEntered`, `AnimationFinished`, and many more. Check the Node tab to see them all.
-- **Connect signals in the editor** for permanent, same-scene connections. Double-click a signal in the Node tab and pick a receiver.
+- **Built-in signals** cover common node events: `Pressed`, `Timeout`, `BodyEntered`, `AnimationFinished`, and many more. Check the Signals tab to see them all.
+- **Connect signals in the editor** for permanent, same-scene connections. Double-click a signal in the Signals tab and pick a receiver.
 - **Connect signals from code** using `+=` for full control. Disconnect with `-=`. Prefer named methods over lambdas for connections you might need to disconnect.
 - **Custom signals** are declared with `[Signal]` on a delegate ending in `EventHandler`. Emit them with `EmitSignal(SignalName.YourSignal)`.
 - **Signal parameters** carry data with the event. Declare parameters on the delegate, pass values in `EmitSignal()`, and receive them in the handler method.

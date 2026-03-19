@@ -4,7 +4,7 @@
   "slug": "עורך-godot",
   "order": 3,
   "createdAt": "2026-03-16T20:07:46.242Z",
-  "updatedAt": "2026-03-18T12:15:26.270Z",
+  "updatedAt": "2026-03-19T05:50:20.240Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -1828,7 +1828,7 @@
       {
         "type": "codeBlock",
         "attrs": {
-          "language": "bash"
+          "language": "text"
         },
         "content": [
           {

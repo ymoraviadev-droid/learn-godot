@@ -4,7 +4,7 @@
   "slug": "c-ב-godot",
   "order": 5,
   "createdAt": "2026-03-19T04:39:57.016Z",
-  "updatedAt": "2026-03-19T04:40:41.480Z",
+  "updatedAt": "2026-03-19T05:52:27.720Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -51,6 +51,1056 @@
               }
             ],
             "text": "5.1 כיצד #C מתממשקת עם Godot"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בפרק הקודם הנינו היררכיית סצנות דרך העורך - הוספנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": ", סידרנו אותם ויצרנו מופעים של סצנות."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "אך משחק שלא כולל בתוכו קוד הוא לא יותר מסתם תמונה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כפי שהוסבר בתחילת הספר - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " תומכת ב-2 שפות תכנות - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GDScript"
+          },
+          {
+            "type": "text",
+            "text": " המובנית והנוחה של המנוע, ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " הגדולה והמקצועית. בספר זה בחרנו לעבוד עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " בגלל ארגז הכלים שהיא מכילה והאפשרויות המובנות שלה. בפרק הקרוב נלמד להבין כיצד"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " #C"
+          },
+          {
+            "type": "text",
+            "text": " עובדת ומתממשקת עם המנוע."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "התמונה הגדולה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " נכתבה בכלל בשפת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "++C"
+          },
+          {
+            "type": "text",
+            "text": ", כלומר שאם וכאשר אנחנו כותבים קוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " - הוא לא רץ ישירות על המנוע, אלא על שכבת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "runtime"
+          },
+          {
+            "type": "text",
+            "text": " של"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " NET."
+          },
+          {
+            "type": "text",
+            "text": " (אותה שכבת ה-runtime שעליה רצות יוניטי, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ASP.NET"
+          },
+          {
+            "type": "text",
+            "text": " ועוד המון אחרים). "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מתקשרת עם קוד ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " שלנו דרך שכבה מקשרת אשר יודעת ליצור תרגום בין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "++C"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אין לנו צורך להתעסק או לחשוב על שכבה מקשרת זו, זה דבר מובנה שעובד מצוין בכל מקרה, אך חשוב שנכיר ונבין את הקונספט, משום שזה יסייע לנו בהבנה של מספר דברים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הסקריפטים שלנו הם מחלקות #C אמיתיות "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- אנחנו יכולים להשתמש בכל הפיצ’רים של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "#C"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כגון "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Generics"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "LINQ"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "async"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "await"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "records"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "pattern matching"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ועוד. כל זה סטנדרט של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NET."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הפרויקט שלנו הוא פרויקט NET. "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- כאשר אנו יוצרים פרויקט "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בגרסאת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NET."
+                  },
+                  {
+                    "type": "text",
+                    "text": " - נוצר לנו קובץ "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "csproj."
+                  },
+                  {
+                    "type": "text",
+                    "text": " אנחנו יכולים להוסיף חבילות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NuGet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", להשתמש בספריות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NET."
+                  },
+                  {
+                    "type": "text",
+                    "text": " ועוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שלב קומפליציה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - בניגוד ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "GDScript"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", שפת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "#C"
+                  },
+                  {
+                    "type": "text",
+                    "text": " צריכה “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "להתקמפל"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” לפני ההרצה. כלומר שכאשר אנחנו בונים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Build"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") את הפרויקט - הקוד מתורגם/מפורש לשפת ביניים (בקובץ "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "DLL."
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ולאחר מכן בהרצה קובץ ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "DLL."
+                  },
+                  {
+                    "type": "text",
+                    "text": " יתורגם לשפת מכונה. אם יש שגיאות קומפילציה - התוכנית לא תרוץ, וזה יתרון ענק שעוזר לנו “לעלות” על שגיאות טרם ההרצה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סקריפטים “מוצמדים” ל-Nodes"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ולא ההיפך, זהו למעשה המודל המנטלי: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סקריפטים מרחיבים את ההתנהגות של Nodes"
+          },
+          {
+            "type": "text",
+            "text": ". כלומר שאנחנו לא כותבים מחלקת “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Player"
+          },
+          {
+            "type": "text",
+            "text": "” שיוצרת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " - אלא כותבים סקריפט שמוצמד ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שכבר קיים בעץ. אם כך ה-Node מגיע עם ההתנהגות הדיפולטיבית שלו - והסקריפט רק “מרחיב” אותו עם לוגיקה ויכולות נוספות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל סקריפט #C ב-Godot הוא מחלקה אשר יורשת ממחלקת הבסיס Node:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Player : CharacterBody2D\n{\n    // הלוגיקה שנכתוב תיכנס כאן\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שימו לב ל-3 דברים:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "using godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מייבא את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Namespace"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הייעודי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", וזה נותן לנו גישה לכל הטייפים/טיפוסים של המנוע."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "partial class"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - המילה השמורה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "partial"
+                  },
+                  {
+                    "type": "text",
+                    "text": " היא חשובה ונדרשת. המנוע יוצר חלק נוסף של המחלקה (קוד מיוחד להתממשקות של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "#C"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") מאחורי הקלעים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - המחלקה שלנו יורשת מסוג ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שהיא הוצמדה אליו, במקטע הקוד אשר נראה למעלה ניתן להסיק כי זהו סקריפט שהוצמד ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". חשוב לדעת שסקריפט זה יוכל להיות מוצמד מעתה רק ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אשר יורשים מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CharacterBody2D "
+                  },
+                  {
+                    "type": "text",
+                    "text": "(או "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CharacterBody2D "
+                  },
+                  {
+                    "type": "text",
+                    "text": "בעצמו כמובן)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מותר להצמיד סקריפט אחד בלבד ל-Node"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל Node יכול לכלול סקריפט אחד מוצמד בלבד. כלומר שלא ניתן להצמיד מספר סקריפטים ל-Node מסוים. "
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "במידה ונצטרך התנהגות מורכבת כלשהי - נשתמש בטכניקה של יצירת ילדים והצמדת הסקריפט אליהם - כל אחד עם הסקריפט הייחודי שלו (שוב טכניקת הקומפוזיציה על פני ירושה). לדוגמא:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Player (CharacterBody2D) — Player.cs (movement, input)\n├── HealthComponent (Node) — HealthComponent.cs (health logic)\n├── HurtBox (Area2D) — HurtBox.cs (damage detection)\n└── Sprite2D (no script — just visuals)"
           }
         ]
       },

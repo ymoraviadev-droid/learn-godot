@@ -4,7 +4,7 @@
   "slug": "nodes-וסצנות",
   "order": 4,
   "createdAt": "2026-03-18T12:16:58.352Z",
-  "updatedAt": "2026-03-19T04:38:01.693Z",
+  "updatedAt": "2026-03-19T05:49:56.171Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -518,7 +518,20 @@
           },
           {
             "type": "text",
-            "text": ": קומפוזיציה במקום ירושה ("
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קומפוזיציה על פני ירושה"
+          },
+          {
+            "type": "text",
+            "text": " ("
           },
           {
             "type": "text",

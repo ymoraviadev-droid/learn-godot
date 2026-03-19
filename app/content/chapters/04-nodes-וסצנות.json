@@ -1262,16 +1262,35 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "Node\n├── Node2D          — מחלקת בסיס עבור כל האובייקטים הדו ממדיים\n├── Node3D          — מחלקת בסיס עבור כל האובייקטים התלת ממדיים\n├── Control         — מחלקת בסיס לכל רכיבי ממשק המשתמש\n├── CanvasLayer     — משמש עבור הצגה על שכבה אחרת, עבור אפקט פרלקס למשל\n└── ...ועוד"
-          }
-        ]
+          "items": [
+            {
+              "name": "Node",
+              "children": [
+                {
+                  "name": "Node2D",
+                  "comment": "מחלקת בסיס עבור כל האובייקטים הדו ממדיים"
+                },
+                {
+                  "name": "Node3D",
+                  "comment": "מחלקת בסיס עבור כל האובייקטים התלת ממדיים"
+                },
+                {
+                  "name": "Control",
+                  "comment": "מחלקת בסיס לכל רכיבי ממשק המשתמש"
+                },
+                {
+                  "name": "CanvasLayer",
+                  "comment": "משמש עבור הצגה על שכבה אחרת, עבור אפקט פרלקס למשל"
+                },
+                {
+                  "name": "...ועוד"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",
@@ -1879,16 +1898,46 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "Main\n├── Player\n│   ├── Sprite2D\n│   └── CollisionShape2D\n├── Enemy\n│   ├── Sprite2D\n│   └── CollisionShape2D\n└── UI\n    └── ScoreLabel"
-          }
-        ]
+          "items": [
+            {
+              "name": "Main",
+              "children": [
+                {
+                  "name": "Player",
+                  "children": [
+                    {
+                      "name": "Sprite2D"
+                    },
+                    {
+                      "name": "CollisionShape2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "Enemy",
+                  "children": [
+                    {
+                      "name": "Sprite2D"
+                    },
+                    {
+                      "name": "CollisionShape2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "UI",
+                  "children": [
+                    {
+                      "name": "ScoreLabel"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",
@@ -5045,16 +5094,95 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "Level01.tscn\n├── TileMapLayer          (the level geometry)\n├── Player.tscn           (instanced scene)\n│   ├── CharacterBody2D\n│   ├── Sprite2D\n│   ├── CollisionShape2D\n│   └── AnimationPlayer\n├── Enemy.tscn            (instanced scene — copy 1)\n│   ├── CharacterBody2D\n│   ├── Sprite2D\n│   ├── CollisionShape2D\n│   └── PatrolPath\n├── Enemy.tscn            (instanced scene — copy 2)\n├── Enemy.tscn            (instanced scene — copy 3)\n├── Coin.tscn             (instanced — copy 1)\n├── Coin.tscn             (instanced — copy 2)\n├── Coin.tscn             (instanced — copy 3)\n├── HUD.tscn              (instanced scene)\n│   ├── ScoreLabel\n│   ├── HealthBar.tscn    (instanced scene within HUD)\n│   └── LivesCounter\n└── Camera2D"
-          }
-        ]
+          "items": [
+            {
+              "name": "Level01.tscn",
+              "children": [
+                {
+                  "name": "TileMapLayer",
+                  "comment": "the level geometry"
+                },
+                {
+                  "name": "Player.tscn",
+                  "comment": "instanced scene",
+                  "children": [
+                    {
+                      "name": "CharacterBody2D"
+                    },
+                    {
+                      "name": "Sprite2D"
+                    },
+                    {
+                      "name": "CollisionShape2D"
+                    },
+                    {
+                      "name": "AnimationPlayer"
+                    }
+                  ]
+                },
+                {
+                  "name": "Enemy.tscn",
+                  "comment": "instanced scene — copy 1",
+                  "children": [
+                    {
+                      "name": "CharacterBody2D"
+                    },
+                    {
+                      "name": "Sprite2D"
+                    },
+                    {
+                      "name": "CollisionShape2D"
+                    },
+                    {
+                      "name": "PatrolPath"
+                    }
+                  ]
+                },
+                {
+                  "name": "Enemy.tscn",
+                  "comment": "instanced scene — copy 2"
+                },
+                {
+                  "name": "Enemy.tscn",
+                  "comment": "instanced scene — copy 3"
+                },
+                {
+                  "name": "Coin.tscn",
+                  "comment": "instanced — copy 1"
+                },
+                {
+                  "name": "Coin.tscn",
+                  "comment": "instanced — copy 2"
+                },
+                {
+                  "name": "Coin.tscn",
+                  "comment": "instanced — copy 3"
+                },
+                {
+                  "name": "HUD.tscn",
+                  "comment": "instanced scene",
+                  "children": [
+                    {
+                      "name": "ScoreLabel"
+                    },
+                    {
+                      "name": "HealthBar.tscn",
+                      "comment": "instanced scene within HUD"
+                    },
+                    {
+                      "name": "LivesCounter"
+                    }
+                  ]
+                },
+                {
+                  "name": "Camera2D"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",
@@ -7160,16 +7288,58 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "Main (Node2D)\n├── Background (Sprite2D)\n├── Player (Node2D)\n│   ├── Body (Sprite2D)\n│   └── Marker (Sprite2D)\n├── Obstacle (StaticBody2D)     — instanced scene\n│   ├── Sprite2D\n│   └── CollisionShape2D\n├── Obstacle (StaticBody2D)     — instanced scene (copy 2)\n└── Obstacle (StaticBody2D)     — instanced scene (copy 3)"
-          }
-        ]
+          "items": [
+            {
+              "name": "Main",
+              "type": "Node2D",
+              "children": [
+                {
+                  "name": "Background",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "Player",
+                  "type": "Node2D",
+                  "children": [
+                    {
+                      "name": "Body",
+                      "type": "Sprite2D"
+                    },
+                    {
+                      "name": "Marker",
+                      "type": "Sprite2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "Obstacle",
+                  "type": "StaticBody2D",
+                  "comment": "instanced scene",
+                  "children": [
+                    {
+                      "name": "Sprite2D"
+                    },
+                    {
+                      "name": "CollisionShape2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "Obstacle",
+                  "type": "StaticBody2D",
+                  "comment": "instanced scene (copy 2)"
+                },
+                {
+                  "name": "Obstacle",
+                  "type": "StaticBody2D",
+                  "comment": "instanced scene (copy 3)"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",

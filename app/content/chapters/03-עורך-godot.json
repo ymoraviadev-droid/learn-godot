@@ -1826,16 +1826,55 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "res://\n├── scenes/          # קבצי סצנה \n├── scripts/         # סקריפטים\n├── art/             # תמונות, ספרייטים, טיילסטים\n│   ├── characters/\n│   ├── environment/\n│   └── ui/\n├── audio/           # מוזיקה ואפקטי סאונד\n│   ├── music/\n│   └── sfx/\n└── resources/       # משאבים מותאמים אישית, ערכות נושא"
-          }
-        ]
+          "items": [
+            {
+              "name": "res://",
+              "children": [
+                {
+                  "name": "scenes/",
+                  "comment": "קבצי סצנה"
+                },
+                {
+                  "name": "scripts/",
+                  "comment": "סקריפטים"
+                },
+                {
+                  "name": "art/",
+                  "comment": "תמונות, ספרייטים, טיילסטים",
+                  "children": [
+                    {
+                      "name": "characters/"
+                    },
+                    {
+                      "name": "environment/"
+                    },
+                    {
+                      "name": "ui/"
+                    }
+                  ]
+                },
+                {
+                  "name": "audio/",
+                  "comment": "מוזיקה ואפקטי סאונד",
+                  "children": [
+                    {
+                      "name": "music/"
+                    },
+                    {
+                      "name": "sfx/"
+                    }
+                  ]
+                },
+                {
+                  "name": "resources/",
+                  "comment": "משאבים מותאמים אישית, ערכות נושא"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",

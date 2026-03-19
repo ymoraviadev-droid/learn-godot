@@ -4,7 +4,7 @@
   "slug": "התקנת-סביבת-הפיתוח",
   "order": 2,
   "createdAt": "2026-03-15T23:51:41.983Z",
-  "updatedAt": "2026-03-19T05:51:19.945Z",
+  "updatedAt": "2026-03-19T06:07:19.335Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -5283,16 +5283,24 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "HelloGodot/\n├── .godot/              # הקבצים הפנימיים של גודו, לא לגעת\n├── project.godot        # קובץ קונפיגורציית פרויקט גודו\n"
-          }
-        ]
+          "items": [
+            {
+              "name": "HelloGodot/",
+              "children": [
+                {
+                  "name": ".godot/",
+                  "comment": "הקבצים הפנימיים של גודו, לא לגעת"
+                },
+                {
+                  "name": "project.godot",
+                  "comment": "קובץ קונפיגורציית פרויקט גודו"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "bulletList",
@@ -5627,16 +5635,30 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "HelloGodot/\n├── .godot/\n├── HelloGodot.csproj    # C# קובץ פרוייקט\n├── HelloGodot.sln       # C# קובץ Solution\n├── project.godot\n"
-          }
-        ]
+          "items": [
+            {
+              "name": "HelloGodot/",
+              "children": [
+                {
+                  "name": ".godot/"
+                },
+                {
+                  "name": "HelloGodot.csproj",
+                  "comment": "C# קובץ פרוייקט"
+                },
+                {
+                  "name": "HelloGodot.sln",
+                  "comment": "C# קובץ Solution"
+                },
+                {
+                  "name": "project.godot"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "bulletList",

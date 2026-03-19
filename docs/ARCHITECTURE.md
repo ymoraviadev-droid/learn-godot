@@ -7,15 +7,16 @@ No backend server. Content is stored as JSON files in the repository.
 
 ## Stack
 
-| Layer       | Technology                                                   |
-|-------------|--------------------------------------------------------------|
-| Framework   | React + TypeScript + Vite                                    |
-| UI          | Shadcn/ui + Tailwind CSS                                     |
-| Editor      | Tiptap (ProseMirror-based)                                   |
-| Code blocks | Shiki (TextMate grammars) + custom NodeView + line numbers   |
-| Storage     | In-memory + per-chapter JSON files in `/content` (saved via Vite plugin) |
-| Dev server  | Vite plugin provides image upload & file saving endpoints    |
-| Hosting     | Static (Vercel / Netlify / Pages)                            |
+| Layer         | Technology                                                               |
+|---------------|--------------------------------------------------------------------------|
+| Framework     | React + TypeScript + Vite                                                |
+| UI            | Shadcn/ui + Tailwind CSS                                                 |
+| Editor        | Tiptap (ProseMirror-based)                                               |
+| Code blocks   | Shiki (TextMate grammars) + custom NodeView + line numbers               |
+| Tree diagrams | Custom NodeTree Tiptap node — structured tree view with icons            |
+| Storage       | In-memory + per-chapter JSON files in `/content` (saved via Vite plugin) |
+| Dev server    | Vite plugin provides image upload & file saving endpoints                |
+| Hosting       | Static (Vercel / Netlify / Pages)                                        |
 
 ## App Modes
 

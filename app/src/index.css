@@ -239,6 +239,198 @@
     color: #8ecdff;
   }
 
+  /* ── Node tree diagram ── */
+  .node-tree-wrapper {
+    direction: ltr;
+    text-align: left;
+    background: #161b22;
+    border: 1px solid #30363d;
+    @apply rounded-xl my-4 overflow-hidden font-mono text-sm;
+    color: #c9d1d9;
+  }
+
+  .node-tree-header {
+    @apply flex items-center gap-2 px-5 py-2 text-xs select-none font-sans font-medium tracking-wide uppercase;
+    color: #7d8590;
+    background: #0d1117;
+    border-bottom: 1px solid #30363d;
+    letter-spacing: 0.05em;
+  }
+
+  .node-tree-root {
+    @apply px-5 py-3;
+    list-style: none;
+    margin: 0;
+  }
+
+  .node-tree-children {
+    list-style: none;
+    margin: 0;
+    padding-left: 1.25rem;
+    margin-left: 0.5rem;
+    border-left: 1px dashed #30363d;
+  }
+
+  .node-tree-item {
+    position: relative;
+  }
+
+  .node-tree-row {
+    @apply flex items-center gap-1.5 py-1 px-2 -mx-2 rounded-md transition-colors;
+    min-height: 1.875rem;
+  }
+
+  .node-tree-row:hover {
+    background: #1c2128;
+  }
+
+  .node-tree-branch {
+    color: #30363d;
+    user-select: none;
+    flex-shrink: 0;
+    font-size: 0.8em;
+    margin-left: -0.75rem;
+    width: 2.5rem;
+  }
+
+  /* Icons */
+  .node-tree-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+  }
+
+  .node-tree-icon-parent {
+    color: #d2a8ff;
+  }
+
+  .node-tree-icon-leaf {
+    color: #484f58;
+  }
+
+  /* Read-mode labels */
+  .node-tree-label {
+    @apply flex items-center gap-1.5 flex-wrap;
+  }
+
+  .node-tree-label-name {
+    color: #79c0ff;
+    font-weight: 600;
+  }
+
+  .node-tree-label-type {
+    color: #7ee787;
+    @apply px-1.5 py-0 rounded text-xs;
+    background: #7ee78712;
+    border: 1px solid #7ee78720;
+  }
+
+  .node-tree-label-comment {
+    color: #7d8590;
+    font-style: italic;
+    @apply text-xs;
+  }
+
+  .node-tree-label-comment::before {
+    content: "— ";
+    color: #484f58;
+  }
+
+  /* ── Edit mode ── */
+  .node-tree-fields {
+    @apply flex items-center gap-1.5 flex-1;
+  }
+
+  .node-tree-icon-wrap {
+    flex-shrink: 0;
+    @apply flex items-center;
+  }
+
+  .node-tree-input {
+    @apply text-sm font-mono px-2 py-1 rounded-md border transition-colors;
+    background: #0d1117;
+    border-color: #21262d;
+  }
+
+  .node-tree-input:focus {
+    border-color: #388bfd;
+    outline: none;
+    box-shadow: 0 0 0 2px #388bfd30;
+  }
+
+  .node-tree-input-name {
+    color: #79c0ff;
+    width: 8rem;
+    font-weight: 500;
+  }
+
+  .node-tree-input-type {
+    color: #7ee787;
+    width: 7rem;
+  }
+
+  .node-tree-input-comment {
+    color: #7d8590;
+    flex: 1;
+    min-width: 4rem;
+  }
+
+  .node-tree-input::placeholder {
+    color: #30363d;
+  }
+
+  .node-tree-actions {
+    @apply flex items-center gap-0.5 opacity-0 transition-opacity;
+  }
+
+  .node-tree-row:hover .node-tree-actions {
+    opacity: 1;
+  }
+
+  .node-tree-action-btn {
+    @apply flex items-center justify-center rounded-md p-1 transition-colors;
+    color: #7d8590;
+  }
+
+  .node-tree-action-btn:hover {
+    color: #c9d1d9;
+    background: #30363d;
+  }
+
+  .node-tree-action-delete:hover {
+    color: #f85149;
+    background: #f8514912;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 640px) {
+    .node-tree-wrapper {
+      @apply text-xs;
+    }
+
+    .node-tree-root {
+      @apply px-3 py-2;
+    }
+
+    .node-tree-children {
+      padding-left: 0.75rem;
+      margin-left: 0.375rem;
+    }
+
+    .node-tree-fields {
+      @apply flex-wrap;
+    }
+
+    .node-tree-input-name,
+    .node-tree-input-type {
+      width: 5rem;
+    }
+
+    .node-tree-row {
+      @apply px-1;
+    }
+  }
+
   .tiptap-editor blockquote {
     @apply border-r-4 border-primary/30 pr-4 mr-0 italic text-muted-foreground my-4;
     border-left: none;

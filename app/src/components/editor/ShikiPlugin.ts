@@ -1,6 +1,6 @@
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { Decoration, DecorationSet } from "@tiptap/pm/view";
-import { type ColoredToken, tokenizeCode } from "@/lib/shiki";
+import { tokenizeCode } from "@/lib/shiki";
 
 const shikiPluginKey = new PluginKey("shiki");
 

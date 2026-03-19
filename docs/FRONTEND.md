@@ -42,6 +42,7 @@
 | Placeholder                                         | Empty state placeholder text                |
 | CharacterCount                                      | Word/char count                             |
 | Quiz (custom)                                       | Multiple-choice quiz with 4 answers         |
+| NodeTree (custom)                                   | Structured tree diagrams (mobile-safe)      |
 
 ### Code Block Highlighting
 
@@ -81,7 +82,7 @@ Three-row toolbar:
 - Direction: RTL, LTR (per-block)
 - Lists: bullet, ordered, task list
 - Block elements: blockquote, horizontal rule
-- Insert: image upload, link, table, code block (with language picker), quiz
+- Insert: image upload, link, table, code block (with language picker), quiz, node tree
 
 **Row 3 — Table operations (contextual, shown when cursor is in a table):**
 - Add row, add column, delete row, delete column
@@ -106,6 +107,16 @@ Custom `Quiz` Tiptap node (`QuizNode.ts`) with two views:
 - **Reader** (`QuizReaderView.tsx`) — interactive quiz: select answers, submit all, reveal results with score
 
 Quiz data stored as Tiptap node attributes (array of `{ question, answers[4], correct }` objects).
+
+### Node Tree Diagrams
+
+Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical structures (scene trees, file trees, component composition). Replaces ASCII tree diagrams that broke on mobile.
+
+- Single view component (`NodeTreeView.tsx`) — edit mode shows inline inputs + hover action buttons, read mode shows styled labels
+- Each tree item has: `name` (required), `type` (shown as green badge), `comment` (shown as italic gray text)
+- Items are recursive — unlimited nesting depth
+- GitHub-dark themed with purple parent icons, dashed indent guides
+- Tree data stored as Tiptap node attributes (`items: TreeItem[]`)
 
 ### Heading Anchors & Sidebar Navigation
 

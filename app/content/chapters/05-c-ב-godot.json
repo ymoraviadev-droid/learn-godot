@@ -1093,16 +1093,32 @@
         ]
       },
       {
-        "type": "codeBlock",
+        "type": "nodeTree",
         "attrs": {
-          "language": "text"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "Player (CharacterBody2D) — Player.cs (movement, input)\n├── HealthComponent (Node) — HealthComponent.cs (health logic)\n├── HurtBox (Area2D) — HurtBox.cs (damage detection)\n└── Sprite2D (no script — just visuals)"
-          }
-        ]
+          "items": [
+            {
+              "name": "Player",
+              "type": "CharacterBody2D",
+              "comment": "Player.cs (movement, input)",
+              "children": [
+                {
+                  "name": "HealthComponent",
+                  "type": "Node",
+                  "comment": "HealthComponent.cs (health logic)"
+                },
+                {
+                  "name": "HurtBox",
+                  "type": "Area2D",
+                  "comment": "HurtBox.cs (damage detection)"
+                },
+                {
+                  "name": "Sprite2D (no script",
+                  "comment": "just visuals)"
+                }
+              ]
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",

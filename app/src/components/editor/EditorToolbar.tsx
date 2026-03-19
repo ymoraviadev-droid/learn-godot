@@ -36,6 +36,7 @@ import {
   ArrowLeftToLine,
   DeleteIcon,
   HelpCircle,
+  GitBranch,
 } from "lucide-react";
 import { ImageGalleryDialog } from "@/components/gallery/ImageGalleryDialog";
 import { ToolbarButton } from "./ToolbarButton";
@@ -345,6 +346,12 @@ export function EditorToolbar({ editor }: EditorToolbarProps) {
           icon={<HelpCircle className="h-4 w-4" />}
           label="הוסף שאלון"
           onClick={() => editor.chain().focus().insertQuiz().run()}
+        />
+
+        <ToolbarButton
+          icon={<GitBranch className="h-4 w-4" />}
+          label="הוסף עץ צמתים"
+          onClick={() => editor.chain().focus().insertNodeTree().run()}
         />
 
         {/* Code block with language picker */}

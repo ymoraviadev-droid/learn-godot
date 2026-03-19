@@ -134,3 +134,33 @@ Written in Hebrew covering:
 4. **Copy-to-clipboard button** — code blocks now have a copy button in the header bar.
 5. **Text language** — added "Text" option to code block language selector for plain textual content (no syntax highlighting).
 6. **Code block line alignment** — line numbers and code content now share identical `font-size`, `font-family`, and `line-height` to stay perfectly aligned. Trailing empty lines hidden via CSS (`.ProseMirror-trailingBreak`).
+
+---
+
+## 2026-03-19 — Node Tree Diagrams, Chapter 5
+
+### Node Tree Custom Tiptap Node
+
+ASCII tree diagrams (using `├──`, `└──`, `│`) were breaking on mobile — monospace characters wrap unpredictably on narrow screens. Replaced with a custom `NodeTree` Tiptap node that renders structured HTML.
+
+1. **NodeTreeNode.ts** — Tiptap `Node.create()` with `items` attribute storing recursive `TreeItem[]` (`name`, optional `type`, optional `comment`, optional `children`)
+2. **NodeTreeView.tsx** — single React component for both edit and read modes. Edit mode: inline inputs for name/type/comment with hover action buttons (add child, add sibling, delete). Read mode: styled labels with icons
+3. **Design** — GitHub-dark theme (`#161b22`), header bar with FolderTree icon, purple ChevronDown for parent nodes, gray Box for leaves, green type badges, italic gray comments, dashed indent guides, hover row highlight
+4. **Toolbar** — GitBranch icon button added to editor toolbar row 2
+5. **Content migration** — wrote a Node.js script to parse all 8 ASCII tree diagrams across chapters 02–05 JSON files into structured `nodeTree` nodes. Parser handles `#` comments (file trees), ` — ` comments (node trees), multi-space parenthetical comments, and single-space `(Type)` annotations
+6. **Mobile-safe** — HTML reflows naturally at any width, no monospace dependency
+
+### Chapter 5 — C# in Godot: The Basics
+
+Written in English (docs/chapters/) covering:
+- 5.1 How C# integrates with Godot — .NET runtime, partial classes, binding layer, one-script-per-node
+- 5.2 First script — creating/attaching scripts, spinning sprite example, build step
+- 5.3 Lifecycle methods — `_Ready()`, `_Process()`, `_PhysicsProcess()`, comparison table, delta time
+- 5.4 Accessing node properties — Position, Rotation, Modulate, methods on nodes
+- 5.5 `GetNode<T>()` and `[Export]` — node paths, caching, export hints, enums, PackedScene pattern
+- 5.6 Logging and debugging — GD.Print, Remote Inspector, breakpoints, visual debugging
+- 5.7 C# vs GDScript — syntax comparison, naming conventions, API differences, translation checklist
+
+### Bug Fix
+
+- **ShikiPlugin.ts** — removed unused `ColoredToken` type import that was causing a TS6133 build error

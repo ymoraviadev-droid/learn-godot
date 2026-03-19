@@ -31,6 +31,8 @@ import Heading from "@tiptap/extension-heading";
 import { Quiz } from "./QuizNode";
 import { QuizEditorView } from "./QuizEditorView";
 import { QuizReaderView } from "../reader/QuizReaderView";
+import { NodeTree } from "./NodeTreeNode";
+import { NodeTreeView } from "./NodeTreeView";
 
 interface UseEditorSetupOptions {
   content?: JSONContent;
@@ -110,6 +112,11 @@ export function useEditorSetup({
       Quiz.extend({
         addNodeView() {
           return ReactNodeViewRenderer(editable ? QuizEditorView : QuizReaderView);
+        },
+      }),
+      NodeTree.extend({
+        addNodeView() {
+          return ReactNodeViewRenderer(NodeTreeView);
         },
       }),
     ],

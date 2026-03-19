@@ -13,11 +13,37 @@ let chaptersCache: Chapter[] = [];
 let metaCache: BookMeta = { ...DEFAULT_META };
 
 async function loadFromDisk() {
+  // Try new per-chapter format first (meta.json + individual chapter files)
+  try {
+    const metaRes = await fetch("/content/chapters/meta.json?t=" + Date.now());
+    if (metaRes.ok) {
+      const meta = await metaRes.json();
+      metaCache = { ...DEFAULT_META, ...meta };
+
+      const chapters = await Promise.all(
+        (meta.chapterOrder as string[]).map(async (id) => {
+          try {
+            const res = await fetch(
+              `/content/chapters/${encodeURIComponent(id)}.json?t=${Date.now()}`
+            );
+            if (res.ok) return res.json() as Promise<Chapter>;
+          } catch {}
+          return null;
+        })
+      );
+      chaptersCache = chapters.filter((c): c is Chapter => c !== null);
+      return;
+    }
+  } catch {}
+
+  // Fallback: legacy single-file format
   try {
     const res = await fetch("/content/chapters/godot-tutorial-content.json?t=" + Date.now());
-    const data = await res.json();
-    chaptersCache = data.chapters || [];
-    metaCache = { ...DEFAULT_META, ...(data.meta || {}) };
+    if (res.ok) {
+      const data = await res.json();
+      chaptersCache = data.chapters || [];
+      metaCache = { ...DEFAULT_META, ...(data.meta || {}) };
+    }
   } catch {
     // First run — no content file yet
   }

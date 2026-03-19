@@ -113,6 +113,7 @@ export function ChapterSidebar({
                   <div dir="rtl" className="flex-1 flex items-center gap-1 py-2 px-2 min-w-0">
                     <Link
                       to={`${basePath}/${chapter.slug}`}
+                      onClick={() => window.scrollTo(0, 0)}
                       className="flex-1 min-w-0 text-right wrap-break-word leading-snug"
                     >
                       <span className="text-xs text-muted-foreground ml-2">

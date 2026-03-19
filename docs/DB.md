@@ -43,7 +43,7 @@ If a database is ever needed (multi-user editing, API access, etc.):
 
 The `content` field holds the Tiptap JSON document — the editor's native format. This is an opaque blob managed entirely by Tiptap.
 
-### Book Metadata (`/content/meta.json`)
+### Book Metadata (`/content/chapters/meta.json`)
 
 ```json
 {
@@ -65,8 +65,10 @@ Images are stored as files, referenced by relative path in Tiptap content.
 
 No localStorage. Content lives in two layers:
 
-1. **In-memory cache** — JavaScript array initialized via runtime `fetch` from `/content/chapters/godot-tutorial-content.json` on page load (cache-busted with timestamp). Every keystroke updates this cache instantly.
-2. **Disk** — the in-memory state is flushed to `content/chapters/godot-tutorial-content.json` via the Vite plugin (`POST /api/save-content`):
+1. **In-memory cache** — on page load, `meta.json` is fetched first, then each chapter file is fetched in parallel by ID from `chapterOrder` (cache-busted with timestamp). Every keystroke updates this cache instantly.
+2. **Disk** — the in-memory state is flushed to per-chapter files via the Vite plugin (`POST /api/save-content`):
+   - Writes `meta.json` + one `{chapter-id}.json` file per chapter
+   - Removes stale chapter files (from deletions)
    - **Auto-save** every 30 seconds (only if there are unsaved changes)
    - **Ctrl+S** or save button for immediate save
    - **On create/delete/import** — saved immediately
@@ -77,10 +79,10 @@ Images are uploaded via `POST /api/upload-image` (Vite plugin) and saved to `con
 
 ### Reader Mode (production build)
 
-- Content loaded via runtime `fetch` from `/content/chapters/godot-tutorial-content.json`
+- On load, `meta.json` is fetched, then each chapter file in parallel
 - `content/` is symlinked into `public/` so chapters, images, and JSON are included in the static build
 
 ### Export/Import
 
 - **Export**: combines all chapters + meta into a single downloadable JSON file
-- **Import**: uploads a JSON file, loads into memory, and saves to disk immediately
+- **Import**: uploads a JSON file, loads into memory, and saves to disk (as split per-chapter files)

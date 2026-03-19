@@ -1,0 +1,12 @@
+{
+  "title": "למד Godot עם C#",
+  "description": "מדריך בעברית לפיתוח משחקים עם Godot ו-C#",
+  "author": "",
+  "language": "he",
+  "chapterOrder": [
+    "01-מבוא",
+    "02-התקנת-סביבת-הפיתוח",
+    "03-עורך-godot",
+    "04-nodes-וסצנות"
+  ]
+}

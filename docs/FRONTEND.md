@@ -110,6 +110,7 @@ Quiz data stored as Tiptap node attributes (array of `{ question, answers[4], co
 - H1 headings "סיכום" and "שאלון ידע" also get IDs for deep linking
 - Sidebar shows expandable subchapter list (h2 headings) under each chapter
 - "סיכום" and "שאלון ידע" always appear at the bottom of each chapter's subchapter list with a separator
+- Clicking a main chapter link scrolls to top after navigation
 - Clicking a subchapter smooth-scrolls to the heading anchor
 
 ## Reader Mode

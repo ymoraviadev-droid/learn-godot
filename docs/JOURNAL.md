@@ -121,3 +121,12 @@ Written in Hebrew covering:
 5. **Dialog accessibility** — DialogTitle and DialogDescription now use Radix primitives instead of plain HTML elements; added `aria-describedby={undefined}` to dialogs without descriptions
 6. **Tiptap flushSync fix** — added `immediatelyRender: false` to useEditor to prevent flushSync warnings during navigation
 7. **Duplicate extension fix** — disabled StarterKit's bundled `link` and `underline` (we configure them explicitly); renamed custom `textDirection` to `customTextDirection` to avoid clash with @tiptap/core's built-in extension
+
+---
+
+## 2026-03-19 — Per-Chapter JSON Split, Sidebar Scroll Fix
+
+### Changes
+
+1. **Per-chapter JSON files** — replaced single monolithic `godot-tutorial-content.json` (~1.1MB) with individual `{chapter-id}.json` files + `meta.json`. Better git diffs (editing one chapter doesn't touch others), smaller files. Loading fetches `meta.json` first, then all chapters in parallel by ID. Saving writes each chapter as a separate file and cleans up stale files (from deletions). Backward-compatible: falls back to old single-file format if `meta.json` doesn't exist.
+2. **Sidebar scroll-to-top** — clicking a main chapter link in the sidebar (desktop and mobile) now scrolls to top after navigation. Subchapter links still smooth-scroll to their heading anchors.

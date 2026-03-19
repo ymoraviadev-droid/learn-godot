@@ -60,7 +60,7 @@ export function contentPlugin(): Plugin {
         });
       });
 
-      // POST /api/save-content — save JSON to content/chapters/
+      // POST /api/save-content — save meta.json + per-chapter JSON files
       server.middlewares.use("/api/save-content", (req, res) => {
         if (req.method !== "POST") {
           res.statusCode = 405;
@@ -72,18 +72,40 @@ export function contentPlugin(): Plugin {
         req.on("data", (chunk: Buffer) => chunks.push(chunk));
         req.on("end", () => {
           try {
-            const body = JSON.parse(Buffer.concat(chunks).toString("utf-8"));
+            const { meta, chapters } = JSON.parse(
+              Buffer.concat(chunks).toString("utf-8")
+            );
 
             fs.mkdirSync(CHAPTERS_DIR, { recursive: true });
 
-            const filePath = path.join(
-              CHAPTERS_DIR,
-              "godot-tutorial-content.json"
+            // Write meta.json
+            fs.writeFileSync(
+              path.join(CHAPTERS_DIR, "meta.json"),
+              JSON.stringify(meta, null, 2),
+              "utf-8"
             );
-            fs.writeFileSync(filePath, JSON.stringify(body, null, 2), "utf-8");
+
+            // Write individual chapter files
+            const keepFiles = new Set<string>(["meta.json"]);
+            for (const chapter of chapters) {
+              const filename = `${chapter.id}.json`;
+              keepFiles.add(filename);
+              fs.writeFileSync(
+                path.join(CHAPTERS_DIR, filename),
+                JSON.stringify(chapter, null, 2),
+                "utf-8"
+              );
+            }
+
+            // Remove stale chapter files (deleted chapters + old monolith)
+            for (const file of fs.readdirSync(CHAPTERS_DIR)) {
+              if (file.endsWith(".json") && !keepFiles.has(file)) {
+                fs.unlinkSync(path.join(CHAPTERS_DIR, file));
+              }
+            }
 
             res.setHeader("Content-Type", "application/json");
-            res.end(JSON.stringify({ ok: true, path: filePath }));
+            res.end(JSON.stringify({ ok: true }));
           } catch (err) {
             res.statusCode = 500;
             res.end(JSON.stringify({ error: String(err) }));

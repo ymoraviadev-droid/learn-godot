@@ -87,7 +87,7 @@ export function MobileChapterDrawer({
                     >
                       <Link
                         to={`${basePath}/${chapter.slug}`}
-                        onClick={() => setOpen(false)}
+                        onClick={() => { window.scrollTo(0, 0); setOpen(false); }}
                         className="flex-1 py-2.5 px-3 min-w-0 wrap-break-word leading-snug"
                       >
                         <span className="text-xs text-muted-foreground ml-2">

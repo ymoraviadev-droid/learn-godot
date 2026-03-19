@@ -13,7 +13,7 @@ No backend server. Content is stored as JSON files in the repository.
 | UI          | Shadcn/ui + Tailwind CSS                                     |
 | Editor      | Tiptap (ProseMirror-based)                                   |
 | Code blocks | lowlight (highlight.js) + custom NodeView with line numbers  |
-| Storage     | In-memory + JSON files in `/content` (saved via Vite plugin) |
+| Storage     | In-memory + per-chapter JSON files in `/content` (saved via Vite plugin) |
 | Dev server  | Vite plugin provides image upload & file saving endpoints    |
 | Hosting     | Static (Vercel / Netlify / Pages)                            |
 
@@ -23,7 +23,7 @@ No backend server. Content is stored as JSON files in the repository.
 
 - Full Tiptap WYSIWYG editor with all formatting options
 - Article management — create, reorder, edit, delete chapters
-- Saves Tiptap JSON to `/content/chapters/*.json`
+- Saves Tiptap JSON to `/content/chapters/{chapter-id}.json` (one file per chapter) + `meta.json`
 - Image upload to `/content/images/`
 - Local-only — runs on `localhost` during authoring
 
@@ -41,7 +41,7 @@ learn-godot/
 ├── docs/                    # Project documentation
 │   └── chapters/            # Chapter drafts (English source material)
 ├── content/
-│   ├── chapters/            # Exported tutorial JSON (godot-tutorial-content.json)
+│   ├── chapters/            # meta.json + per-chapter JSON files ({id}.json)
 │   └── images/              # Uploaded images (via editor)
 ├── app/
 │   ├── src/
@@ -67,7 +67,7 @@ Author writes in Tiptap editor
         ↓
 Every keystroke updates in-memory state
         ↓
-Auto-save every 30s (or Ctrl+S) writes JSON to content/chapters/
+Auto-save every 30s (or Ctrl+S) writes meta.json + per-chapter JSON files
         ↓
 Image uploads saved to content/images/ via Vite plugin
         ↓
@@ -82,7 +82,7 @@ Deploy to static host → readers see polished articles
 
 The Vite dev server doubles as a lightweight backend during authoring:
 
-- `POST /api/save-content` — writes full tutorial JSON to `content/chapters/godot-tutorial-content.json`
+- `POST /api/save-content` — writes `meta.json` + individual `{chapter-id}.json` files to `content/chapters/`, removes stale files
 - `POST /api/upload-image` — saves uploaded image to `content/images/`, returns URL
 - `GET /content/chapters/*` — serves chapter JSON (no-cache, always fresh from disk)
 - `GET /content/images/*` — serves uploaded images as static files
@@ -93,4 +93,4 @@ The Vite dev server doubles as a lightweight backend during authoring:
 2. **Tiptap JSON as source of truth** — not Markdown, not HTML
 3. **Dark-only Godot-themed UI** — matches Godot editor color palette
 4. **RTL-first** — `dir="rtl"` on html, per-block direction override for mixed content
-5. **In-memory + disk** — edits update in-memory cache instantly, auto-saved to disk every 30s
+5. **In-memory + disk** — edits update in-memory cache instantly, auto-saved as per-chapter files to disk every 30s

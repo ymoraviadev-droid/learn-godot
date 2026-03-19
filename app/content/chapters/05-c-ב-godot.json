@@ -1,0 +1,66 @@
+{
+  "id": "05-c-ב-godot",
+  "title": "#C ב-Godot",
+  "slug": "c-ב-godot",
+  "order": 5,
+  "createdAt": "2026-03-19T04:39:57.016Z",
+  "updatedAt": "2026-03-19T04:40:41.480Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 5: #C ב-Godot"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "5.1 כיצד #C מתממשקת עם Godot"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      }
+    ]
+  }
+}

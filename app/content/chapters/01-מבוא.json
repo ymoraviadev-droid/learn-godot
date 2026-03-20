@@ -4,7 +4,7 @@
   "slug": "מבוא",
   "order": 1,
   "createdAt": "2026-03-15T05:48:59.658Z",
-  "updatedAt": "2026-03-15T23:40:55.513Z",
+  "updatedAt": "2026-03-20T12:12:52.745Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -2007,11 +2007,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -3416,11 +3412,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -4200,11 +4192,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -5081,11 +5069,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -6158,11 +6142,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -6236,11 +6216,7 @@
         }
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "paragraph",

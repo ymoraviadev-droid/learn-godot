@@ -73,27 +73,20 @@ The fastest way to connect a signal is through the Godot editor — no code requ
    - **Receiver Method:** Godot suggests a name like `_on_button_pressed`. You can change it, but the convention `_on_NodeName_signal_name` is clear and widely used.
 7. Click **Connect**.
 
-Godot creates the method stub in your script. If the root `Control` doesn't have a script yet, Godot will prompt you to create one. The generated method looks like this:
+**Important (C# only):** Unlike GDScript, Godot does **not** auto-generate the method in your C# script. The connection is registered in the editor, but you must write the method yourself. Make sure the root `Control` node has a script attached, then add the method manually:
 
 ```csharp
 public partial class MainUI : Control
 {
     private void _on_button_pressed()
     {
-        // Replace with function body.
+        var label = GetNode<Label>("Label");
+        label.Text = "Button was clicked!";
     }
 }
 ```
 
-Now fill in the method:
-
-```csharp
-private void _on_button_pressed()
-{
-    var label = GetNode<Label>("Label");
-    label.Text = "Button was clicked!";
-}
-```
+The method name must match exactly what you set in the **Receiver Method** field of the connection dialog (by default `_on_button_pressed`). If the names don't match, the signal will fire but nothing will happen — and Godot will print an error in the Output panel.
 
 Build and run. Click the button, and the label updates. The button emitted its `Pressed` signal, and your method responded.
 
@@ -172,6 +165,20 @@ _animPlayer.AnimationFinished += OnAnimationFinished;
 This reads naturally: "On button pressed, do this." It's clear, consistent, and self-documenting.
 
 ### Connecting with Lambda Expressions
+
+A **lambda expression** is an anonymous function — a function without a name, defined inline right where you need it. If you know JavaScript, this is exactly like an **arrow function** (`=>`):
+
+```javascript
+// JavaScript arrow function
+button.addEventListener("click", () => console.log("clicked!"));
+```
+
+```csharp
+// C# lambda — same concept, same syntax
+button.Pressed += () => GD.Print("clicked!");
+```
+
+The `=>` syntax works the same way in both languages: parameters on the left, body on the right. The only difference is that C# calls them "lambda expressions" while JavaScript calls them "arrow functions."
 
 For simple, one-line handlers, you can use lambda expressions instead of separate methods:
 

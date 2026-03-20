@@ -4,7 +4,7 @@
   "slug": "התקנת-סביבת-הפיתוח",
   "order": 2,
   "createdAt": "2026-03-15T23:51:41.983Z",
-  "updatedAt": "2026-03-19T08:16:13.985Z",
+  "updatedAt": "2026-03-20T12:13:56.946Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -2324,11 +2324,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -4699,11 +4695,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -6388,11 +6380,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -7158,11 +7146,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -9155,11 +9139,7 @@
         ]
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -9858,15 +9838,15 @@
                   {
                     "type": "text",
                     "text": ". תתרגלו אליו - תחזרו עליו אלפי פעמים."
-                  },
-                  {
-                    "type": "hardBreak"
                   }
                 ]
               }
             ]
           }
         ]
+      },
+      {
+        "type": "horizontalRule"
       },
       {
         "type": "heading",
@@ -9975,11 +9955,7 @@
         }
       },
       {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
+        "type": "horizontalRule"
       },
       {
         "type": "paragraph",

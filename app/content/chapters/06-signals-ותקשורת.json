@@ -4,7 +4,7 @@
   "slug": "signals-ותקשורת",
   "order": 6,
   "createdAt": "2026-03-19T19:26:39.012Z",
-  "updatedAt": "2026-03-19T21:25:40.537Z",
+  "updatedAt": "2026-03-20T12:46:29.394Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -1470,7 +1470,2625 @@
         "content": [
           {
             "type": "text",
-            "text": "הדרך המהירה ביותר"
+            "text": "הדרך המהירה ביותר לחבר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " היא דרך עורך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": ". כעת נציג ונתרגל דוגמא של כפתור שמציג טקסט כאשר לוחצים עליו."
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "צרו סצנה שה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הראשי שלה הוא מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Control"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". הוסיפו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הראשי כילדים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Button"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו- "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Label"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הצמידו סקריפט ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Control"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בחרו בעץ הסצנה ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Button"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בפאנל הימני, לחצו על לשונית ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "תוכלו לראות רשימה של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שיש ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Button"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". ביחרו את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()pressed"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (נמצא מתחת ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "BaseButton"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו (דאבל-קליק) על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()pressed"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", יפתח לכם דיאלוג."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בדיאלוג הנפתח, ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Connect to Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”, יש לבחור ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שהסקריפט שלו צריך לנהל את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Receiver Method"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” יוצע לנו שם כמו - “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "on_button_pressed"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“‘ ניתן לשנות את השם אם רוצים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Connect"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/connect_signal.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימו לב: "
+          },
+          {
+            "type": "text",
+            "text": "כפי שכתוב גם בדיאלוג (בצהוב), ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " הפונקציה לא תיווצר באופן אוטומטי בקוד - יש להוסיף אותה באופן ידני, צרו פונקציה בסקריפט שהצמדתם ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Control"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Control : Godot.Control\n{\n\t// Called when the node enters the scene tree for the first time.\n\tpublic override void _Ready()\n\t{\n\t}\n\n\t// Called every frame. 'delta' is the elapsed time since the previous frame.\n\tpublic override void _Process(double delta)\n\t{\n\t}\n\n\tprivate void on_button_pressed()\n\t{\n\t\tvar label = GetNode<Label>(\"Label\");\n\t\tlabel.Text = \"Button was clicked!\";\n\t}\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השם של הפונקציה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חייב"
+          },
+          {
+            "type": "text",
+            "text": " להיות תואם לשם שבחרתם בדיאלוג, אם השם לא יהיה תואם  - לא נראה שום תגובה ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ", ותודפס לנו הודעת שגיאה לקונסול."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מה שפונקציה זאת עושה זה “לשלוף” את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Label"
+          },
+          {
+            "type": "text",
+            "text": " ולהציג בו טקסט - ברגע שמתקבל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Button"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בנו והריצו את הסצנה (F6), אם עשיתם הכל נכון - תראו את הטקסט כאשר תלחצו על הכפתור."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיווים ויזואליים והתנתקות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אחרי שאנחנו מחברים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " דרך העורך, נוכל להבחין שבלשונית ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": ", המתודה שיצרנו תופיע בירוק מתחת ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " הנבחר ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "pressed"
+          },
+          {
+            "type": "text",
+            "text": "), אם נלחץ עליה באמצעות קליק ימני יפתח לנו תפריט אפשרויות קטן המאפשר עריכה והתנתקות:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/edit_signal.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם נלחץ על התנתקות - ההקשר ימחק, אך המתודה תישאר בקוד ונצטרך להסיר אותה באופן ידני."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי כדאי לנו להשתמש בעורך לחיבור Signals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיבור של Signals דרך העורך יכול להיות שימושי כאשר"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מקור ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמטפל בו נמצאים באותה הסצנה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כאשר החיבור אמור להיות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קבוע"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כשיש צורך שחברי צוות שהם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לא"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מתכנתים יבינו את ההקשר בקלות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי זה לא יהיה שימושי"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "יש צורך לחבר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באופן דינאמי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מקור ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נמצא בסצנה שונה מה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמטפל בארוע."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "יש לנו צורך בחיבורים אופציונליים דרך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במקרים כאלו נעדיף לחבר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד ולא דרך עורך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "6.3 חיבור Signals דרך קוד #C"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חיבור של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד מאפשר לנו שליטה מלאה - יש לנו יכולת להחליט איפה, מתי, ואיזה מתודה מגיבה ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ", זו הגישה הנפוצה ביותר להתנהלות עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "התחביר הבסיס ו-”=+”"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בשפת #C, ה-Signals מתנהגים כמו ארועים (Events), ניתן לחבר אותם באמצעות שימוש ב-”=+”:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Control : Godot.Control\n{\n    private Button _button;\n    private Label _label;\n\n    public override void _Ready()\n    {\n        _button = GetNode<Button>(\"Button\");\n        _label = GetNode<Label>(\"Label\");\n\n        _button.Pressed += OnButtonPressed;\n    }\n\n    private void OnButtonPressed()\n    {\n        _label.Text = \"Clicked from code!\";\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה יתן לנו בדיוק את אותו דבר שהשגנו בתירגול הקודם - רק שהפעם עשינו זאת דרך הקוד בלבד. ניתן להסיק אם כך שהאופרטור “=+“, במקרה הזה, כאילו “אומר” שכשיתקבל ה-Signal הזה - יש להפעיל את הפונקציה הזאת. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה הזמן לתרגל ולהתנסות עוד קצת. נסו לנתק את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " שחיברתם דרך העורך בתירגול הקודם - וחברו דרך הקוד בהתאם לדוגמא האחרונה, נסו להציג הודעות שונות במיקומים שונים בהתאם ללחיצה על כפתור."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתן שמות (Naming Convention)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אנחנו מחברים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": ", נהוג להתחיל תמיד את שם הפונקציה ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "On"
+          },
+          {
+            "type": "text",
+            "text": "” כאשר שאר המילים מתארות את הארוע, והכל ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "PascalCase"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "_button.Pressed += OnButtonPressed;\n_timer.Timeout += OnTimerTimeout;\n_area.BodyEntered += OnBodyEntered;\n_animPlayer.AnimationFinished += OnAnimationFinished;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיבור Signals באמצעות שימוש בביטויי Lambda"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת להשיג קוד קריא קצר ופשוט, ניתן להשתמש בביטויי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Lambda"
+          },
+          {
+            "type": "text",
+            "text": " ישירות במקום להתייחס לפונקציה קיימת:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Ready()\n{\n    var button = GetNode<Button>(\"Button\");\n    button.Pressed += () => GD.Print(\"Button was pressed!\");\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "או עם פרמטרים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var timer = GetNode<Timer>(\"Timer\");\ntimer.Timeout += () =>\n{\n    GD.Print(\"Timer finished!\");\n    timer.Start();  // restart the timer\n};"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ביטוי Lambda"
+                  },
+                  {
+                    "type": "text",
+                    "text": " זה למעשה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פונקציה אנונימית"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (שאין לה שם), אשר נכתבת על המקום, התחביר של זה נראה קצת מוזר כשלא מכירים, אבל זה קל ונוח מרגע שמתרגלים: “ "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "{"
+                  },
+                  {
+                    "type": "text",
+                    "text": "…"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "} <=  ()"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“. קונספט זה קיים גם בהמון שפות תכנות אחרות והוא מאוד נפוץ בשימוש שכן לעיתים זה יכול לקצר לנו קוד ואף להפוך אותו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לברור וקריא"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יותר."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ניתוק Signals דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה וברצוננו לנתק דרך הקוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ", נוכל להשתמש באופרטור “=-”:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "_button.Pressed -= OnButtonPressed;"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לא ניתן לנתק ביטוי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Lambda"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באמצעות “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "=-"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“, זה לא יעבוד כי זה פונקציה ללא שם, אופרטור זה יעבוד על “מצביע” לפונקציה שיש לה שם בלבד, והנה לכם סיבה אפשרית למה לעיתים נעדיף נתינת שם לפונקציה במקום להשתמש בפונקציה אנונימית."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי נרצה לנתק Signal"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " המאזין עומד לצאת מהעץ (על מנת למנוע קריאות לאובייקט שלא קיים)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "יש לנו צורך - בהתאם לצרכי המשחק - להפסיק להגיב ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (לפרק זמן מסויים או בכלל)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מצב שבו אנחנו רוצים להחליף את הפונקציה שמטפלת בארוע בזמן המשחק."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ברוב המקרים, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " ידאג לניקוי אוטומטי - כאשר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " משתחרר מהעץ, חיבורי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " שלו גם משתחררים, אך לנתק באופן ידני דרך הקוד זה חכם ושימושי ויכול למנוע מצב שהמקבל משתחרר לפני המשדר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא פרקטית: יצירת מופעים מבוססת זמן"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class EnemySpawner : Node2D\n{\n    [Export] public PackedScene EnemyScene;\n    [Export] public float SpawnInterval = 2.0f;\n\n    private Timer _timer;\n\n    public override void _Ready()\n    {\n        _timer = GetNode<Timer>(\"SpawnTimer\");\n        _timer.WaitTime = SpawnInterval;\n        _timer.Timeout += OnSpawnTimerTimeout;\n        _timer.Start();\n    }\n\n    private void OnSpawnTimerTimeout()\n    {\n        var enemy = EnemyScene.Instantiate<Node2D>();\n        enemy.GlobalPosition = GlobalPosition;\n        GetTree().CurrentScene.AddChild(enemy);\n        GD.Print(\"Enemy spawned!\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עץ הסצנה:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "EnemySpawner",
+              "children": [
+                {
+                  "name": "SpawnTimer",
+                  "type": "Timer"
+                }
+              ],
+              "type": "Node2D",
+              "comment": "EnemySpawner.cs"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תירגול"
+          },
+          {
+            "type": "text",
+            "text": ": במידה ותשנו את המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "OneShot"
+          },
+          {
+            "type": "text",
+            "text": " של הטיימר ל-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": "”, תקבלו מייצר מופעים בפחות מ-30 שורות קוד, שימו לב שבקוד ייצאנו שדה עבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Enemy"
+          },
+          {
+            "type": "text",
+            "text": " - צרו סצנת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Enemy"
+          },
+          {
+            "type": "text",
+            "text": " (אפילו ריקה) וגררו אותה דרך העורך לשדה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Enemy"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Scene"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/spawner.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "6.4 Signals מותאמים אישית באמצעות שימוש ב-[Signal]"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " המובנים מכסים את רוב הצרכים הבסיסיים - לחיצת כפתור, ספירות טיימר, התנגשות אזורים ועוד. אך למשחק משלנו כנראה שיהיו ארועים משמעותיים משלו, כגון איסוף חפצים, הורדת כוח כתוצאה מפגיעה, פתיחת חלון דיאלוג בהתאם להתרחשות כזו או אחרת, ועוד המון סיטואציות שניתן לחשוב עליהן. במקרים כאלו נרצה להגדיר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מותאמים אישית."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הכרזה על Signal מותאם אישית באמצעות ה-Attribute המיוחד [Signal]"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Signal]\n    public delegate void HealthChangedEventHandler();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מתן השמות הוא קריטי לפעולה תקינה ויש לתת שמות לפי החוקים הבאים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "השם של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "delegate"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חייב להסתיים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "EventHandler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (קריטי)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לוקח את הסיומת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "EventHandler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת ליצור את השם של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", כלומר ש-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HealthChangedEventHandler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יהפוך ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בשם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HealthChanged"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לאחר שנעשה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Build"
+          },
+          {
+            "type": "text",
+            "text": " ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alt"
+          },
+          {
+            "type": "text",
+            "text": "+"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "B"
+          },
+          {
+            "type": "text",
+            "text": "), המנוע יצור את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " ונוכל לראות את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " בעורך בלשונית ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שידור Signal מותאם אישית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת שנוכל לשדר את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " שייצרנו, נשתמש בפונקציה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()EmitSignal "
+          },
+          {
+            "type": "text",
+            "text": "עם השם של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Signal]\n    public delegate void HealthChangedEventHandler();\n\n    private int _health = 100;\n\n    public void TakeDamage(int amount)\n    {\n        _health -= amount;\n        EmitSignal(SignalName.HealthChanged);\n        GD.Print($\"Player took {amount} damage! Health: {_health}\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SignalName"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HealthChanged"
+          },
+          {
+            "type": "text",
+            "text": " נוצר באופן אוטומטי על ידי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לספק לו דרך בטיחותית להתייחס לשם ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ", אם נשנה את השם של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "delegate"
+          },
+          {
+            "type": "text",
+            "text": " - הקומפיילר יסמן לנו שגיאה של חוסר התאמה ונדע לתקן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיבור Nodes ל-Signal מותאם אישית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נעשה זאת באותו האופן שבו התחברנו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מובנים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class HUD : CanvasLayer\n{\n    private Player _player;\n    private Label _healthLabel;\n\n    public override void _Ready()\n    {\n        _player = GetNode<Player>(\"../Player\");\n        _healthLabel = GetNode<Label>(\"HealthLabel\");\n\n        _player.HealthChanged += OnPlayerHealthChanged;\n    }\n\n    private void OnPlayerHealthChanged()\n    {\n        _healthLabel.Text = $\"Health: {_player.Health}\";\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "6.5 Delegates ופרמטרים של Signals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Signals יכולים לכלול נתונים."
           }
         ]
       },

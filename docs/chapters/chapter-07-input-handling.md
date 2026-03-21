@@ -133,9 +133,9 @@ if (Input.IsActionJustReleased("charge_attack"))
 
 Use this for **release-triggered actions** — releasing a charged bow, letting go of a throw.
 
-### Combining Them: A Movement Example
+### Movement Example
 
-Here's a typical 2D top-down movement script using all three:
+Here's a typical 2D top-down movement script using `IsActionPressed()` for continuous input:
 
 ```csharp
 public partial class Player : CharacterBody2D

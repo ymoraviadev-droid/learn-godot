@@ -4,7 +4,7 @@
   "slug": "signals-ותקשורת",
   "order": 6,
   "createdAt": "2026-03-19T19:26:39.012Z",
-  "updatedAt": "2026-03-20T12:46:29.394Z",
+  "updatedAt": "2026-03-21T15:37:05.170Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -144,7 +144,7 @@
           },
           {
             "type": "text",
-            "text": ", כלומר, זה מצב שהמטבע צריכה לדעת על קיומו של השחקן, מצב פחות רצוי - שכן עלול לקרות לנו שנשנה משהו במקטם אחד ונהרוס כתוצאה מכך לוגיקה שקיימת במקומות אחרים, העקרון שדיברנו עליו בפרקים קודמים הוא ליצור מצב אופטימלי שבו כל "
+            "text": ", כלומר, זה מצב שהמטבע צריכה לדעת על קיומו של השחקן, מצב פחות רצוי - שכן עלול לקרות לנו שנשנה משהו במקום אחד ונהרוס כתוצאה מכך לוגיקה שקיימת במקומות אחרים, העקרון שדיברנו עליו בפרקים קודמים הוא ליצור מצב אופטימלי שבו כל "
           },
           {
             "type": "text",
@@ -2091,7 +2091,20 @@
         "content": [
           {
             "type": "text",
-            "text": "בנו והריצו את הסצנה (F6), אם עשיתם הכל נכון - תראו את הטקסט כאשר תלחצו על הכפתור."
+            "text": "בנו והריצו את הסצנה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "F6"
+          },
+          {
+            "type": "text",
+            "text": "), אם עשיתם הכל נכון - תראו את הטקסט כאשר תלחצו על הכפתור."
           }
         ]
       },
@@ -2659,7 +2672,59 @@
         "content": [
           {
             "type": "text",
-            "text": "בשפת #C, ה-Signals מתנהגים כמו ארועים (Events), ניתן לחבר אותם באמצעות שימוש ב-”=+”:"
+            "text": "בשפת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": ", ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מתנהגים כמו ארועים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Events"
+          },
+          {
+            "type": "text",
+            "text": "), ניתן לחבר אותם באמצעות שימוש ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "=+"
+          },
+          {
+            "type": "text",
+            "text": "”:"
           }
         ]
       },
@@ -2684,7 +2749,33 @@
         "content": [
           {
             "type": "text",
-            "text": "זה יתן לנו בדיוק את אותו דבר שהשגנו בתירגול הקודם - רק שהפעם עשינו זאת דרך הקוד בלבד. ניתן להסיק אם כך שהאופרטור “=+“, במקרה הזה, כאילו “אומר” שכשיתקבל ה-Signal הזה - יש להפעיל את הפונקציה הזאת. "
+            "text": "זה יתן לנו בדיוק את אותו דבר שהשגנו בתירגול הקודם - רק שהפעם עשינו זאת דרך הקוד בלבד. ניתן להסיק אם כך שהאופרטור “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "=+"
+          },
+          {
+            "type": "text",
+            "text": "“, במקרה הזה, כאילו “אומר” שכשיתקבל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " הזה - יש להפעיל את הפונקציה הזאת. "
           }
         ]
       },
@@ -2992,7 +3083,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " יותר."
+                    "text": " יותר, אבל לא מתאים בכל מצב, מיד נבין מדוע:"
                   }
                 ]
               }
@@ -4088,7 +4179,42 @@
         "content": [
           {
             "type": "text",
-            "text": "Signals יכולים לכלול נתונים."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " יכולים לכלול נתונים. למשל: כשכח החיים של השחקן מתעדכן - ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " צריך לכלול את הערך החדש, וכו’, לכן ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " אפשר להכריז על פרמטרים על מנת שנוכל לבצע זאת."
           }
         ]
       },
@@ -4098,6 +4224,4234 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הכרזה על Signals עם פרמטרים"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Signal]\n    public delegate void HealthChangedEventHandler(int newHealth);\n\n    [Signal]\n    public delegate void DiedEventHandler();\n\n    [Signal]\n    public delegate void DamageReceivedEventHandler(int amount, string source);\n\n    private int _health = 100;\n\n    public void TakeDamage(int amount, string source = \"unknown\")\n    {\n        _health = Mathf.Max(0, _health - amount);\n        EmitSignal(SignalName.HealthChanged, _health);\n        EmitSignal(SignalName.DamageReceived, amount, source);\n\n        if (_health <= 0)\n        {\n            EmitSignal(SignalName.Died);\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אנו משדרים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " (באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "EmitSignal"
+          },
+          {
+            "type": "text",
+            "text": ") עלינו להעביר את הפרמטרים הנדרשים (במידה ונדרשו פרמטרים, בקוד הנ”ל  ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Delegates"
+          },
+          {
+            "type": "text",
+            "text": " שעליהם הצהרנו בראש הקוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HealthChangedEventHandler"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "DamageReceivedEventHandler"
+          },
+          {
+            "type": "text",
+            "text": " דורשים פרמטרים)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיבור Node ל-Signal שדורש פרמטרים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הפונקציה המטפלת שנחבר מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": ", תהיה חייבת לדרוש את אותם הפרמטרים שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " דורש:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class HUD : CanvasLayer\n{\n    private Label _healthLabel;\n    private Label _damageLog;\n\n    public override void _Ready()\n    {\n        _healthLabel = GetNode<Label>(\"HealthLabel\");\n        _damageLog = GetNode<Label>(\"DamageLog\");\n\n        var player = GetNode<Player>(\"../Player\");\n        player.HealthChanged += OnHealthChanged;\n        player.DamageReceived += OnDamageReceived;\n        player.Died += OnPlayerDied;\n    }\n\n    private void OnHealthChanged(int newHealth)\n    {\n        _healthLabel.Text = $\"Health: {newHealth}\";\n    }\n\n    private void OnDamageReceived(int amount, string source)\n    {\n        _damageLog.Text = $\"Took {amount} damage from {source}!\";\n    }\n\n    private void OnPlayerDied()\n    {\n        _healthLabel.Text = \"DEAD\";\n        _healthLabel.Modulate = Colors.Red;\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טייפים נתמכים לפרמטרים של Signal"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Primitives"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הטייפים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "int"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "float"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "double"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "bool"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "string"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot types"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הטייפים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Vector2"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Vector3"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Color"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "StringName"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NodePath"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot objects"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הטייפים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Resource"
+                  },
+                  {
+                    "type": "text",
+                    "text": " או כל מי שיורש מהם."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Enums"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "int"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", המנוע "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ממיר אותם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מערכים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Arrays"
+          },
+          {
+            "type": "text",
+            "text": ") ומחלקות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " מותאמות אישית - לא נתמכים כטייפים לפרמטרים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ". במידה ונצטרך טייפים מורכבים - נכניס מחלקה שיורשת מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Resource"
+          },
+          {
+            "type": "text",
+            "text": " או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GodotObject"
+          },
+          {
+            "type": "text",
+            "text": " ונפצל את הנתונים ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Primitives"
+          },
+          {
+            "type": "text",
+            "text": ", נציג דוגמה בפרק מתקדם יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals מובנים עם פרמטרים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש גם לא מעט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מובנים שדורשים פרמטרים, למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Area2D.BodyEntered passes the body that entered\narea.BodyEntered += OnBodyEntered;\n\nprivate void OnBodyEntered(Node2D body)\n{\n    GD.Print($\"{body.Name} entered the area\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "/ AnimationPlayer.AnimationFinished passes the animation name\nanimPlayer.AnimationFinished += OnAnimationFinished;\n\nprivate void OnAnimationFinished(StringName animName)\n{\n    GD.Print($\"Animation '{animName}' finished\");\n    if (animName == \"death\")\n    {\n        QueueFree();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Timer.Timeout has no parameters\ntimer.Timeout += OnTimeout;\n\nprivate void OnTimeout()\n{\n    GD.Print(\"Time's up!\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת שנוכל לדעת איזה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " דורש פרמטרים ומאיזה סוג, נוכל להסתכל בלשונית ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " בעורך - או בדוקיומנטציה הרשמית של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/signals.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "6.6 מתי עלינו להשתמש ב-Signals ומתי נסתפק במצביעים ישירים (Direct References)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת אנו מכירים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": " דרכים לתקשורת בין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מצביעים ישירים (Direct References)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כש-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסויים קורא לפונקציה שמצאת ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחר באמצעות שימוש ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()<GetNode<T"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "דרך "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כש-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסויים משדר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחר מגיב לו."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שתי הדרכים טובות, אך בחירת הדרך הנכונה תלויה בטיב היחסים בין ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נשתמש ב-Signals כאשר:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לשולח לא חשוב מי מאזין לתשדורת"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "למשל במצב שמטבע בעולם המשחק משדרת “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Collected"
+          },
+          {
+            "type": "text",
+            "text": "” - לא “אכפת” לה מי מאזין - בין אם זה תצוגת הנקודות של השחקן, מערכת ניגון צלילים או אחרים. כל מה שמטבע שידרה זה - “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נאספתי"
+          },
+          {
+            "type": "text",
+            "text": "” ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Collected"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יותר מ-Node אחד צריך להגיב לתשדורת"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "הדוגמא הקודמת תתאים גם כאן, אך נשתמש בדוגמא אחרת: שחקן מת ושידר “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Died"
+          },
+          {
+            "type": "text",
+            "text": "“, זהו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " שכנראה יהיה מחובר גם ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HUD"
+          },
+          {
+            "type": "text",
+            "text": " (על מנת להראות “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GAME OVER"
+          },
+          {
+            "type": "text",
+            "text": "”  לשחקן), מנהל הצלילים שינגן מנגינת סיום, וכו’."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " הופכים יחסי “אחד-לרבים” ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "One-To-Man"
+          },
+          {
+            "type": "text",
+            "text": "y) לדבר פשוט ונוח לניהול."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יש לנו צורך בהפרדה בין מערכות"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "אם סקריפט המטבע היה מייבא את סקריפט ניהול ניקוד השחקן - מחיקת ניהול ניקוד השחקן תגרום לסקריפט המטבע “להישבר”. באמצעות שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " אנחנו מונעים תקלה זו לחלוטין, בגלל שאז שהסקריפטים הללו לא יהיו תלויים אחד בשני."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדובר ב-Nodes אשר מרוחקים אחד מהשני במעלה העץ"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "ילד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " לא אמור לחפש במעלה העץ ולגשת ישירות להורה או אח רחוק ולהפעיל מתודות שלו, גישה נכונה ובריאה יותר היא שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " למניעת תקלות ובילבולים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נשתמש ב-Direct References כאשר:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "השולח מצפה לאישור או תגובה עם ערך"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " עובדים במנגנון “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שדר ושכח"
+          },
+          {
+            "type": "text",
+            "text": "”, אם אנחנו צריכים שמי שקיבל את התשדורת יאשר לנו את קבלתה או יחזיר לנו ערך כלשהו - כבר נצטרך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Direct Reference"
+          },
+          {
+            "type": "text",
+            "text": " שכן "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " לא עונה לנו על הצרכים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "התקשורת “יורדת” במורד העץ"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "הורה שניגש לילדים שלו - זה טבעי וצפוי. סקריפט של שחקן שקורא למתודת הזזה למשל אצל אחד הילדים (הזזת נשק, קפיצה) זה דבר תקין - הורה מכיר את הילד שלו, מכיר בקיומו, ושולט בו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קיימת תלות מובהקת בין שני ה-Nodes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "מצב שבו שני "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מכירים אחד בשני ויש ביניהם תלות על מנת שיתפקדו כמו שצריך, כמו למשל סקריפט של שחקן שחשוב לו לדעת על אזורי ההתנגשות שלו וכו’, השימוש ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "()<GetNode<T"
+          },
+          {
+            "type": "text",
+            "text": "” יהיה טבעי ונכון יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ביצועים מושפעים (נדיר)"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "קריאות ישירות הן יותר מהירות מתקשורת דרך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": ", במציאות - נדיר שזה יהיה מורגש וישנה לנו את החוויה - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מהירים מספיק בדרך כלל לצרכי המשחק, אך בלולאה שנקראת אלפי פעמים בפריים - זה כן ישפיע, ונעדיף קריאות ישירות. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כללי הזהב בקבלת ההחלטה מה עדיף"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תמיד נחשוב על כיוון התקשורת (למעלה במעלה העץ - או למטה במורד העץ) וצורך\\אי צורך בהפרדה:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "כיוון התקשורת"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "גישה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "דוגמא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מהורה - לילד"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Direct reference"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "שחקן הופך את התמונה שלו"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מילד - להורה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Signal"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "אזור הפגיעה “"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מודיע"
+                      },
+                      {
+                        "type": "text",
+                        "text": "” להורה שהוא נפגע"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מאח - לאח"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Signal"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - דרך ההורה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "האויב "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "משדר “Died“"
+                      },
+                      {
+                        "type": "text",
+                        "text": " טבלת הניקוד מאזינה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Nodes"
+                      },
+                      {
+                        "type": "text",
+                        "text": " לא קשורים היררכית"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Signal"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - דרך סקריפט ניהול"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "UI"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מאזין לשינויים בעולם המשחק"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנלוגיה שימושית מעולם פיתוח הווב היא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "React"
+          },
+          {
+            "type": "text",
+            "text": " - שבה עלינו להחליט אם להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "props"
+          },
+          {
+            "type": "text",
+            "text": " או ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "context"
+          },
+          {
+            "type": "text",
+            "text": ". אפילו השיקולים לבחירה די דומים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ממה עלינו להימנע"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אל תשמשו ב-Signals לכל דבר באופן גורף"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". כל מקרה לגופו, ולמשל כשהתקשורת היא מהורה לילד - גישה ישירה תהיה עדיפה בהרבה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אל תשרשרו זרימת נתונים דרך Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". אם “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node A"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” משדר ל-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node B"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” שמשדר ל-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node C"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” שמשדר ל-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node D"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” זו הסיטואציה שלנו - יש לנו שרשרת תקשורת שקשה לעקוב אחריה ולנהל אותה. במקרה כזה תשקלו להשתמש בסקריפט ניהול משותף או תקשורת ישירה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אל תשדרו Signals במתודה ()Ready_ בכל פריים"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נשתמש לארועים - דברים שקורים במקרים מסוימים."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "6.7 תבנית העיצוב Observer Pattern בפיתוח משחקים"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/observer_pattern_colored.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " הוא למעשה מימוש של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Observable Pattern"
+          },
+          {
+            "type": "text",
+            "text": ", בואו נכיר תבנית עיצוב זו, ונבין מדוע היא חשובה לפיתוח משחקים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תבנית העיצוב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תבנית זו מגדירה יחסי “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אחד-לרבים"
+          },
+          {
+            "type": "text",
+            "text": "” ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "One-To-Many"
+          },
+          {
+            "type": "text",
+            "text": ") בין אובייקטים. כאשר באובייקט ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Subject"
+          },
+          {
+            "type": "text",
+            "text": ") משתנה המצב - כל מי שמאזין לשינוי יקבל הודעה ויוציא לפועל פעולה כלשהיא באופן אוטומטי."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "במושגי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " ניתן לפרש זאת כך:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Subject"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמכריז ומשדר את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Observer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמתחבר ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הזה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Notification"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שידור ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כלומר שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Subject"
+          },
+          {
+            "type": "text",
+            "text": " לא יודע מי מאזין לו וזה גם לא משנה לו - הוא ישדר את ההודעה בכל מקרה כשיצטרך - כלומר שניתן לשנות\\להסיר מאזינים באופן בטוח, משום שיש "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0 תלות"
+          },
+          {
+            "type": "text",
+            "text": " בינהם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע זה חשוב בפיתוח משחקים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "משחקים הם מערכות מורכבות עם המון חלקים ש-”מתקשרים” אחד עם השני, לפעמים ארוע בודד במשחק יכול לעורר שרשרת של התרחשויות כתגובה לארוע. למשל: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תדמיינו לכם מצב שבו השחקן אסף שיקוי שממלא לו את כוח החיים (Health Potion)"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מערכת כוח-החיים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Health System"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - תמלא את כוח-החיים של השחקן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ממשק משתמש עילי ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HUD"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - יעדכן את בר כוח-החיים הויזואלי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מערכת צלילים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Audio"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - תשמיע צליל חיווי כשהשחקן יאסוף את השיקוי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מערכת מלאי ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inventory"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - אם במשחק זה הוא רק “אוסף” את השיקוי ולא ישר “שותה” אותו - אז נעדכן את המלאי של השחקן, כלומר נוסיף לו שיקוי ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inventory"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אפקט חלקיקים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Particle System"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - אולי נרצה להציג אפקט חלקיקים ויזואלי, למשל: אפקט ניצוצות כאשר השחקן אוסף את השיקוי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מערכים הישגים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Achievement Tracker"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - נניח והיתה לנו אחת כזו, למשל מציג הישג כאשר השחקן אסף בהמהלך המשחק 100 חפצים, אז נעדכן כאן את הנתון בכל פעם שהשחקן יאסוף חפץ כלשהו."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפי דוגמא זו, ללא שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " - ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " של השיקוי יצטרך מצביעים ישירים לכל 6 המערכות המוזכרות לעיל, והוספת מערכת שביעית לסיפור - משמעותה שנצטרך לשנות את הקוד בסקריפט של השיקוי. "
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "מצב זה היה נמנע אם היינו משתמשים ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": ". הסקריפט של השיקוי היה משדר את הארוע - ולא היה משנה לו מי מאזין, הרי קוד ההאזנה נכתב בסקריפט של המאזין - ולכן קל להסיר או להוסיף מאזינים מבלי לגעת בכלל בסקריפט של השיקוי."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עיצוב ארכיטקטורת Signals למשחק שלנו"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אנו מתכננים ומעצבים פיצ’ר חדש מעורב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תקשורת בין"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " במשחק שלנו, תמיד נחשוב על “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מי צריך לדעת"
+          },
+          {
+            "type": "text",
+            "text": "“ ו-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מי צריך לשדר את הארוע"
+          },
+          {
+            "type": "text",
+            "text": "” ננקוט בגישת שלושת הצעדים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד ראשון"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": נתינת שם בהתאם לאופי הארוע. למשל: “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "EnemyDied"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“', “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "LevelCompleted"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“, וכו’."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד שני"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": קבלת החלטה איזה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא זה שצריך לשדר את הארוע. בדרך כלל זה יהיה המקום שממנו נובע הארוע, למשל: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "האויב משדר “Died“"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", לא השחקן שהרג אותו."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד שלישי"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": קבלת החלטה האם לכלול נתונים. למשל: הריגת אויב מסוים יכולה לתת סכום נקודות המשתנה בין מופעים שונים של אויבים ולכן נרצה לדעת כמה ניקוד הקנתה לנו הריגת אויב ספציפי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד רביעי"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": מי הם המאזינים הנחוצים? נחשוב מי צריך להגיב לארוע, כל מאזין יתחבר באופן עצמאי. "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא: Game Event Flow"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כך תיראה זרימת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " במשחק פשוט:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Enemy.cs - emits when killed\npublic partial class Enemy : CharacterBody2D\n{\n    [Signal]\n    public delegate void DiedEventHandler(int pointsValue);\n\n    [Export] public int PointsValue = 100;\n\n    public void Die()\n    {\n        EmitSignal(SignalName.Died, PointsValue);\n        QueueFree();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// ScoreManager.cs - listens for enemy deaths\npublic partial class ScoreManager : Node\n{\n    [Signal]\n    public delegate void ScoreChangedEventHandler(int newScore);\n\n    private int _score = 0;\n\n    public void TrackEnemy(Enemy enemy)\n    {\n        enemy.Died += OnEnemyDied;\n    }\n\n    private void OnEnemyDied(int points)\n    {\n        _score += points;\n        EmitSignal(SignalName.ScoreChanged, _score);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// HUD.cs - listens for score changes\npublic partial class HUD : CanvasLayer\n{\n    private Label _scoreLabel;\n\n    public override void _Ready()\n    {\n        _scoreLabel = GetNode<Label>(\"ScoreLabel\");\n\n        var scoreManager = GetNode<ScoreManager>(\"/root/ScoreManager\");\n        scoreManager.ScoreChanged += OnScoreChanged;\n    }\n\n    private void OnScoreChanged(int newScore)\n    {\n        _scoreLabel.Text = $\"Score: {newScore}\";\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שימו לב להפרדה - כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מודע רק לחיבור שלו ומה שהוא אמור לעשות בתגובה, ניתן לצרף ולהסיר מאזינים ללא מאמץ, וכל חלק הוא יחידה עצמאית שניתן לבדוק בנפרד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals וטעינות אוטומטיות (Autoloads)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שאלה נפוצה שאתם עלולים לתהות לגביה היא “איך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ScoreManager"
+          },
+          {
+            "type": "text",
+            "text": " מתחבר לכל אויב, כולל אויבים שיווצרו ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spawned"
+          },
+          {
+            "type": "text",
+            "text": ") אחר כך?”."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "גישה מקובלת אחת היא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Autoloads (Singletons)"
+          },
+          {
+            "type": "text",
+            "text": " - ניצור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " גלובליים שניתו להשתמש בין סצנות שונות, נכסה נושא זה לעומק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 21"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לא להקדים את המאוחר ולסטות לנושא רחב בפני עצמו."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Signals הם מערכת האירועים של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משדר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", וכל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מחובר מגיב. המשדר לא יודע ולא צריך לדעת מי מאזין."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מובנים מכסים אירועים נפוצים של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": כגון "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Pressed"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Timeout"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "BodyEntered"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimationFinished"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ועוד רבים אחרים. בדקו את לשונית ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת לראות את כולם."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חברו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " דרך העורך לחיבורים קבועים באותה הסצנה. לחצו פעמיים על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בלשונית ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ובחרו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מקבל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חברו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " דרך הקוד באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "=+"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לשליטה מלאה. נתקו באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "=-"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". העדיפו מתודות בעלות שם על פני "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Lambdas"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עבור חיבורים שייתכן ותרצו לנתק בעתיד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מותאמים אישית מוגדרים באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "[Signal]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "delegate"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמסתיים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "EventHandler"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". שדרו אותם באמצעות"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " (EmitSignal(SignalName.YourSignal"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "פרמטרים של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נושאים מידע עם האירוע. הגדירו פרמטרים על ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "delegate"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", העבירו ערכים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "()EmitSignal"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", וקבלו אותם במתודה המטפלת."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מול גישה ישירה: השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כאשר התקשורת הולכת למעלה/הצידה ואתם רוצים הצמדה רופפת ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Loose Coupling"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). השתמשו בגישה ישירה כאשר יורדים במורד העץ או כשאתם צריכים ערכי החזרה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "דפוס ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Observer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא עקרון העיצוב שמאחורי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signals"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - התראה של אחד-לרבים עם הצמדה רופפת. זה שומר על מערכות המשחק שלכם עצמאיות וניתנות להרכבה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Composable"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שאלון ידע"
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": "מהי המטרה העיקרית של Signals ב-Godot?",
+              "answers": [
+                " לאפשר ל-Nodes לשתף משתנים גלובליים",
+                " לאפשר ל-Node לשדר הודעה מבלי לדעת מי מאזין",
+                " להחליף את מערכת ה-Scenes",
+                " לסנכרן את קצב הפריימים בין Nodes שונים"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "כיצד ניתן לראות את כל ה-Signals של Node מסוים בעורך?",
+              "answers": [
+                " בלשונית ה-Inspector",
+                " בלשונית ה-FileSystem",
+                "בלשונית ה-Output",
+                "בלשונית ה-Signals שליד ה-Inspector"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "מה קורה כשמחברים Signal דרך העורך לסקריפט #C?",
+              "answers": [
+                "החיבור נרשם בעורך אך יש ליצור את המתודה ידנית בסקריפט",
+                "Godot יוצר את המתודה בסקריפט באופן אוטומטי",
+                "Godot מייצר סקריפט חדש עם המתודה",
+                "המתודה נוצרת רק לאחר Build"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "מהו התחביר הנכון לחיבור Signal מהקוד ב-#C?",
+              "answers": [
+                "button.Pressed += OnButtonPressed",
+                "button.Pressed.Connect(OnButtonPressed)",
+                "button.AddSignal(\"Pressed\", OnButtonPressed)",
+                "Connect(\"Pressed\", button, \"OnButtonPressed\")"
+              ],
+              "correct": 0
+            },
+            {
+              "question": " מדוע אי אפשר לנתק (=-) ביטוי Lambda מ-Signal?",
+              "answers": [
+                " כי Lambda אינו נתמך ב-Signals של Godot",
+                " כי Lambda הוא פונקציה אנונימית - אין Reference לצורך ניתוק",
+                " כי -= לא עובד עם Signals",
+                "כי Lambda רץ פעם אחת בלבד ומתנתק אוטומטית"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "כיצד מגדירים Signal מותאם אישית ב-#C?",
+              "answers": [
+                "[Signal] public event Action HealthChanged",
+                "()public signal HealthChanged",
+                "()Signal] public delegate void HealthChangedEventHandler]",
+                "()public delegate void HealthChanged"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה הדרך הנכונה לשדר (Emit) Signal מותאם אישית עם פרמטר?",
+              "answers": [
+                "HealthChanged.Emit(_health);",
+                "EmitSignal(\"HealthChanged\", _health)",
+                "EmitSignal(SignalName.HealthChanged, _health)",
+                "SignalName.HealthChanged.Emit(_health)"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מתי עדיף להשתמש בגישה ישירה (Direct Reference) במקום Signal?",
+              "answers": [
+                " כשה-Node הילד צריך לתקשר עם ההורה",
+                " כשהתקשורת היא בין Nodes שלא קשורים אחד לשני",
+                " כשיש יותר מ-Node אחד שצריך להגיב לאירוע",
+                " כשהורה ניגש ל-Node ילד שלו או כשצריך ערך חזרה"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "לפי דפוס ה-Observer, מי אמור לשדר את ה-Signal כשאויב מת?",
+              "answers": [
+                "האויב עצמו",
+                "השחקן שהרג את האויב",
+                ". ה-ScoreManager",
+                "ה-Node הראשי של הסצנה"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "אילו טייפים נתמכים כפרמטרים של Signal ב-#C?",
+              "answers": [
+                "כל טייפ של #C כולל מחלקות מותאמות אישית",
+                " טייפים פרימיטיביים, טייפים של Godot, ואובייקטים שיורשים מ-GodotObject",
+                " רק string ו-int",
+                "רק טייפים פרימיטיביים"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפרק הבא: פרק 7 - קלט משתמש (Input Handling)"
+          },
+          {
+            "type": "text",
+            "text": ". ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " שלכם יודעים עכשיו לדבר אחד עם השני, אבל הם עדיין לא יודעים להקשיב לשחקן. נלמד לקרוא קלט ממקלדת, עכבר ובקר משחק - ולבנות בקרי שליטה רספונסיביים שנעימים לשחק איתם."
+          }
+        ]
       }
     ]
   }

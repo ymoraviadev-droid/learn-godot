@@ -164,3 +164,33 @@ Written in English (docs/chapters/) covering:
 ### Bug Fix
 
 - **ShikiPlugin.ts** — removed unused `ColoredToken` type import that was causing a TS6133 build error
+
+---
+
+## 2026-03-21 — Chapter 6 Complete, Chapter 7 Written
+
+### Chapter 6 — Signals & Communication (Hebrew Translation Complete)
+
+Hebrew translation completed and published as `06-signals-ותקשורת.json`. Covers:
+- 6.1 What are signals — Observer pattern, built-in signals, core concept
+- 6.2 Connecting signals in the editor — step-by-step with C#-specific note (editor doesn't auto-create methods for C#)
+- 6.3 Connecting signals from C# code — `+=`/`-=` syntax, lambdas, Timer spawner example
+- 6.4 Custom signals with `[Signal]` — delegate naming, EmitSignal, collectible coin example
+- 6.5 Signal parameters and delegates — passing data with signals, supported types
+- 6.6 When to use signals vs direct references — direction-based rule of thumb, anti-patterns
+- 6.7 The Observer pattern in game design — architecture, autoloads preview, common patterns
+- Summary + 10-question quiz
+
+### Fixes
+
+- **Signals tab** — corrected all references from "Node tab" to "Signals tab" throughout chapter 6 (8 occurrences)
+
+### Chapter 7 — Input Handling (English Draft)
+
+Written in English (docs/chapters/) covering:
+- 7.1 The Input Map — defining actions, why not raw key codes, dead zones, built-in `ui_` actions
+- 7.2 Polling input — `IsActionPressed()`, `IsActionJustPressed()`, `IsActionJustReleased()`, `GetAxis()`, `GetVector()`, normalization explanation
+- 7.3 Event-driven input — `_Input()` vs `_UnhandledInput()`, input processing order, consuming input
+- 7.4 Keyboard, mouse, and gamepad — `InputEventKey`, `InputEventMouseButton`, `InputEventMouseMotion`, `InputEventJoypadButton`, input type detection
+- 7.5 Input actions vs raw key codes — when to use each, action naming conventions
+- 7.6 Practical example — complete top-down player controller with movement, sprint, interaction area, interactable chest (ties back to signals from chapter 6)

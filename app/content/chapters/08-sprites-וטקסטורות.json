@@ -1,0 +1,66 @@
+{
+  "id": "08-sprites-וטקסטורות",
+  "title": "Sprites וטקסטורות",
+  "slug": "sprites-וטקסטורות",
+  "order": 8,
+  "createdAt": "2026-03-22T05:43:19.960Z",
+  "updatedAt": "2026-03-22T05:53:01.070Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 8: Sprites וטקסטורות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.1 ייבוא תמונת ו-Assets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      }
+    ]
+  }
+}

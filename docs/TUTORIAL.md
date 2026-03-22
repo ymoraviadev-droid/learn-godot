@@ -67,7 +67,7 @@ Each part builds on the previous one. By the end, the reader will have built sev
 - 7.3 Event-driven input with `_Input()` and `_UnhandledInput()`
 - 7.4 Keyboard, mouse, and gamepad input
 - 7.5 Input actions vs raw key codes
-- 7.6 Building a reusable input manager
+- 7.6 Practical example — complete player controller
 
 ---
 

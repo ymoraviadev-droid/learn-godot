@@ -582,6 +582,401 @@ Now every new image you add uses those settings automatically.
 
 ---
 
+## 8.7 Exercise: Coin Runner
+
+Time to put everything together. We'll build a small game that uses concepts from Chapters 1–8: scenes, nodes, scripts, signals, input, and sprites. The player runs across a floor, collects coins, reaches a finish zone, and sees their score.
+
+The game is intentionally simple — the goal is practicing scene decoupling, signals, and clean project structure. Every scene is self-contained. No scene knows about any other scene's internals.
+
+### Getting the Assets
+
+We'll use **Kenney's "New Platformer Pack"** — a free, high-quality asset pack.
+
+Download it from: https://kenney.nl/assets/new-platformer-pack
+
+**About the license:** Kenney's assets are released under **CC0 (Creative Commons Zero)**. This means you can use them for anything — personal, commercial, modify, redistribute — with no restrictions and no credit required. That said, Kenney creates an incredible amount of free resources for the game development community. If you find his work useful, consider donating on his website to support his continued work.
+
+After downloading, extract the pack and copy the images you need into your project under `res://assets/kenney/`.
+
+We'll use these images from the pack:
+- A player character sprite (e.g., `character_0000.png` or whichever you like)
+- A coin sprite (e.g., `item_coin.png`)
+- A ground/floor tile (e.g., `tile_0040.png` or any ground tile)
+
+### Project Settings
+
+1. Create a new Godot project (or use your existing one).
+2. Set the texture filter to Nearest for pixel art: **Project → Project Settings → Rendering → Textures → Canvas Textures → Default Texture Filter → Nearest**.
+3. Set up the Input Map (**Project → Project Settings → Input Map**):
+   - `move_left` — A, Left Arrow
+   - `move_right` — D, Right Arrow
+
+### Folder Structure
+
+```
+res://
+├── assets/
+│   └── kenney/
+│       ├── character_0000.png
+│       ├── item_coin.png
+│       └── tile_0040.png
+├── scenes/
+│   ├── main.tscn
+│   ├── player.tscn
+│   ├── coin.tscn
+│   ├── finish_zone.tscn
+│   └── hud.tscn
+└── scripts/
+    ├── Player.cs
+    ├── Coin.cs
+    ├── FinishZone.cs
+    ├── HUD.cs
+    └── Main.cs
+```
+
+Every game element is its own scene with its own script. The Main scene brings them together.
+
+---
+
+### Step 1: The Player Scene
+
+Create a new scene. Root node: `CharacterBody2D`. Rename it to `Player`.
+
+Add children:
+```
+Player (CharacterBody2D) — Player.cs
+├── Sprite2D
+└── CollisionShape2D
+```
+
+1. Set the `Sprite2D` texture to your character image from the Kenney pack.
+2. Add a `RectangleShape2D` to the `CollisionShape2D` and size it to roughly match the character.
+3. Save as `res://scenes/player.tscn`.
+
+Attach a script to the Player node — `res://scripts/Player.cs`:
+
+```csharp
+using Godot;
+
+public partial class Player : CharacterBody2D
+{
+    [Signal]
+    public delegate void CoinCollectedEventHandler(int totalCoins);
+
+    [Export] public float Speed = 300f;
+    [Export] public float Gravity = 800f;
+
+    private Sprite2D _sprite;
+    private int _coinCount = 0;
+
+    public override void _Ready()
+    {
+        _sprite = GetNode<Sprite2D>("Sprite2D");
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        // Apply gravity
+        if (!IsOnFloor())
+        {
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        }
+
+        // Horizontal movement
+        float horizontal = Input.GetAxis("move_left", "move_right");
+        Velocity = new Vector2(horizontal * Speed, Velocity.Y);
+
+        // Flip sprite to face movement direction
+        if (horizontal != 0)
+        {
+            _sprite.FlipH = horizontal < 0;
+        }
+
+        MoveAndSlide();
+    }
+
+    public void CollectCoin()
+    {
+        _coinCount++;
+        EmitSignal(SignalName.CoinCollected, _coinCount);
+    }
+
+    public int GetCoinCount()
+    {
+        return _coinCount;
+    }
+}
+```
+
+Notice: the Player doesn't know about the HUD, the coins, or the finish zone. It exposes a `CoinCollected` signal and a `CollectCoin()` method. That's it.
+
+---
+
+### Step 2: The Coin Scene
+
+Create a new scene. Root node: `Area2D`. Rename it to `Coin`.
+
+Add children:
+```
+Coin (Area2D) — Coin.cs
+├── Sprite2D
+└── CollisionShape2D
+```
+
+1. Set the `Sprite2D` texture to the coin image.
+2. Add a `CircleShape2D` to the `CollisionShape2D` and size it to match the coin.
+3. Save as `res://scenes/coin.tscn`.
+
+Attach a script — `res://scripts/Coin.cs`:
+
+```csharp
+using Godot;
+
+public partial class Coin : Area2D
+{
+    [Signal]
+    public delegate void CollectedEventHandler();
+
+    public override void _Ready()
+    {
+        BodyEntered += OnBodyEntered;
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body is Player player)
+        {
+            player.CollectCoin();
+            EmitSignal(SignalName.Collected);
+            QueueFree();
+        }
+    }
+}
+```
+
+The Coin detects when a body enters it. If it's a Player, it calls `CollectCoin()` on the player (direct reference downward — the coin knows a Player touched it), emits its own `Collected` signal (for anyone who might care — sound effects, particles, etc.), and destroys itself.
+
+---
+
+### Step 3: The Finish Zone Scene
+
+Create a new scene. Root node: `Area2D`. Rename it to `FinishZone`.
+
+Add children:
+```
+FinishZone (Area2D) — FinishZone.cs
+├── Sprite2D (or ColorRect as a placeholder)
+└── CollisionShape2D
+```
+
+1. For the visual, you can use a `ColorRect` with a green tint, or a flag sprite if your pack includes one. Make it tall enough to be visible.
+2. Add a `RectangleShape2D` to the `CollisionShape2D`.
+3. Save as `res://scenes/finish_zone.tscn`.
+
+Attach a script — `res://scripts/FinishZone.cs`:
+
+```csharp
+using Godot;
+
+public partial class FinishZone : Area2D
+{
+    [Signal]
+    public delegate void PlayerFinishedEventHandler();
+
+    public override void _Ready()
+    {
+        BodyEntered += OnBodyEntered;
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body is Player)
+        {
+            EmitSignal(SignalName.PlayerFinished);
+        }
+    }
+}
+```
+
+The FinishZone doesn't show a game over screen — it just announces that the player arrived. The Main scene decides what happens next.
+
+---
+
+### Step 4: The HUD Scene
+
+Create a new scene. Root node: `CanvasLayer`. Rename it to `HUD`.
+
+Add children:
+```
+HUD (CanvasLayer) — HUD.cs
+├── CoinLabel (Label)
+└── GameOverPanel (PanelContainer)
+    └── VBoxContainer
+        ├── GameOverLabel (Label)
+        └── ScoreLabel (Label)
+```
+
+1. Position `CoinLabel` in the top-left corner. Set its text to `"Coins: 0"`. Make the font size large enough to read.
+2. `GameOverPanel` — center it on screen using anchors (Anchor Preset: Center). Style it however you like.
+3. `GameOverLabel` — set text to `"Game Over!"`, center-aligned, large font.
+4. `ScoreLabel` — set text to `"Score: 0"`, center-aligned.
+5. Set `GameOverPanel` **Visible** to `false` (hidden by default).
+6. Save as `res://scenes/hud.tscn`.
+
+Attach a script — `res://scripts/HUD.cs`:
+
+```csharp
+using Godot;
+
+public partial class HUD : CanvasLayer
+{
+    private Label _coinLabel;
+    private PanelContainer _gameOverPanel;
+    private Label _scoreLabel;
+
+    public override void _Ready()
+    {
+        _coinLabel = GetNode<Label>("CoinLabel");
+        _gameOverPanel = GetNode<PanelContainer>("GameOverPanel");
+        _scoreLabel = GetNode<Label>("GameOverPanel/VBoxContainer/ScoreLabel");
+    }
+
+    public void UpdateCoinCount(int count)
+    {
+        _coinLabel.Text = $"Coins: {count}";
+    }
+
+    public void ShowGameOver(int finalScore)
+    {
+        _scoreLabel.Text = $"Score: {finalScore}";
+        _gameOverPanel.Visible = true;
+    }
+}
+```
+
+The HUD only knows how to display data. It has no idea where coins or scores come from. It exposes two public methods and that's it.
+
+---
+
+### Step 5: The Main Scene — Wiring Everything Together
+
+Create a new scene. Root node: `Node2D`. Rename it to `Main`.
+
+Build the level:
+
+```
+Main (Node2D) — Main.cs
+├── Player (instance of player.tscn)
+├── Floor (StaticBody2D)
+│   ├── Sprite2D (or multiple Sprite2Ds tiled across)
+│   └── CollisionShape2D
+├── Coin1 (instance of coin.tscn)
+├── Coin2 (instance of coin.tscn)
+├── Coin3 (instance of coin.tscn)
+├── FinishZone (instance of finish_zone.tscn)
+└── HUD (instance of hud.tscn)
+```
+
+**Building the floor:**
+1. Add a `StaticBody2D` node. Rename it to `Floor`.
+2. Add a `CollisionShape2D` child with a `RectangleShape2D`. Make it wide (e.g., 2000×32 pixels) to span the level.
+3. Add a `Sprite2D` child. Set the texture to the ground tile. Enable **Region** and set the region rect to cover the full width, or use `Texture Repeat → Enabled` to tile it.
+4. Position the floor near the bottom of the viewport.
+
+**Placing the objects:**
+1. Instance `player.tscn` — place the player on the right side of the floor.
+2. Instance `coin.tscn` three times — scatter the coins along the floor between the player start and the finish zone.
+3. Instance `finish_zone.tscn` — place it on the left end of the floor.
+4. Instance `hud.tscn`.
+
+**Set the main scene:** **Project → Project Settings → Application → Run → Main Scene** → select `main.tscn`.
+
+Save as `res://scenes/main.tscn`.
+
+Now the important part — attach a script to Main that **wires the signals**:
+
+`res://scripts/Main.cs`:
+
+```csharp
+using Godot;
+
+public partial class Main : Node2D
+{
+    private Player _player;
+    private FinishZone _finishZone;
+    private HUD _hud;
+
+    public override void _Ready()
+    {
+        _player = GetNode<Player>("Player");
+        _finishZone = GetNode<FinishZone>("FinishZone");
+        _hud = GetNode<HUD>("HUD");
+
+        // Wire signals — Main is the "orchestrator"
+        _player.CoinCollected += OnCoinCollected;
+        _finishZone.PlayerFinished += OnPlayerFinished;
+    }
+
+    private void OnCoinCollected(int totalCoins)
+    {
+        _hud.UpdateCoinCount(totalCoins);
+    }
+
+    private void OnPlayerFinished()
+    {
+        _hud.ShowGameOver(_player.GetCoinCount());
+
+        // Stop the player from moving
+        _player.SetPhysicsProcess(false);
+    }
+}
+```
+
+**This is scene decoupling in action:**
+
+- The **Player** emits `CoinCollected` — doesn't know the HUD exists.
+- The **Coin** calls `player.CollectCoin()` — knows it touched a Player, nothing more.
+- The **FinishZone** emits `PlayerFinished` — doesn't know what "game over" means.
+- The **HUD** displays data — doesn't know where it comes from.
+- The **Main** scene is the **orchestrator** — it knows all its children and wires them together. This is the only place where scenes "meet."
+
+If you want to add a sound effect when a coin is collected, you add it in Main (connect to `CoinCollected`) or in the Coin scene itself. No other scene needs to change.
+
+If you want to replace the HUD with a completely different UI, you swap the scene and update Main. The Player, Coins, and FinishZone don't care.
+
+---
+
+### Step 6: Build and Play
+
+1. Build the project (Alt+B).
+2. Run with F5.
+3. Move left with A or Left Arrow to run toward the finish zone.
+4. Collect coins along the way — the HUD updates.
+5. Reach the green finish zone — "Game Over!" appears with your score.
+
+### What You Practiced
+
+| Concept | Chapter | Where in This Exercise |
+|---|---|---|
+| Nodes & scenes | 4 | Every game element is its own scene |
+| Scripts & lifecycle | 5 | `_Ready()`, `_PhysicsProcess()`, `[Export]` |
+| Signals | 6 | `CoinCollected`, `PlayerFinished`, `Collected`, `BodyEntered` |
+| Input handling | 7 | `Input.GetAxis()` for movement |
+| Sprites & textures | 8 | Kenney assets, `FlipH`, sprite setup |
+| Scene decoupling | 4, 6 | Main as orchestrator, signals for communication |
+
+### Challenges (Optional)
+
+If you want to take it further:
+
+- **Add a timer** — show elapsed time on the HUD. The faster you finish, the better.
+- **Add more coins** — scatter 10-15 coins across the level.
+- **Add a restart** — when the game is over, pressing a key restarts the scene (`GetTree().ReloadCurrentScene()`).
+- **Add animation** — give the player an `AnimatedSprite2D` with `idle` and `run` animations instead of a static `Sprite2D`.
+- **Add a coin spin** — make the coin an `AnimatedSprite2D` with a spinning animation.
+
+---
+
 ## Summary
 
 - **Godot auto-imports images** when you add them to the project. For pixel art, set the texture filter to **Nearest** (project-wide or per-image) to keep crisp pixels.

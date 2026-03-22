@@ -4,7 +4,7 @@
   "slug": "sprites-וטקסטורות",
   "order": 8,
   "createdAt": "2026-03-22T05:43:19.960Z",
-  "updatedAt": "2026-03-22T07:28:59.673Z",
+  "updatedAt": "2026-03-22T10:28:48.616Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -29,10 +29,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/spritesheet_frame_selector.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -1774,7 +1777,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " - מפצל את הטקסטורה למרשתת ("
+                    "text": " - מפצל את הטקסטורה לתצורת רשת ("
                   },
                   {
                     "type": "text",
@@ -2144,7 +2147,7 @@
         "content": [
           {
             "type": "text",
-            "text": "8.3 Texture Regions ו-Atlas Textures"
+            "text": "8.3 Texture Regions ו-Atlas Textures (Sprite Sheets)"
           }
         ]
       },
@@ -2157,7 +2160,3307 @@
         "content": [
           {
             "type": "text",
-            "text": "במשחקים אמיתיים"
+            "text": "במשחקים אמיתיים, נדיר שנתמש בתמונה אינדבדואלית עבור כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": ", לרוב נרצא להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Texture"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Atlases"
+          },
+          {
+            "type": "text",
+            "text": " (נקרא גם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sheet"
+          },
+          {
+            "type": "text",
+            "text": ") - תמונה אחת גדולה שמכילה מספר תמונות קטנות מאורגנות בתצוגת רשת ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע כדאי לנו להשתמש ב-Sprite Sheets?"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ביצועים משופרים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "GPU"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מצייר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprites"
+                  },
+                  {
+                    "type": "text",
+                    "text": " רבים מתוך טקסטורה אחת הרבה יותר מהר מאשר לטעון תמונות אחת אחת כדי להציג אותם. זה נקרא "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Batching"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "סדר וארגון"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הרבה יותר קל להתנהל עם קובץ אחד מאשר קבצים רבים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פחות צריכת זיכרון"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - פחות טקסטורות אשר טעונות ורשומות בזיכרון."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימוש ב-Texture Regions"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Atlas"
+          },
+          {
+            "type": "text",
+            "text": " שלכם הוא לא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " אחיד (פריימים תופסים גדלים שונים, מספר תאים שונה, סידור לא שיגרתי כלשהו), נשץמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": " עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Region "
+          },
+          {
+            "type": "text",
+            "text": "בהתאם לצעדים הבאים:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", הגדירו את הטקסטורה (התמונה הגדולה) ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " והפכו את המאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Region"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Enabled"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Edit Region"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - עורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Texture Region"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יפתח."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ציירו מרובע סביב לחלק הספציפי שברצונכם להציג."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/texture_region.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דרך הקוד"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var sprite = new Sprite2D();\nsprite.Texture = GD.Load<Texture2D>(\"res://assets/tileset.png\");\nsprite.RegionEnabled = true;\nsprite.RegionRect = new Rect2(0, 0, 32, 32);  // top-left 32x32 area"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AtlasTexture Resource"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אלטרנטיבה נוספת היא יצירת משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AtlasTexture"
+          },
+          {
+            "type": "text",
+            "text": ". זה יעטוף אזור בתמונה הגדולה ויפריד למשאב עצמאי נפרד שניתן להשתמש בו בכל מקום (שדה או מאפיין) שמצפה לערך מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Texture2D"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var atlas = new AtlasTexture();\natlas.Atlas = GD.Load<Texture2D>(\"res://assets/sprites/characters.png\");\natlas.Region = new Rect2(64, 0, 32, 32);  // second 32x32 frame\n\nvar sprite = GetNode<Sprite2D>(\"Sprite2D\");\nsprite.Texture = atlas;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אפשר גם דרך העורך"
+          },
+          {
+            "type": "text",
+            "text": ": לחיצה ימנית ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FileSystem"
+          },
+          {
+            "type": "text",
+            "text": " על הקובץ ובחירה ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Resource"
+          },
+          {
+            "type": "text",
+            "text": " - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AtlasTexture"
+          },
+          {
+            "type": "text",
+            "text": "”."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite Sheets בעלי Grid אחיד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sheets"
+          },
+          {
+            "type": "text",
+            "text": " שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " שלהם כן אחיד, אין לנו צורך ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Regions"
+          },
+          {
+            "type": "text",
+            "text": ". נוכל פשוט להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Hframes"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Vframes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/sprite_sheet_layout_fixed.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפי דיאגרמה זו, אם היינו קובעים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Hframes = 4"
+          },
+          {
+            "type": "text",
+            "text": "  ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vframes = 2"
+          },
+          {
+            "type": "text",
+            "text": ", אז "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Frame = 3"
+          },
+          {
+            "type": "text",
+            "text": " היה מציג את הפריים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הרביעי"
+          },
+          {
+            "type": "text",
+            "text": " משום "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שהספירה מתחילה מ-0 (למעלה משמאל)"
+          },
+          {
+            "type": "text",
+            "text": ". גישה זו פשוטה בהרבה מהגדרת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Regions"
+          },
+          {
+            "type": "text",
+            "text": ", וזהו גם הסטנדרט המקובל לאנימציות של דמויות במשחקי מחשב באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sheets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.5 AnimatedSprite2D - אנימציות Sprite Sheet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תמונות סטטיות הן משעממות, משחקים צריכים אנימציות - שחקן הולך\\רץ, יריות, מטבע מסתובב, ועוד. מנוי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מציע לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2 גישות עיקריות לאנימציות 2D"
+          },
+          {
+            "type": "text",
+            "text": ", בפרק זה נכסה את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": ", שהיא השיטה הקלה והפשוטה ביותר לאנימציות מבוססות פריימים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite Sheets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimatedSprite2D vs AnimationPlayer"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D "
+                  },
+                  {
+                    "type": "text",
+                    "text": "-מנגנת רצף של תמונות (פריימים). מצוינת עבור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Sheets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של שחקן, חפצים מונפשים, דמויות וכל מה שמשתמש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Sheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לאנימציה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimationPlayer "
+                  },
+                  {
+                    "type": "text",
+                    "text": "-מערכב מבוססת ציר-זמן ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Timeline"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") אשר יכולה להנפיש כל מאפיין של כל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כלשהו - מיקום, גודל, צבע, קריאות למתודות - הכל. כלי מאוד עוצמתי אך מורכב יותר ונכסה אותו לעומק "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בפרק 18"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור אנימציות פשוטות (ריצה/הליכה/סיבוב מטבע) "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": " היא בדרך כלל הבחירה הנכונה. עבור אנימציות מורכבות כמו רעידת מסך אשר משלבות כמה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " (השמעת צליל + אפקט רעידה למצלמה + אפקט חלקיקים + תנועה) - נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimationPlayer"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת AnimatedSprite2D"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוסיפו Node מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לסצנה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", גשו למאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Frame"
+                  },
+                  {
+                    "type": "text",
+                    "text": "s ולחצו על ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "<empty>"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ואז על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "New SpriteFrames"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ליחצו על משאב ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SpriteFrames"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת לפתוח את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עורך ה-SpriteFrames"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עורך ה-SpriteFrames"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "העורך מחולק ל-2 פאנלים:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפאנל השמאלי - רשימת האנימציות"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מגיע באופן דיפולטיבי עם עם אנימציה ריקה בשם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "default"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "במידת הצורך, ליחצו על האייקון בצורת נייר עם “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” (או שניתן גם ללחוץ על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "N"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כאשר אתם בפוקוס על חלונית העורך) להוספת אנימציה חדשה אנימציות חדשות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "תנו לאנימציות שלכם שמות משמעותיים, כמו: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "run"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "fall"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "attack"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "death"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפאנל הימני - פריימים"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוסיפו תמונות אינדבדואליות על ידי גרירתם מה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FileSystem"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "על מנת להוסיף פריימים מתוך "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SpriteSheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לחצו על אייקון הרשת (או שניתן גם ללחוץ על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Shift"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "O"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כאשר אתם בפוקוס על חלונית העורך) על מנת לייבא Spritesheet, בחרו גודל Grid ופריימים שתרצו לכלול."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/spritesheet_frame_selector.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/sprite_anumation_editor.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרות אנימציה"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Speed"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FPS"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - כמה מהר האנימציה תרוץ. התחום המקובל לאומנות פיקסלים הוא 8-12 פריימים לשניה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FPS"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ולאומנות ברזולוציות גבוהות יותר כנראה שנרצה מעל ל-24 לפחות לתנועה מאוד חלקה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Loop "
+                  },
+                  {
+                    "type": "text",
+                    "text": "-  במידה ומדובר באנימתיה שהיא לא חד פעמית אלא רפיטיבית (שחוזרת על עצמה, למשל הליכה כל עוד המקש לחוץ), נרצה להשתמש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Loop"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (לולאה)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפעלת אנימציות דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    private AnimatedSprite2D _animSprite;\n\n    public override void _Ready()\n    {\n        _animSprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n    }\n\n    public override void _PhysicsProcess(double delta)\n    {\n        Vector2 direction = Input.GetVector(\"move_left\", \"move_right\", \"move_up\", \"move_down\");\n\n        if (direction != Vector2.Zero)\n        {\n            _animSprite.Play(\"run\");\n            _animSprite.FlipH = direction.X < 0;\n        }\n        else\n        {\n            _animSprite.Play(\"idle\");\n        }\n\n        Velocity = direction * Speed;\n        MoveAndSlide();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים ומתודות נפוצות"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "_animSprite.Play(\"run\");              // play animation by name\n_animSprite.Play(\"run\", 1.5f);        // play at 1.5x speed\n_animSprite.PlayBackwards(\"run\");     // play in reverse\n_animSprite.Stop();                   // stop on current frame\n_animSprite.Pause();                  // pause (resume with Play)\n\n_animSprite.Animation;                // current animation name (StringName)\n_animSprite.Frame;                    // current frame index\n_animSprite.IsPlaying();              // is an animation currently playing?\n\n_animSprite.SpeedScale = 2.0f;        // global speed multiplier\n_animSprite.FlipH = true;             // mirror horizontally\n_animSprite.FlipV = true;             // mirror vertically"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimatedSprite2D "
+          },
+          {
+            "type": "text",
+            "text": "יש "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " שימושיים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimationFinished"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - משודר כאשר אנימציה לא מחזורית (שלא מבצעת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Loop"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") מסתיימת. משתמשים עבור אנימציית התקפה או אנימציות חד פעמיות כלשהן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "FrameChanged"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - משודר בכל פעם שמתחלף פריים. משתמשים לסינכרון של אפקטים לפריימים ספציפיים (למשל - ניגון צליל בפריים 2)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimationChanged"
+                  },
+                  {
+                    "type": "text",
+                    "text": " -משודר כאטשר התחלפה אנימציה לניגון ומתחילה להתנגן."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Ready()\n{\n    _animSprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n    _animSprite.AnimationFinished += OnAnimationFinished;\n}\n\nprivate void OnAnimationFinished()\n{\n    if (_animSprite.Animation == \"attack\")\n    {\n        _animSprite.Play(\"idle\");\n    }\n    else if (_animSprite.Animation == \"death\")\n    {\n        QueueFree();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תבנית פרקטית לניהול מצבי אנימציות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ככל שלדמות יש יותר אנימציות, ביטויי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "if"
+          },
+          {
+            "type": "text",
+            "text": "/"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "else"
+          },
+          {
+            "type": "text",
+            "text": " שנצטרך לכתוב ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " יכולים לגדול ולהפוך למגילה שקשה לקרוא ולנהל. גישה נקייה יותר תהיה ליצור מתודה שתחזיר אנימציה בהתאם למצב ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "State"
+          },
+          {
+            "type": "text",
+            "text": ") הנוכחי:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Export] public float Speed = 200f;\n\n    private AnimatedSprite2D _animSprite;\n    private bool _isAttacking = false;\n\n    public override void _Ready()\n    {\n        _animSprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _animSprite.AnimationFinished += OnAnimationFinished;\n    }\n\n    public override void _PhysicsProcess(double delta)\n    {\n        if (!_isAttacking)\n        {\n            HandleMovement();\n        }\n        UpdateAnimation();\n    }\n\n    public override void _UnhandledInput(InputEvent @event)\n    {\n        if (@event.IsActionPressed(\"attack\") && !_isAttacking)\n        {\n            _isAttacking = true;\n            GetViewport().SetInputAsHandled();\n        }\n    }\n\n    private void HandleMovement()\n    {\n        Vector2 direction = Input.GetVector(\"move_left\", \"move_right\", \"move_up\", \"move_down\");\n\n        if (direction.X != 0)\n        {\n            _animSprite.FlipH = direction.X < 0;\n        }\n\n        Velocity = direction * Speed;\n        MoveAndSlide();\n    }\n\n    private void UpdateAnimation()\n    {\n        if (_isAttacking)\n        {\n            PlayIfNotCurrent(\"attack\");\n            return;\n        }\n\n        if (Velocity.Length() > 0)\n        {\n            PlayIfNotCurrent(\"run\");\n        }\n        else\n        {\n            PlayIfNotCurrent(\"idle\");\n        }\n    }\n\n    private void PlayIfNotCurrent(string animName)\n    {\n        if (_animSprite.Animation != animName)\n        {\n            _animSprite.Play(animName);\n        }\n    }\n\n    private void OnAnimationFinished()\n    {\n        if (_animSprite.Animation == \"attack\")\n        {\n            _isAttacking = false;\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסיבות להחלטה זו"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "PlayIfNotCurrent"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - קריאה ל- "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Play(\"run\")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " להרצת אנימציה בכל פריים תגרום לאנימציה להתנגן מההתחלה (מפריים 0). מתודת עזר זו קוראת ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Play"
+                  },
+                  {
+                    "type": "text",
+                    "text": " רק כאשר מתחלפת אנימציה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "isAttacking_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - משתנה בוליאני זה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Flag"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") עוזר לנו לוודא שאנימציית ההתקפה חוסמת את אנימציית התנועה עד שאנימציית ההתקפה מסתיימת. הפונקציה שמטפלת בקבלת תשדורת מה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " המובנה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimationFinished"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מאפסת את המשתנה הבוליאני "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "isAttacking_"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "UpdateAnimation"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מופרד מהתנועה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- זה משאיר את לוגיקת האנימציה שלנו נקייה וקלה לתחזוקה והרחבה - הוספת קפיצה או פגיעה מיריה משל - תדרוש הוספת תנאי נוסף בלבד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אמנם זה לא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "State Machine"
+          },
+          {
+            "type": "text",
+            "text": " מלא של אנימציות דמות, נכסה זאת באופן מעמיק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 24"
+          },
+          {
+            "type": "text",
+            "text": ", אך תבנית זו היא חזקה ולגיטימית בתור התחלה."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.6 ארגון Assets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ככל שהפרויקט שלכם יגדל - כך תרצו שהתיקיות של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "text": " שלכם יהיו מסודרות ומקוטלגות יותר, למשל:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "res://assets/",
+              "children": [
+                {
+                  "name": "sprites/",
+                  "children": [
+                    {
+                      "name": "player/",
+                      "children": [
+                        {
+                          "name": "idle.png"
+                        },
+                        {
+                          "name": "run.png"
+                        },
+                        {
+                          "name": "attack.png"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "enemies/",
+                      "children": [
+                        {
+                          "name": "slime/",
+                          "children": [
+                            {
+                              "name": "slime_idle.png"
+                            },
+                            {
+                              "name": "slime_walk.png"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "skelton/",
+                          "children": [
+                            {
+                              "name": "skelton_idle.png"
+                            },
+                            {
+                              "name": "skelton_walk.png"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "items/",
+                      "children": [
+                        {
+                          "name": "coin.png"
+                        },
+                        {
+                          "name": "heart.png"
+                        },
+                        {
+                          "name": "key.png"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "tilesets/",
+                  "children": [
+                    {
+                      "name": "grass_tileset.png"
+                    },
+                    {
+                      "name": "dungeon_tileset.png"
+                    }
+                  ]
+                },
+                {
+                  "name": "ui/",
+                  "children": [
+                    {
+                      "name": "buttons/"
+                    },
+                    {
+                      "name": "icons/"
+                    },
+                    {
+                      "name": "fonts/"
+                    }
+                  ]
+                },
+                {
+                  "name": "backgrounds/",
+                  "children": [
+                    {
+                      "name": "sky.png"
+                    },
+                    {
+                      "name": "mountains.png"
+                    }
+                  ]
+                },
+                {
+                  "name": "effects/",
+                  "children": [
+                    {
+                      "name": "explosion.png"
+                    },
+                    {
+                      "name": "dust.png"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": " "
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתן שמות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ביחרו שיטה מקובלת והיו עקביים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "snake_case"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - עבור שמות קבצים, למשל: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "player_idle.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "slime_walk.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שמות משמעותיים שמתארים היטב"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "player_run_spritesheet.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עדיף על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "sprite2.png"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אחידות בפתיח (prefix)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - למשל: כל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "slime"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יתחילו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "_slime"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", וכו’."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עבודה עם Assets חינמיים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במהלך הלמידה, אין צורך להשקיע וליצור בעצמכם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "text": " מ-0, יש מקורות חינמיים מצויינים ברשת, למשל:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "http://Kenney.nl",
+                          "target": "_blank",
+                          "rel": "noopener noreferrer",
+                          "class": null,
+                          "title": null
+                        }
+                      },
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Kenney.nl"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ספריה גדולה של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באיכות מעולה (רישיון "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CC0"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "http://OpenGameArt.org",
+                          "target": "_blank",
+                          "rel": "noopener noreferrer",
+                          "class": null,
+                          "title": null
+                        }
+                      },
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "OpenGameArt.org"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אומנות משחקים חינמית שנוצרה על ידי הקהילה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "http://itch.io",
+                          "target": "_blank",
+                          "rel": "noopener noreferrer",
+                          "class": null,
+                          "title": null
+                        }
+                      },
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "itch.io"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מכיל גם חינמיים וגם פרמיום, ניתן לסנן בחיפוש באתר כדי לצפות בחינמיים בלבד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כאשר אתם מורידים חבילת Assets"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מקמו אותם בתת-תיקיה תחת תיקיית  "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "/assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שתיצרו מראש - שימרו על סדר בתיקיות הפרויקט."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בידקו את הרישיון. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CC0"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משמעותו חינם. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "CC-BY"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אומר שחייבים לתת קרדיט (איזכור במשחק) ליוצר. קיימים גם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חינמיים שלא מאפשרים שימוש מסחרי בכלל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "השתדלו לא לשנות את השמות של התמונות אשר כלולות בחבילה שהורדתם אם אפשר - במידה ויש דוקיומנטציה לחבילה אז לא תתבלבלו כתוצאה מכך ששיניתם שם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.7 תירגול: מיני משחק - Coin Runner"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אז הגיעה סוף סוף העת לקחת את כל מה שלמדנו וליצור מיני משחק ראשון שיעזור לנו להבין את הקונספטים יותר טוב. אין צורך להיבהל - אדריך אתכם שלב אחרי שלב כמובן."
           }
         ]
       },

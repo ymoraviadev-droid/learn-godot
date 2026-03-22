@@ -4,7 +4,7 @@
   "slug": "sprites-וטקסטורות",
   "order": 8,
   "createdAt": "2026-03-22T05:43:19.960Z",
-  "updatedAt": "2026-03-22T05:53:01.070Z",
+  "updatedAt": "2026-03-22T07:28:59.673Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -51,6 +51,2113 @@
               }
             ],
             "text": "8.1 ייבוא תמונת ו-Assets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנחנו כבר יודעים לשלוט בדמות שלנו באמצעות בקר, לחבר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": ", ועוד. אבל כרגע המשחק שלכם כנראה נראה דל - עם האייקון של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " בתור הדמות הראשית. הגיע הזמן שנלמד איך לגרום לדברים להיראות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טוב"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך המנוע Godot מתנהל עם תמונות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אתם מוסיפים קובץ תמונה לפרויקט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " (על ידי גרירה לפאנל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FileSystem"
+          },
+          {
+            "type": "text",
+            "text": " או העתקה לתיקיית הפרויקט) - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מייבא את הקובץ באופן אוטומטי ומשייך אותו לפרוייקט. הקובץ המקורי נשאר כמו שהוא ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יוצר גירסאת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "import"
+          },
+          {
+            "type": "text",
+            "text": ". עבורו בנוסף לגירסא המקורית."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פורמטים נתמכים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "PNG"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ללא אובדן איכות, תומך בשקיפות ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Transparency"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). הסטנדרט המקובל לאומנות משחקי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "JPEG"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "JPG"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אובדן איכות מסוים, לא תומך בשקיפות. טוב לרקעים או תמונות, עדיף להימנע משימוש באומנות פיקסלים או עבור אובייקטים של המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "WebP"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - פורמט מודרני, תומך ברמת אובדן איכות נשלטת - עד ללא אובדן איכות בכלל. גודל הקובץ קצת יותר קטן מאשר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "PNG"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SVG"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - פורמט וקטורים, שימושי עבור אובייקטים שמשתנים באופן דינמי עם הרזולוציה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כך ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "PNG"
+          },
+          {
+            "type": "text",
+            "text": " הוא הפורמט הנפוץ ביותר לשימוש במשחקי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2D"
+          },
+          {
+            "type": "text",
+            "text": " וזוהי הבחירה הדיפולטיבית - ללא אובדן איכות, נתמך על ידי מרבית המערכות, ומתנהל היטב עם שקיפות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרות Import"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אנו בוחרים תמונה בפאנל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FileSystem"
+          },
+          {
+            "type": "text",
+            "text": ", נוכל לראות ולשנות את הגדרות הייבוא ושיטת עיבוד התמונה בפאנל השמאלי העליון בלשונית "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Import"
+          },
+          {
+            "type": "text",
+            "text": " (יתכן שהלשונית הזאת לא תופיע עד שתבחרו תמונה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FileSystem"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/import_settings.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Filter Mode"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Linear (הברירה הדיפולטיבית)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מעדן/מחליק פיקסלים בשינוי גודל, שימושי לאומנות ברזולוציות גבוהות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nearest"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - “שומר” את גבולות הפיקסלים. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הכרחי לאומנות פיקסלים"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה ואתם מכינים משחק באומנות פיקסלים, תרצו שהברירה הדיפולטיבית תהיה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nearest"
+          },
+          {
+            "type": "text",
+            "text": ", כך תוכלו להגדיר זאת, כך שלא תצטרכו להגדיר באופן ספציפי עבור כל תמונה:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Project - Project Settings - Rendering - Textures - Canvas Textures - Default Texture Filter - Nearest"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/project_import_settings.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Repeat Mode"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Disabled (הברירה הדיפולטיבית) "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- הטקסטורה מופיעה פעם אחת בלבד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Enabled "
+                  },
+                  {
+                    "type": "text",
+                    "text": "-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "הטקסטורה"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "/Tiles "
+                  },
+                  {
+                    "type": "text",
+                    "text": "חוזרים על עצמם ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Repeat"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). שימושי לרקעים ותבניות שחוזרות על עצמן."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Mipmaps"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "השאירו מכובה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Disabled"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " במצב 2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תמיד"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Mipmaps "
+                  },
+                  {
+                    "type": "text",
+                    "text": "הן טקסטורות שעברו אופטימיזציה ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "3D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת להקנות מראה אמין ממרחקים שונים. "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ייבוא מחדש (Reimporting)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לאחר שינוי הגדרות ייבוא בלשונית ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Import"
+          },
+          {
+            "type": "text",
+            "text": ", יש ללחוץ על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Reimport"
+          },
+          {
+            "type": "text",
+            "text": " על מנת ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " ייצור את העותק המעודכן עם הגדרות הייבוא המעודכנות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "היכן למקם קבצים מיובאים (Assets) בתיקיית הפרויקט"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מבנה פרויקט תקין יראה בערך ככה:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "res://",
+              "children": [
+                {
+                  "name": "assets/",
+                  "children": [
+                    {
+                      "name": "sprites/",
+                      "children": [
+                        {
+                          "name": "player/"
+                        },
+                        {
+                          "name": "enemies/"
+                        },
+                        {
+                          "name": "items/"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "tilesets/"
+                    },
+                    {
+                      "name": "ui/"
+                    },
+                    {
+                      "name": "backgrounds/"
+                    }
+                  ]
+                },
+                {
+                  "name": "scenes/"
+                },
+                {
+                  "name": "scripts/"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ab7312",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "* קבצו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ab7312",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ab7312",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " לפי קטגוריה והימנעו מ-”לזרוק” הכל ביחד תחת תיקייה אחת - זה יהפוך לקשה לניהול במהרה."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.2 Sprite2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D "
+          },
+          {
+            "type": "text",
+            "text": "הוא ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " הבסיסי להצגת תמונת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2D"
+          },
+          {
+            "type": "text",
+            "text": ". יצא לנו להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node "
+          },
+          {
+            "type": "text",
+            "text": "זה בפרקים הקודמים - כעת בואו נבין אותו לעומק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת הטקסטורה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש 3 דרכים להצמיד תמונה ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "גרירה (Drag and Drop) "
+                  },
+                  {
+                    "type": "text",
+                    "text": "-גרירת תמונה מפאנל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FileSystem"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לשדה המאפיין “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Texture"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“ ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "דרך ה-Inspector "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- לחצו על שדה המאפיין “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Texture"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“ ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector "
+                  },
+                  {
+                    "type": "text",
+                    "text": "על מנת לבחור תמונה דרך סייר קבצים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "דרך הקוד"
+                  },
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Ready()\n{\n    var sprite = GetNode<Sprite2D>(\"Sprite2D\");\n    sprite.Texture = GD.Load<Texture2D>(\"res://assets/sprites/player.png\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים עיקריים"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Texture"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - התמונה להצגה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Centered"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מקבל ערך בוליאני - אם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (דיפולטיבי), אז מקור ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא מרכז התמונה. אם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "false"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", אז המקור יהיה הפינה השמאלית-עליונה של התמונה. לרוב נרצה ממורכז ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ככה המאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Position"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יתייחס למרכז ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Offset"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מסיט את התמונה באופן יחסי למקור שלה מבלי להזיז את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עצמו. שימושי עבור דיוקים ויזואליים מבלי להשפיע על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Collisions"
+                  },
+                  {
+                    "type": "text",
+                    "text": " או ילדים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FlipH "
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " FlipV"
+                  },
+                  {
+                    "type": "text",
+                    "text": " -אפקט מראה, הופך את התמונה באופן אופקי או אנכי, נשתמש המון, למשל כדי לסובב דמות כשהיא פונה שמאלה\\ימינה ועוד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Face the direction of movement\nif (direction.X != 0)\n{\n    _sprite.FlipH = direction.X < 0;\n}"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Hframes "
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " Vframes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מפצל את הטקסטורה למרשתת ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grid"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") של פריימים, רלוונטי ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (נכסה לעומק בפרק "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "8.5"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). אם ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יש 6 פריימים בשורה, נכתוב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Hframes=6"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ואז נוכל להשתמש במאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Frame"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת לבחור איזה פריים בדיוק ברצוננו להציג."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Frame"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - איזה פריים מתוך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet "
+                  },
+                  {
+                    "type": "text",
+                    "text": "ברצוננו להציג ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הספירה מתחילה מ-0"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). רלוונטי רק כשכבר הוגדר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Hframes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " / "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Vframes"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite2D vs TextureRect"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יכול להיות שכבר שמתם לב, אבל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Control Node"
+          },
+          {
+            "type": "text",
+            "text": " שנקרא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TextureRect"
+          },
+          {
+            "type": "text",
+            "text": " גם מסוגל להציג תמונות. ההבדלים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ממשפחת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". חי בעולם המשחק, מושפע ממצלמה, פיזיקות משחק וכו’. נשתמש בו עבור אובייקטים במשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TextureRect"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": זהו למעשה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Control"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". כלומר שהוא חי בשכבת ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ומשתמש בקונטיינרים ועוגנים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "anchors and containers"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). נשתמש עבור אלמנטים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HUD"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", רקעים בתפריט, אייקונים וכו’."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "8.3 Texture Regions ו-Atlas Textures"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במשחקים אמיתיים"
           }
         ]
       },

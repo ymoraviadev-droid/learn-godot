@@ -4,7 +4,7 @@
   "slug": "sprites-וטקסטורות",
   "order": 8,
   "createdAt": "2026-03-22T05:43:19.960Z",
-  "updatedAt": "2026-03-22T10:28:48.616Z",
+  "updatedAt": "2026-03-23T17:44:30.873Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -2457,7 +2457,7 @@
           },
           {
             "type": "text",
-            "text": " אחיד (פריימים תופסים גדלים שונים, מספר תאים שונה, סידור לא שיגרתי כלשהו), נשץמש ב-"
+            "text": " אחיד (פריימים תופסים גדלים שונים, מספר תאים שונה, סידור לא שיגרתי כלשהו), נשתמש ב-"
           },
           {
             "type": "text",
@@ -3941,7 +3941,33 @@
                   },
                   {
                     "type": "text",
-                    "text": " כאשר אתם בפוקוס על חלונית העורך) על מנת לייבא Spritesheet, בחרו גודל Grid ופריימים שתרצו לכלול."
+                    "text": " כאשר אתם בפוקוס על חלונית העורך) על מנת לייבא "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", בחרו גודל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grid"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ופריימים שתרצו לכלול."
                   }
                 ]
               }
@@ -5437,17 +5463,670 @@
         "attrs": {
           "textAlign": "right",
           "dir": null,
-          "level": 2
+          "level": 1
         },
         "content": [
           {
             "type": "text",
-            "marks": [
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
               {
-                "type": "bold"
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot מייבאת תמונות אוטומטית"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כאשר מוסיפים אותן לפרויקט. עבור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Pixel"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Art"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", הגדירו את פילטר הטקסטורה ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nearest"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (ברמת הפרויקט או לכל תמונה) כדי לשמור על פיקסלים חדים."
+                  }
+                ]
               }
-            ],
-            "text": "8.7 תירגול: מיני משחק - Coin Runner"
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מציג טקסטורה בעולם המשחק. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Centered"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Offset"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FlipH"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FlipV"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לשלוט באופן התצוגה. אל תבלבלו עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TextureRect"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", שמיועד ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אזורי טקסטורה ואטלסים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מאפשרים להציג חלקים מתוך תמונה גדולה יותר. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Hframes"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Vframes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לרשתות אחידות, ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "RegionRect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לאטלסים לא סדירים, או במשאבי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AtlasTexture"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לטקסטורות-משנה שניתנות לשימוש חוזר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "היפוך באמצעות FlipH"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משפיע רק על הוויזואל — לא על ילדים או צורות התנגשות. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Scale"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "X"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלילי כאשר צריך להפוך את הכל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Modulate"
+                  },
+                  {
+                    "type": "text",
+                    "text": " צובעת ומשנה שקיפות של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprites"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". לבן = רגיל, כל צבע אחר = צביעה, ערוץ אלפא ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Alpha"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") = שקיפות. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SelfModulate"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לצבוע רק את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", לא את הילדים שלו."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Z-Index"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולט בסדר הציור. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "YSortEnabled"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ההורה למיון עומק אוטומטי מלמעלה למטה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מנגנת אנימציות פריים-אחר-פריים באמצעות משאב SpriteFrames. קראו לאנימציות בשמות ברורים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "run"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "attack"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), הגדירו מהירות ולולאה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Loop"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ושלטו בהשמעה מהקוד באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()Play"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "השתמשו בלוגיקת PlayIfNotCurrent"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי להימנע מהפעלה מחדש של אנימציות בכל פריים. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Signal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "AnimationFinished"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לשרשר אנימציות ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "attack -"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ארגנו את הנכסים הגרפיים (Assets)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במבנה תיקיות ברור עם שמות עקביים."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שאלון ידע"
           }
         ]
       },
@@ -5460,9 +6139,34 @@
         "content": [
           {
             "type": "text",
-            "text": "אז הגיעה סוף סוף העת לקחת את כל מה שלמדנו וליצור מיני משחק ראשון שיעזור לנו להבין את הקונספטים יותר טוב. אין צורך להיבהל - אדריך אתכם שלב אחרי שלב כמובן."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 9"
+          },
+          {
+            "type": "text",
+            "text": ", נלמד להזיז דמויות כמו שצריך - עם זיהוי התנגשויות, כוח משיכה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Gravity"
+          },
+          {
+            "type": "text",
+            "text": "), וגופים פיזיקליים שמקיימים אינטרקציה עם העולם."
           }
         ]
+      },
+      {
+        "type": "horizontalRule"
       },
       {
         "type": "paragraph",

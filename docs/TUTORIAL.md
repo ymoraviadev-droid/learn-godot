@@ -80,7 +80,6 @@ Each part builds on the previous one. By the end, the reader will have built sev
 - 8.4 Flipping, scaling, and modulating sprites
 - 8.5 AnimatedSprite2D — sprite sheet animations
 - 8.6 Organizing art assets in the project
-- 8.7 Exercise: Coin Runner — mini-game combining chapters 1–8
 
 ### Chapter 9: Movement & Physics (2D)
 - 9.1 Moving a node with code (position, velocity)

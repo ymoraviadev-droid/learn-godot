@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T19:15:40.469Z",
+  "updatedAt": "2026-03-24T20:34:27.462Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -4578,6 +4578,2040 @@
             }
           ]
         }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה הכל, אין צורך בסקריפט. הוספת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CollisionShape2D"
+          },
+          {
+            "type": "text",
+            "text": " נותנת לנו קיר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מוצק"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "גופים מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " יתנגשו בו, גופים מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " ייהדפו ממנו לכיוון הנכון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נוכל להוסיף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": " או להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMap"
+          },
+          {
+            "type": "text",
+            "text": " (אשר יוצרת מנגנון התנגשויות באופן עצמאי) - כך או כך ללוגיקת ההתנגשויות לא ידרש קוד בכלל."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הזזת פלטפורמות באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatableBody2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כיצד אנו מנהלים מקרים של פלטפורמות שברצוננו שיזזו ולא ישארו קבועות על המסך מבלי לזוז?"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " כפי שהוסבר, לא זז (הוא מתעלם מכוחות פיזיים), אבל ניתן להזיז אותו דרך הקוד או באמצעות שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AnimationPlayer"
+          },
+          {
+            "type": "text",
+            "text": ". אך כש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " זז - הוא לא “דוחף” דמויות שעומדות עליו - הם ישארו מאחורה באוויר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת להזיז פלטפורמות, נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatableBody2D"
+          },
+          {
+            "type": "text",
+            "text": ". זה למעשה סוג של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " אשר יודע “לסחוב” איתו דמויות שנמצאות עליו:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class MovingPlatform : AnimatableBody2D\n{\n    [Export] public Vector2 MoveDistance = new Vector2(200, 0);\n    [Export] public float Duration = 2f;\n\n    private Vector2 _startPos;\n\n    public override void _Ready()\n    {\n        _startPos = GlobalPosition;\n\n        var tween = CreateTween().SetLoops().SetTrans(Tween.TransitionType.Sine);\n        tween.TweenProperty(this, \"global_position\", _startPos + MoveDistance, Duration);\n        tween.TweenProperty(this, \"global_position\", _startPos, Duration);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "דמויות אשר יעמדו על פלטפורמה זו יזוזו איתה באופן אוטומטי."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " על גופים סטטיים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " תומך גם ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "text": ". הגדרת חיכוך ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Friction"
+          },
+          {
+            "type": "text",
+            "text": ") נמוך על רצפה תיצור משטח חלקלק (קרח):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Ice floor — characters slide\nvar ice = new PhysicsMaterial();\nice.Friction = 0.05f;\nPhysicsMaterialOverride = ice;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדרת קופצניות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bounce"
+          },
+          {
+            "type": "text",
+            "text": ") גבוהה תגרום לעצמים לקפץ\\להידחף אחורה מקירות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Bouncy wall\nvar bouncy = new PhysicsMaterial();\nbouncy.Bounce = 0.9f;\nPhysicsMaterialOverride = bouncy;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כוחות ומהירות (Velocity) מתמשכים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " יש שני מאפיינים שנועדו לדמות משטחים שדוחפים דברים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Constant Linear Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - גופים שמתנגשים בגוף זה יידחפו\\ייהדפו אחורה בהתאם ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Constant Angular Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - גופים שמתנגשים בגוף זה יסתובבו עם העצם המקורי. נשתמש עבור פלטפורמות מסתובבות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מאפיינים אלו לא מזיזים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " בעצמם - הם משפיעים על גופים אחרים שנוגעים בו."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "9.6 "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - טריגרים (Triggers) ואזורי זיהוי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2d"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "הוא לא גוף פיזיקלי - הוא לא חוסם תנועה של עצמים אחרים ולא משתתף בלוגיקת ההתנגשויות. במקום זה, הוא מזהה כאשר גופים אחרים נכנסים או יוצאים מהאזור שלו. ניתן להסתכל על זה כמו על חיישן תנועה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימושים נפוצים"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פריטים שיתן לאסוף"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מטבע או חפץ אחר שנעלם כאשר אוספים אותו (כאשר השחקן נוגע בו)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אזורים במשחק הגורמים לפגיעה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לבה, קוצים, אזורים שגורמים לפגיעה בשחקן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Triggers"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - טריגרים או "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Triggers"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הם מנגנון שמוציא פיולה לפועל בעת מגע, כמו למשל כפתור\\ידית שגורמים לפתיחת דלת בעולם המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אזורי זיהוי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אזור שכשהשחקן נכנס אליו היריב מבחין בו ומתחיל לרדוף אחריו או אזור שמגיעים אליו נגמר השלב (כמו במירוץ מכוניות למשל)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אזורי אינטרקציה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שימוש נפוץ: אזור שקרוב ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "NPC"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ואפשר למשל ללחוץ על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "E"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לדבר איתו, תיבת אוצר שנפתחת כשלוחצים עליה וכו’."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת Area2d"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Coin",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "Area2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כמו בשאר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מבוססי הפיזיקה, יש לנו צורך ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CollisionShape2D"
+          },
+          {
+            "type": "text",
+            "text": " על מנת להגדיר את אזור ההתנגשות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "העוצמה האמיתית של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " מגיעה מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Coin : Area2D\n{\n    public override void _Ready()\n    {\n        BodyEntered += OnBodyEntered;\n    }\n\n    private void OnBodyEntered(Node2D body)\n    {\n        if (body is Player)\n        {\n            GD.Print(\"Coin collected!\");\n            QueueFree();\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " עיקריים:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Signal"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "משודר כאשר"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "BodyEntered"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גוף פיזיקלי ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "CharacterBody2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "RigidBody2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "StaticBody2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") נכנס לאזור שלו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "BodyExited"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גוף פיזיקלי עוזב את האזור."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "AreaEntered"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Area2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אחר נכנס לאזור שלו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "AreaExited"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Area2D"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אחר יוצא מהאזור שלו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "BodyEntered"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " vs "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AreaEntered"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "text": "הראשון ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "BodyEntered"
+          },
+          {
+            "type": "text",
+            "text": ")  מזהה גופים פיזיקליים (שחקן,אויב,ארגזים וכו’). "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AreaEntered"
+          },
+          {
+            "type": "text",
+            "text": " נועד למצב שבו למשל חרב ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": ") נוגעת באזור של האויב ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בדיקת חפיפות (Querying Overlaps)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במקום להגיב ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": ", נוכל גם לבדוק מה יש כרגע בתוך אזור:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    var bodies = GetOverlappingBodies();\n    foreach (var body in bodies)\n    {\n        if (body is Player player)\n        {\n            // Player is standing in the area right now\n            player.TakeDamage(1);\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetOverlappingBodies"
+                  },
+                  {
+                    "type": "text",
+                    "text": "  - מחזיר את כל הגופים הפיזיקליים שנמצאים כרגע בתוך האזור."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetOverlappingAreas"
+                  },
+                  {
+                    "type": "text",
+                    "text": "  - מחזיר את כל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שנמצאים כרגע בתוך האזור."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חשוב"
+          },
+          {
+            "type": "text",
+            "text": ": מתודות אלו עובדות רק כאשר איפשרתם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Monitoring"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים חשובים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Monitoring"
+          },
+          {
+            "type": "text",
+            "text": " - האם אזור זה מזהה גופים אחרים שנכנסים אליו. אם מוגדר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": ", לא משודרים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "signals"
+          },
+          {
+            "type": "text",
+            "text": ", ובדיקת חפיפות לא תחזיר שום דבר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Monitorable"
+          },
+          {
+            "type": "text",
+            "text": " - האם אזור זה הוא בר זיהוי על ידי אזורים אחרים. אם מוגדר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": ", אז "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2d"
+          },
+          {
+            "type": "text",
+            "text": " אחרים לא ידווחו על עליו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AreaEntered"
+          },
+          {
+            "type": "text",
+            "text": " שלהם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Gravity, Linear Damp, Angular Damp"
+          },
+          {
+            "type": "text",
+            "text": " - ניתן לדרוס מאפיינים שהגיעו מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Water zones"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הגדלת ההנחתה הקווית על מנת להאט עצמים, הפחתת כבידה (מים)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Zero-gravity zones"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - איפוס הכבידה בתוך אזור מסוים (חלל)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Wind zones"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הפעלת כבידה כיוונית (רוח)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא פרקטית: אזור הגורם לפגיעה (Damage Zone)"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class DamageZone : Area2D\n{\n    [Export] public int Damage = 1;\n    [Export] public float DamageInterval = 0.5f;\n\n    private float _timer = 0f;\n\n    public override void _PhysicsProcess(double delta)\n    {\n        _timer -= (float)delta;\n\n        if (_timer <= 0)\n        {\n            foreach (var body in GetOverlappingBodies())\n            {\n                if (body.HasMethod(\"TakeDamage\"))\n                {\n                    body.Call(\"TakeDamage\", Damage);\n                }\n            }\n            _timer = DamageInterval;\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אזור זה יפגע בכל גוף שיש לו מתודה בשם TakeDamage, בכל פרק זמן קבוע בשניות (DamageInterval) כאשר הוא נמצא בתוך אזור זה. למשל: לבה, גז רעיל, שדות מחשמלים, וכו’. "
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "9.7 Gravity, Friction ו-Bounce"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במהלך פרק זה כבר נגענו במושגים אלו, כעת בואו נסכם ונארגן המידע."
+          }
+        ]
       },
       {
         "type": "paragraph",

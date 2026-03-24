@@ -85,8 +85,8 @@ export function CodeBlockView({
             <span key={i}>{i + 1}</span>
           ))}
         </div>
-        <div className="code-content">
-          <pre>
+        <div className="code-content" style={{ overflowX: "auto" }}>
+          <pre style={{ whiteSpace: "pre", overflowWrap: "normal", wordBreak: "keep-all", width: "fit-content", minWidth: "100%" }}>
             <NodeViewContent as={"code" as any} />
           </pre>
         </div>

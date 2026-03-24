@@ -20,7 +20,7 @@ export function ChapterContent({ chapter, prevChapter, nextChapter }: ChapterCon
   if (!editor) return null;
 
   return (
-    <article className="max-w-3xl mx-auto px-4 sm:px-8 py-8">
+    <article className="max-w-4xl mx-auto px-4 sm:px-8 py-8">
       <EditorContent editor={editor} />
 
       <footer className="mt-12 pt-6 border-t text-sm text-muted-foreground flex items-center justify-between">

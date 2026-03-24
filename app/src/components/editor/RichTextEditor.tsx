@@ -26,7 +26,7 @@ export const RichTextEditor = memo(function RichTextEditor({ content, onUpdate }
       <EditorToolbar editor={editor} />
 
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-4 sm:px-8 py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 py-6">
           <EditorContent editor={editor} />
         </div>
       </div>

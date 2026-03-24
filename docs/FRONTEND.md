@@ -151,9 +151,9 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 
 ## Routing
 
-| Route                | Mode   | Description              |
-|----------------------|--------|--------------------------|
-| `/`                  | Reader | Homepage / chapter list  |
-| `/chapter/:slug`     | Reader | Read a chapter           |
-| `/edit`              | Editor | Chapter list + editor    |
-| `/edit/:slug`        | Editor | Edit a specific chapter  |
+| Route                | Mode    | Description              |
+|----------------------|---------|--------------------------|
+| `/`                  | Landing | Landing page with TOC    |
+| `/chapter/:slug`     | Reader  | Read a chapter           |
+| `/edit`              | Editor  | Chapter list + editor    |
+| `/edit/:slug`        | Editor  | Edit a specific chapter  |

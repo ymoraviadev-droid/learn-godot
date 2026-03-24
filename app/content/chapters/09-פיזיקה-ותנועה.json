@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T20:34:27.462Z",
+  "updatedAt": "2026-03-24T21:09:09.325Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -6574,7 +6574,33 @@
         "content": [
           {
             "type": "text",
-            "text": "אזור זה יפגע בכל גוף שיש לו מתודה בשם TakeDamage, בכל פרק זמן קבוע בשניות (DamageInterval) כאשר הוא נמצא בתוך אזור זה. למשל: לבה, גז רעיל, שדות מחשמלים, וכו’. "
+            "text": "אזור זה יפגע בכל גוף שיש לו מתודה בשם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TakeDamage"
+          },
+          {
+            "type": "text",
+            "text": ", בכל פרק זמן קבוע בשניות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DamageInterval"
+          },
+          {
+            "type": "text",
+            "text": ") כאשר הוא נמצא בתוך אזור זה. למשל: לבה, גז רעיל, שדות מחשמלים, וכו’. "
           }
         ]
       },
@@ -6609,7 +6635,139 @@
         "content": [
           {
             "type": "text",
-            "text": "במהלך פרק זה כבר נגענו במושגים אלו, כעת בואו נסכם ונארגן המידע."
+            "text": "במהלך פרק זה כבר נגענו במושגים אלו, כעת בואו נסכם ונארגן את המידע."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Gravity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יש הגדרות גרביטציה (כח-משיכה) חובקות פרויקט, נגדיר מתוך הגדרת הפרויקט:"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Project - Project Settings - Physics - 2D - Default Gravity"
+          },
+          {
+            "type": "text",
+            "text": ". הערך הדיפולטיבי הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "980"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לחקות את התנהגות כדור הארץ פחות או יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גרביטציה משפיעה רק על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " באופן אוטומטי. עבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": ", נצטרך להחיל את הגרביטציה בעצמנו:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Use the project setting so all objects feel consistent\npublic float Gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();\n\npublic override void _PhysicsProcess(double delta)\n{\n    if (!IsOnFloor())\n    {\n        Velocity += new Vector2(0, Gravity * (float)delta);\n    }\n    // ...\n    MoveAndSlide();\n}"
           }
         ]
       },

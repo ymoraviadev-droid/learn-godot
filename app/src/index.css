@@ -161,6 +161,14 @@
   .tiptap-editor pre code {
     @apply bg-transparent p-0;
     color: #9cdcfe;
+    white-space: pre !important;
+    word-wrap: normal !important;
+  }
+
+  .ProseMirror .code-block-wrapper pre {
+    white-space: pre !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
   }
 
   /* Code block with line numbers — custom node view */
@@ -170,7 +178,9 @@
     text-align: left;
     background: #1d1e22;
     border: 1px solid #1a1b1f;
-    @apply rounded-lg my-4 overflow-hidden;
+    @apply rounded-lg my-4;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .code-block-wrapper .code-block-header {
@@ -183,7 +193,7 @@
 
   .code-block-wrapper .code-block-body {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .code-block-wrapper .line-numbers {
@@ -200,17 +210,25 @@
   .code-block-wrapper .code-content {
     @apply p-4 overflow-x-auto font-mono text-sm;
     line-height: 1.7;
+    min-width: 0;
   }
 
   .code-block-wrapper .code-content pre {
     @apply bg-transparent border-none p-0 m-0 rounded-none;
     font-size: inherit;
     line-height: inherit;
+    white-space: pre !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
+    width: fit-content;
+    min-width: 100%;
   }
 
   .code-block-wrapper .code-content pre code {
     font-size: inherit;
     line-height: inherit;
+    white-space: pre !important;
+    word-wrap: normal !important;
   }
 
   /* Hide ProseMirror's trailing empty lines in code blocks */

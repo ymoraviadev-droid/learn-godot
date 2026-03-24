@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T13:08:07.934Z",
+  "updatedAt": "2026-03-24T13:42:46.452Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -162,7 +162,20 @@
         "content": [
           {
             "type": "text",
-            "text": "לכל Node2D יש מאפיין Position"
+            "text": "לכל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " יש מאפיין Position"
           }
         ]
       },

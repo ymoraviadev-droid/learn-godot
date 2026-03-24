@@ -4,7 +4,7 @@
   "slug": "sprites-וטקסטורות",
   "order": 8,
   "createdAt": "2026-03-22T05:43:19.960Z",
-  "updatedAt": "2026-03-24T12:59:51.001Z",
+  "updatedAt": "2026-03-24T13:42:31.542Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -3079,6 +3079,838 @@
               }
             ],
             "text": "Sheets"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "8.4 שינוי גודל, הזזה ו-Sprite Modulating"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "היפוך (Flipping)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כבר ראינו שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FlipH"
+          },
+          {
+            "type": "text",
+            "text": " ו- "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FlipV"
+          },
+          {
+            "type": "text",
+            "text": ", תבנית נפוצה לדמויות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2D"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    Vector2 direction = Input.GetVector(\"move_left\", \"move_right\", \"move_up\", \"move_down\");\n\n    if (direction.X != 0)\n    {\n        _sprite.FlipH = direction.X < 0;\n    }\n\n    Velocity = direction * Speed;\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הבדיקה “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "direction.X != 0"
+          },
+          {
+            "type": "text",
+            "text": "“ מונעת מכיוון הדמות “להתאפס” לימין כאשר היא מפסיקה לזוז - זה שומר על הכיוון האחרון שאליו פנתה הדמות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חשוב"
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FlipH"
+          },
+          {
+            "type": "text",
+            "text": " הופכת את הדמות רק מבחינה ויזואלית, זה לא הופך אזואי התנגשות, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Raycasts"
+          },
+          {
+            "type": "text",
+            "text": " או מיקום של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " ילדים. כלומר שנניח ולדמות שלנו היתה חרב שבולטת לימין - הפיכת הדמות לא תהפוך גם את כיוון החרב. נצטרך לטפל במצבים כאלו בנפרד (לרוב על ידי הפיכה גם של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Scale.X"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " של ההורה, או מיקום חדש של ילדים)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שינוי גודל (Scaling)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites "
+          },
+          {
+            "type": "text",
+            "text": "יורשים את המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Scale"
+          },
+          {
+            "type": "text",
+            "text": " מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Double size\nScale = new Vector2(2, 2);\n\n// Stretch horizontally\nScale = new Vector2(2, 1);\n\n// Flip using negative scale (alternative to FlipH)\nScale = new Vector2(-1, 1);  // mirrors horizontally"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שימוש ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Scale.X"
+          },
+          {
+            "type": "text",
+            "text": "” בעל ערך שלילי (מתחת ל-0) זו למעשה אלטנרטיבה ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FlipH"
+          },
+          {
+            "type": "text",
+            "text": " (ששימוש בו אינו משפיע על הילדים) - כעת אזורי התנגשות, חלקיקים ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " ילדים - כולם יתהפכו יחד עם ההורה. זה נפוץ לרוב יותק בדמויות מורכבות יותר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// This flips everything — sprite, collision, hitboxes\nif (direction.X != 0)\n{\n    float facing = direction.X < 0 ? -1 : 1;\n    Scale = new Vector2(facing, 1);\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפ"
+          },
+          {
+            "type": "text",
+            "text": ": כאשר משנים כודל של אומנות פיקסלים, תמית השתמשו במספרים שלמים כערך ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Integers"
+          },
+          {
+            "type": "text",
+            "text": ", למשל: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2"
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "3"
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "4"
+          },
+          {
+            "type": "text",
+            "text": "), יש לוודא שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Filter"
+          },
+          {
+            "type": "text",
+            "text": " מוגדר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nearest"
+          },
+          {
+            "type": "text",
+            "text": ". הגדלה באמצעות שימוש במספרים לא שלמים כמו “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1.5"
+          },
+          {
+            "type": "text",
+            "text": "” תגרום למראה מטושטש ופיקסלים לא שווים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שינוי גוון (Modulate, Color Tinting)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "את המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Modulate"
+          },
+          {
+            "type": "text",
+            "text": " אנו יורשים מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CanvasItem"
+          },
+          {
+            "type": "text",
+            "text": ", מאפיין זה נועד “להכפיל/למזג” את צבעי הדמות עם צבע נתון. זה יכול להיות מאוד שימושי לחיווי ויזואלי:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Tint red (damage flash)\nModulate = new Color(1, 0.3f, 0.3f);\n\n// Return to normal\nModulate = Colors.White;\n\n// 50% transparent\nModulate = new Color(1, 1, 1, 0.5f);\n\n// Fully invisible\nModulate = new Color(1, 1, 1, 0);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ערוץ האלפא (הערך הרביעי) שולט בשקיפות. זוהי דרך פשוטה ליצור אפקט “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Fade In/Out"
+          },
+          {
+            "type": "text",
+            "text": "” לעצמים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Damage Flash Pattern"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעיתים כאשר שחקן נפגע - נרצה להציג חיווי ויזואלי, מעין “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הבזק"
+          },
+          {
+            "type": "text",
+            "text": "” בצבע מסוים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public async void TakeDamage(int amount)\n{\n    _health -= amount;\n\n    // Flash red\n    _sprite.Modulate = new Color(1, 0.3f, 0.3f);\n\n    await ToSignal(GetTree().CreateTimer(0.1), SceneTreeTimer.SignalName.Timeout);\n\n    // Return to normal\n    _sprite.Modulate = Colors.White;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SelfModulate vs Modulate"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Modulate"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- נותן גוון ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הנוכחי וכל הילדים שלו."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "SelfModulate"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- נותן גוון ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " זה בלבד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כךומר שבמידה ונרצה “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לצבוע"
+          },
+          {
+            "type": "text",
+            "text": "” את השחקן באדום מבלי למשל לצבוע גם את בר החיים או ילד אחר שלו -נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Modulate"
+          },
+          {
+            "type": "text",
+            "text": ", אחרת ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SelfModulate"
           },
           {
             "type": "text",

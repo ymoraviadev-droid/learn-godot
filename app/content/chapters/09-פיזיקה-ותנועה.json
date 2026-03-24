@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T17:10:23.961Z",
+  "updatedAt": "2026-03-24T19:07:30.644Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -3419,6 +3419,1100 @@
             }
           ]
         }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מדובר באותו המבנה בדיוק כמו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " - יש לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CollisionShape2D"
+          },
+          {
+            "type": "text",
+            "text": ", רק שבמקרה של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " העצם יגיב מיד לחוקי גרביטציה והדיפה כתוצאה מהתנגשויות - ללא כתיבת שורת קוד אחת אפילו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני מפתח"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Mass "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- כמה העצם כבד, קשה יותר “לדחוף” עצמים שהם כבדים יותר. הערך הדיפולטיבי הוא קילו 1."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Gravity Scale "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- קנה מידה עבור גרביטציה. 1 = גרביטציה נורמלית, 0 = ללא גרביטציה, 2 = גרביטציה כפולה (נופל אחרון), 1- = גרביטציה הפוכה (ציפה כלפי מעלה)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Linear Damp "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- התנגדות אווירית לתנועה, ערכים גבוהים יותר יגרמו לעצם להאט עד לעצירה מהר יותר. 0 = ללא התנגדות אוירית בכלל (מחליק על משטחים)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Angular Damp "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- התנגדות אווירית בעת סיבובים. ערכים גבוהים יותר יגרמו לסיבובים להאט יותר עד לעצירה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Freeze "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- עוצר את הגוף ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Body"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") לחלוטין מתנועה. ניתן לשנות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "On"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Off"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת להקפיא/לשחרר מקיפאון עצמים. למשל: אבן שמתגלגלת כאשר השחקן מושך ידית בעולם המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Continuous CD "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- זיהוי עצמים מתמשך. השתמשו עבור עצמים שנעים מהר (כדורים, פריטים שנזרקים) שעלולים לעבור דרך קירות במהירות גבוהה. יקר יותר מבחינת ביצועים אבל מונע מעבר דרך עצמים."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "החלת כוחות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנחנו לא נקבע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Position"
+          },
+          {
+            "type": "text",
+            "text": " או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " ישירות (למרות שזה אפשרי, אך זה ישבור את עיקרון סימולציית הפיזיקה). במקום זה, ניישם/נחיל כוחות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Crate : RigidBody2D\n{\n    public void Push(Vector2 direction, float force)\n    {\n        // Apply a one-time impulse (like a kick)\n        ApplyImpulse(direction.Normalized() * force);\n    }\n\n    public void Hover()\n    {\n        // Apply a continuous force (like a thruster)\n        ApplyCentralForce(new Vector2(0, -500));\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Impulse vs Force"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ApplyImpulse"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מיידי ומהיר. השתמשו עבור פיצוצים, קפיצות, בעיטות וכו’. נחיל פעם אחת בלבד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ApplyCentralForce"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - דחיפה מתמשכת. השתמשו עבור רוח, מגנטזיציה, כוחות דוחפים ודומה. נחיל בכל פריים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()PhysicsProcess_"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ApplyForce"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - דומה ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ApplyCentralForce"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", אך מיושם על אזור ספציפי בגוף ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Body"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), ויוצר גם סיבוב ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "torque"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Explosion pushes everything away\npublic void Explode(Vector2 explosionPos, float explosionForce)\n{\n    Vector2 direction = GlobalPosition - explosionPos;\n    float distance = direction.Length();\n    float strength = explosionForce / (distance * distance);  // falloff with distance\n    ApplyImpulse(direction.Normalized() * strength);\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "text": " הוא משאב אשר שולט באופן שבו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " מבצע אינטרקציה עם משטחים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Friction"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - רמת החיכוך. 0 = קרח (מחליק, ללא חיכוך), 1 = גומי (חיכוך מורגש, דיפולטיבי)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Bounce "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- קופצניות. 0 = ללא קופצניות (כמו מגנט, דיפולטיבי), 1 = קופצניות מושלמת, כמו כדורסל על רצפה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנחנו יכולים להגדיר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "text": " על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " דרך הערך ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": ", או ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Collision"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Shapes"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var material = new PhysicsMaterial();\nmaterial.Friction = 0.2f;\nmaterial.Bounce = 0.7f;\nPhysicsMaterialOverride = material;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "האזנה להתנגשויות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "משדר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " כאשר הוא מתנגש עם גופים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bodies"
+          },
+          {
+            "type": "text",
+            "text": ") אחרים. יש לאפשר  ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " קודם כל את המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Contact"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Monitor"
+          },
+          {
+            "type": "text",
+            "text": " ולקבוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Max"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Contacts"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Reported"
+          },
+          {
+            "type": "text",
+            "text": " (עדיף 4)."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Ready()\n{\n    BodyEntered += OnBodyEntered;\n}\n\nprivate void OnBodyEntered(Node body)\n{\n    GD.Print($\"Hit {body.Name}\");\n\n    if (LinearVelocity.Length() > 500)\n    {\n        GD.Print(\"Hard impact!\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חשוב"
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Contact"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Monitor "
+          },
+          {
+            "type": "text",
+            "text": "מוגדר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": " (כבוי) באופן דיפולטיבי למטרת הצגת ביצועים טובים (העקרון של לא להעמיס על הביצועים אלא אם אנחנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "באמת "
+          },
+          {
+            "type": "text",
+            "text": "צריכים). יש לאפשר ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " על מנת שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " האלו יעבדו."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "9.5 StaticBody2D - קירות ורצפות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "StaticBody2D הוא הגוף (Body) הפיזיקלי הפשוט ביותר - הוא לא זז, וגופים פיזיקליים אחרים יכולים להתנגש בו"
+          }
+        ]
       },
       {
         "type": "paragraph",

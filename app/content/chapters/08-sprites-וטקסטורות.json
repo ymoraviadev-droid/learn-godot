@@ -4,7 +4,7 @@
   "slug": "sprites-וטקסטורות",
   "order": 8,
   "createdAt": "2026-03-22T05:43:19.960Z",
-  "updatedAt": "2026-03-23T17:44:30.873Z",
+  "updatedAt": "2026-03-24T12:59:51.001Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -6131,6 +6131,96 @@
         ]
       },
       {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": " מהי הגדרת הסינון (Filter) המומלצת עבור פיקסל ארט?",
+              "answers": [
+                "Linear",
+                "Bilinear",
+                "Nearest",
+                "Cubic"
+              ],
+              "correct": 2
+            },
+            {
+              "question": " מה ההבדל בין Sprite2D לבין TextureRect?",
+              "answers": [
+                "TextureRect מיועד לאובייקטים בעולם המשחק ו-Sprite2D ל-UI",
+                "Sprite2D הוא Node2D שחי בעולם המשחק, ו-TextureRect הוא Control שחי בשכבת ה-UI",
+                "אין הבדל, שניהם עובדים באותו אופן",
+                "TextureRect תומך באנימציה ו-Sprite2D לא תומך"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה עושה המאפיין FlipH ב-Sprite2D?",
+              "answers": [
+                "מסובב את הספרייט ב-180 מעלות",
+                "הופך את התצוגה החזותית בלבד — בלי להשפיע על התנגשויות או צמתים-ילדים",
+                "הופך את הספרייט, את צורות ההתנגשות ואת כל הצמתים-ילדים",
+                "משנה את גודל הספרייט לרוחב"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "כדי להפוך ספרייט כולל צורות התנגשות וצמתים-ילדים, מה הדרך המומלצת?",
+              "answers": [
+                " להשתמש ב-Scale עם ערך שלילי ב-X, למשל Scale = new Vector2(-1, 1)",
+                "להשתמש ב-FlipH = true",
+                "לסובב את ה-Node ב-180 מעלות",
+                "ליצור שני ספרייטים נפרדים ולהחליף ביניהם"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "מה תפקיד המאפיינים Hframes ו-Vframes ב-Sprite2D?",
+              "answers": [
+                "קובעים את רזולוציית התמונה",
+                "קובעים כמה פעמים הטקסטורה חוזרת על עצמה",
+                " מחלקים את הטקסטורה לרשת של פריימים, ואז אפשר לבחור פריים עם המאפיין Frame ",
+                "מגדירים את קצב האנימציה בפריימים לשנייה"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה ההבדל בין Modulate לבין SelfModulate?",
+              "answers": [
+                "SelfModulate חזק יותר מ-Modulate",
+                "Modulate משפיע רק על ה-Node עצמו ו-SelfModulate גם על הילדים",
+                " אין הבדל, שניהם זהים",
+                "Modulate צובע את ה-Node ואת כל הילדים שלו, ו-SelfModulate צובע רק את ה-Node עצמו"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "מה עושה AnimatedSprite2D כשמפעילים Play(\"run\") בכל פריים ב-_PhysicsProcess?",
+              "answers": [
+                "מתחיל את האנימציה מחדש מפריים 0 בכל פריים — מה שגורם לה להיתקע",
+                "ממשיך לנגן את האנימציה בצורה רגילה",
+                "מאיץ את קצב האנימציה",
+                "מעביר לפריים האחרון"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "איזה Signal של AnimatedSprite2D מתאים לזיהוי סיום אנימציית התקפה כדי לחזור למצב idle?",
+              "answers": [
+                "FrameChanged",
+                "AnimationFinished",
+                "AnimationChanged",
+                "AnimationLooped"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
@@ -6164,16 +6254,6 @@
             "text": "), וגופים פיזיקליים שמקיימים אינטרקציה עם העולם."
           }
         ]
-      },
-      {
-        "type": "horizontalRule"
-      },
-      {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        }
       }
     ]
   }

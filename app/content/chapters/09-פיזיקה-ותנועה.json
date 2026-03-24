@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T13:42:46.452Z",
+  "updatedAt": "2026-03-24T17:10:23.961Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -24,10 +24,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/chapter9_physics_overview.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -175,9 +178,132 @@
           },
           {
             "type": "text",
-            "text": " יש מאפיין Position"
+            "text": " יש מאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Position"
+          },
+          {
+            "type": "text",
+            "text": " - זהו למעשה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2D"
+          },
+          {
+            "type": "text",
+            "text": " אשר קובע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איפה ה-Node ממוקם במרחב הקוארדינטות של ההורה שלו"
+          },
+          {
+            "type": "text",
+            "text": ". ניתן להזיז "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " על ידי שינוי המיקום שלו:"
           }
         ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _Process(double delta)\n{\n    Position += new Vector2(100 * (float)delta, 0);  // move right at 100 pixels/sec\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ואין ספק שזה גם יעבוד, אך יש כאן בעיה קריטית: ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " יכול “לזוז” דרך כל דבר, כולל קירות וחפצים בעולם המשחק - אין לנו כאן מנגנון לזיהוי התנגשויות, ושום דבר לא ימנע מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " לעבור דרך כל אובייקט אחר - זה רק מזיז את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       },
       {
         "type": "heading",
@@ -185,6 +311,3113 @@
           "textAlign": "right",
           "dir": null,
           "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מה זה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הפרמטר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "text": " מייצג את הזמן שעבר מאז הפריים הקודם, בשניות. בקצב רענון של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "60FPS"
+          },
+          {
+            "type": "text",
+            "text": " - הדלתא יהיה בערך כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0.0167"
+          },
+          {
+            "type": "text",
+            "text": ", בקצב רענון של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "30FPS"
+          },
+          {
+            "type": "text",
+            "text": " - ערך הדלתא יהיה בערך כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0.033"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תמיד הכפילו ב-delta "
+          },
+          {
+            "type": "text",
+            "text": "- אחרת המשחק שלכם ירוץ בצורה שונה על מערכות שונות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Position vs Velocity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קיימות שתי גישות עיקריות לתנועה:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Position Based "
+          },
+          {
+            "type": "text",
+            "text": "- הגדרה באופן ישיר של מיקום ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Position += direction * speed * (float)delta;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פשוט, קל לצפות איפה העצם יהיה ממוקם בכל פריים - אך ללא פיזיקה. מתאים לרכיבי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "UI"
+          },
+          {
+            "type": "text",
+            "text": ", תפריטים, אפקטים ועוד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity Based "
+          },
+          {
+            "type": "text",
+            "text": "- הגדרה תנועה מבוססת מהירות, אנו מגדירים באיזה מהירות העצם זז ולאיזה כיוון:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Velocity = direction * speed;\nMoveAndSlide();"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כך תנועה אשר מודעת לפיזיקה עובדת. המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " לוקחת את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": ", מזיזה את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "body"
+          },
+          {
+            "type": "text",
+            "text": " ומנהלת התנגשויות במרחב באופן אוטומטי. נרחיב על כך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 9.3"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Global vs Local Position"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Position"
+          },
+          {
+            "type": "text",
+            "text": " הוא המיקום באופן יחסי ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " ההורה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "GlobalPosition"
+          },
+          {
+            "type": "text",
+            "text": " הוא המיקום בעולם המשחק."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// If the parent is at (100, 50):\nPosition = new Vector2(10, 0);        // node is at (110, 50) in the world\nGlobalPosition = new Vector2(10, 0);  // node is at (10, 0) in the world"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "9.2 CharacterBody2D "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " הוא ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " המיועד לשליטה בדמויות, שחקנים, אויבים וכו’ - כל דבר שאמור לזוז על גבי המסך אך לא מונע על ידי פיזיקת העולם - אלא באופן ישיר דרך הקוד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע שלא נשתמש פשוט ב-Node2D?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " בסיסי יכול לזוז, אך הוא לא מודע להתנגשויות עם עצמים אחרים. אם נשתמש בו - נצטרך להגדיר בעצמנו לוגיקת התנגשויות, לטפל בהם, ולתקן הרבה בעיות לא צפויות. אפילו שזה אפשרי, זה יהיה באמת המון עבודה, ול-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יש את הפתרון הנכון עבורנו, השימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " נותן לנו:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מנגנון זיהוי התנגשויות מובנה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- למשל: הדמות לא תעבור דרך קירות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()MoveAndSlide"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- מתודה שמזיזה, מנהלת התנגשויות, ו-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מחליקה"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” את התנועה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "זיהוי קיר\\תקרה\\רצפה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- המתודה מבינה איפה הקרקע ממוקמת, ואם העצם נגע בקיר או תקרה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "טיפול במדרונות "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- התנהגות הניתנת להגדרה על משטחים משופעים (לא ישרים)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת CharacterBody2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ההגדרה המינמלית:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Player",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "comment": "(or AnimatedSprite2D)",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " הילד התחתון ביותר - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CollisionShape2D"
+          },
+          {
+            "type": "text",
+            "text": ", מגדיר את הגבול הפיזיקלי עבור הדמות. "
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "בלעדיו אין איזור התנגשות מוגדר לפי צורה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Shape"
+          },
+          {
+            "type": "text",
+            "text": ") ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CollisionShape2D"
+          },
+          {
+            "type": "text",
+            "text": " ולא נוכל לזהות התנגשויות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "צורות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Shapes"
+          },
+          {
+            "type": "text",
+            "text": ") נפוצות לדמויות שחקן/אויב/"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "NPC"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RectangleShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - קופסא\\מלבן פשוט, שימושי לאומנות פיקסלים, או כל מה שצריך מלבן סימטרי לתיאור גבולות פיזיקליים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CapsuleShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - דומה למלבן - אך יש לו פינות מעוגלות, וזה מאפשר יותר דיוק לדמויות מסוימות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CircleShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - עיגול מושלם, משנים לו קוטר. טוב לכדורים או דמויות עגולות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפ"
+          },
+          {
+            "type": "text",
+            "text": ": הגדירו את אזורי ההתנגשות ממש מעט יותר קטנים מהדמות הויזואלית - יהיה לשחקן למשל קצת יותר קל “להשתחל” למעברים מדויקים - אם אזור ההתנגשות יהיה מדויק יותר, זה אומר משחק קצת יותר קשה ופחות סלחני עבור השחקן (במובן של פגיעות מאויבים למשל)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני מפתח"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": ", ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " יש מספר מאפיינים חשובים שיעזרו לנו לנהל פיזיקה:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Mode"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grounded"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הברירה הדיפולטיבית. תוכננה ועוצבה עבור משחקי פלטפורמר וגרביטציה (כוח-משיכה). יודע להבדיל בין רצפה/קיר/תקרה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Floating"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שימושי למשחקים ממבט עילי ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Top-Down"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). שאין להם כוח משיכה כלפי מטה. מתייחס לכל המשטחים באותו האופן."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Floor Settings (Grounded mode)"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Max Floor Angle"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - השיפוע הגדול ביותר שעצם זה יחשיב כ-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מדרון"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\\"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עלייה"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” (באופן דיפולטיבי - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "45"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מעלות - כל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מדרון"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\\"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עלייה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בזוית גבוהה יותר תיחשב כמו “קיר”)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Snap Length"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - .מסייע לדמות להיצמד לרצפה כשהיא יורדת במדרון. בלי זה - השחקן יראה “מרחף” כשירד במדרונות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Stop On Slope"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אז השחקן לא “יחליק” במורד המדרון כשהוא עומד עליו ולא זז."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Wall Settings"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Slide On Ceiling"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - בורר בוליאני אשר קובע האם שחקן יכול “להחליק” באופן אופקי עם תקרות. כלומר שאם נגדירו כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אז כשחקן קופץ ופוגע בתקרה - התנועה האופקית שלו לא תיחסם, יכול להיות שימושי למשחקי פלטפורמר."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט הבסיסי"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Export] public float Speed = 300f;\n\n    public override void _PhysicsProcess(double delta)\n    {\n        Vector2 direction = Input.GetVector(\"move_left\", \"move_right\", \"move_up\", \"move_down\");\n        Velocity = direction * Speed;\n        MoveAndSlide();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זהו למעשה סקריפט שליטה שלם בשחקן למשחק ממבט עילי ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Top-Down"
+          },
+          {
+            "type": "text",
+            "text": "), באמצעות כתיבת 3 שורות קוד בלבד ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " למטרת תנועה כיוון ומהירות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ולא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Process_"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " רצה בתדירות קבועה (60 פעמים בשניה באופן דיפולטיבי), מבלי להתחשב במהירות הרינדור. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Process_"
+          },
+          {
+            "type": "text",
+            "text": " לעומת זאת - רצה פעם בפריים, וזאת תדירות לא יציבה שמשתנה בין מערכות שונות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זיהוי התנגשויות,  "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": ", וכל דבר אחר שהוא מבוסס פיזיקה - אלו הם דברים שתמיד נרצה שירוצו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " מהסיבות:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עקביות "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Input"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יפיק תמיד את אותה התוצאה, ולא משנה מה ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Frame Rate"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יציבות "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- חישובים פיזיים זקוקים לפרקי זמן קבועים ויציבים. תדירות פריימים משתנה וגורמת לתחושת ”קרטוע” ופספוסי התנגשויות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל העידכונים שהם ויזואליים בלבד ולא מושפעים מפיזיקת העולם (פוקוס מצלמה, אנימציות UI) יכולים להיכנס ל-Process_."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "9.3 "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - תנועה אשר מודעת להתנגשויות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " היא הליבה של תנועת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Character2D"
+          },
+          {
+            "type": "text",
+            "text": ", היא מבצעת מספר פעולות בקריאה אחת בודדת:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לוקחת את ערך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הנוכחי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מזיזה את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Body"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפי “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Velocity * delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“ (אין לנו צורך באמת להכפיל ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במקרה זה, כאן זה מחושב אוטומטית)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "במידה והעצם פוגע במשהו, הוא “מחליק” לאורך אזור ההתנגשות במקום “לקפוא במקום/לעצור“."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מעדכן את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת לשקף את “ההחלקה”."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מחזיר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במידה והתרחשה התנגשות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה “החלקה” (Slide)?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תארו לכם מצב שהדמות הולכת באופן אלכסוני ומתנגשת בקיר. בלי זה - התנועה תיעצר לחלוטין (ה-Velocity יעלם) - למרות שהתנועה שלנו היא באופן חלקי לאורך הקיר. שחקנים מצפים שהתנועה תמשיך לאורך הקיר במקרה כזה ולא תיעצר לחלוטין."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/wall_sliding_diagram_hebrew.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מידע על התנגשויות לאחר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לאחר שנקרא למתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": ", נוכל לבדוק מה קרה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "MoveAndSlide();\n\n// How many collisions occurred this frame?\nint collisionCount = GetSlideCollisionCount();\n\n// Get details about each collision\nfor (int i = 0; i < collisionCount; i++)\n{\n    KinematicCollision2D collision = GetSlideCollision(i);\n    GD.Print($\"Collided with: {collision.GetCollider().Name}\");\n    GD.Print($\"At position: {collision.GetPosition()}\");\n    GD.Print($\"Surface normal: {collision.GetNormal()}\");\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "זיהוי קירות, תקרות ורצפה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במצב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grounded Mode"
+          },
+          {
+            "type": "text",
+            "text": ", ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " יודע לזהות באיזה משטח הוא נוגע, יש לרשותנו מתודות ייעודיות כמובן:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "MoveAndSlide();\n\nif (IsOnFloor())\n{\n    // standing on the ground — can jump\n}\n\nif (IsOnWall())\n{\n    // touching a wall — can wall-jump?\n}\n\nif (IsOnCeiling())\n{\n    // hit the ceiling — stop upward velocity\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מתודות אלו מתעדכנות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אחרי"
+          },
+          {
+            "type": "text",
+            "text": " ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " רצה. בדיקה לפני קריאה למתודה זו יחזיר לנו נתונים מהפריים הקודם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שליטה במשחקי פלטפורמר"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זהו הסקריפט הבסיסי לשליטה במשחקי פלטפורמר 2D:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Export] public float Speed = 300f;\n    [Export] public float JumpVelocity = -400f;\n    [Export] public float Gravity = 980f;\n\n    public override void _PhysicsProcess(double delta)\n    {\n        // Apply gravity\n        if (!IsOnFloor())\n        {\n            Velocity += new Vector2(0, Gravity * (float)delta);\n        }\n\n        // Jump\n        if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n        {\n            Velocity = new Vector2(Velocity.X, JumpVelocity);\n        }\n\n        // Horizontal movement\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n        Velocity = new Vector2(direction * Speed, Velocity.Y);\n\n        MoveAndSlide();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסבר"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Gravity"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- כוח המשיכה/הגרביטציה מייושמת בכל פריים שבו הדמות לא עומדת על רצפה. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity.Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עולה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לכיוון חיובי מעל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "0"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משמעותו למטה ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - מה שמושך את הדמות למטה. כאשר הדמות נוחתת (כאשר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()IsOnFloor"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הופך ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), הגרביטציה מפסיקה לעבוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Jump"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- קובע את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity.Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לערך שלילי (כלפי מעלה). מהירות הקפיצה שלילית מכיוון "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שלמעלה זה ערך שלילי של Y ב-Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". לאחר מכן הגביטציה מושכת את השחקן בחזרה למטה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תנועה אופקית "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetAxis"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מחזירה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "0, 1-, או 1"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". אנחנו קובעים את ערך ה"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "-X"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בכל פריים. שימו לב שאנחנו שומרים על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity.Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (גרביטציה/קפיצה) כאשר אנחנו משנים את ערך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity.X"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Horizontal"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Input"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()MovaAndSlide"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- רץ אחרון, מחיל את כל שינויי ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ומנהל התנגשויות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע הערך של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Jump"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " הוא שלילי?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במערכת הקוארדינטות של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגברת Y מעל ה-0 משמעותה למטה"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/jump_velocity_negative_v2.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כך שתנועה למעלה - משמעותה Y שלילי (מתחת ל-0)."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "9.4 "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - אובייקטים מונעי פיזיקה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " מאפשר לנו שליטה מלאה - אנחנו מחליטים כיצד הוא יזוז. אך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " הוא בדיוק ההיפך: מנוע הפיזיקה אחראי על התנועה. אנחנו מיישמים כוחות ונותנים ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " לנהל את כל השאר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי נרצה להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "חפצים שנזרקים"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": למשל רימוני יד, אבנים, ריקושטים פיזיים וכו’."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ragdolls"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כמו בובת חוטים - יקנה לדמות מראה שכמו “קורסת” לרצפה כשמתה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פאזלים פיזיקליים "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- סידור קופסאות, כדורים מתגלגלים, עצמים מתנודדים/נעים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יריות עם השפעה פיזיקלית ריאליסטית "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- כדורי תותח, חצים וכו’ -  שמושפעים מכח-המשיכה, רוח ופיזיקת העולם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae6e13",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "* אל תשמשו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae6e13",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae6e13",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " עבור דמות שחקן או אויב במידה והם צריכים שליטת תנועה מדויקת על מנת למנוע מצב שהם ירגישו “מרחפים” או קשים לשליטה מדוייקת."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת RigidBody2D"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Crate",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "RigidBody2D"
+            }
+          ]
         }
       },
       {

@@ -178,7 +178,7 @@ export function LandingPage() {
       <section className="px-6 py-16 border-t border-border/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-4">
-            מה תלמד
+            מה תלמדו
           </h2>
           <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
             המדריך מכסה את כל מה שצריך כדי לבנות משחקים דו-ממדיים ותלת-ממדיים —

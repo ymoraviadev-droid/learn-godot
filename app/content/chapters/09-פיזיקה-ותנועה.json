@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T19:07:30.644Z",
+  "updatedAt": "2026-03-24T19:15:40.469Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -4510,9 +4510,74 @@
         "content": [
           {
             "type": "text",
-            "text": "StaticBody2D הוא הגוף (Body) הפיזיקלי הפשוט ביותר - הוא לא זז, וגופים פיזיקליים אחרים יכולים להתנגש בו"
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StaticBody2D"
+          },
+          {
+            "type": "text",
+            "text": " הוא הגוף ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Body"
+          },
+          {
+            "type": "text",
+            "text": ") הפיזיקלי הפשוט ביותר - הוא לא זז, וגופים פיזיקליים אחרים יכולים להתנגש בו. קירות, רצפות, פלטפורמות, וכל משטח מוצק שלא זז."
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת קירות ורצפות"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Wall",
+              "children": [
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "StaticBody2D"
+            }
+          ]
+        }
       },
       {
         "type": "paragraph",

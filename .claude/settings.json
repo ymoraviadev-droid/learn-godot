@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.gdquest.com)",
+      "WebFetch(domain:uhiyama-lab.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:dev.to)",
+      "WebFetch(domain:www.nightquestgames.com)",
+      "WebFetch(domain:gamefromscratch.com)",
+      "WebFetch(domain:gamedevartisan.com)",
+      "Bash(python3 -c \":*)",
+      "Bash(python3 -c \"import json; f=open\\(''/home/ymoravia/Data/learn-godot/app/content/chapters/11-tilemaps.json''\\); json.load\\(f\\); print\\(''valid JSON''\\)\")",
+      "Bash(python3:*)",
+      "Bash(ls /home/ymoravia/Data/learn-godot/docs/chapters/chapter-11*)"
+    ]
+  }
+}

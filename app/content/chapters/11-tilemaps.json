@@ -1,0 +1,61 @@
+{
+  "id": "11-tilemaps",
+  "title": "TileMaps",
+  "slug": "tilemaps",
+  "order": 11,
+  "createdAt": "2026-03-25T21:56:50.459Z",
+  "updatedAt": "2026-03-25T22:32:36.469Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פרק 11: TileMaps"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "11.1 מה זה TileMap?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      }
+    ]
+  }
+}

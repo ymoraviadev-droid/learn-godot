@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-25T12:47:14.364Z",
+  "updatedAt": "2026-03-25T13:21:54.925Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -7477,6 +7477,16 @@
             "text": "public partial class Player : CharacterBody2D\n{\n    [Export] public float Speed = 300f;\n    [Export] public float Acceleration = 2000f;\n    [Export] public float Friction = 1500f;\n    [Export] public float JumpVelocity = -450f;\n    [Export] public float FallMultiplier = 1.5f;\n\n    private float _gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();\n\n    public override void _PhysicsProcess(double delta)\n    {\n        ApplyGravity(delta);\n        HandleJump();\n        HandleHorizontalMovement(delta);\n        MoveAndSlide();\n    }\n\n    private void ApplyGravity(double delta)\n    {\n        if (IsOnFloor()) return;\n\n        float scale = Velocity.Y > 0 ? FallMultiplier : 1f;\n        Velocity += new Vector2(0, _gravity * scale * (float)delta);\n    }\n\n    private void HandleJump()\n    {\n        if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n        {\n            Velocity = new Vector2(Velocity.X, JumpVelocity);\n        }\n\n        if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n        {\n            Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n        }\n    }\n\n    private void HandleHorizontalMovement(double delta)\n    {\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n        if (direction != 0)\n        {\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, direction * Speed, Acceleration * (float)delta),\n                Velocity.Y\n            );\n        }\n        else\n        {\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, 0, Friction * (float)delta),\n                Velocity.Y\n            );\n        }\n    }\n}"
           }
         ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/physics.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
       },
       {
         "type": "horizontalRule"

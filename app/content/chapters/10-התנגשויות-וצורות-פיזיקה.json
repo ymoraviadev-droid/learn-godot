@@ -4,7 +4,7 @@
   "slug": "התנגשויות-וצורות-פיזיקה",
   "order": 10,
   "createdAt": "2026-03-25T12:47:47.480Z",
-  "updatedAt": "2026-03-25T17:54:51.264Z",
+  "updatedAt": "2026-03-25T21:49:46.021Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -6311,10 +6311,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/raycast_vs_shapecast.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -6884,7 +6887,2761 @@
         "attrs": {
           "textAlign": "right",
           "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "floorDetector_"
+          },
+          {
+            "type": "text",
+            "text": " לא פוגע בשום דבר, זה אומר שיש תהום בהמשך - יש לסובב את הדמות. כאשר קרן זו כן תזהה משהו - זה קיר, גם צריך לסובב את הדמות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפיינים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RayCast2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קרן שהתנגשה נותנת לנו את הגישה למידע:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "if (_rayCast.IsColliding())\n{\n    // What did the ray hit?\n    GodotObject collider = _rayCast.GetCollider();\n\n    // Where did it hit? (world coordinates)\n    Vector2 point = _rayCast.GetCollisionPoint();\n\n    // What's the surface normal at the hit point?\n    Vector2 normal = _rayCast.GetCollisionNormal();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Raycasting מבוסס קוד ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsDirectSpaceState2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": ")"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפעמים לא נרצה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " תמידי מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RayCast2D"
+          },
+          {
+            "type": "text",
+            "text": " - אלא בדיקה חד פעמית, נוכל להשתמש בפיזיקה ישירות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public bool CanSeePlayer(Vector2 playerPosition)\n{\n    var spaceState = GetWorld2D().DirectSpaceState;\n\n    var query = PhysicsRayQueryParameters2D.Create(\n        GlobalPosition,      // from\n        playerPosition,      // to\n        CollisionMask        // which layers to check\n    );\n\n    var result = spaceState.IntersectRay(query);\n\n    if (result.Count == 0)\n    {\n        // Ray hit nothing — clear line of sight\n        return true;\n    }\n\n    // Check if the first thing the ray hit is the player\n    var collider = result[\"collider\"].As<Node2D>();\n    return collider is Player;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()IntersectRay"
+          },
+          {
+            "type": "text",
+            "text": " מחזירה לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Dictionary"
+          },
+          {
+            "type": "text",
+            "text": " עם המפתחות הבאים (או ריק אם לא פגע בכלום):"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Key / מפתח"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Value / ערך"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "position"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "נקודת מגע ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Vector2"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "normal"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ה-normal של המשטח ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Vector2"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "collider"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "העצם שנפגע ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GodotObject"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "collider_id"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "המזהה ("
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ID"
+                      },
+                      {
+                        "type": "text",
+                        "text": ") של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "collider"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "rid"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "RID"
+                      },
+                      {
+                        "type": "text",
+                        "text": " של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "collider"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "shape"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "צספר האינקס של הצורה של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "collider"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "התעלמות מהגוף בעת Raycasting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעיתים קרובות נרצה ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Raycast"
+          },
+          {
+            "type": "text",
+            "text": " יתעלם מהגוף שהוא מחובר אליו (נורה ממנו):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, targetPosition);\nquery.Exclude = new Godot.Collections.Array<Rid> { GetRid() };  // ignore self"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RayCast2D"
+          },
+          {
+            "type": "text",
+            "text": ", ניתן להגדיר מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inscpector"
+          },
+          {
+            "type": "text",
+            "text": " או דרך הקוד:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "_rayCast.AddException(this);  // ignore the parent body"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Shape Casting"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Raycasts "
+          },
+          {
+            "type": "text",
+            "text": "הם דקים בצורה אינסופית - זה אומר שהם יכולים לפעמים לפספס דברים. לכן נוכל לשגר צורה במקום קרן דקיקה באמצעות שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsShapeQueryParameters2D"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public bool IsPathClear(Vector2 from, Vector2 to, float radius)\n{\n    var spaceState = GetWorld2D().DirectSpaceState;\n\n    var query = new PhysicsShapeQueryParameters2D();\n    query.Shape = new CircleShape2D { Radius = radius };\n    query.Transform = new Transform2D(0, from);\n    query.Motion = to - from;\n    query.CollisionMask = CollisionMask;\n\n    var results = spaceState.CastMotion(query);\n\n    // results[0] = safe proportion (0-1, how far we can go without collision)\n    // results[1] = unsafe proportion (where the collision starts)\n    return results[0] >= 1.0f;  // 1.0 = full path is clear\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה כמו לצייר עיגול מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "from"
+          },
+          {
+            "type": "text",
+            "text": " ועד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "to"
+          },
+          {
+            "type": "text",
+            "text": " ולבצע בדיקה אם יש פגיעה בדרך. שימושי לבדיקה אם לשחקן יש מקום לזוז, או להגדרת אזור שבו השחקן מסוגל להבחין בדברים ועוד שלל שימושים."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "10.6 פלטפורמות חד-כיווניות ומדרונות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שתי מכניקות שכל משחק פלטפורמר צריך - ושניהן חשובות להבנה של כיצד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Collision Shapes"
+          },
+          {
+            "type": "text",
+            "text": " מבצעות אינטרקציה עם פיזיקה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פלטפורמות חד-כיווניות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פלטפורמה חד כיוונית מאפשרת לשחקן לקפוץ “דרכה” מכיוון אחד בלבד (מלמטה) ולנחות על המשטח העליון שלה. אתם בוודאי מכירים כמה וכמה משחקים שיש בהם פלטפורמות כאלו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרה"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "יצירת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "StaticBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (או "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatableBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אם מדובר בפלטפורמה זזה)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוספת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כילד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", גשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ואפשר את המאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Way Collision"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "המאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Way Collision Margin"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולט בכמה רחב האזור החד כיווני (הערך הדיפולטיבי הוא פיקסל 1, הגדילו אם השחקן נופל דרך הפלטפורמה)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "NodePlatform",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D",
+                  "comment": "One Way Collision = true"
+                }
+              ],
+              "type": "StaticBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "וזה הכל - השחקן יוכל לקפוץ “דרך” פלטפורמה זו, אין צורך בקוד נוסף."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך זה עובד"
+          },
+          {
+            "type": "text",
+            "text": ": צורת ההתנגשות חוסמת רק תנועה שמגיעה מלמעלה (נגד כיוון ה-normal של הצורה), כאשר תנועה ממתחת או מהצדדים עוברת דרך הצורה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ירידה דרך פלטפורמה חד-כיוונית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המון פלטפורמרים שיש בהם פלטפורמות חד כיווניות מאפשרים לחיצה על צירוף של שני מקשים (בדרך כלל למטה+קפיצה) על מנת לרדת “דרך” פלטפורמה חד-כיוונית. יש מספר גישות אפשריות, נתמקד ב-2 נפוצות:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ביטול צורת ההתנגשות באופן זמני:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    // ... normal movement code ...\n\n    if (IsOnFloor() && Input.IsActionJustPressed(\"move_down\"))\n    {\n        // Disable collision with one-way platforms briefly\n        Position += new Vector2(0, 1);  // nudge below the platform surface\n        // The one-way collision won't block from below, so the player falls through\n    }\n\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 2,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שימוש בשכבות"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": שימו פלטפורמות חד-כיווניות בשכבה שמוקדשת להן במיוחד (למשל: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "9"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Platforms"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“). כאשר השחקן רוצה לרדת “דרך” פלטפורמה כזו, פשוט הסירו את השכבה הזאת מה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Mask"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלו:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private async void DropThroughPlatform()\n{\n    SetCollisionMaskValue(9, false);    // stop colliding with platforms\n    await ToSignal(GetTree().CreateTimer(0.2f), Timer.SignalName.Timeout);\n    SetCollisionMaskValue(9, true);     // restore collision\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גישה זאת היא “נקייה” יותר - זה עובד על כל הפלטפורמות שנמקם בשכבה זו ולא נצטרך לבטל צורות אינדבדואליות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדרונות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " יודע לנהל מדרונות באופן אוטומטי על ידי שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": ", אבל ההתנהגות תלויה במספר מאפיינים:"
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Max Floor Angle"
+          },
+          {
+            "type": "text",
+            "text": " - הזוית החדה ביותר שאליה השחקן מתייחס כ-”רצפה” (הערך הדיפולטיבי הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "45"
+          },
+          {
+            "type": "text",
+            "text": " מעלות, שזה למעשה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Mathf.Pi / 4"
+          },
+          {
+            "type": "text",
+            "text": " רדיאנים). כל זוית חדה יותר מזה תיחשב כ-”קיר”."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Allow steeper slopes (60 degrees)\nFloorMaxAngle = Mathf.DegToRad(60);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Floor Snap Length"
+          },
+          {
+            "type": "text",
+            "text": " - כמה “חזק” השחקן נצמד לרצפה כאשר הוא יורד במדרון. ללא Snap - השחקן יראה כמו מרחף מדי פעם."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/floor_snap_comparison.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו זאת ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Floor - Snap Length"
+          },
+          {
+            "type": "text",
+            "text": "”. ערך של 4-8 פיקסלים יעשה את העבודה עבור רוב המשחקים. זה מבוטל באופן אוטומטי במהלך קפיצה (כאשר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " עולה לכיוון למעלה) על מנת לא למנוע מהשחקן לקפוץ."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Stop on Slope"
+          },
+          {
+            "type": "text",
+            "text": " - אם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "true"
+          },
+          {
+            "type": "text",
+            "text": ", לא מחליק במורד המדרון כאשר הוא עומד ללא תזוזה. אם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": ", הגרביטציה “תמשוך” את השחקן במורד המדרון. באופן דיפולטיבי מוגדר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "true"
+          },
+          {
+            "type": "text",
+            "text": " - ולרוב זה גם מה שתרצו במשחק שלכם (לא תמיד כמובן)."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Floor Block On Wall"
+          },
+          {
+            "type": "text",
+            "text": " - כאשר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "true"
+          },
+          {
+            "type": "text",
+            "text": " (דיפולטיבי), השחקן לא יכול להיצמד ולטפס במעלה קירות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת מהירות מדרון"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעלות בעליה אמור להרגיש קצת איטי יותר מללכת במישור, ובהתאם לזאת - כאשר יורדים בירידה זה צריך להרגיש קצת יותר מהיר. זה קורה באופן טבעי עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " משום שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " מוקרן למשטח המדרון, אך ניתן לשנות אם אנחנו רוצים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n    float speed = Speed;\n\n    // Check the floor angle\n    if (IsOnFloor())\n    {\n        float floorAngle = GetFloorAngle();\n\n        if (floorAngle > 0.1f)\n        {\n            // Get the floor normal to determine if we're going up or down\n            Vector2 floorNormal = GetFloorNormal();\n            bool goingUphill = (direction > 0 && floorNormal.X < 0) ||\n                               (direction < 0 && floorNormal.X > 0);\n\n            if (goingUphill)\n            {\n                speed *= 0.8f;   // 20% slower going uphill\n            }\n            else\n            {\n                speed *= 1.2f;   // 20% faster going downhill\n            }\n        }\n    }\n\n    Velocity = new Vector2(direction * speed, Velocity.Y);\n\n    // ... gravity, jump, etc. ...\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדרגות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מדרגות הן דבר שעלול להיות קצת מורכב ו-”טריקי” במשחקי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2D"
+          },
+          {
+            "type": "text",
+            "text": ". השיטה הפשוטה ביותר תהיה להשתמש בצורת התנגשות דמויית מדרון במקום צורה ש-”מתלבשת בול” על המדרגות. השחקן יעלה במדרגות בצורה חלקה כמו על מדרון למרות שמדובר במדרגות."
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Stairs",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D",
+                  "comment": "visual stair steps"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D",
+                  "comment": "smooth slope that covers the stairs"
+                }
+              ],
+              "type": "StaticBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גשיה יותר מדוייקת תהיה שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SeparationRayShape2D"
+          },
+          {
+            "type": "text",
+            "text": " - צורת התנגשות מיוחדת שדוחפת את השחקן במעלה המדרגות בצורה טבעית יותר כך שהוא יכול לעמוד יציב על מדרגה אחת. נוסיף זאת על צורת התנגשות נוספת שמצביעה למטה:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Player",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "comment": "main body (capsule)"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "comment": "short ray pointing down, handles steps (SeparationRay)"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "האורך של הצורה של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SeparationRayShape2D"
+          },
+          {
+            "type": "text",
+            "text": " קובע את הגובה של מדרגות שהשחקן יכול לעלות בהם מבלי לקפוץ.  "
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/stairs_two_approaches.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נותן לגופים פיזיקליים את הצורה שלהם. השתמשו בצורות פשוטות (מלבן, קפסולה, עיגול) כשאפשר - הן זולות יותר מפוליגונים. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionPolygon2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " רק לצורות לא סדירות שלא ניתן לקרב."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צורות התנגשות מרובות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על גוף אחד מתמזגות לגבול אחד. הפעילו וכבו צורות עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Disabled"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לעולם אל תוסיפו או תסירו צורות בזמן קריאות פיזיקה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "callbacks"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שכבות ומסכות התנגשות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולטות במה מתנגש עם מה. ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Layer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של גוף הוא איפה הוא נמצא, ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Mask"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלו הוא מה הוא מחפש. תנו שמות לשכבות ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Project Settings"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לשמור על שפיות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אחרי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "MoveAndSlide()"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", שלפו מידע על התנגשויות עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "GetSlideCollision()"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "MoveAndCollide()"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כשאתם רוצים שליטה מלאה על תגובת ההתנגשות (קפיצה לאחור, עצירה, התנהגות מותאמת אישית)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "זיהוי חפיפה ב-Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עובד דרך סיגנלים ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "BodyEntered"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AreaEntered"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") לתגובות מיידיות, או דרך סקירה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "GetOverlappingBodies()"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") לאפקטים מתמשכים. דפוס ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "hitbox"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "hurtbox"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא הסטנדרט למערכות קרב."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הטלת קרן (Raycasting)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יורה קו בלתי נראה ומדווח במה הוא פגע. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RayCast2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לבדיקות קבועות (זיהוי רצפה/קיר) וב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "PhysicsDirectSpaceState2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לשאילתות חד-פעמיות (קו ראייה, כיוון). הטלת צורה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Shape"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Casting"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") סורקת צורה במקום קו דק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פלטפורמות חד-כיווניות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משתמשות במאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Way Collision"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". ירידה דרך הפלטפורמה נעשית על ידי ביטול זמני של שכבת הפלטפורמה במסכה של השחקן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מדרונות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עובדים אוטומטית עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "MoveAndSlide()"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". כוונו את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Max Floor"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Angle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ","
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " Snap Length"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Stop On Slope"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לתחושה הנכונה. השתמשו בצורות התנגשות חלקות של מדרון מעל מדרגות ויזואליות לתנועה נקייה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שאלון ידע"
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": "מה קורה אם מוסיפים CharacterBody2D לסצנה בלי CollisionShape2D?",
+              "answers": [
+                "הגוף קיים אבל בלתי נראה למנוע הפיזיקה - הוא לא יתנגש עם כלום",
+                "Godot מציג שגיאה ולא מרשה להריץ את המשחק",
+                "הגוף מקבל צורת התנגשות מלבנית כברירת מחדל",
+                "הגוף מתנגש עם הכל כאילו הוא נקודה בודדת"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "",
+              "answers": [
+                "רק עבור דמויות שחקן",
+                "תמיד, כי הוא מדויק יותר",
+                "רק לצורות לא סדירות שלא ניתן לקרב עם צורות פשוטות",
+                "כשצריך ביצועים מהירים יותר"
+              ],
+              "correct": 2
+            },
+            {
+              "question": " שחקן בשכבה 1 עם מסכה 3, וקיר בשכבה 3 עם מסכה ריקה. מה קורה?",
+              "answers": [
+                "הם לא מתנגשים כי למסכה של הקיר אין שכבה ",
+                "הם מתנגשים כי המסכה של השחקן כוללת את השכבה של הקיר",
+                "הם מתנגשים רק אם הקיר זז לכיוון השחק",
+                " הם מתנגשים רק אם שניהם כוללים את השכבה של השני במסכה"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה ההבדל בין ()MoveAndSlide לבין ()MoveAndCollide?",
+              "answers": [
+                "()MoveAndCollide לא מזהה התנגשויות",
+                "()MoveAndSlide מחליק אוטומטית, ()MoveAndCollide עוצר בנקודת ההתנגשות ונותן לך להחליט",
+                "()MoveAndSlide לא מעדכן את Velocity",
+                "()MoveAndCollide מקבל וקטור מהירות ו-()MoveAndSlide מקבל וקטור תנועה"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה ההבדל בין Hitbox לבין Hurtbox?",
+              "answers": [
+                "Hitbox מקבל נזק, Hurtbox גורם נזק",
+                "Hitbox הוא CollisionShape2D, Hurtbox הוא Area2D",
+                "Hitbox הוא האזור שגורם נזק, Hurtbox הוא האזור שמקבל נזק",
+                "אין הבדל, זה שני שמות לאותו דבר"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "למה ()GetOverlappingBodies מחזירה תוצאות ריקות בפריים הראשון של Area2D?",
+              "answers": [
+                " באג ידוע ב-Godot שטרם תוקן",
+                " צריך לקרוא ל-()ForceUpdateOverlaps קודם",
+                " כי ה-Area2D עדיין לא בעץ הסצנה",
+                "מנוע הפיזיקה צריך טיק פיזיקה אחד כדי לרשום חפיפות"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "מה היתרון של raycast מבוסס קוד (PhysicsDirectSpaceState2D) על פני Node מסוג RayCast2D?",
+              "answers": [
+                "הוא מתאים לשאילתות חד-פעמיות בלי צורך ב-Node קבוע שפועל כל פריים ",
+                "הוא מהיר יותר כי לא צריך Node בסצנה",
+                "הוא תומך בשכבות התנגשות בניגוד ל-RayCast2D",
+                " הוא יכול לזהות Area2D בניגוד ל-RayCast2D"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "איך מאפשרים לשחקן ליפול דרך פלטפורמה חד-כיוונית?",
+              "answers": [
+                "מכבים את One Way Collision בזמן ריצה",
+                " מוחקים את ה-CollisionShape2D של הפלטפורמה ויוצרים אותו מחדש",
+                "משנים את שכבת השחקן לשכבה ריקה",
+                "מבטלים זמנית את שכבת הפלטפורמות מהמסכה של השחקן"
+              ],
+              "correct": 3
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 11 - TileMaps"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "rgb(150, 194, 212)",
+                  "fontFamily": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+                }
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "למדנו איך צורות התנגשות בודדות עובדות. עכשיו נצייר שלבים שלמים עם אריחים - רשתות של ספרייטים עם התנגשות מובנת, כללי אריחים אוטומטיים, ומערכות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
       }
     ]
   }

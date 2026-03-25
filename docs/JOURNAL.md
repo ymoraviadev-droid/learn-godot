@@ -197,6 +197,23 @@ Written in English (docs/chapters/) covering:
 
 ---
 
+## 2026-03-25 — Chapter 10 Complete
+
+### Chapter 10 — Collisions & Physics Shapes (English Draft + Hebrew Translation)
+
+Written in English (docs/chapters/) and Hebrew translation in progress. Covers:
+
+- 10.1 CollisionShape2D and Collision Polygons — shape types (Rectangle, Capsule, Circle, WorldBoundary, Segment, SeparationRay), CollisionPolygon2D, concave vs convex, disabling shapes at runtime, one-way collision
+- 10.2 Collision Layers and Masks — layer/mask concept, Inspector setup, naming layers, code API (SetCollisionLayerValue/SetCollisionMaskValue), practical layer configuration, runtime layer changes
+- 10.3 Detecting Collisions in Code — GetSlideCollision() after MoveAndSlide(), KinematicCollision2D properties, MoveAndCollide() for manual control (bounce/stop/slide), RigidBody2D contact signals, TestMove() for look-ahead
+- 10.4 Area2D Overlap Detection — signal-based vs polling, GetOverlappingBodies()/GetOverlappingAreas(), hitbox/hurtbox pattern with layer setup, overlap timing gotcha (first frame empty)
+- 10.5 Raycasting in 2D — RayCast2D node (floor/wall detection, patrol enemy example), PhysicsDirectSpaceState2D for one-off queries (line of sight), excluding bodies, shape casting with CastMotion()
+- 10.6 One-Way Platforms and Slopes — one-way platform setup, drop-through (two approaches: nudge vs collision layer toggle), slope handling (FloorMaxAngle, FloorSnapLength, StopOnSlope), slope speed adjustment, stairs (two approaches: slope over stairs vs SeparationRayShape2D)
+- Summary + 8-question quiz
+- SVG diagrams: `raycast_vs_shapecast.svg`, `floor_snap_comparison.svg`, `stairs_two_approaches.svg`
+
+---
+
 ## 2026-03-25 — Chapter 9 Complete, Landing Page, Code Block Fix
 
 ### Chapter 9 — Movement & Physics 2D (English Draft + Hebrew Translation)

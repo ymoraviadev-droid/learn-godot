@@ -1,0 +1,135 @@
+<svg width="100%" viewBox="0 0 720 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="stairs-arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#5dcaa5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="stairs-arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="stairs-arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#88c6ed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="720" height="420" rx="12" fill="#1e1f22"/>
+
+  <!-- Divider -->
+  <line x1="360" y1="20" x2="360" y2="400" stroke="#3e3f45" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- ==================== LEFT: Slope over stairs ==================== -->
+
+  <text x="180" y="32" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#5dcaa5">שיטה 1: מדרון חלק מעל מדרגות</text>
+  <text x="180" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#5f5e5a">Smooth slope CollisionShape2D</text>
+
+  <!-- Stair steps (visual only) — ascending left to right -->
+  <!-- Step 1 (bottom-left) -->
+  <rect x="60" y="300" width="50" height="20" rx="1" fill="#3a3530" stroke="#5a5248" stroke-width="1"/>
+  <!-- Step 2 -->
+  <rect x="110" y="280" width="50" height="40" rx="1" fill="#3a3530" stroke="#5a5248" stroke-width="1"/>
+  <!-- Step 3 -->
+  <rect x="160" y="260" width="50" height="60" rx="1" fill="#3a3530" stroke="#5a5248" stroke-width="1"/>
+  <!-- Step 4 -->
+  <rect x="210" y="240" width="50" height="80" rx="1" fill="#3a3530" stroke="#5a5248" stroke-width="1"/>
+  <!-- Step 5 (top-right) -->
+  <rect x="260" y="220" width="50" height="100" rx="1" fill="#3a3530" stroke="#5a5248" stroke-width="1"/>
+
+  <!-- Sprite2D label -->
+  <text x="85" y="340" font-family="sans-serif" font-size="9" fill="#5a5248">Sprite2D</text>
+  <text x="85" y="352" font-family="sans-serif" font-size="9" fill="#5a5248">ספרייט ויזואלי בלבד</text>
+
+  <!-- Invisible slope line (the actual collision) -->
+  <line x1="60" y1="298" x2="310" y2="218" stroke="#5dcaa5" stroke-width="2.5" stroke-dasharray="8 4" opacity="0.8"/>
+
+  <!-- Slope label -->
+  <text x="100" y="200" font-family="sans-serif" font-size="10" fill="#5dcaa5">CollisionShape2D</text>
+  <text x="100" y="213" font-family="sans-serif" font-size="9" fill="#5dcaa5">צורת התנגשות בלתי נראית</text>
+
+  <!-- Player sliding smoothly up the slope -->
+  <!-- Position 1 -->
+  <circle cx="80" cy="280" r="12" fill="#085041" stroke="#0f6e56" stroke-width="1.5" opacity="0.3"/>
+  <!-- Position 2 -->
+  <circle cx="140" cy="262" r="12" fill="#085041" stroke="#0f6e56" stroke-width="1.5" opacity="0.5"/>
+  <!-- Position 3 (main) -->
+  <circle cx="200" cy="244" r="12" fill="#085041" stroke="#1d9e75" stroke-width="2"/>
+  <!-- Position 4 -->
+  <circle cx="260" cy="224" r="12" fill="#085041" stroke="#0f6e56" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Smooth movement arrow -->
+  <path d="M 92 276 Q 175 238 250 220" stroke="#5dcaa5" stroke-width="1.5" fill="none" stroke-dasharray="4 3" marker-end="url(#stairs-arrow-green)"/>
+
+  <!-- "smooth" label -->
+  <text x="180" y="145" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="500" fill="#5dcaa5">תנועה חלקה לאורך המדרון</text>
+
+  <!-- Arrow from label to player path -->
+  <line x1="180" y1="150" x2="195" y2="232" stroke="#5dcaa5" stroke-width="1" stroke-dasharray="2 3" opacity="0.4"/>
+
+  <!-- Node tree -->
+  <rect x="40" y="360" width="280" height="48" rx="5" fill="#2a2a2d"/>
+  <text x="50" y="377" font-family="monospace" font-size="9" fill="#c9c7bc">Stairs (StaticBody2D)</text>
+  <text x="50" y="391" font-family="monospace" font-size="9" fill="#5a5248">├── Sprite2D              ← ויזואלי</text>
+  <text x="50" y="403" font-family="monospace" font-size="9" fill="#5dcaa5">└── CollisionShape2D      ← מדרון</text>
+
+  <!-- ==================== RIGHT: SeparationRayShape2D ==================== -->
+
+  <text x="540" y="32" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#a78bfa">שיטה 2: SeparationRayShape2D</text>
+  <text x="540" y="50" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#5f5e5a">קרן הפרדה שדוחפת את הדמות למעלה</text>
+
+  <!-- Stair steps (actual collision shapes) — ascending left to right -->
+  <!-- Step 1 (bottom-left) -->
+  <rect x="420" y="300" width="50" height="20" rx="1" fill="#3a3530" stroke="#6d5bb5" stroke-width="1"/>
+  <!-- Step 2 -->
+  <rect x="470" y="280" width="50" height="40" rx="1" fill="#3a3530" stroke="#6d5bb5" stroke-width="1"/>
+  <!-- Step 3 -->
+  <rect x="520" y="260" width="50" height="60" rx="1" fill="#3a3530" stroke="#6d5bb5" stroke-width="1"/>
+  <!-- Step 4 -->
+  <rect x="570" y="240" width="50" height="80" rx="1" fill="#3a3530" stroke="#6d5bb5" stroke-width="1"/>
+  <!-- Step 5 (top-right) -->
+  <rect x="620" y="220" width="50" height="100" rx="1" fill="#3a3530" stroke="#6d5bb5" stroke-width="1"/>
+
+  <!-- Steps have real collision -->
+  <text x="445" y="340" font-family="sans-serif" font-size="9" fill="#6d5bb5">צורות התנגשות אמיתיות</text>
+
+  <!-- Player on step 4 (main position) -->
+  <!-- Player capsule body -->
+  <rect x="585" y="202" width="20" height="36" rx="10" fill="#2d1f5e" stroke="#6d5bb5" stroke-width="1.5"/>
+
+  <!-- Separation ray pointing down from player -->
+  <line x1="595" y1="238" x2="595" y2="258" stroke="#a78bfa" stroke-width="2" marker-end="url(#stairs-arrow-purple)"/>
+
+  <!-- Ray label -->
+  <text x="612" y="252" font-family="sans-serif" font-size="9" fill="#a78bfa">קרן הפרדה</text>
+  <text x="612" y="263" font-family="sans-serif" font-size="8" fill="#a78bfa">SeparationRay</text>
+
+  <!-- Show the "push up" effect -->
+  <!-- Ghost player at step 3 edge, about to step up to step 4 -->
+  <rect x="545" y="232" width="20" height="36" rx="10" fill="#2d1f5e" stroke="#6d5bb5" stroke-width="1" opacity="0.3"/>
+  <line x1="555" y1="268" x2="555" y2="280" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Push-up arrow -->
+  <line x1="555" y1="245" x2="555" y2="225" stroke="#88c6ed" stroke-width="1.5" marker-end="url(#stairs-arrow-blue)"/>
+  <text x="530" y="220" font-family="sans-serif" font-size="9" fill="#88c6ed">נדחף</text>
+  <text x="530" y="230" font-family="sans-serif" font-size="9" fill="#88c6ed">למעלה</text>
+
+  <!-- Step height annotation -->
+  <line x1="416" y1="280" x2="416" y2="300" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
+  <line x1="412" y1="280" x2="420" y2="280" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
+  <line x1="412" y1="300" x2="420" y2="300" stroke="#a78bfa" stroke-width="1" opacity="0.6"/>
+  <text x="406" y="294" text-anchor="end" font-family="sans-serif" font-size="8" fill="#a78bfa">גובה</text>
+  <text x="406" y="303" text-anchor="end" font-family="sans-serif" font-size="8" fill="#a78bfa">מדרגה</text>
+
+  <!-- Ray length = max step height note -->
+  <rect x="430" y="145" width="220" height="34" rx="5" fill="#2d1f3e"/>
+  <text x="540" y="160" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#a78bfa">אורך הקרן = גובה מדרגה מקסימלי</text>
+  <text x="540" y="174" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#6d5bb5">ray length = max step height</text>
+
+  <!-- Arrow from note to ray -->
+  <line x1="560" y1="179" x2="595" y2="236" stroke="#a78bfa" stroke-width="1" stroke-dasharray="2 3" opacity="0.4"/>
+
+  <!-- Node tree -->
+  <rect x="400" y="360" width="290" height="48" rx="5" fill="#2a2a2d"/>
+  <text x="410" y="377" font-family="monospace" font-size="9" fill="#c9c7bc">Player (CharacterBody2D)</text>
+  <text x="410" y="391" font-family="monospace" font-size="9" fill="#5a5248">├── CollisionShape2D          ← קפסולה</text>
+  <text x="410" y="403" font-family="monospace" font-size="9" fill="#a78bfa">└── CollisionShape2D (Ray)    ← מדרגות</text>
+
+</svg>

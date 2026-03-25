@@ -1,0 +1,118 @@
+<svg width="100%" viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-ray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#5dcaa5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-shape" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-miss" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#f09595" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="720" height="400" rx="12" fill="#1e1f22"/>
+
+  <!-- Divider -->
+  <line x1="360" y1="20" x2="360" y2="380" stroke="#3e3f45" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- ==================== LEFT: Raycast 2D ==================== -->
+
+  <!-- Title -->
+  <text x="180" y="34" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#c9c7bc">RayCast2D</text>
+  <text x="180" y="52" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#5f5e5a">הטלת קרן — קו דק אינסופי</text>
+
+  <!-- Ground line -->
+  <line x1="30" y1="300" x2="330" y2="300" stroke="#444441" stroke-width="3" stroke-linecap="round"/>
+  <text x="335" y="304" font-family="sans-serif" font-size="10" fill="#5f5e5a">רצפה</text>
+
+  <!-- Wall/obstacle -->
+  <rect x="220" y="160" width="16" height="100" rx="3" fill="#3a3a38" stroke="#555552" stroke-width="1"/>
+  <text x="228" y="150" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5f5e5a">קיר</text>
+
+  <!-- Small object that ray misses -->
+  <circle cx="160" cy="230" r="6" fill="#6b4c1e" stroke="#a57d3e" stroke-width="1"/>
+  <text x="160" y="250" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#a57d3e">עצם קטן</text>
+
+  <!-- Player (source) -->
+  <circle cx="70" cy="210" r="12" fill="#085041" stroke="#0f6e56" stroke-width="1.5"/>
+  <text x="70" y="195" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5dcaa5">שחקן</text>
+
+  <!-- Ray line — hits wall, passes near small object -->
+  <line x1="82" y1="210" x2="220" y2="210" stroke="#5dcaa5" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrow-ray)"/>
+
+  <!-- Hit point on wall -->
+  <circle cx="220" cy="210" r="4" fill="#5dcaa5"/>
+  <text x="220" y="275" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5dcaa5">נקודת פגיעה</text>
+  <text x="220" y="288" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#5dcaa5" font-style="italic">collision point</text>
+
+  <!-- Miss indicator -->
+  <line x1="155" y1="224" x2="155" y2="215" stroke="#f09595" stroke-width="1" stroke-dasharray="2 2"/>
+  <text x="130" y="268" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#f09595">הקרן מפספסת!</text>
+  <text x="130" y="280" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#f09595">ray misses</text>
+
+  <!-- Floor detection ray -->
+  <text x="70" y="330" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#88c6ed">זיהוי רצפה</text>
+  <text x="70" y="343" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#88c6ed" font-style="italic">floor detect</text>
+
+  <!-- Ledge detection example - small player on edge -->
+  <circle cx="70" cy="280" r="6" fill="#1e3a5c" stroke="#3b7ac2" stroke-width="1"/>
+  <line x1="70" y1="286" x2="70" y2="298" stroke="#88c6ed" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <circle cx="70" cy="300" r="2.5" fill="#88c6ed"/>
+
+  <!-- ==================== RIGHT: Shape Cast ==================== -->
+
+  <!-- Title -->
+  <text x="540" y="34" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#c9c7bc">ShapeCast / CastMotion</text>
+  <text x="540" y="52" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#5f5e5a">הטלת צורה — סריקה רחבה</text>
+
+  <!-- Ground line -->
+  <line x1="390" y1="300" x2="690" y2="300" stroke="#444441" stroke-width="3" stroke-linecap="round"/>
+  <text x="695" y="304" font-family="sans-serif" font-size="10" fill="#5f5e5a">רצפה</text>
+
+  <!-- Wall/obstacle -->
+  <rect x="580" y="160" width="16" height="100" rx="3" fill="#3a3a38" stroke="#555552" stroke-width="1"/>
+  <text x="588" y="150" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#5f5e5a">קיר</text>
+
+  <!-- Small object that shape CATCHES -->
+  <circle cx="510" cy="230" r="6" fill="#6b4c1e" stroke="#a57d3e" stroke-width="1"/>
+
+  <!-- Player (source) -->
+  <circle cx="430" cy="210" r="12" fill="#2d1f5e" stroke="#6d5bb5" stroke-width="1.5"/>
+  <text x="430" y="195" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#a78bfa">שחקן</text>
+
+  <!-- Swept shape path — the "tube" -->
+  <rect x="418" y="190" width="92" height="40" rx="20" fill="#a78bfa" fill-opacity="0.08" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- Shape at start -->
+  <circle cx="430" cy="210" r="20" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Shape at hit point -->
+  <circle cx="510" cy="210" r="20" fill="none" stroke="#a78bfa" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- Motion arrow -->
+  <line x1="442" y1="210" x2="498" y2="210" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow-shape)"/>
+
+  <!-- Hit indicator on small object -->
+  <circle cx="510" cy="230" r="10" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="510" y="262" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#a78bfa">הצורה תופסת!</text>
+  <text x="510" y="274" text-anchor="middle" font-family="sans-serif" font-size="8" fill="#a78bfa">shape catches</text>
+
+  <!-- Radius annotation -->
+  <line x1="510" y1="210" x2="510" y2="190" stroke="#a78bfa" stroke-width="1" opacity="0.5"/>
+  <text x="522" y="196" font-family="sans-serif" font-size="9" fill="#a78bfa">R</text>
+
+  <!-- ==================== Bottom comparison ==================== -->
+
+  <rect x="30" y="350" width="660" height="40" rx="6" fill="#2a2a2d"/>
+
+  <!-- Left label -->
+  <circle cx="55" cy="370" r="4" fill="#5dcaa5"/>
+  <text x="68" y="374" font-family="sans-serif" font-size="11" fill="#5dcaa5">קרן: קו דק, מהיר, עלול לפספס עצמים קטנים</text>
+
+  <!-- Right label -->
+  <circle cx="410" cy="370" r="4" fill="#a78bfa"/>
+  <text x="423" y="374" font-family="sans-serif" font-size="11" fill="#a78bfa">צורה: סריקה רחבה, איטית יותר, תופסת הכל</text>
+
+</svg>

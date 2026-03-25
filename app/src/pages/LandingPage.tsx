@@ -1,133 +1,21 @@
 import { Link } from "react-router-dom";
 import { getAllChapters } from "@/lib/content";
+import { PARTS, groupChaptersByPart } from "@/lib/parts";
 import {
-  BookOpen,
-  Gamepad2,
   Code2,
+  Gamepad2,
   Layers,
   Swords,
-  Box,
   Sparkles,
   Globe,
   ArrowLeft,
   ChevronDown,
 } from "lucide-react";
 
-const PARTS = [
-  {
-    title: "צעדים ראשונים",
-    icon: BookOpen,
-    color: "text-blue-400",
-    chapters: [
-      "מבוא",
-      "התקנת סביבת הפיתוח",
-      "עורך Godot",
-    ],
-  },
-  {
-    title: "מושגי יסוד",
-    icon: Layers,
-    color: "text-purple-400",
-    chapters: [
-      "Nodes וסצנות",
-      "C# ב-Godot — היסודות",
-      "Signals ותקשורת",
-      "קלט משתמש",
-    ],
-  },
-  {
-    title: "פיתוח משחקי 2D",
-    icon: Gamepad2,
-    color: "text-green-400",
-    chapters: [
-      "Sprites וטקסטורות",
-      "תנועה ופיזיקה",
-      "התנגשויות",
-      "TileMaps",
-      "מצלמה ו-Viewport",
-    ],
-  },
-  {
-    title: "פרויקט — משחק פלטפורמה",
-    icon: Swords,
-    color: "text-amber-400",
-    chapters: [
-      "תכנון המשחק",
-      "דמות השחקן",
-      "עיצוב שלבים",
-      "אויבים ובינה מלאכותית",
-      "ליטוש ופולישינג",
-    ],
-  },
-  {
-    title: "מערכות חיוניות",
-    icon: Code2,
-    color: "text-cyan-400",
-    chapters: [
-      "מערכת אנימציה",
-      "אודיו",
-      "ממשק משתמש (UI)",
-      "ניהול סצנות",
-      "שמירה וטעינה",
-    ],
-  },
-  {
-    title: "טכניקות מתקדמות",
-    icon: Sparkles,
-    color: "text-pink-400",
-    chapters: [
-      "חלקיקים ואפקטים",
-      "State Machines",
-      "Design Patterns",
-      "Resources ונתונים",
-    ],
-  },
-  {
-    title: "פרויקט — RPG מלמעלה",
-    icon: Swords,
-    color: "text-orange-400",
-    chapters: [
-      "הקמת הפרויקט",
-      "מערכת קרב",
-      "מערכות RPG",
-    ],
-  },
-  {
-    title: "יסודות 3D",
-    icon: Box,
-    color: "text-indigo-400",
-    chapters: [
-      "מבוא ל-3D ב-Godot",
-      "תנועה ופיזיקה 3D",
-      "פרויקט — סייר בגוף ראשון",
-    ],
-  },
-  {
-    title: "נושאים מתקדמים",
-    icon: Code2,
-    color: "text-red-400",
-    chapters: [
-      "רשת ומולטיפלייר",
-      "ביצועים ואופטימיזציה",
-      "בדיקות ודיבאג",
-      "ייצוא ופרסום",
-    ],
-  },
-  {
-    title: "פרויקט גמר",
-    icon: Globe,
-    color: "text-emerald-400",
-    chapters: [
-      "תכנון המשחק שלך",
-      "בנייה",
-      "שיגור",
-    ],
-  },
-];
-
 export function LandingPage() {
   const chapters = getAllChapters();
   const firstSlug = chapters.length > 0 ? chapters[0].slug : null;
+  const grouped = groupChaptersByPart(chapters);
 
   return (
     <div className="flex-1 overflow-y-auto scrollbar-thin">
@@ -246,30 +134,55 @@ export function LandingPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PARTS.map((part, i) => (
-              <div
-                key={part.title}
-                className="p-5 rounded-xl bg-card/50 border border-border/30"
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="flex items-center justify-center w-7 h-7 rounded-md bg-secondary text-xs font-bold text-muted-foreground">
-                    {i + 1}
-                  </span>
-                  <part.icon className={`h-4 w-4 ${part.color}`} />
-                  <h3 className="font-semibold">{part.title}</h3>
+            {PARTS.map((part, i) => {
+              const partGroup = grouped[i];
+              const hasChapters = partGroup && partGroup.chapters.length > 0;
+
+              return (
+                <div
+                  key={part.slug}
+                  className="p-5 rounded-xl bg-card/50 border border-border/30"
+                >
+                  <Link
+                    to={`/part/${part.slug}`}
+                    className="flex items-center gap-3 mb-3 group"
+                  >
+                    <span className="flex items-center justify-center w-7 h-7 rounded-md bg-secondary text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                      {i + 1}
+                    </span>
+                    <part.icon className={`h-4 w-4 ${part.color}`} />
+                    <h3 className="font-semibold group-hover:text-primary transition-colors">
+                      {part.title}
+                    </h3>
+                  </Link>
+
+                  <ul className="space-y-1 pr-10">
+                    {part.chapters.map((ch, chIdx) => {
+                      const chapterObj =
+                        hasChapters && partGroup.chapters[chIdx];
+
+                      return chapterObj ? (
+                        <li key={ch}>
+                          <Link
+                            to={`/chapter/${chapterObj.slug}`}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                          >
+                            {ch}
+                          </Link>
+                        </li>
+                      ) : (
+                        <li
+                          key={ch}
+                          className="text-sm text-muted-foreground/50"
+                        >
+                          {ch}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-                <ul className="space-y-1 pr-10">
-                  {part.chapters.map((ch) => (
-                    <li
-                      key={ch}
-                      className="text-sm text-muted-foreground"
-                    >
-                      {ch}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

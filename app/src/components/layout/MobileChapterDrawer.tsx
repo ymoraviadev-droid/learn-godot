@@ -11,6 +11,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
+import { groupChaptersByPart } from "@/lib/parts";
 import type { Chapter } from "@/types/chapter";
 import { useState, useRef } from "react";
 
@@ -28,18 +29,42 @@ export function MobileChapterDrawer({
   const { slug } = useParams();
   const location = useLocation();
   const [open, setOpen] = useState(false);
+
+  const [expandedParts, setExpandedParts] = useState<Set<string>>(() => {
+    const parts = groupChaptersByPart(chapters);
+    const activePart = parts.find((p) =>
+      p.chapters.some((c) => c.slug === slug)
+    );
+    return activePart ? new Set([activePart.slug]) : new Set();
+  });
+
   const [expandedChapters, setExpandedChapters] = useState<Set<string>>(() => {
     return slug ? new Set([slug]) : new Set();
   });
 
-  // Auto-expand the active chapter and collapse others when slug changes
   const prevSlugRef = useRef(slug);
   if (slug && slug !== prevSlugRef.current) {
     prevSlugRef.current = slug;
     setExpandedChapters(new Set([slug]));
+    const parts = groupChaptersByPart(chapters);
+    const activePart = parts.find((p) =>
+      p.chapters.some((c) => c.slug === slug)
+    );
+    if (activePart) {
+      setExpandedParts(new Set([activePart.slug]));
+    }
   }
 
-  const toggleExpanded = (chapterSlug: string) => {
+  const togglePart = (partSlug: string) => {
+    setExpandedParts((prev) => {
+      const next = new Set(prev);
+      if (next.has(partSlug)) next.delete(partSlug);
+      else next.add(partSlug);
+      return next;
+    });
+  };
+
+  const toggleChapter = (chapterSlug: string) => {
     setExpandedChapters((prev) => {
       const next = new Set(prev);
       if (next.has(chapterSlug)) next.delete(chapterSlug);
@@ -47,6 +72,8 @@ export function MobileChapterDrawer({
       return next;
     });
   };
+
+  const parts = groupChaptersByPart(chapters);
 
   return (
     <div className="md:hidden">
@@ -58,88 +85,171 @@ export function MobileChapterDrawer({
         </DialogTrigger>
         <DialogContent className="max-w-sm" aria-describedby={undefined}>
           <DialogHeader>
-            <DialogTitle>פרקים</DialogTitle>
+            <DialogTitle>תוכן עניינים</DialogTitle>
           </DialogHeader>
           <ScrollArea className="max-h-[60vh]">
             <nav className="space-y-1">
-              {chapters.map((chapter) => {
-                const isActive = chapter.slug === slug;
-                const isExpanded = expandedChapters.has(chapter.slug);
-                const headings = extractHeadings(chapter.content);
-                const hasSummary = headings.some((h) => h.text === "סיכום");
-                const hasQuiz = headings.some((h) => h.text.startsWith("שאלון"));
-                const allHeadings = [
-                  ...headings,
-                  ...(!hasSummary ? [{ id: "סיכום", text: "סיכום", level: 2 }] : []),
-                  ...(!hasQuiz ? [{ id: "שאלון-ידע", text: "שאלון ידע", level: 2 }] : []),
-                ];
-                const hasHeadings = allHeadings.length > 0;
+              {parts.map((part) => {
+                if (part.chapters.length === 0) return null;
+                const isPartExpanded = expandedParts.has(part.slug);
+                const hasActiveChapter = part.chapters.some(
+                  (c) => c.slug === slug
+                );
+                const PartIcon = part.icon;
 
                 return (
-                  <div key={chapter.id}>
+                  <div key={part.slug}>
+                    {/* Part header — link + accordion toggle */}
                     <div
                       className={cn(
-                        "flex items-center gap-1 rounded-md text-sm transition-colors",
-                        isActive
-                          ? "bg-accent text-accent-foreground font-medium"
+                        "flex items-center gap-1 rounded-md text-sm font-semibold transition-colors",
+                        hasActiveChapter
+                          ? "text-accent-foreground"
                           : "text-foreground hover:bg-accent/50"
                       )}
                     >
                       <Link
-                        to={`${basePath}/${chapter.slug}`}
-                        onClick={() => { window.scrollTo(0, 0); setOpen(false); }}
-                        className="flex-1 py-2.5 px-3 min-w-0 wrap-break-word leading-snug"
+                        to={`/part/${part.slug}`}
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                          if (!isPartExpanded) togglePart(part.slug);
+                          setOpen(false);
+                        }}
+                        className="flex-1 flex items-center gap-2 px-3 py-2.5 min-w-0"
                       >
-                        <span className="text-xs text-muted-foreground ml-2">
-                          {chapter.order}.
+                        <PartIcon
+                          className={cn("h-4 w-4 shrink-0", part.color)}
+                        />
+                        <span className="text-xs text-muted-foreground shrink-0">
+                          {part.partNumber}.
                         </span>
-                        {chapter.title}
+                        <span className="text-right flex-1 min-w-0 wrap-break-word leading-snug">
+                          {part.title}
+                        </span>
                       </Link>
-
-                      {hasHeadings && (
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            toggleExpanded(chapter.slug);
-                          }}
-                          className="p-1.5 rounded hover:bg-accent/50 transition-colors shrink-0"
-                        >
-                          <ChevronDown
-                            className={cn(
-                              "h-4 w-4 transition-transform",
-                              isExpanded && "rotate-180"
-                            )}
-                          />
-                        </button>
-                      )}
+                      <button
+                        onClick={() => togglePart(part.slug)}
+                        className="p-1.5 rounded hover:bg-accent/50 transition-colors shrink-0"
+                      >
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform",
+                            isPartExpanded && "rotate-180"
+                          )}
+                        />
+                      </button>
                     </div>
 
-                    {isExpanded && (
-                      <div className="mr-4 pr-3 border-r border-accent/50 space-y-0.5 py-0.5">
-                        {allHeadings.map((heading) => {
-                          const headingHash = `#${heading.id}`;
-                          const isHeadingActive =
-                            isActive && location.hash === headingHash;
-                          const isSpecial = heading.text === "סיכום" || heading.text.startsWith("שאלון");
+                    {/* Part chapters */}
+                    {isPartExpanded && (
+                      <div className="mr-4 pr-3 border-r border-accent/40 space-y-0.5 py-0.5">
+                        {part.chapters.map((chapter) => {
+                          const isActive = chapter.slug === slug;
+                          const isChapterExpanded = expandedChapters.has(
+                            chapter.slug
+                          );
+                          const headings = extractHeadings(
+                            (chapter as Chapter).content
+                          );
+                          const hasSummary = headings.some(
+                            (h) => h.text === "סיכום"
+                          );
+                          const hasQuiz = headings.some((h) =>
+                            h.text.startsWith("שאלון")
+                          );
+                          const allHeadings = [
+                            ...headings,
+                            ...(!hasSummary
+                              ? [{ id: "סיכום", text: "סיכום", level: 2 }]
+                              : []),
+                            ...(!hasQuiz
+                              ? [
+                                  {
+                                    id: "שאלון-ידע",
+                                    text: "שאלון ידע",
+                                    level: 2,
+                                  },
+                                ]
+                              : []),
+                          ];
+                          const hasHeadings = allHeadings.length > 0;
 
                           return (
-                            <div key={heading.id}>
-                              {isSpecial && (
-                                <div className="border-t border-accent/30 my-1 mx-2" />
-                              )}
-                              <Link
-                                to={`${basePath}/${chapter.slug}${headingHash}`}
-                                onClick={() => setOpen(false)}
+                            <div key={chapter.slug}>
+                              <div
                                 className={cn(
-                                  "block text-xs py-1.5 px-3 rounded-sm transition-colors",
-                                  isSpecial && "font-medium",
-                                  isHeadingActive
-                                    ? "text-accent-foreground bg-accent/60"
-                                    : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
+                                  "flex items-center gap-1 rounded-md text-sm transition-colors",
+                                  isActive
+                                    ? "bg-accent text-accent-foreground font-medium"
+                                    : "text-foreground hover:bg-accent/50"
                                 )}
                               >
-                                {heading.text}
-                              </Link>
+                                <Link
+                                  to={`${basePath}/${chapter.slug}`}
+                                  onClick={() => {
+                                    window.scrollTo(0, 0);
+                                    setOpen(false);
+                                  }}
+                                  className="flex-1 py-2 px-3 min-w-0 wrap-break-word leading-snug"
+                                >
+                                  <span className="text-xs text-muted-foreground ml-1.5">
+                                    {chapter.order}.
+                                  </span>
+                                  {chapter.title}
+                                </Link>
+
+                                {hasHeadings && (
+                                  <button
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      toggleChapter(chapter.slug);
+                                    }}
+                                    className="p-1.5 rounded hover:bg-accent/50 transition-colors shrink-0"
+                                  >
+                                    <ChevronDown
+                                      className={cn(
+                                        "h-4 w-4 transition-transform",
+                                        isChapterExpanded && "rotate-180"
+                                      )}
+                                    />
+                                  </button>
+                                )}
+                              </div>
+
+                              {isChapterExpanded && (
+                                <div className="mr-4 pr-3 border-r border-accent/50 space-y-0.5 py-0.5">
+                                  {allHeadings.map((heading) => {
+                                    const headingHash = `#${heading.id}`;
+                                    const isHeadingActive =
+                                      isActive &&
+                                      location.hash === headingHash;
+                                    const isSpecial =
+                                      heading.text === "סיכום" ||
+                                      heading.text.startsWith("שאלון");
+
+                                    return (
+                                      <div key={heading.id}>
+                                        {isSpecial && (
+                                          <div className="border-t border-accent/30 my-1 mx-2" />
+                                        )}
+                                        <Link
+                                          to={`${basePath}/${chapter.slug}${headingHash}`}
+                                          onClick={() => setOpen(false)}
+                                          className={cn(
+                                            "block text-xs py-1.5 px-3 rounded-sm transition-colors",
+                                            isSpecial && "font-medium",
+                                            isHeadingActive
+                                              ? "text-accent-foreground bg-accent/60"
+                                              : "text-muted-foreground hover:text-foreground hover:bg-accent/30"
+                                          )}
+                                        >
+                                          {heading.text}
+                                        </Link>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              )}
                             </div>
                           );
                         })}

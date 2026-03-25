@@ -1,0 +1,35 @@
+{
+  "id": "24-state-machines",
+  "title": "State Machines",
+  "slug": "state-machines",
+  "order": 24,
+  "createdAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "State Machines"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

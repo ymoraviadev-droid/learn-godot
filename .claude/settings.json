@@ -12,7 +12,10 @@
       "Bash(python3 -c \":*)",
       "Bash(python3 -c \"import json; f=open\\(''/home/ymoravia/Data/learn-godot/app/content/chapters/11-tilemaps.json''\\); json.load\\(f\\); print\\(''valid JSON''\\)\")",
       "Bash(python3:*)",
-      "Bash(ls /home/ymoravia/Data/learn-godot/docs/chapters/chapter-11*)"
+      "Bash(ls /home/ymoravia/Data/learn-godot/docs/chapters/chapter-11*)",
+      "Bash(ls /home/ymoravia/Data/learn-godot/12-*.json)",
+      "Bash(ls /home/ymoravia/Data/learn-godot/app/content/chapters/12-*.json)",
+      "Bash(ls /home/ymoravia/Data/learn-godot/app/content/chapters/*.json)"
     ]
   }
 }

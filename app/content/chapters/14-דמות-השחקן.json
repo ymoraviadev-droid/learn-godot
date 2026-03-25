@@ -1,0 +1,35 @@
+{
+  "id": "14-דמות-השחקן",
+  "title": "דמות השחקן",
+  "slug": "דמות-השחקן",
+  "order": 14,
+  "createdAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "דמות השחקן"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

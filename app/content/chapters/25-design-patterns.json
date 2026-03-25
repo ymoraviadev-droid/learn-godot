@@ -1,0 +1,35 @@
+{
+  "id": "25-design-patterns",
+  "title": "Design Patterns",
+  "slug": "design-patterns",
+  "order": 25,
+  "createdAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Design Patterns"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

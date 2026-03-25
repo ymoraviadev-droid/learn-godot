@@ -1,0 +1,35 @@
+{
+  "id": "27-הקמת-הפרויקט",
+  "title": "הקמת הפרויקט",
+  "slug": "הקמת-הפרויקט",
+  "order": 27,
+  "createdAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הקמת הפרויקט"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

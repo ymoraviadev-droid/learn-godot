@@ -1,0 +1,35 @@
+{
+  "id": "19-אודיו",
+  "title": "אודיו",
+  "slug": "אודיו",
+  "order": 19,
+  "createdAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אודיו"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -5,6 +5,7 @@ import { AppHeader } from "@/components/layout/AppHeader";
 import { EditorPage } from "@/pages/EditorPage";
 import { ReaderPage } from "@/pages/ReaderPage";
 import { LandingPage } from "@/pages/LandingPage";
+import { PartPage } from "@/pages/PartPage";
 import { waitForInit } from "@/lib/content";
 
 const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
@@ -25,6 +26,7 @@ export default function App() {
           <AppHeader />
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/part/:partSlug" element={<PartPage />} />
             <Route path="/chapter/:slug" element={<ReaderPage />} />
             <Route
               path="/edit"

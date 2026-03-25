@@ -4,7 +4,7 @@
   "slug": "c-ב-godot",
   "order": 5,
   "createdAt": "2026-03-19T04:39:57.016Z",
-  "updatedAt": "2026-03-20T09:10:35.417Z",
+  "updatedAt": "2026-03-25T12:01:26.190Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -1645,7 +1645,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " למען הסדר הטוב ולשנות את הנתיב ל-"
+                    "text": " למען הסדר הטוב ולשנות את הנתיב ואת שם הסקריפט ל-"
                   },
                   {
                     "type": "text",
@@ -1658,7 +1658,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "."
+                    "text": ", מתן שם משמעותי לסקריפט יכול לתרום לסדר וקריאות."
                   }
                 ]
               }
@@ -4259,7 +4259,7 @@
                 "content": [
                   {
                     "type": "text",
-                    "text": "אם יש לכם ספק - השתמשו ב-השתמשו ב-"
+                    "text": "אם יש לכם ספק - השתמשו ב-"
                   },
                   {
                     "type": "text",
@@ -6360,14 +6360,14 @@
             "type": "text",
             "marks": [
               {
-                "type": "bold"
+                "type": "code"
               }
             ],
             "text": "(\"res://scenes/Bullet.tscn\")<GD.Load<PackedScene"
           },
           {
             "type": "text",
-            "text": ". vahnua השימוש ב-"
+            "text": ". השימוש ב-"
           },
           {
             "type": "text",
@@ -7466,7 +7466,7 @@
                     "type": "text",
                     "marks": [
                       {
-                        "type": "bold"
+                        "type": "code"
                       }
                     ],
                     "text": "GD.Print(\"HERE\")"
@@ -7506,10 +7506,19 @@
                     "type": "text",
                     "marks": [
                       {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "GD.Print($\"velocity = {Velocity}\")"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
                         "type": "bold"
                       }
                     ],
-                    "text": "GD.Print($\"velocity = {Velocity}\") "
+                    "text": " "
                   }
                 ]
               }
@@ -7762,7 +7771,7 @@
           },
           {
             "type": "text",
-            "text": " מאפשר לנו לצייר "
+            "text": " מאפשר לנו לצייר"
           },
           {
             "type": "text",

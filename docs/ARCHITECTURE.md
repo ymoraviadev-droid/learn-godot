@@ -28,7 +28,14 @@ No backend server. Content is stored as JSON files in the repository.
 - Image upload to `/content/images/`
 - Local-only — runs on `localhost` during authoring
 
-### Reader Mode (`/` and `/chapter/:slug`)
+### Landing Page (`/`)
+
+- Hero section with logo, title, and call-to-action
+- Full table of contents organized by parts (10 parts, 39 chapters)
+- SEO meta tags (Open Graph, Twitter cards)
+- Links to first chapter
+
+### Reader Mode (`/chapter/:slug`)
 
 - Renders Tiptap JSON as read-only styled content
 - Static build — no editor code shipped to readers
@@ -53,11 +60,13 @@ learn-godot/
 │   │   │   └── ui/          # Shadcn components
 │   │   ├── pages/
 │   │   │   ├── EditorPage.tsx
-│   │   │   └── ReaderPage.tsx
+│   │   │   ├── ReaderPage.tsx
+│   │   │   └── LandingPage.tsx
 │   │   ├── lib/             # Content persistence, utilities
 │   │   ├── vite-plugin-content.ts  # Dev server endpoints
 │   │   └── App.tsx
 │   ├── public/
+│   │   └── images/           # Logo and static assets
 │   └── package.json
 ```
 

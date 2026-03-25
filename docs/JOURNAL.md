@@ -194,3 +194,39 @@ Written in English (docs/chapters/) covering:
 - 7.4 Keyboard, mouse, and gamepad — `InputEventKey`, `InputEventMouseButton`, `InputEventMouseMotion`, `InputEventJoypadButton`, input type detection
 - 7.5 Input actions vs raw key codes — when to use each, action naming conventions
 - 7.6 Practical example — complete top-down player controller with movement, sprint, interaction area, interactable chest (ties back to signals from chapter 6)
+
+---
+
+## 2026-03-25 — Chapter 9 Complete, Landing Page, Code Block Fix
+
+### Chapter 9 — Movement & Physics 2D (English Draft + Hebrew Translation)
+
+Written in English (docs/chapters/) and Hebrew translation completed. Covers:
+
+- 9.1 Moving a node with code — Position vs Velocity, delta time, global vs local position
+- 9.2 CharacterBody2D — the player controller, Motion Mode (Grounded vs Floating), floor/wall/ceiling settings
+- 9.3 MoveAndSlide() — collision-aware movement, sliding mechanics, collision queries, platformer controller
+- 9.4 RigidBody2D — physics-driven objects, forces vs impulses, PhysicsMaterial, contact monitoring
+- 9.5 StaticBody2D — walls/floors, AnimatableBody2D for moving platforms, conveyor belts
+- 9.6 Area2D — triggers and detection zones, signals, overlap queries, damage zone pattern
+- 9.7 Gravity, friction, and bounce — project gravity, fall multiplier, variable jump height, acceleration/friction via MoveToward, complete platformer script
+- Summary + 10-question quiz
+- Chapter overview SVG diagram (`chapter9_physics_overview.svg`)
+
+### Landing Page
+
+New `LandingPage.tsx` at `/` route:
+
+- Hero section with logo (`/images/logo.png`), title, call-to-action button
+- Full table of contents organized by all 10 parts with icons and chapter lists
+- Accordion-expandable parts with chapter details
+- SEO: Open Graph meta tags, Twitter cards, structured description
+- Professional tone, not commercial
+
+### App Changes
+
+1. **Routing update** — `/` now shows LandingPage instead of redirecting to first chapter. Reader is at `/chapter/:slug`
+2. **Logo as favicon** — replaced `favicon.svg` with `logo.png` in index.html, added `apple-touch-icon`
+3. **Twitter image meta** — added `twitter:image` tag pointing to logo
+4. **Code block horizontal scroll** — fixed ProseMirror's `white-space: pre-wrap` override on code blocks. ProseMirror's stylesheet forces `pre-wrap` on `.ProseMirror` and `.ProseMirror pre`, which was preventing horizontal scrolling. Fixed with `!important` overrides on `.code-block-wrapper` selectors and inline styles on CodeBlockView component
+5. **Content width** — increased reader article max-width from `max-w-3xl` to `lg:max-w-4xl` on desktop

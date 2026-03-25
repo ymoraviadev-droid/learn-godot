@@ -4,7 +4,7 @@
   "slug": "פיזיקה-ותנועה",
   "order": 9,
   "createdAt": "2026-03-23T18:06:35.410Z",
-  "updatedAt": "2026-03-24T21:09:09.325Z",
+  "updatedAt": "2026-03-25T12:47:14.364Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -6776,7 +6776,1401 @@
         "attrs": {
           "textAlign": "right",
           "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()ProjectSettings.GetSetting"
+          },
+          {
+            "type": "text",
+            "text": " במקום בערכים שמקודדים בצורה גסה יתן לנו החלה של אפקט הגרביטציה על הדמויות בהתאם להגדרות הפרויקט."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קפיצה “חלקה” יותר"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קפיצה בהתאם לגרביטציה של העולם האמיתי עלולה להרגיש במשחקים “לא מספקת” וקצת “מרחפת”, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פתרון נפוץ"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float Gravity = 980f;\n[Export] public float FallMultiplier = 1.5f;\n[Export] public float JumpVelocity = -400f;\n\npublic override void _PhysicsProcess(double delta)\n{\n    if (!IsOnFloor())\n    {\n        float gravityScale = Velocity.Y > 0 ? FallMultiplier : 1f;\n        Velocity += new Vector2(0, Gravity * gravityScale * (float)delta);\n    }\n\n    if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n    {\n        Velocity = new Vector2(Velocity.X, JumpVelocity);\n    }\n\n    // Variable jump height: release early = shorter jump\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n    Velocity = new Vector2(direction * Speed, Velocity.Y);\n\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש כאן 2 טריקים:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מכפיל גרביטציה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Scroll Multiplier"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") - הגרביטציה מוגברת כאשר הדמות נופלת לעומת מתי שהיא מתרוממת. השחקן קופץ מהר - אבל נוחת לאט יותר. גורם לקפיצות להרגיש “נעימות/מעודנות” יותר באיזשהו אופן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "גובה קפיצה משתנה"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שחרור כפתור הקפיצה מוקדם יותר משיא גובה הקפיצה - חותך את הקפיצה ואת המהירות ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") ומפעיל את הגרביטציה - מה שיצן לנו קפיצה “נמוכה” יותר, כלומר שהחזקת כפתור ה’פיצה במצב לחוץ יקנה לנו קפיצה “גבוהה” יותר. זה נותן לשחקן שליטה יותר מדוייקת. "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Friction (רמת חיכוך)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שולט כמה מהר (או לאט) עצמים מאטים על פני משטח. מגדירים את רמת החיכוך דרך משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "text": " על גופים פיזיקליים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור  "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": ", ה-Friction המובנה של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot "
+          },
+          {
+            "type": "text",
+            "text": "לא מוחל ישירות - אנחנו שולטים במהירות התנועה בעצמנו, אך כמובן שאם נרצה נוכל לדמות רמת חיכוך:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Acceleration-based movement (feels better than instant speed changes)\n[Export] public float Speed = 300f;\n[Export] public float Acceleration = 1500f;\n[Export] public float Friction = 1200f;\n\npublic override void _PhysicsProcess(double delta)\n{\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n    if (direction != 0)\n    {\n        // Accelerate toward target speed\n        Velocity = new Vector2(\n            Mathf.MoveToward(Velocity.X, direction * Speed, Acceleration * (float)delta),\n            Velocity.Y\n        );\n    }\n    else\n    {\n        // Decelerate to zero\n        Velocity = new Vector2(\n            Mathf.MoveToward(Velocity.X, 0, Friction * (float)delta),\n            Velocity.Y\n        );\n    }\n\n    // gravity, jump, etc.\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Mathf.MoveToward(current, target, maxDelta)"
+          },
+          {
+            "type": "text",
+            "text": " מזיזה את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "current"
+          },
+          {
+            "type": "text",
+            "text": " לעבר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "target"
+          },
+          {
+            "type": "text",
+            "text": " במקסימום "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "delta"
+          },
+          {
+            "type": "text",
+            "text": " הנתון."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "זה יוצר האצה והאטה “חלקים ונעימים” יותר - במקום האטה והאצה שקורים באופן מיידי. זהו למעשה הבדל לא קטן:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ללא האטה\\האצה עם חיכוך (Friction)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - התנועה מרגישה “רובוטית”. הדמות מגיעה למהירות מקסימלית מיד ועוצרת מיד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כולל האטה\\האצה עם חיכוך (Friction)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - התנועה מרגישה רספונסיבית ותלויית פיזיקה. נותן הרגשה “חיה” יותר."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bounce (קופצניות)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bounce"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsMaterial"
+          },
+          {
+            "type": "text",
+            "text": " שולט ברמת הקופצניות. הוא משפיע רק על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RigidBody2D"
+          },
+          {
+            "type": "text",
+            "text": " באופן אוטומטי."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "עבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " נוכל ליישם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bounce"
+          },
+          {
+            "type": "text",
+            "text": " באופן ידני:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "MoveAndSlide();\n\nfor (int i = 0; i < GetSlideCollisionCount(); i++)\n{\n    var collision = GetSlideCollision(i);\n    Vector2 normal = collision.GetNormal();\n\n    // Reflect velocity off the surface\n    Velocity = Velocity.Bounce(normal) * 0.8f;  // 0.8 = 80% energy retention\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Vector2.Bounce"
+          },
+          {
+            "type": "text",
+            "text": " הודף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Vector"
+          },
+          {
+            "type": "text",
+            "text": " מהמשטח על ידי שיקוף ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "normal"
+          },
+          {
+            "type": "text",
+            "text": " שלו. ההכפלה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0.8"
+          },
+          {
+            "type": "text",
+            "text": " אומרת שכל הקפצה תאבד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "20%"
+          },
+          {
+            "type": "text",
+            "text": " מהעוצמה שלה עד שהעצם בסופו של דבר יעצר על הרצפה - כמו כדורסל אשר מקפץ על רצפה עד שמפסיק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שילוב של כל הדברים יחד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סקריפט זה הוא סקריפט לשליטה בדמות, והוא משלב את כל מה שלמדנו בפרק זה."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "זהו סקריפט נקי ומחולק למתודות, שימו לב שהשתמשנו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "[Export]"
+          },
+          {
+            "type": "text",
+            "text": " על המאפיינים על מנת שתוכלו לשנות ערכים ולהתנסות ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class Player : CharacterBody2D\n{\n    [Export] public float Speed = 300f;\n    [Export] public float Acceleration = 2000f;\n    [Export] public float Friction = 1500f;\n    [Export] public float JumpVelocity = -450f;\n    [Export] public float FallMultiplier = 1.5f;\n\n    private float _gravity = ProjectSettings.GetSetting(\"physics/2d/default_gravity\").AsSingle();\n\n    public override void _PhysicsProcess(double delta)\n    {\n        ApplyGravity(delta);\n        HandleJump();\n        HandleHorizontalMovement(delta);\n        MoveAndSlide();\n    }\n\n    private void ApplyGravity(double delta)\n    {\n        if (IsOnFloor()) return;\n\n        float scale = Velocity.Y > 0 ? FallMultiplier : 1f;\n        Velocity += new Vector2(0, _gravity * scale * (float)delta);\n    }\n\n    private void HandleJump()\n    {\n        if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n        {\n            Velocity = new Vector2(Velocity.X, JumpVelocity);\n        }\n\n        if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n        {\n            Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n        }\n    }\n\n    private void HandleHorizontalMovement(double delta)\n    {\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n        if (direction != 0)\n        {\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, direction * Speed, Acceleration * (float)delta),\n                Velocity.Y\n            );\n        }\n        else\n        {\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, 0, Friction * (float)delta),\n                Velocity.Y\n            );\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הזזת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על ידי שינוי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Position"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ישירות עובד אבל מתעלם מהתנגשויות. תמיד הכפילו תנועה ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי שהתנועה תהיה בלתי תלויה בקצב הפריימים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא הסטנדרט לדמויות שחקן ואויבים - אתם שולטים בתנועה דרך קוד, ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()MoveAndSlide"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מטפל בהתנגשויות. הגדירו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Motion Mode"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Floating"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למשחקי מבט-על, והגדירו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Grounded"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפלטפורמרים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()MoveAndSlide"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מזיז את הגוף, מזהה התנגשויות, ומחליק לאורך משטחים. הוא מחיל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באופן פנימי - אל תכפילו את המהירות ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "delta"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בעצמכם. השתמש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "IsOnFloor"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "IsOnWall"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "IsOnCeiling"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחרי הקריאה כדי לבדוק במה הדמות נוגעת."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RigidBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נשלט על ידי מנוע הפיזיקה - הפעילו כוחות ודחיפות במקום להגדיר מהירות ישירות. השתמשו בו עבור עצמים שנזרקים, חידות פיזיקה, וכל דבר שצריך להתגלגל ולקפוץ בצורה מציאותית. אל תשתמשו בו לדמויות שחקן."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "StaticBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מיועד למשטחים מוצקים שלא זזים - קירות, רצפות ופלטפורמות. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatableBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפלטפורמות נעות שנושאות את השחקן. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Constant Linear Velocity"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למסועים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא חיישן, לא גוף מוצק. השתמשו בו לאיסוף פריטים, אזורי נזק, טריגרים ואזורי זיהוי. חברו לסיגנלים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "BodyEntered"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "BodyExited"
+                  },
+                  {
+                    "type": "text",
+                    "text": " או שאלו באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetOverlappingBodies"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כבידה משפיעה על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RigidBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באופן אוטומטי. עבור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", החילו אותה ידנית ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()PhysicsProcess_"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ProjectSettings.GetSetting"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לעקביות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "קפיצות טובות יותר משתמשות במכפיל נפילה (נפילה כבדה יותר) וגובה משתנה (שיחרור כדי לקצר את הקפיצה). אלה טריקים פשוטים שעושים הבדל עצום בתחושת המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "תאוצה וחיכוך באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()Mathf.MoveToward"
+                  },
+                  {
+                    "type": "text",
+                    "text": " גורמים לתנועה להרגיש רספונסיבית ובעלת משקל במקום רובוטית."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שאלון ידע"
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": "מה הבעיה בהזזת Node על ידי שינוי Position ישירות?",
+              "answers": [
+                ". זה לא עובד בכלל ב-Godot",
+                "ה-Node מתעלם מהתנגשויות - עובר דרך קירות ועצמים",
+                "התנועה תמיד מהירה מדי",
+                " אי אפשר לשנות Position בזמן ריצה"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "למה חשוב להכפיל תנועה ב-delta?",
+              "answers": [
+                "כדי שהתנועה תהיה חלקה יותר ויזואלית",
+                "כדי למנוע התנגשויות",
+                "כדי שמהירות התנועה תהיה זהה בכל קצב פריימים",
+                " כי Godot דורש את זה - בלי זה הקוד לא ירוץ"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה ההבדל בין Motion Mode: Floating לבין Grounded ב-CharacterBody2D?",
+              "answers": [
+                "Floating מיועד למשחקי 3D ו-Grounded ל-2D",
+                "Floating מוסיף כבידה אוטומטית ו-Grounded לא",
+                "אין הבדל, שניהם עובדים אותו דבר",
+                "Floating מתאים למשחקי מבט-על ללא כבידה, Grounded מבחין בין רצפה, קיר ותקרה"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "מדוע מהירות הקפיצה (JumpVelocity) היא ערך שלילי?",
+              "answers": [
+                " כי זה באג ידוע ב-Godot",
+                "כי הקפיצה היא פעולה הפוכה לתנועה",
+                " כי במערכת הקואורדינטות של Godot ציר Y עולה כלפי מטה, אז למעלה זה שלילי",
+                "כי ערכים חיוביים שמורים לכבידה בלבד"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה עושה ()MoveAndSlide כשהדמות פוגעת בקיר באלכסון?",
+              "answers": [
+                "עוצר את הדמות לחלוטין",
+                "מחזיר את הדמות למיקום הקודם",
+                " מסיר את רכיב המהירות שנכנס לקיר ומשמר את הרכיב שלאורכו - הדמות מחליקה",
+                "מפעיל סיגנל התנגשות ומפסיק את התנועה"
+              ],
+              "correct": 2
+            },
+            {
+              "question": " מתי עדיף להשתמש ב-RigidBody2D במקום CharacterBody2D?",
+              "answers": [
+                "תמיד - הוא יותר מתקדם ומדויק",
+                "לדמות השחקן הראשית",
+                "לעצמים שצריכים להתנהג לפי פיזיקה - ארגזים, כדורים, עצמים שנזרקים",
+                "לקירות ורצפות"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה ההבדל בין ()ApplyImpulse לבין ()ApplyForce ב-RigidBody2D?",
+              "answers": [
+                "ApplyImpulse הוא דחיפה חד-פעמית, ApplyForce הוא כוח מתמשך שצריך להפעיל כל פריים",
+                "ApplyImpulse פועל רק על ציר X ו-ApplyForce על ציר Y",
+                "ApplyForce עובד רק בתוך ()Ready_",
+                "אין הבדל, שניהם עושים אותו דבר"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "מה הייחוד של Area2D לעומת שאר גופי הפיזיקה?",
+              "answers": [
+                "הוא היחיד שתומך בצורות התנגשות עגולות",
+                "הוא חיישן שמזהה כניסה ויציאה של גופים אבל לא חוסם תנועה",
+                " הוא היחיד שפועל ב-Process במקום PhysicsProcess",
+                "הוא היחיד שיכול לשדר סיגנלים"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה הטריק של \"מכפיל נפילה\" (Fall Multiplier) שמשפר את תחושת הקפיצה?",
+              "answers": [
+                "הכבידה חזקה יותר בזמן נפילה מאשר בזמן עלייה - הדמות עולה מהר ויורדת בחדות ",
+                "הוא מאט את הנפילה כדי שהשחקן ירגיש שהוא מרחף",
+                "הוא מגביל את גובה הקפיצה המקסימלי",
+                "הוא מוסיף אנימציה מיוחדת בזמן נפילה"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "מה עושה Mathf.MoveToward(current, target, maxDelta)?",
+              "answers": [
+                "מחשב את הזווית בין שני וקטורים",
+                "מזיז את הדמות לכיוון נקודת יעד בעולם",
+                "בודק אם שני עצמים קרובים מספיק להתנגשות",
+                "מזיז ערך לכיוון ערך יעד במרחק מקסימלי נתון - יוצר תאוצה והאטה חלקים"
+              ],
+              "correct": 3
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אתם יודעים להזיז דמויות ולזהות חפיפות. עכשיו נצלול עמוק יותר - שכבות ומסכות התנגשות, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "raycasting"
+          },
+          {
+            "type": "text",
+            "text": ", פלטפורמות חד-כיווניות, וזיהוי התנגשויות מדויק. כל זאת ועוד ב"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק הבא: פרק 10 - התנגשויות וצורות פיזיקה"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
       }
     ]
   }

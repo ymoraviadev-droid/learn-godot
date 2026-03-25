@@ -45,7 +45,7 @@ Goal: learn Godot (C#) by writing a Hebrew tutorial book. Build a web-based edit
 5. **RTL fixes** — scrollbars on left, sidebar chapter order, code blocks LTR, per-block text direction (RTL/LTR buttons)
 6. **Table operations** — contextual row 3 in toolbar with add/delete row/column, merge/split, delete table
 7. **Lists** — restored bullet/number markers (Tailwind preflight was stripping them)
-8. **Tutorial structure** — 39 chapters across 10 parts in `docs/TUTORIAL.md`, Chapter 1 draft in `docs/chapters/`
+8. **Tutorial structure** — 52 chapters across 12 parts in `docs/TUTORIAL.md`, Chapter 1 draft in `docs/chapters/`
 
 ---
 
@@ -235,8 +235,8 @@ Written in English (docs/chapters/) and Hebrew translation completed. Covers:
 New `LandingPage.tsx` at `/` route:
 
 - Hero section with logo (`/images/logo.png`), title, call-to-action button
-- Full table of contents organized by all 10 parts with icons and chapter lists
-- Accordion-expandable parts with chapter details
+- Full table of contents organized by all 12 parts with icons and chapter lists
+- Part titles link to dedicated part pages, chapter titles link to reader pages
 - SEO: Open Graph meta tags, Twitter cards, structured description
 - Professional tone, not commercial
 
@@ -247,3 +247,41 @@ New `LandingPage.tsx` at `/` route:
 3. **Twitter image meta** — added `twitter:image` tag pointing to logo
 4. **Code block horizontal scroll** — fixed ProseMirror's `white-space: pre-wrap` override on code blocks. ProseMirror's stylesheet forces `pre-wrap` on `.ProseMirror` and `.ProseMirror pre`, which was preventing horizontal scrolling. Fixed with `!important` overrides on `.code-block-wrapper` selectors and inline styles on CodeBlockView component
 5. **Content width** — increased reader article max-width from `max-w-3xl` to `lg:max-w-4xl` on desktop
+
+---
+
+## 2026-03-26 — Parts System, 3D Expansion, Sidebar Overhaul
+
+### Parts System
+
+Introduced a proper "parts" concept to the app. Previously parts were hardcoded display-only elements in the landing page. Now:
+
+1. **`lib/parts.ts`** — shared parts definition with slug, title, Hebrew description, icon, color, and chapter list. `groupChaptersByPart()` maps flat chapter list into part groups by order range. Used by sidebar, mobile drawer, landing page, and part pages.
+2. **`PartPage.tsx`** — dedicated page per part (`/part/:partSlug`) with description, chapter list as clickable cards, prev/next part navigation, and "Start reading" CTA.
+3. **Route** — added `/part/:partSlug` to `App.tsx`.
+
+### Sidebar Overhaul
+
+Replaced flat chapter list with two-level accordion: **parts** → **chapters** → **subchapter headings (h2)**.
+
+1. **Part headers** — icon (colored) + title + chevron toggle. In reader mode, clicking text navigates to part page + expands accordion; clicking chevron only toggles. In editor mode, parts are accordion-only (no navigation).
+2. **Auto-expand** — navigating to a chapter auto-expands its parent part. Navigating to a part page auto-expands that part.
+3. **Mobile drawer** — same two-level accordion structure.
+
+### Tutorial Restructured — 12 Parts, 52 Chapters
+
+Expanded from 10 parts / 39 chapters to 12 parts / 52 chapters:
+
+- **Part 8 (Capstone)** — now explicitly 2D-focused, moved before advanced topics
+- **Part 9 (Advanced Topics)** — networking, performance, testing, export (unchanged)
+- **Part 10 (3D Fundamentals)** — 5 chapters: intro, materials/lighting, physics, camera/nav/raycast, animation. Covers Node3D, MeshInstance3D, Camera3D, CharacterBody3D, RigidBody3D, NavigationAgent3D, Skeleton3D, GPUParticles3D
+- **Part 11 (3D Worlds & Systems)** — 6 chapters: CSG prototyping, GridMap, procedural meshes (SurfaceTool/ArrayMesh/MeshDataTool), 3D visual effects (Decals/SDFGI/VoxelGI), advanced physics (joints/VehicleBody3D/SoftBody3D), 3D performance (MultiMeshInstance3D/LOD/occlusion)
+- **Part 12 (FPS Explorer Project)** — 5 chapters: planning, FPS controller, world building, interaction/enemies, polish/publish
+
+All 28 new placeholder chapter files created with "בקרוב.." content.
+
+### Landing Page Updates
+
+- Part titles link to `/part/:partSlug`
+- Chapter titles link to `/chapter/:slug` (dimmed if not yet written)
+- Updated counts: "12 חלקים, 52 פרקים, ו-4 פרויקטים מעשיים"

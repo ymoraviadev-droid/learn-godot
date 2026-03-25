@@ -1,0 +1,35 @@
+{
+  "id": "44-מש-פרוצדורלי",
+  "title": "מש פרוצדורלי",
+  "slug": "מש-פרוצדורלי",
+  "order": 44,
+  "createdAt": "2026-03-25T23:17:24.000Z",
+  "updatedAt": "2026-03-25T23:17:24.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מש פרוצדורלי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

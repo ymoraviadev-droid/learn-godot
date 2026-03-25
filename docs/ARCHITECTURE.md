@@ -31,15 +31,24 @@ No backend server. Content is stored as JSON files in the repository.
 ### Landing Page (`/`)
 
 - Hero section with logo, title, and call-to-action
-- Full table of contents organized by parts (10 parts, 39 chapters)
+- Full table of contents organized by parts (12 parts, 52 chapters)
+- Part titles link to dedicated part pages
+- Chapter titles link to reader pages (dimmed if not yet written)
 - SEO meta tags (Open Graph, Twitter cards)
 - Links to first chapter
+
+### Part Pages (`/part/:partSlug`)
+
+- Dedicated page per part with description, chapter list, and navigation
+- Links to each chapter in the part
+- Previous/next part navigation
+- "Start reading" CTA
 
 ### Reader Mode (`/chapter/:slug`)
 
 - Renders Tiptap JSON as read-only styled content
 - Static build — no editor code shipped to readers
-- Chapter navigation sidebar
+- Chapter navigation sidebar grouped by parts
 - RTL layout throughout
 
 ## Directory Structure
@@ -61,8 +70,9 @@ learn-godot/
 │   │   ├── pages/
 │   │   │   ├── EditorPage.tsx
 │   │   │   ├── ReaderPage.tsx
+│   │   │   ├── PartPage.tsx
 │   │   │   └── LandingPage.tsx
-│   │   ├── lib/             # Content persistence, utilities
+│   │   ├── lib/             # Content persistence, parts definition, utilities
 │   │   ├── vite-plugin-content.ts  # Dev server endpoints
 │   │   └── App.tsx
 │   ├── public/

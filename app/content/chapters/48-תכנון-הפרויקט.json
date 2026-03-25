@@ -1,0 +1,35 @@
+{
+  "id": "48-תכנון-הפרויקט",
+  "title": "תכנון הפרויקט",
+  "slug": "תכנון-הפרויקט",
+  "order": 48,
+  "createdAt": "2026-03-25T23:17:24.000Z",
+  "updatedAt": "2026-03-25T23:17:24.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תכנון הפרויקט"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

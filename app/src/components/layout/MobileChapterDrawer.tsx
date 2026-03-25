@@ -90,7 +90,6 @@ export function MobileChapterDrawer({
           <ScrollArea className="max-h-[60vh]">
             <nav className="space-y-1">
               {parts.map((part) => {
-                if (part.chapters.length === 0) return null;
                 const isPartExpanded = expandedParts.has(part.slug);
                 const hasActiveChapter = part.chapters.some(
                   (c) => c.slug === slug
@@ -120,9 +119,6 @@ export function MobileChapterDrawer({
                         <PartIcon
                           className={cn("h-4 w-4 shrink-0", part.color)}
                         />
-                        <span className="text-xs text-muted-foreground shrink-0">
-                          {part.partNumber}.
-                        </span>
                         <span className="text-right flex-1 min-w-0 wrap-break-word leading-snug">
                           {part.title}
                         </span>

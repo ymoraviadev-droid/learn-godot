@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 import { Plus, Trash2, GripVertical, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -22,12 +22,14 @@ export function ChapterSidebar({
   onCreateChapter,
   onDeleteChapter,
 }: ChapterSidebarProps) {
-  const { slug } = useParams();
+  const { slug, partSlug } = useParams();
   const location = useLocation();
+  const navigate = useNavigate();
+  const isEditMode = basePath === "/edit";
 
   // Track which parts are expanded (by slug)
   const [expandedParts, setExpandedParts] = useState<Set<string>>(() => {
-    // Find the part that contains the active chapter and expand it
+    if (partSlug) return new Set([partSlug]);
     const parts = groupChaptersByPart(chapters);
     const activePart = parts.find((p) =>
       p.chapters.some((c) => c.slug === slug)
@@ -75,7 +77,7 @@ export function ChapterSidebar({
   const parts = groupChaptersByPart(chapters);
 
   return (
-    <aside className="w-64 shrink-0 border-l bg-sidebar-background hidden md:flex flex-col">
+    <aside className="w-72 shrink-0 border-l bg-sidebar-background hidden md:flex flex-col">
       <div className="flex items-center justify-between p-3 border-b">
         <h2 className="text-sm font-semibold text-sidebar-foreground">תוכן עניינים</h2>
         {onCreateChapter && (
@@ -100,7 +102,6 @@ export function ChapterSidebar({
           )}
 
           {parts.map((part) => {
-            if (part.chapters.length === 0) return null;
             const isPartExpanded = expandedParts.has(part.slug);
             const hasActiveChapter = part.chapters.some(
               (c) => c.slug === slug
@@ -118,22 +119,23 @@ export function ChapterSidebar({
                       : "text-sidebar-foreground hover:bg-sidebar-accent/50"
                   )}
                 >
-                  <Link
-                    to={`/part/${part.slug}`}
+                  <button
                     onClick={() => {
-                      window.scrollTo(0, 0);
-                      if (!isPartExpanded) togglePart(part.slug);
+                      if (!isEditMode) {
+                        if (!isPartExpanded) togglePart(part.slug);
+                        navigate(`/part/${part.slug}`);
+                        window.scrollTo(0, 0);
+                      } else {
+                        togglePart(part.slug);
+                      }
                     }}
-                    className="flex-1 flex items-center gap-2 px-2 py-2 min-w-0"
+                    className="flex-1 flex items-center gap-2 px-2 py-2 min-w-0 text-right cursor-pointer"
                   >
                     <PartIcon className={cn("h-3.5 w-3.5 shrink-0", part.color)} />
-                    <span className="text-xs text-muted-foreground shrink-0">
-                      {part.partNumber}.
-                    </span>
-                    <span className="text-right flex-1 min-w-0 wrap-break-word leading-snug">
+                    <span className="flex-1 min-w-0 wrap-break-word leading-snug">
                       {part.title}
                     </span>
-                  </Link>
+                  </button>
                   <button
                     onClick={() => togglePart(part.slug)}
                     className="p-1 rounded hover:bg-sidebar-accent/50 transition-colors shrink-0"

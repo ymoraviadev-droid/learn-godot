@@ -1,0 +1,35 @@
+{
+  "id": "47-ביצועים-ואופטימיזציה-3d",
+  "title": "ביצועים ואופטימיזציה 3D",
+  "slug": "ביצועים-ואופטימיזציה-3d",
+  "order": 47,
+  "createdAt": "2026-03-25T23:17:24.000Z",
+  "updatedAt": "2026-03-25T23:17:24.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ביצועים ואופטימיזציה 3D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -122,31 +122,44 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 
 - H2 headings auto-generate `id` attributes from their text (via extended Heading extension)
 - H1 headings "סיכום" and "שאלון ידע" also get IDs for deep linking
-- Sidebar shows expandable subchapter list (h2 headings) under each chapter
+- Sidebar organized by **parts** (two-level accordion: part → chapter → subchapter headings)
 - "סיכום" and "שאלון ידע" always appear at the bottom of each chapter's subchapter list with a separator
 - Clicking a main chapter link scrolls to top after navigation
 - Clicking a subchapter smooth-scrolls to the heading anchor
+
+### Parts System (`lib/parts.ts`)
+
+- 12 parts defined with slug, title, Hebrew description, icon (Lucide), and color
+- `groupChaptersByPart()` maps flat chapter list into part groups by order range
+- `getPartBySlug()`, `getPartNumber()` helpers
+- Parts are display-only grouping — not stored in `meta.json`, derived from chapter order
+- Each part has a dedicated page at `/part/:partSlug` (PartPage.tsx)
 
 ## Reader Mode
 
 - Uses read-only Tiptap instance with all extensions (including Quiz in reader mode)
 - Styled with Tailwind (RTL-aware)
 - No editor chrome — clean reading experience
-- Chapter navigation sidebar with subchapter deep links
+- Chapter navigation sidebar grouped by parts with subchapter deep links
 - Responsive for mobile reading
 - Previous/next chapter navigation buttons at the bottom of each chapter (first chapter has no previous, last has no next)
 
 ## Mobile Navigation
 
-- Hamburger menu opens a dialog with full chapter list
-- Accordion support with subchapter headings (matching desktop sidebar)
+- Hamburger menu opens a dialog with full chapter list grouped by parts
+- Two-level accordion: part → chapter → subchapter headings (matching desktop sidebar)
 - Clicking a chapter or subchapter navigates and closes the drawer
-- Active chapter accordion auto-expands, others auto-collapse on navigation
+- Active part and chapter auto-expand on navigation
 
 ## Sidebar Behavior
 
-- Chapter titles and subchapter headings use `wrap-break-word` (no truncation) to prevent chevron icons from being pushed off-screen
-- Navigating to a chapter auto-collapses other accordions and expands the active one
+- Two-level accordion: **parts** (top level) → **chapters** → **subchapter headings** (h2)
+- Part headers show icon (colored) + title + chevron toggle
+- **Reader mode**: clicking part text navigates to part page + expands accordion; clicking chevron only toggles accordion
+- **Editor mode**: clicking part text only toggles accordion (no navigation)
+- Navigating to a chapter auto-expands its parent part and the chapter itself
+- Navigating to a part page auto-expands that part
+- Chapter titles and subchapter headings use `wrap-break-word` (no truncation)
 - Uses ref-based state sync (not useEffect) to avoid React Router flushSync conflicts
 
 ## Routing
@@ -154,6 +167,7 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 | Route                | Mode    | Description              |
 |----------------------|---------|--------------------------|
 | `/`                  | Landing | Landing page with TOC    |
+| `/part/:partSlug`    | Reader  | Part description page    |
 | `/chapter/:slug`     | Reader  | Read a chapter           |
 | `/edit`              | Editor  | Chapter list + editor    |
 | `/edit/:slug`        | Editor  | Edit a specific chapter  |

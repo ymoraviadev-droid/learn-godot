@@ -1,8 +1,8 @@
 {
-  "id": "30-מבוא-ל-3d-ב-godot",
-  "title": "מבוא ל-3D ב-Godot",
-  "slug": "מבוא-ל-3d-ב-godot",
-  "order": 30,
+  "id": "31-בנייה",
+  "title": "בנייה",
+  "slug": "בנייה",
+  "order": 31,
   "createdAt": "2026-03-25T23:03:41.000Z",
   "updatedAt": "2026-03-25T23:03:41.000Z",
   "tags": [],
@@ -17,7 +17,7 @@
         "content": [
           {
             "type": "text",
-            "text": "מבוא ל-3D ב-Godot"
+            "text": "בנייה"
           }
         ]
       },

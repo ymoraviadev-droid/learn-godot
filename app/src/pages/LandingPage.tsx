@@ -128,7 +128,7 @@ export function LandingPage() {
             תוכן עניינים
           </h2>
           <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">
-            10 חלקים, 39 פרקים, ו-3 פרויקטים מעשיים.
+            12 חלקים, 52 פרקים, ו-4 פרויקטים מעשיים.
             <br />
             כל חלק בונה על הקודם.
           </p>

@@ -7,6 +7,8 @@ import {
   Box,
   Sparkles,
   Globe,
+  Hammer,
+  Crosshair,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -113,17 +115,13 @@ export const PARTS: PartDef[] = [
     chapters: ["הקמת הפרויקט", "מערכת קרב", "מערכות RPG"],
   },
   {
-    slug: "3d-fundamentals",
-    title: "יסודות 3D",
+    slug: "capstone",
+    title: "פרויקט גמר",
     description:
-      "מעבר לעולם התלת-ממדי — viewport, מודלים, תאורה, תנועה ופיזיקה ב-3D. הפרויקט השלישי: סייר בגוף ראשון.",
-    icon: Box,
-    color: "text-indigo-400",
-    chapters: [
-      "מבוא ל-3D ב-Godot",
-      "תנועה ופיזיקה 3D",
-      "פרויקט — סייר בגוף ראשון",
-    ],
+      "הפרויקט הסופי בעולם ה-2D — תכננו, בנו ושגרו משחק דו-ממדי משלכם מאפס. תכנון, בנייה, ליטוש, ופרסום ב-itch.io או Steam.",
+    icon: Globe,
+    color: "text-emerald-400",
+    chapters: ["תכנון המשחק שלך", "בנייה", "שיגור"],
   },
   {
     slug: "advanced-topics",
@@ -140,31 +138,69 @@ export const PARTS: PartDef[] = [
     ],
   },
   {
-    slug: "capstone",
-    title: "פרויקט גמר",
+    slug: "3d-fundamentals",
+    title: "יסודות 3D",
     description:
-      "הפרויקט הסופי — תכננו, בנו ושגרו משחק משלכם מאפס. תכנון, בנייה, ליטוש, ופרסום ב-itch.io או Steam.",
-    icon: Globe,
-    color: "text-emerald-400",
-    chapters: ["תכנון המשחק שלך", "בנייה", "שיגור"],
+      "מעבר לעולם התלת-ממדי — viewport, מודלים, תאורה, חומרים, תנועה ופיזיקה, מצלמה, ניווט ואנימציה. הבסיס לכל פיתוח 3D ב-Godot.",
+    icon: Box,
+    color: "text-indigo-400",
+    chapters: [
+      "מבוא ל-3D ב-Godot",
+      "חומרים ותאורה",
+      "תנועה ופיזיקה 3D",
+      "מצלמה, ניווט ו-Raycasting",
+      "אנימציה ב-3D",
+    ],
+  },
+  {
+    slug: "3d-worlds-and-systems",
+    title: "עולמות ומערכות 3D",
+    description:
+      "CSG, GridMap, מש פרוצדורלי, אפקטים ויזואליים, פיזיקה מתקדמת וביצועים — כל מה שצריך כדי לבנות עולמות תלת-ממדיים מלאים ומורכבים.",
+    icon: Hammer,
+    color: "text-violet-400",
+    chapters: [
+      "CSG ופרוטוטייפינג",
+      "GridMap ובניית שלבים",
+      "מש פרוצדורלי",
+      "אפקטים ויזואליים ב-3D",
+      "פיזיקה מתקדמת",
+      "ביצועים ואופטימיזציה 3D",
+    ],
+  },
+  {
+    slug: "3d-fps-project",
+    title: "פרויקט — סייר בגוף ראשון",
+    description:
+      "הפרויקט הסופי — משחק FPS Explorer שלם. בקרה בגוף ראשון, בניית עולם תלת-ממדי, אינטראקציה עם עצמים, אויבים, ליטוש ופרסום.",
+    icon: Crosshair,
+    color: "text-sky-400",
+    chapters: [
+      "תכנון הפרויקט",
+      "שליטה בגוף ראשון",
+      "בניית עולם תלת-ממדי",
+      "אינטראקציה ואויבים",
+      "ליטוש ופרסום",
+    ],
   },
 ];
 
 /**
  * Given a flat list of chapters (sorted by order),
  * returns parts with their matching chapter objects.
+ * Matches by order range (not sequential slicing) for robustness.
  */
 export function groupChaptersByPart(
   chapters: { title: string; slug: string; order: number; [key: string]: unknown }[]
 ) {
-  let chapterIndex = 0;
+  let startOrder = 1;
 
   return PARTS.map((part, partIndex) => {
-    const partChapters = chapters.slice(
-      chapterIndex,
-      chapterIndex + part.chapters.length
+    const endOrder = startOrder + part.chapters.length;
+    const partChapters = chapters.filter(
+      (c) => c.order >= startOrder && c.order < endOrder
     );
-    chapterIndex += part.chapters.length;
+    startOrder = endOrder;
 
     return {
       ...part,

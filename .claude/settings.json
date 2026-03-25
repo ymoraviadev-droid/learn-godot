@@ -15,7 +15,12 @@
       "Bash(ls /home/ymoravia/Data/learn-godot/docs/chapters/chapter-11*)",
       "Bash(ls /home/ymoravia/Data/learn-godot/12-*.json)",
       "Bash(ls /home/ymoravia/Data/learn-godot/app/content/chapters/12-*.json)",
-      "Bash(ls /home/ymoravia/Data/learn-godot/app/content/chapters/*.json)"
+      "Bash(ls /home/ymoravia/Data/learn-godot/app/content/chapters/*.json)",
+      "Bash(ls content/chapters/*.json)",
+      "Bash(curl -s http://localhost:5173/content/chapters/37-%D7%9E%D7%91%D7%95%D7%90-%D7%9C-3d-%D7%91-godot.json)",
+      "Bash(curl -s http://localhost:5173/content/chapters/01-%D7%9E%D7%91%D7%95%D7%90.json)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(ls 37-*.json)"
     ]
   }
 }

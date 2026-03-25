@@ -1,0 +1,35 @@
+{
+  "id": "45-אפקטים-ויזואליים-ב-3d",
+  "title": "אפקטים ויזואליים ב-3D",
+  "slug": "אפקטים-ויזואליים-ב-3d",
+  "order": 45,
+  "createdAt": "2026-03-25T23:17:24.000Z",
+  "updatedAt": "2026-03-25T23:17:24.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אפקטים ויזואליים ב-3D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

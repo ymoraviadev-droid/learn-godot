@@ -1,0 +1,35 @@
+{
+  "id": "50-בניית-עולם-תלת-ממדי",
+  "title": "בניית עולם תלת-ממדי",
+  "slug": "בניית-עולם-תלת-ממדי",
+  "order": 50,
+  "createdAt": "2026-03-25T23:17:24.000Z",
+  "updatedAt": "2026-03-25T23:17:24.000Z",
+  "tags": [],
+  "content": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "heading",
+        "attrs": {
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בניית עולם תלת-ממדי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "type": "text",
+            "text": "בקרוב.."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -109,7 +109,7 @@ export function MobileChapterDrawer({
                       )}
                     >
                       <Link
-                        to={`/part/${part.slug}`}
+                        to={basePath === "/edit" ? `/part/${part.slug}?mode=edit` : `/part/${part.slug}`}
                         onClick={() => {
                           window.scrollTo(0, 0);
                           if (!isPartExpanded) togglePart(part.slug);

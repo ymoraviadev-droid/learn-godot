@@ -9,8 +9,7 @@ const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
 
 export function AppHeader() {
   const location = useLocation();
-  const isReaderPage = location.pathname === "/" || location.pathname.startsWith("/chapter");
-  const isEditorMode = isDevMode && !isReaderPage;
+  const isEditorMode = location.pathname.startsWith("/edit");
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (

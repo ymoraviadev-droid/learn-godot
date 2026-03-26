@@ -121,7 +121,7 @@ export function ChapterSidebar({
                   <button
                     onClick={() => {
                       if (!isPartExpanded) togglePart(part.slug);
-                      navigate(`/part/${part.slug}`);
+                      navigate(basePath === "/edit" ? `/part/${part.slug}?mode=edit` : `/part/${part.slug}`);
                       window.scrollTo(0, 0);
                     }}
                     className="flex-1 flex items-center gap-2 px-2 py-2 min-w-0 text-right cursor-pointer"

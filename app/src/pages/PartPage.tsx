@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useSearchParams, Navigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { ChapterSidebar } from "@/components/layout/ChapterSidebar";
 import { MobileChapterDrawer } from "@/components/layout/MobileChapterDrawer";
@@ -7,10 +7,10 @@ import { getAllChapters, getPartsOverrides, savePartOverride, saveToDisk } from 
 import { PARTS, getPartBySlug, getPartNumber, groupChaptersByPart } from "@/lib/parts";
 import { cn } from "@/lib/cn";
 
-const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
-
 export function PartPage() {
   const { partSlug } = useParams();
+  const [searchParams] = useSearchParams();
+  const isEditMode = searchParams.get("mode") === "edit";
   const chapters = getAllChapters();
   const overrides = getPartsOverrides();
   const part = partSlug ? getPartBySlug(partSlug, overrides) : undefined;
@@ -18,6 +18,12 @@ export function PartPage() {
   const [editTitle, setEditTitle] = useState(part?.title ?? "");
   const [editDesc, setEditDesc] = useState(part?.description ?? "");
   const [dirty, setDirty] = useState(false);
+
+  useEffect(() => {
+    setEditTitle(part?.title ?? "");
+    setEditDesc(part?.description ?? "");
+    setDirty(false);
+  }, [partSlug]);
 
   if (!part || !partSlug) {
     return <Navigate to="/" replace />;
@@ -41,12 +47,12 @@ export function PartPage() {
 
   return (
     <div className="flex flex-1 overflow-hidden">
-      <ChapterSidebar chapters={chapters} basePath={isDevMode ? "/edit" : "/chapter"} />
+      <ChapterSidebar chapters={chapters} basePath={isEditMode ? "/edit" : "/chapter"} />
 
       <main className="flex-1 flex flex-col min-w-0">
         {/* Mobile navigation */}
         <div className="md:hidden flex items-center gap-2 px-4 py-2 border-b">
-          <MobileChapterDrawer chapters={chapters} basePath={isDevMode ? "/edit" : "/chapter"} />
+          <MobileChapterDrawer chapters={chapters} basePath={isEditMode ? "/edit" : "/chapter"} />
           <h1 className="text-sm font-medium truncate">
             חלק {partNumber}: {part.title}
           </h1>
@@ -63,7 +69,7 @@ export function PartPage() {
                 <PartIcon className={cn("h-8 w-8", part.color)} />
               </div>
 
-              {isDevMode ? (
+              {isEditMode ? (
                 <>
                   <input
                     className="text-3xl md:text-4xl font-extrabold leading-tight text-center bg-transparent border-none outline-none focus:ring-1 focus:ring-primary rounded px-2 w-full"
@@ -110,7 +116,7 @@ export function PartPage() {
                   {partChapters.map((chapter) => (
                     <Link
                       key={chapter.slug}
-                      to={`${isDevMode ? "/edit" : "/chapter"}/${chapter.slug}`}
+                      to={`${isEditMode ? "/edit" : "/chapter"}/${chapter.slug}`}
                       className="block p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-card/80 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
@@ -136,7 +142,7 @@ export function PartPage() {
             <div className="flex items-center justify-between mt-16 pt-8 border-t border-border/50">
               {prevPart ? (
                 <Link
-                  to={`/part/${prevPart.slug}`}
+                  to={`/part/${prevPart.slug}${isEditMode ? "?mode=edit" : ""}`}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <span className="block text-xs text-muted-foreground/60 mb-0.5">
@@ -150,7 +156,7 @@ export function PartPage() {
 
               {nextPart ? (
                 <Link
-                  to={`/part/${nextPart.slug}`}
+                  to={`/part/${nextPart.slug}${isEditMode ? "?mode=edit" : ""}`}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
                 >
                   <span className="block text-xs text-muted-foreground/60 mb-0.5">
@@ -167,7 +173,7 @@ export function PartPage() {
             {partChapters.length > 0 && (
               <div className="text-center mt-12">
                 <Link
-                  to={`${isDevMode ? "/edit" : "/chapter"}/${partChapters[0].slug}`}
+                  to={`${isEditMode ? "/edit" : "/chapter"}/${partChapters[0].slug}`}
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
                 >
                   <span>התחל לקרוא</span>

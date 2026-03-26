@@ -11,10 +11,16 @@ export interface Chapter {
   content: JSONContent;
 }
 
+export interface PartOverride {
+  title?: string;
+  description?: string;
+}
+
 export interface BookMeta {
   title: string;
   description: string;
   author: string;
   language: string;
   chapterOrder: string[];
+  partsOverrides?: Record<string, PartOverride>;
 }

@@ -11,6 +11,7 @@ import {
   Crosshair,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import type { Chapter } from "../types/chapter";
 
 export interface PartDef {
   slug: string;
@@ -191,7 +192,8 @@ export const PARTS: PartDef[] = [
  * Matches by order range (not sequential slicing) for robustness.
  */
 export function groupChaptersByPart(
-  chapters: { title: string; slug: string; order: number; [key: string]: unknown }[]
+  chapters: Chapter[],
+  overrides?: Record<string, { title?: string; description?: string }>
 ) {
   let startOrder = 1;
 
@@ -201,18 +203,32 @@ export function groupChaptersByPart(
       (c) => c.order >= startOrder && c.order < endOrder
     );
     startOrder = endOrder;
+    const ov = overrides?.[part.slug];
 
     return {
       ...part,
+      title: ov?.title || part.title,
+      description: ov?.description || part.description,
       partNumber: partIndex + 1,
       chapters: partChapters,
     };
   });
 }
 
-/** Find a part definition by slug */
-export function getPartBySlug(slug: string): PartDef | undefined {
-  return PARTS.find((p) => p.slug === slug);
+/** Find a part definition by slug, with optional overrides applied */
+export function getPartBySlug(
+  slug: string,
+  overrides?: Record<string, { title?: string; description?: string }>
+): PartDef | undefined {
+  const part = PARTS.find((p) => p.slug === slug);
+  if (!part) return undefined;
+  const ov = overrides?.[slug];
+  if (!ov) return part;
+  return {
+    ...part,
+    title: ov.title || part.title,
+    description: ov.description || part.description,
+  };
 }
 
 /** Get the 1-based part number for a given part slug */

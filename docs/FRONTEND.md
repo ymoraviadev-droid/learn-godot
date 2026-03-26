@@ -155,8 +155,7 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 
 - Two-level accordion: **parts** (top level) → **chapters** → **subchapter headings** (h2)
 - Part headers show icon (colored) + title + chevron toggle
-- **Reader mode**: clicking part text navigates to part page + expands accordion; clicking chevron only toggles accordion
-- **Editor mode**: clicking part text only toggles accordion (no navigation)
+- Clicking part text navigates to part page + expands accordion; clicking chevron only toggles accordion
 - Navigating to a chapter auto-expands its parent part and the chapter itself
 - Navigating to a part page auto-expands that part
 - Chapter titles and subchapter headings use `wrap-break-word` (no truncation)

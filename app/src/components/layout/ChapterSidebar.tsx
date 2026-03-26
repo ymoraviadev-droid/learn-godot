@@ -7,6 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
 import { groupChaptersByPart } from "@/lib/parts";
+import { getPartsOverrides } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
 
 interface ChapterSidebarProps {
@@ -25,12 +26,10 @@ export function ChapterSidebar({
   const { slug, partSlug } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
-  const isEditMode = basePath === "/edit";
-
   // Track which parts are expanded (by slug)
   const [expandedParts, setExpandedParts] = useState<Set<string>>(() => {
     if (partSlug) return new Set([partSlug]);
-    const parts = groupChaptersByPart(chapters);
+    const parts = groupChaptersByPart(chapters, getPartsOverrides());
     const activePart = parts.find((p) =>
       p.chapters.some((c) => c.slug === slug)
     );
@@ -47,7 +46,7 @@ export function ChapterSidebar({
   if (slug && slug !== prevSlugRef.current) {
     prevSlugRef.current = slug;
     setExpandedChapters(new Set([slug]));
-    const parts = groupChaptersByPart(chapters);
+    const parts = groupChaptersByPart(chapters, getPartsOverrides());
     const activePart = parts.find((p) =>
       p.chapters.some((c) => c.slug === slug)
     );
@@ -74,7 +73,7 @@ export function ChapterSidebar({
     });
   };
 
-  const parts = groupChaptersByPart(chapters);
+  const parts = groupChaptersByPart(chapters, getPartsOverrides());
 
   return (
     <aside className="w-72 shrink-0 border-l bg-sidebar-background hidden md:flex flex-col">
@@ -121,13 +120,9 @@ export function ChapterSidebar({
                 >
                   <button
                     onClick={() => {
-                      if (!isEditMode) {
-                        if (!isPartExpanded) togglePart(part.slug);
-                        navigate(`/part/${part.slug}`);
-                        window.scrollTo(0, 0);
-                      } else {
-                        togglePart(part.slug);
-                      }
+                      if (!isPartExpanded) togglePart(part.slug);
+                      navigate(`/part/${part.slug}`);
+                      window.scrollTo(0, 0);
                     }}
                     className="flex-1 flex items-center gap-2 px-2 py-2 min-w-0 text-right cursor-pointer"
                   >
@@ -158,7 +153,7 @@ export function ChapterSidebar({
                         chapter.slug
                       );
                       const headings = extractHeadings(
-                        (chapter as Chapter).content
+                        chapter.content
                       );
                       const hasSummary = headings.some(
                         (h) => h.text === "סיכום"
@@ -200,7 +195,7 @@ export function ChapterSidebar({
                                   <button
                                     onClick={(e) => {
                                       e.preventDefault();
-                                      onDeleteChapter((chapter as Chapter).id);
+                                      onDeleteChapter(chapter.id);
                                     }}
                                     className="p-1 rounded opacity-0 group-hover:opacity-100 hover:bg-destructive/10 hover:text-destructive transition-opacity cursor-pointer"
                                   >

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getAllChapters } from "@/lib/content";
+import { getAllChapters, getPartsOverrides } from "@/lib/content";
 import { PARTS, groupChaptersByPart } from "@/lib/parts";
 import {
   Code2,
@@ -15,7 +15,8 @@ import {
 export function LandingPage() {
   const chapters = getAllChapters();
   const firstSlug = chapters.length > 0 ? chapters[0].slug : null;
-  const grouped = groupChaptersByPart(chapters);
+  const overrides = getPartsOverrides();
+  const grouped = groupChaptersByPart(chapters, overrides);
 
   return (
     <div className="flex-1 overflow-y-auto scrollbar-thin">
@@ -134,30 +135,30 @@ export function LandingPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {PARTS.map((part, i) => {
-              const partGroup = grouped[i];
-              const hasChapters = partGroup && partGroup.chapters.length > 0;
+            {grouped.map((partGroup, i) => {
+              const hasChapters = partGroup.chapters.length > 0;
+              const PartIcon = partGroup.icon;
 
               return (
                 <div
-                  key={part.slug}
+                  key={partGroup.slug}
                   className="p-5 rounded-xl bg-card/50 border border-border/30"
                 >
                   <Link
-                    to={`/part/${part.slug}`}
+                    to={`/part/${partGroup.slug}`}
                     className="flex items-center gap-3 mb-3 group"
                   >
                     <span className="flex items-center justify-center w-7 h-7 rounded-md bg-secondary text-xs font-bold text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                       {i + 1}
                     </span>
-                    <part.icon className={`h-4 w-4 ${part.color}`} />
+                    <PartIcon className={`h-4 w-4 ${partGroup.color}`} />
                     <h3 className="font-semibold group-hover:text-primary transition-colors">
-                      {part.title}
+                      {partGroup.title}
                     </h3>
                   </Link>
 
                   <ul className="space-y-1 pr-10">
-                    {part.chapters.map((ch, chIdx) => {
+                    {PARTS[i].chapters.map((ch, chIdx) => {
                       const chapterObj =
                         hasChapters && partGroup.chapters[chIdx];
 

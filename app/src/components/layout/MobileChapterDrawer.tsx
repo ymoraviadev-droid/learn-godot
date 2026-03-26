@@ -12,6 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
 import { groupChaptersByPart } from "@/lib/parts";
+import { getPartsOverrides } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
 import { useState, useRef } from "react";
 
@@ -31,7 +32,7 @@ export function MobileChapterDrawer({
   const [open, setOpen] = useState(false);
 
   const [expandedParts, setExpandedParts] = useState<Set<string>>(() => {
-    const parts = groupChaptersByPart(chapters);
+    const parts = groupChaptersByPart(chapters, getPartsOverrides());
     const activePart = parts.find((p) =>
       p.chapters.some((c) => c.slug === slug)
     );
@@ -46,7 +47,7 @@ export function MobileChapterDrawer({
   if (slug && slug !== prevSlugRef.current) {
     prevSlugRef.current = slug;
     setExpandedChapters(new Set([slug]));
-    const parts = groupChaptersByPart(chapters);
+    const parts = groupChaptersByPart(chapters, getPartsOverrides());
     const activePart = parts.find((p) =>
       p.chapters.some((c) => c.slug === slug)
     );
@@ -73,7 +74,7 @@ export function MobileChapterDrawer({
     });
   };
 
-  const parts = groupChaptersByPart(chapters);
+  const parts = groupChaptersByPart(chapters, getPartsOverrides());
 
   return (
     <div className="md:hidden">
@@ -145,7 +146,7 @@ export function MobileChapterDrawer({
                             chapter.slug
                           );
                           const headings = extractHeadings(
-                            (chapter as Chapter).content
+                            chapter.content
                           );
                           const hasSummary = headings.some(
                             (h) => h.text === "סיכום"

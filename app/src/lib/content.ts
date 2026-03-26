@@ -64,6 +64,29 @@ export function getChapterBySlug(slug: string): Chapter | undefined {
   return chaptersCache.find((chapter) => chapter.slug === slug);
 }
 
+export function renameChapter(id: string, newTitle: string): Chapter | undefined {
+  const chapter = chaptersCache.find((c) => c.id === id);
+  if (!chapter) return undefined;
+  chapter.title = newTitle;
+  chapter.updatedAt = new Date().toISOString();
+  return chapter;
+}
+
+export function getPartsOverrides(): Record<string, { title?: string; description?: string }> {
+  return { ...(metaCache.partsOverrides || {}) };
+}
+
+export function savePartOverride(
+  partSlug: string,
+  override: { title?: string; description?: string }
+) {
+  if (!metaCache.partsOverrides) metaCache.partsOverrides = {};
+  metaCache.partsOverrides[partSlug] = {
+    ...metaCache.partsOverrides[partSlug],
+    ...override,
+  };
+}
+
 export function saveChapter(chapter: Chapter): Chapter {
   const existingIndex = chaptersCache.findIndex((c) => c.id === chapter.id);
 

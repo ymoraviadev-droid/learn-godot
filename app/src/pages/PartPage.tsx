@@ -1,17 +1,25 @@
+import { useState } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { ChapterSidebar } from "@/components/layout/ChapterSidebar";
 import { MobileChapterDrawer } from "@/components/layout/MobileChapterDrawer";
-import { getAllChapters } from "@/lib/content";
+import { getAllChapters, getPartsOverrides, savePartOverride, saveToDisk } from "@/lib/content";
 import { PARTS, getPartBySlug, getPartNumber, groupChaptersByPart } from "@/lib/parts";
 import { cn } from "@/lib/cn";
+
+const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
 
 export function PartPage() {
   const { partSlug } = useParams();
   const chapters = getAllChapters();
-  const part = partSlug ? getPartBySlug(partSlug) : undefined;
+  const overrides = getPartsOverrides();
+  const part = partSlug ? getPartBySlug(partSlug, overrides) : undefined;
 
-  if (!part) {
+  const [editTitle, setEditTitle] = useState(part?.title ?? "");
+  const [editDesc, setEditDesc] = useState(part?.description ?? "");
+  const [dirty, setDirty] = useState(false);
+
+  if (!part || !partSlug) {
     return <Navigate to="/" replace />;
   }
 
@@ -19,22 +27,26 @@ export function PartPage() {
   const partIndex = partNumber - 1;
   const PartIcon = part.icon;
 
-  // Get actual chapter objects for this part
-  const grouped = groupChaptersByPart(chapters);
+  const grouped = groupChaptersByPart(chapters, overrides);
   const partChapters = grouped[partIndex]?.chapters ?? [];
 
-  // Prev/next parts
   const prevPart = partIndex > 0 ? PARTS[partIndex - 1] : undefined;
   const nextPart = partIndex < PARTS.length - 1 ? PARTS[partIndex + 1] : undefined;
 
+  const handleSaveOverrides = async () => {
+    savePartOverride(partSlug, { title: editTitle, description: editDesc });
+    await saveToDisk();
+    setDirty(false);
+  };
+
   return (
     <div className="flex flex-1 overflow-hidden">
-      <ChapterSidebar chapters={chapters} basePath="/chapter" />
+      <ChapterSidebar chapters={chapters} basePath={isDevMode ? "/edit" : "/chapter"} />
 
       <main className="flex-1 flex flex-col min-w-0">
         {/* Mobile navigation */}
         <div className="md:hidden flex items-center gap-2 px-4 py-2 border-b">
-          <MobileChapterDrawer chapters={chapters} basePath="/chapter" />
+          <MobileChapterDrawer chapters={chapters} basePath={isDevMode ? "/edit" : "/chapter"} />
           <h1 className="text-sm font-medium truncate">
             חלק {partNumber}: {part.title}
           </h1>
@@ -51,13 +63,40 @@ export function PartPage() {
                 <PartIcon className={cn("h-8 w-8", part.color)} />
               </div>
 
-              <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
-                {part.title}
-              </h1>
-
-              <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
-                {part.description}
-              </p>
+              {isDevMode ? (
+                <>
+                  <input
+                    className="text-3xl md:text-4xl font-extrabold leading-tight text-center bg-transparent border-none outline-none focus:ring-1 focus:ring-primary rounded px-2 w-full"
+                    value={editTitle}
+                    onChange={(e) => { setEditTitle(e.target.value); setDirty(true); }}
+                    dir="rtl"
+                  />
+                  <textarea
+                    className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed bg-transparent border-none outline-none focus:ring-1 focus:ring-primary rounded px-2 w-full resize-none text-center"
+                    value={editDesc}
+                    onChange={(e) => { setEditDesc(e.target.value); setDirty(true); }}
+                    rows={4}
+                    dir="rtl"
+                  />
+                  {dirty && (
+                    <button
+                      onClick={handleSaveOverrides}
+                      className="px-4 py-1.5 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+                    >
+                      שמור שינויים
+                    </button>
+                  )}
+                </>
+              ) : (
+                <>
+                  <h1 className="text-3xl md:text-4xl font-extrabold leading-tight">
+                    {part.title}
+                  </h1>
+                  <p className="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+                    {part.description}
+                  </p>
+                </>
+              )}
             </div>
 
             {/* Chapter list */}
@@ -71,7 +110,7 @@ export function PartPage() {
                   {partChapters.map((chapter) => (
                     <Link
                       key={chapter.slug}
-                      to={`/chapter/${chapter.slug}`}
+                      to={`${isDevMode ? "/edit" : "/chapter"}/${chapter.slug}`}
                       className="block p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 hover:bg-card/80 transition-colors group"
                     >
                       <div className="flex items-center gap-3">
@@ -128,7 +167,7 @@ export function PartPage() {
             {partChapters.length > 0 && (
               <div className="text-center mt-12">
                 <Link
-                  to={`/chapter/${partChapters[0].slug}`}
+                  to={`${isDevMode ? "/edit" : "/chapter"}/${partChapters[0].slug}`}
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
                 >
                   <span>התחל לקרוא</span>

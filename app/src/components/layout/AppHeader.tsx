@@ -9,7 +9,8 @@ const isDevMode = import.meta.env.VITE_DEV_MODE === "true";
 
 export function AppHeader() {
   const location = useLocation();
-  const isEditorMode = location.pathname.startsWith("/edit");
+  const isReaderPage = location.pathname === "/" || location.pathname.startsWith("/chapter");
+  const isEditorMode = isDevMode && !isReaderPage;
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   return (
@@ -39,28 +40,27 @@ export function AppHeader() {
               </Button>
 
               <Button
-                variant={isEditorMode ? "secondary" : "ghost"}
+                variant="ghost"
                 size="sm"
                 asChild
               >
-                <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none")}>
+                <Link to="/edit" className={cn("gap-1.5", isEditorMode && "pointer-events-none bg-orange-500/20 text-orange-400")}>
                   <PenLine className="h-3.5 w-3.5" />
                   <span className="hidden sm:inline">עריכה</span>
                 </Link>
               </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                asChild
+              >
+                <Link to="/" className={cn("gap-1.5", !isEditorMode && "pointer-events-none bg-orange-500/20 text-orange-400")}>
+                  <BookOpen className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">קריאה</span>
+                </Link>
+              </Button>
             </>
           )}
-
-          <Button
-            variant={!isEditorMode ? "secondary" : "ghost"}
-            size="sm"
-            asChild
-          >
-            <Link to="/" className={cn("gap-1.5", !isEditorMode && "pointer-events-none")}>
-              <BookOpen className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">קריאה</span>
-            </Link>
-          </Button>
         </nav>
       </div>
 

@@ -21,6 +21,7 @@ import {
   saveChapter,
   createChapter,
   deleteChapter,
+  renameChapter,
   saveToDisk,
   exportAllContent,
   importContent,
@@ -200,9 +201,23 @@ export function EditorPage() {
             />
 
             {currentChapter && (
-              <h1 className="text-sm font-medium truncate">
-                {currentChapter.title}
-              </h1>
+              <input
+                className="text-sm font-medium bg-transparent border-none outline-none focus:ring-1 focus:ring-primary rounded px-1 min-w-0 max-w-75"
+                value={currentChapter.title}
+                onChange={(e) => {
+                  const newTitle = e.target.value;
+                  const updated = renameChapter(currentChapter.id, newTitle);
+                  if (updated) {
+                    setCurrentChapter({ ...updated, content: currentChapter.content });
+                    refreshChapters();
+                    if (!dirtyRef.current) {
+                      dirtyRef.current = true;
+                      updateSaveStatusUI("unsaved");
+                    }
+                  }
+                }}
+                dir="rtl"
+              />
             )}
           </div>
 

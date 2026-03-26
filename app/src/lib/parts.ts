@@ -231,6 +231,13 @@ export function getPartBySlug(
   };
 }
 
+const HEBREW_LETTERS = ["א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י", "יא", "יב"];
+
+/** Get Hebrew part label like "חלק א׳" for a 1-based part number */
+export function hebrewPartLabel(partNumber: number): string {
+  return `חלק ${HEBREW_LETTERS[partNumber - 1] ?? partNumber}׳`;
+}
+
 /** Get the 1-based part number for a given part slug */
 export function getPartNumber(slug: string): number {
   return PARTS.findIndex((p) => p.slug === slug) + 1;

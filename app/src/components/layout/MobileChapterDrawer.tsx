@@ -11,7 +11,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
-import { groupChaptersByPart } from "@/lib/parts";
+import { groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
 import { getPartsOverrides } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
 import { useState, useRef } from "react";
@@ -121,6 +121,8 @@ export function MobileChapterDrawer({
                           className={cn("h-4 w-4 shrink-0", part.color)}
                         />
                         <span className="text-right flex-1 min-w-0 wrap-break-word leading-snug">
+                          <span className="text-xs text-muted-foreground ml-1">{hebrewPartLabel(part.partNumber)}</span>
+                          <span className="text-[6px] text-muted-foreground mx-1 align-middle">●</span>
                           {part.title}
                         </span>
                       </Link>

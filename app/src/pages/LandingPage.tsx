@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { getAllChapters, getPartsOverrides } from "@/lib/content";
-import { PARTS, groupChaptersByPart } from "@/lib/parts";
+import { PARTS, groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
 import {
   Code2,
   Gamepad2,
@@ -153,6 +153,8 @@ export function LandingPage() {
                     </span>
                     <PartIcon className={`h-4 w-4 ${partGroup.color}`} />
                     <h3 className="font-semibold group-hover:text-primary transition-colors">
+                      <span className="text-xs text-muted-foreground ml-1">{hebrewPartLabel(i + 1)}</span>
+                      <span className="text-[6px] text-muted-foreground mx-1 align-middle">●</span>
                       {partGroup.title}
                     </h3>
                   </Link>

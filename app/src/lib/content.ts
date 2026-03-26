@@ -213,6 +213,18 @@ export function importContent(jsonString: string) {
   if (data.chapters) chaptersCache = [...data.chapters];
 }
 
+/** Check if a chapter is a "coming soon" placeholder */
+export function isComingSoon(chapter: Chapter): boolean {
+  const nodes = chapter.content?.content;
+  if (!nodes) return false;
+  const textNodes = nodes.filter((n) => n.type !== "heading" || n.attrs?.level !== 1);
+  if (textNodes.length !== 1) return false;
+  const node = textNodes[0];
+  if (node.type !== "paragraph") return false;
+  const text = node.content?.[0]?.text?.trim();
+  return text?.startsWith("בקרוב") ?? false;
+}
+
 /** Save all content to disk via API */
 export async function saveToDisk(): Promise<boolean> {
   try {

@@ -7,7 +7,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
 import { groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
-import { getPartsOverrides } from "@/lib/content";
+import { getPartsOverrides, isComingSoon } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
 
 interface ChapterSidebarProps {
@@ -76,7 +76,7 @@ export function ChapterSidebar({
   const parts = groupChaptersByPart(chapters, getPartsOverrides());
 
   return (
-    <aside className="w-72 shrink-0 border-l bg-sidebar-background hidden md:flex flex-col">
+    <aside className="w-88 shrink-0 border-l bg-sidebar-background hidden md:flex flex-col">
       <div className="flex items-center justify-between p-3 border-b">
         <h2 className="text-sm font-semibold text-sidebar-foreground">תוכן עניינים</h2>
         {onCreateChapter && (
@@ -151,10 +151,11 @@ export function ChapterSidebar({
                   <div className="mr-3 pr-2 border-r border-sidebar-accent/40 space-y-0.5 py-0.5">
                     {part.chapters.map((chapter) => {
                       const isActive = chapter.slug === slug;
+                      const comingSoon = isComingSoon(chapter);
                       const isChapterExpanded = expandedChapters.has(
                         chapter.slug
                       );
-                      const headings = extractHeadings(
+                      const headings = comingSoon ? [] : extractHeadings(
                         chapter.content
                       );
                       const hasSummary = headings.some(
@@ -163,7 +164,7 @@ export function ChapterSidebar({
                       const hasQuiz = headings.some((h) =>
                         h.text.startsWith("שאלון")
                       );
-                      const allHeadings = [
+                      const allHeadings = comingSoon ? [] : [
                         ...headings,
                         ...(!hasSummary
                           ? [{ id: "סיכום", text: "סיכום", level: 2 }]
@@ -221,6 +222,7 @@ export function ChapterSidebar({
                                   {chapter.order}.
                                 </span>
                                 {chapter.title}
+                                {comingSoon && <span className="text-xs text-muted-foreground mr-1">(בקרוב)</span>}
                               </Link>
 
                               {hasHeadings && (

@@ -12,7 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/cn";
 import { extractHeadings } from "@/lib/headings";
 import { groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
-import { getPartsOverrides } from "@/lib/content";
+import { getPartsOverrides, isComingSoon } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
 import { useState, useRef } from "react";
 
@@ -144,10 +144,11 @@ export function MobileChapterDrawer({
                       <div className="mr-4 pr-3 border-r border-accent/40 space-y-0.5 py-0.5">
                         {part.chapters.map((chapter) => {
                           const isActive = chapter.slug === slug;
+                          const comingSoon = isComingSoon(chapter);
                           const isChapterExpanded = expandedChapters.has(
                             chapter.slug
                           );
-                          const headings = extractHeadings(
+                          const headings = comingSoon ? [] : extractHeadings(
                             chapter.content
                           );
                           const hasSummary = headings.some(
@@ -156,7 +157,7 @@ export function MobileChapterDrawer({
                           const hasQuiz = headings.some((h) =>
                             h.text.startsWith("שאלון")
                           );
-                          const allHeadings = [
+                          const allHeadings = comingSoon ? [] : [
                             ...headings,
                             ...(!hasSummary
                               ? [{ id: "סיכום", text: "סיכום", level: 2 }]
@@ -195,6 +196,7 @@ export function MobileChapterDrawer({
                                     {chapter.order}.
                                   </span>
                                   {chapter.title}
+                                  {comingSoon && <span className="text-xs text-muted-foreground mr-1">(בקרוב)</span>}
                                 </Link>
 
                                 {hasHeadings && (

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { getAllChapters, getPartsOverrides } from "@/lib/content";
+import { getAllChapters, getPartsOverrides, isComingSoon } from "@/lib/content";
 import { PARTS, groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
 import {
   Code2,
@@ -164,6 +164,8 @@ export function LandingPage() {
                       const chapterObj =
                         hasChapters && partGroup.chapters[chIdx];
 
+                      const comingSoon = chapterObj && isComingSoon(chapterObj);
+
                       return chapterObj ? (
                         <li key={ch}>
                           <Link
@@ -171,6 +173,7 @@ export function LandingPage() {
                             className="text-sm text-muted-foreground hover:text-primary transition-colors"
                           >
                             {ch}
+                            {comingSoon && <span className="text-muted-foreground/50 mr-1">(בקרוב)</span>}
                           </Link>
                         </li>
                       ) : (

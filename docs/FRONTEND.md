@@ -131,9 +131,19 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 
 - 12 parts defined with slug, title, Hebrew description, icon (Lucide), and color
 - `groupChaptersByPart()` maps flat chapter list into part groups by order range
-- `getPartBySlug()`, `getPartNumber()` helpers
+- `getPartBySlug()`, `getPartNumber()`, `hebrewPartLabel()` helpers
+- `hebrewPartLabel()` returns Hebrew part labels like "חלק א׳", "חלק ב׳", etc.
 - Parts are display-only grouping — not stored in `meta.json`, derived from chapter order
 - Each part has a dedicated page at `/part/:partSlug` (PartPage.tsx)
+- Part headers display Hebrew label + dot separator + title (e.g., "חלק א׳ ● צעדים ראשונים")
+
+## App Header
+
+- Logo + title link to landing page
+- In dev mode (`VITE_DEV_MODE=true`): shows gallery, עריכה (edit), and קריאה (read) buttons
+- In production: no navigation buttons shown
+- Active mode button highlighted with orange tint (`bg-orange-500/20 text-orange-400`)
+- Edit mode detected by `/edit` route prefix
 
 ## Reader Mode
 
@@ -154,19 +164,29 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 ## Sidebar Behavior
 
 - Two-level accordion: **parts** (top level) → **chapters** → **subchapter headings** (h2)
-- Part headers show icon (colored) + title + chevron toggle
+- Part headers show Hebrew label (חלק א׳) + dot separator + icon (colored) + title + chevron toggle
 - Clicking part text navigates to part page + expands accordion; clicking chevron only toggles accordion
+- In edit mode, part links include `?mode=edit` query param to preserve edit context
 - Navigating to a chapter auto-expands its parent part and the chapter itself
 - Navigating to a part page auto-expands that part
 - Chapter titles and subchapter headings use `wrap-break-word` (no truncation)
 - Uses ref-based state sync (not useEffect) to avoid React Router flushSync conflicts
+- Sidebar width: `w-88` (22rem)
+
+### Coming Soon Chapters
+
+- Chapters whose only content (besides the h1 title) is a paragraph starting with "בקרוב" are detected as placeholders via `isComingSoon()` in `lib/content.ts`
+- These chapters show "(בקרוב)" label next to the title in sidebar, mobile drawer, and landing page
+- Subchapter deep links (headings, סיכום, שאלון ידע) are hidden for coming-soon chapters
+- Detection is automatic — no manual flagging needed; replacing the placeholder with real content switches to normal display
 
 ## Routing
 
-| Route                | Mode    | Description              |
-|----------------------|---------|--------------------------|
-| `/`                  | Landing | Landing page with TOC    |
-| `/part/:partSlug`    | Reader  | Part description page    |
-| `/chapter/:slug`     | Reader  | Read a chapter           |
-| `/edit`              | Editor  | Chapter list + editor    |
-| `/edit/:slug`        | Editor  | Edit a specific chapter  |
+| Route                       | Mode    | Description                               |
+|-----------------------------|---------|-------------------------------------------|
+| `/`                         | Landing | Landing page with TOC                     |
+| `/part/:partSlug`           | Reader  | Part description page                     |
+| `/part/:partSlug?mode=edit` | Editor  | Part page with editable title/description |
+| `/chapter/:slug`            | Reader  | Read a chapter                            |
+| `/edit`                     | Editor  | Chapter list + editor                     |
+| `/edit/:slug`               | Editor  | Edit a specific chapter                   |

@@ -43,6 +43,9 @@ No backend server. Content is stored as JSON files in the repository.
 - Links to each chapter in the part
 - Previous/next part navigation
 - "Start reading" CTA
+- Shared route between reader and editor — mode passed via `?mode=edit` query param
+- In edit mode: title and description are editable inline, chapter links go to `/edit/...`
+- In reader mode: static display, chapter links go to `/chapter/...`
 
 ### Reader Mode (`/chapter/:slug`)
 

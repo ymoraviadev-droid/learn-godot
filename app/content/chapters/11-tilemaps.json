@@ -4,7 +4,7 @@
   "slug": "tilemaps",
   "order": 11,
   "createdAt": "2026-03-25T21:56:50.459Z",
-  "updatedAt": "2026-03-27T16:20:33.305Z",
+  "updatedAt": "2026-03-27T18:04:19.168Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -2115,7 +2115,7 @@
           },
           {
             "type": "text",
-            "text": ", מפני שיש לי ב-"
+            "text": ", זה רק לצורך התמונה וההדגמה, גודל האריחים המדוייק ל-"
           },
           {
             "type": "text",
@@ -2128,7 +2128,33 @@
           },
           {
             "type": "text",
-            "text": " הזה גדלים וצורות שונים לאלמנטים וברצוני להשיג דיוק מירבי בבחירה."
+            "text": " זה הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "128"
+          },
+          {
+            "type": "text",
+            "text": "×"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "128"
+          },
+          {
+            "type": "text",
+            "text": " (כפי שתראו בתירגול בהמשך)."
           },
           {
             "type": "hardBreak"
@@ -2800,7 +2826,7 @@
         "content": [
           {
             "type": "text",
-            "text": "חלק גדול מה-"
+            "text": "חלק מה-"
           },
           {
             "type": "text",
@@ -2839,7 +2865,20 @@
           },
           {
             "type": "text",
-            "text": "(מצב לא תקין שנקרא דימום/"
+            "text": "(מצב לא תקין שנקרא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דימום"
+          },
+          {
+            "type": "text",
+            "text": "/"
           },
           {
             "type": "text",
@@ -4146,13 +4185,7 @@
           },
           {
             "type": "text",
-            "text": " שבחרתי זה שאין לו ריווחים והפרדות, השתמשתי בחלוקת אריחים של 32×32 למטרת הדגמות - אבל בקלות הייתי יכול לחלק לפי 64×64 והכל היה עדיין מסתדר לתמונה הזאת - ואפילו נוח יותר לעבודה."
-          },
-          {
-            "type": "hardBreak"
-          },
-          {
-            "type": "hardBreak"
+            "text": " שבחרתי זה שאין לו ריווחים והפרדות, השתמשתי בחלוקת אריחים של  "
           },
           {
             "type": "text",
@@ -4161,11 +4194,11 @@
                 "type": "bold"
               }
             ],
-            "text": "צעד ראשון"
+            "text": "128×128"
           },
           {
             "type": "text",
-            "text": ": "
+            "text": " על מנת שהכל יסתדר ב-"
           },
           {
             "type": "text",
@@ -4174,14 +4207,706 @@
                 "type": "bold"
               }
             ],
-            "text": "צרו TileMapLayer ומשאב TileSet"
+            "text": "Grid"
           },
           {
             "type": "text",
-            "text": "."
+            "text": " באופן מדוייק על האריחים ללא ריווחים והפרדות:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/real_tileset.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד ראשון"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צרו TileMapLayer ומשאב TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "הוסיפו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לסצנה. ב-Inspector, ביחרו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "New TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " והגדירו את הגודל ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "128"
+                  },
+                  {
+                    "type": "text",
+                    "text": "×"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "128"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (אם השתמשתם באותו ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כמוני, אחרת - בהתאם ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שבחרתם, לעיתים קרובות מדובר בתהליך ניסוי וטעייה - אלא אם לחבילה שבהם השתמשתם יש דוקיומנטציה אינפורמטיבית שתגיד לכם מה גודל האריחים הנכון)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tileset_new.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד שני"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הגדירו את משאב ה-Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "בעורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (פאנל תחתון, חייבים לבחור קודם את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שיצרתם מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על מנת שלשונית פאנל זו תופיע בפאנל התחתון), ליחצו על כפתור ה-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” על מנת להוסיף "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". ביחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SpriteSheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שברצונכם להשתמש בו, ליחצו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "YES"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בדיאלוג ששואל אם לסמן אריחים באופן אוטומטי."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/real_tileset.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
           },
           {
-            "type": "hardBreak"
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד שלישי"
+                  },
+                  {
+                    "type": "text",
+                    "text": ":  "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בידקו את התוצאה ותדייקו במידת הצורך."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "המנוע "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יסמן אריחים שיזהה כפיעילים באופן אוטומטי. במידה ופיספס או טעה בזיהוי של אריח -  לחיצה ימנית על התא תאפשר לנו להוסיף\\להסיר תא."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד רביעי"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יצירת Alternative Tiles במידת הצורך."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "לחיצה ימנית על אריח תאפשר לנו להוסיף אותו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Alternative Tiles"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ואז לבצע בו שינויים."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/alternative_tiles.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צעד חמישי"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שימרו את ה-TileSet כמשאב לשימוש חוזר."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "גשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ליחצו על החץ של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ביחרו ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "…Save As"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” על מנת לשמור את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לשימוש חוזר ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וסצנות אחרים (מומלץ ליצור תיקיית "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Resources"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שבתוכה תיקיית "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileSets"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). אם תדלגו על צעד זה - משאב זה יהיה ייחודי לסצנה זו בלבד ולא יהיה ניתן לשתף אותו לסצנות/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחרים, ותצטרכו ליצור משאב זה מחדש עבור כל סצנה או "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחרים."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/tileset_save.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זהו. ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " שלנו מוכן, כעת נלמד איך ניתן “לצייר” (לעצב שלב) איתו.  "
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "11.3 ציור אריחים (Tiles) בעורך"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בשלב זה, כבר יש לנו משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " מוכן."
           }
         ]
       }

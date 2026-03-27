@@ -4,7 +4,7 @@
   "slug": "tilemaps",
   "order": 11,
   "createdAt": "2026-03-25T21:56:50.459Z",
-  "updatedAt": "2026-03-26T21:01:57.118Z",
+  "updatedAt": "2026-03-27T16:20:33.305Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -26,7 +26,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/content/images/tilemap_grid_balanced.svg",
+          "src": "/content/images/tileset_added.png",
           "alt": null,
           "title": null,
           "width": null,
@@ -858,9 +858,6 @@
               },
               {
                 "type": "bold"
-              },
-              {
-                "type": "strike"
               }
             ],
             "text": "Deprecated"
@@ -905,6 +902,16 @@
         ]
       },
       {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tilemap_deprecated.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
@@ -927,9 +934,6 @@
               },
               {
                 "type": "bold"
-              },
-              {
-                "type": "strike"
               }
             ],
             "text": "Deprecated"
@@ -1222,11 +1226,2964 @@
         ]
       },
       {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עיצוב השלב שלכם בנוי בתצורת רשת (Grid)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - פלטפורמרים, מבוכים ועוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יש לכם אלמנטים/אריחים שחוזרים על עצמם"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - למנוע 100 מופעים של אריח רצפה בשלב אחד למשל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אנחנו רוצים לעצב את השלב בצורה וויזואלית"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - הרבה יותר קל לעצב שלב דרך העורך מאשר למקם Nodes אחד-אחד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יש לנו צורך ברינדור יעיל"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - קריאה אחת לציור שכבה על גבי המסך במקום קריאה עבור כל ספרייט."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites"
+          },
+          {
+            "type": "text",
+            "text": " אינדבדואליים הם הבחירה הנכונה כאשר:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "האובייקטים לא מסתדרים בתצורת רשת"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - עצים שמפוזרים בצורה רנדומלית ולא שווה במיקומים שונים, אבנים מפוזרות, וכדומה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל מופע הוא ייחודי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אלמנט מיוחד כלשהוא מסוג ספציפי שלא מסתדר ב-Grid הרגיל, למשל לפיד בוער שמגיב לשחקן, ארגז מתפרק עם כח-חיים משלו ועוד. "
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "משחקים רבים משתמשים בשתי השיטות, כל מקרה דורש את הפתרון הטוב ביותר עבורו."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "11.2 יצירת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileSet"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "משאב"
+          },
+          {
+            "type": "text",
+            "text": " - הוא מתקיים באופן עצמאי בלי קשר לסצנות (ניתן להשתמש בו בכולן) וניתן לשתף אותו לכמה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " שנרצה. לפני שנמקם אפילו אריח אחד - נצטרך קודם כל ליצור את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Pallete"
+          },
+          {
+            "type": "text",
+            "text": ": נטען את התמונה הגדולה, נגדיר את גבולות האריחים, ואם נרצה אז גם נצמיד פיזיקה, אנימציות, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "metadata"
+          },
+          {
+            "type": "text",
+            "text": " ועוד. "
+          }
+        ]
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סדר הפעולות ליצירת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " חדש"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": " צרו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", גשו למאפיין “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tile Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”. ליחצו עליו, בחרו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "New TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "משאב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חדש וריק נוצר ונוסף ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Layer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (לשכבה), ויפתח לכם בפאנל התחתון עורך ה-TileSet:"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/tileset_editor.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " תוכלו להגדיר מראש את גודל האריחים (זה משתנה ותלוי ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שהשתמשתם בו)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSetAtlasSource - ייבוא תמונה (Sprite)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זאת הדרך הנפוצה ביותר להוסיף אריחים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tiles"
+          },
+          {
+            "type": "text",
+            "text": "). משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Atlas"
+          },
+          {
+            "type": "text",
+            "text": " לוקח תמונה ומחלק אותה לרשת של אריחים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid Of Tiles"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "צעדים"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בעורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tileset"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (פאנל תחתון) - לחצו על כפתור ה-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” ובחרו ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לאחר הטעינה, תוצג לכם שאלה האם ברצונכם ליצור את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tiles"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באופן אוטומטי, לרוב המקרים זה מה שתרצו, אשרו זאת."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/new_atlas.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יחלק את הטקסטורה לרשת מבוססת אריחים, כל תא הוא אריח ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tile"
+                  },
+                  {
+                    "type": "text",
+                    "text": "):"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tileset_added.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שימו לב שיתן לשנות את גודל האריחים, אך מומלץ לעשות זאת לפני טעינת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": ". בתמונה שלעיל קבעתי את האריחים לפי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "32"
+          },
+          {
+            "type": "text",
+            "text": "×"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "32"
+          },
+          {
+            "type": "text",
+            "text": ", מפני שיש לי ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheet"
+          },
+          {
+            "type": "text",
+            "text": " הזה גדלים וצורות שונים לאלמנטים וברצוני להשיג דיוק מירבי בבחירה."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "תאים ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " זיהה כ-”מאוכלסים” בהירים יותר ומסומנים במסגרת בצבע כתום, מה שלא נבחר\\לא פעיל - יהיה כהה יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מאפייני משאב Atlas"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מאפיין"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הסבר"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Texture"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גודל ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Spritesheet"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (התמונה הגדולה)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Texture Region Size"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הגודל של כל אריח ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Atlas"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - באופן דיפולטיבי זה יהיה לפי ההגדרה של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Tileset"
+                      },
+                      {
+                        "type": "text",
+                        "text": ", ניתו לדרוס במידת הצורך כמובן."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Margins"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ריווח לתמונה הגדולה. מספר פיקסלים ש”ידחפו” למשל את התמונה הגדולה מלמעלה ומשמאל."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Separation"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ריווח בין אריחים, לעתים נצטרך להשתמש בגלל ריווח שמקורו ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Spritesheet"
+                      },
+                      {
+                        "type": "text",
+                        "text": " שבו השתמשנו ונרצה שיהיה תואם."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Use Texture Padding"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מוסיף ריווח פנימי לאריחים בזמן ריצה למנוע חפיפות. השאירו כבוי אלא אם באמת תצטרכו להשתמש בזה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת תוכלו ל”צייר/למקם” אריחים. בחרו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tilemap"
+          },
+          {
+            "type": "text",
+            "text": " (ניכנס לעומק בהמשך הפרק) בפאנל התחתון, בחרו בקליק בודד (או לחיצה עם גרירה במידה ותרצו לבחור יותר מאריח אחד) ומקמו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " היכן שתרצו:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/atlas_tiles.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עורך ה-Tileset (פאנל תחתון) - לשונית Select"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בעורך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tileset"
+          },
+          {
+            "type": "text",
+            "text": " (פאנל תחתון), מלבד ההגדרות הבסיסיות שבהן כבר נגענו, ניתן גם לבצע כאן מספר דברים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לחיצה על אריח"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - תבחר אותו ותיתן לנו לשנות לו הגדרות (התנגשויות, אנימציות, ועוד)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לחיצה וגרירה על גבי מספר תאים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - תיצור לנו אריח רב תאים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לחיצה ימנית עם העכבר על אריח"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - תציג לנו אפשרויות אריח נוספות (למשל: מחיקה)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tileset_select.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפול ב-Spritesheet עם ריווחים והפרדות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חלק גדול מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheets"
+          },
+          {
+            "type": "text",
+            "text": " שתורידו ותתיקלו בהם ברשת יהיו מעוצבים בצורה שיש להם ריווחים (אזורים ריקים מסביב לקצוות) והפרדות (רווחים בין אריחים). אם לא נטפל בזה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יחתוך את האריחים במקומות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הלא נכונים "
+          },
+          {
+            "type": "text",
+            "text": "(מצב לא תקין שנקרא דימום/"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Bleeding"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tilemap_separation_bleeding_v2.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "margin"
+          },
+          {
+            "type": "text",
+            "text": " וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "seperation"
+          },
+          {
+            "type": "text",
+            "text": " כמו שצריך בהתאם ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheet"
+          },
+          {
+            "type": "text",
+            "text": " שלכם עד שהאריחים “יתיישבו בול” ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSetScenesCollectionSource - אריחי סצנה / Scene Tiles"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לא כל אריח הוא Sprite פשוט. לפעמים אריח צריך להכיל סצנה שלמה - למשל לפיד בוער עם אנימציה ואפקט חלקיקים."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSetScenesCollectionSource"
+          },
+          {
+            "type": "text",
+            "text": " מאפשר לנו להוסיף סצנות של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " (קבצי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "tscn."
+          },
+          {
+            "type": "text",
+            "text": ") בתור אריחים, וכאשר תרצו להוסיף כאלו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " - מנוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מייצר מופע של הסצנה במיקום התא המבוקש."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי נעדיף שימוש ב-Scene Tiles"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "האריח צריך עץ משלו (חלקיקים, תאורה, וכו’)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "האריח צריך סקריפט עם התנהגות מותאמת אישית."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לאריח יש לוגית התנגשות מורכבת, או שיש לנו צורך שיהיו לו ילדים מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלוגיקת הפיזיקה שלהם דורשת יותר ממה שיש לשכבת הפיזיקה של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " להציע."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתי לא נרצה להשתמש ב-Scene Tiles"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprites"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פשוטים/סטטיים - למקרים כאלו השימוש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עדיף. אריחי סצנה הם כבדים יותר לעיבוד משום שכל אריח כזה שנמקם ייצר מופע שלם הסצנה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אריחים שלוגיקת ההתנגשות ו/או האנימציה שלהם לא מורכבת - עורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מכיל את כל מה שצריך על מנת לאפשר לנו את זה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "hardBreak",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הצעדים להוספת Scene Tile"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בעורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tileset"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (פאנל תחתון) - לחצו על כפתור ה-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” ובחרו ב-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Scenes Collection"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על כפתור ה-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” ברשימת הסצנות מימין על מנת להוסיף סצנה, וביחרו את הסצנה שברצונכם להוסיף."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כעת תוכלו ל”צייר/למקם” את האריח. בחרו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tilemap"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (ניכנס לעומק בהמשך הפרק) בפאנל התחתון, לחצו על אריח הסצנה ומקמו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " היכן שתרצו:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/scene_tiles.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alternative Tiles"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעיתים נרצה אריח שחולק מקור ובסיס משותף עם אריח אחר, אך נראה קצת שונה, למשל: אריח מסוים שסיבבנו או הפכנו, קיר עם גוון קצת שונה מהרגיל, צורת התנגשות (Collision Shape) שונה, ועוד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כלומר ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alternative Tiles"
+          },
+          {
+            "type": "text",
+            "text": " הם סוגי מבחר ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Variants"
+          },
+          {
+            "type": "text",
+            "text": ") של אריחים קיימים. הם חולקים את אותו אזור הטקסטורה המקורי אך דורסים מפיינים מסוימים כמו במקרים המוזכרים לעיל."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יצירת Alternative Tile"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בעורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tileset"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ביחרו באריח ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו עליו לחיצה ימנית עם העכבר, בתפריט הנפתח ביחרו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Create an Alternative Tile"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוא יופיע ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מתחת ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Alternative Tiles"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ביחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Alternative Tile"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", תוכלו לדרוס את ההגדרות שלו בתפריט המוקדש לכך בצד שמאל:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/alternative_tiles.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימושים נפוצים"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "היפוך אנכי/אופקי "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- של אריח מסויים לעומת המקור."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "נתינת גוון "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- בנוסף לצבעים המקוריים, נוכל לגרום לקיר אחד להיות אדום יותר למשל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לוגיקת התנגשות שונה "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- למשל: הפלטפורמה המקורית רגילה, והאלטרנטיבית מוגדרת כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Side"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Alternative Tiles"
+          },
+          {
+            "type": "text",
+            "text": " משתמשות באותו האריח המקורי ששמור בזיכרון - ושומרות רק את השינויים, ולכן הן קלות יותר לעיבוד מאשר מספר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר אנו מוסיפים אותן דרך הקוד, יש להעביר גם מזהה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "alternativeTileId"
+          },
+          {
+            "type": "text",
+            "text": ") בנוסף לקוארדינטות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Place the base tile\ntileMapLayer.SetCell(new Vector2I(5, 3), sourceId: 0, atlasCoords: new Vector2I(2, 1));\n\n// Place alternative tile 1 of the same base tile\ntileMapLayer.SetCell(new Vector2I(6, 3), sourceId: 0, atlasCoords: new Vector2I(2, 1), alternativeTile: 1);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תירגול: סדר פעולות פרקטי לייבוא TileSet למשחק פלטפורמר"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת לסכם את הכל, אציג לכם דוגמא. הורידו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SpriteSheet"
+          },
+          {
+            "type": "text",
+            "text": " מהאינטרנט עבור ההדגמה במידה ותרצו להתנסות בעצמכם (מומלץ). לצורך פרק זה השתמשתי בחבילה “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://kenney.nl/assets/platformer-pack-redux",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Platformer Pack Redux"
+          },
+          {
+            "type": "text",
+            "text": "“ של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://kenney.nl/",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "kenney"
+          },
+          {
+            "type": "text",
+            "text": ". מדובר ביוצר שמשחרר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets Packs"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חינמיים אך ברמה גבוהה"
+          },
+          {
+            "type": "text",
+            "text": ", מותר להשתמש בחבילות של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Kenney"
+          },
+          {
+            "type": "text",
+            "text": " ללא הגבלה (גם למטרות מסחריות, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "רשיון"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "CC0"
+          },
+          {
+            "type": "text",
+            "text": "), וכמובן שכולנו אוהבים חינם - במיוחד כשאנחנו משתמשים בחבילות למטרת למידה, אך אם אתם מעריכים את האומנות של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Kenney"
+          },
+          {
+            "type": "text",
+            "text": " או שברצונכם להשתמש בה למשחק אמיתי, אנא שיקלו לתמוך בעשייה המדהימה שלו על ידי תרומה\\תשלום עבור חבילות שאתם משתמשים בהן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בחבילה זו קיימת תיקייה בשם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SpriteSheets"
+          },
+          {
+            "type": "text",
+            "text": ", בחרתי את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "spritesheet_ground.png"
+          },
+          {
+            "type": "text",
+            "text": ". אתם יכולים כמובן לבחור כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheet"
+          },
+          {
+            "type": "text",
+            "text": " אחר, של כל יוצר אחר, מה שטוב לתירגול הזה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheet"
+          },
+          {
+            "type": "text",
+            "text": " שבחרתי זה שאין לו ריווחים והפרדות, השתמשתי בחלוקת אריחים של 32×32 למטרת הדגמות - אבל בקלות הייתי יכול לחלק לפי 64×64 והכל היה עדיין מסתדר לתמונה הזאת - ואפילו נוח יותר לעבודה."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "צעד ראשון"
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "צרו TileMapLayer ומשאב TileSet"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
       }
     ]
   }

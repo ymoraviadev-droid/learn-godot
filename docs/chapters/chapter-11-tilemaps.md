@@ -785,18 +785,6 @@ public partial class Player : CharacterBody2D
 
 ---
 
-### Summary
-
-- Tiles are visual by default. Add a **physics layer to the TileSet** to make them participate in physics.
-- The physics layer's **Collision Layer and Mask** follow the same rules as any `StaticBody2D` — they connect directly to the layer system from Chapter 10.
-- Use **multiple physics layers** on one TileSet to separate solid ground (World layer) from hazards (Hazards layer) from detection zones (Water layer).
-- Draw collision shapes on individual tiles in the TileSet editor. Use the **full-tile rectangle shortcut** for solid tiles, custom polygons for slopes and odd shapes. Draw only as many vertices as the gameplay needs.
-- Enable **One Way** on a tile's collision shape to create jump-through platforms. Combine with the layer-mask drop-through technique from Chapter 10.
-- Tile collision is efficient because shapes are **defined once and reused**, and the physics engine only activates geometry near active bodies. Large tilemaps are not a performance concern in practice.
-- Use `LocalToMap()` and `GetCellTileData()` to identify which tile the player is standing on, then read custom data for surface-specific behavior (footstep audio, movement modifiers, damage).
-
----
-
 ## 11.6 Multiple Tile Layers
 
 Section 11.1 mentioned that a typical level has several `TileMapLayer` nodes stacked in the scene tree. Now let's look at why, how to organize them, and the practical details that matter when you go from one layer to several.
@@ -1370,7 +1358,7 @@ Custom data layers are defined on the TileSet and values are stored per tile def
 - **TileSet sources define your tiles.** Atlas sources slice a sprite sheet into a grid of tiles. Scene sources embed full scenes as tiles. Alternative tiles create lightweight variants (flipped, rotated, tinted) without duplicating texture data.
 - **The editor's painting tools** — Paint, Eraser, Rectangle, Line, Bucket Fill — let you build levels quickly. Use Ctrl+Click to eyedrop, X/Y/Z to flip and rotate, and Patterns to stamp pre-built structures.
 - **Terrain auto-tiling** eliminates manual tile selection. Define terrain sets with peering bits, and Godot picks the correct edge, corner, and fill variants as you paint. Use `SetCellsTerrainConnect()` for the same behavior in code.
-- **Tile collision** is configured on the TileSet resource, not per placed cell. Add physics layers, draw collision shapes on individual tiles, and use collision layers/masks from the same system as Chapter 10. One-way collision on tiles creates jump-through platforms.
+- **Tile collision** is configured on the TileSet resource, not per placed cell. Add physics layers, draw collision shapes on individual tiles (full-tile rectangle shortcut for solid tiles, custom polygons for slopes), and use collision layers/masks from the same system as Chapter 10. Use **multiple physics layers** on one TileSet to separate solid ground from hazards from detection zones. Enable **One Way** on a tile's collision shape for jump-through platforms. Collision is efficient — shapes are defined once and reused, and the physics engine only activates geometry near active bodies.
 - **Multiple TileMapLayer nodes** create depth — background behind the player, terrain the player walks on, foreground in front. Share one TileSet across all layers. Only the terrain layer needs collision. Control render order with scene tree position or Z-index.
 - **Procedural tile placement** uses `SetCell()` and `EraseCell()` to manipulate the grid at runtime. Convert between world and grid coordinates with `LocalToMap()` and `MapToLocal()`. Read tile metadata with `GetCellTileData()` and custom data layers. This powers cave generation, breakable blocks, building systems, and any runtime level manipulation.
 

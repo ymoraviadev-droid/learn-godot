@@ -259,9 +259,10 @@ You have a TileSet with tiles defined. Now you paint. Select a `TileMapLayer` no
 
 ### The TileMap Editor Panel
 
-The panel has two tabs:
+The panel has three tabs:
 
 - **Tiles** — shows the tile palette. Click a tile to select it, then click in the 2D viewport to place it.
+- **Terrains** — shows terrain brushes for auto-tiling. Select a terrain and paint — Godot picks the correct tile variant automatically based on neighbors. We'll cover this in depth in section 11.4.
 - **Patterns** — stores saved groups of tiles you can stamp repeatedly (useful for pre-built structures like doors or staircases).
 
 Above the palette is a toolbar with painting tools. Below, the tile atlas is displayed — click to pick a tile, then paint on the canvas.

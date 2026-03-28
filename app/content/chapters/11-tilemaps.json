@@ -4,7 +4,7 @@
   "slug": "tilemaps",
   "order": 11,
   "createdAt": "2026-03-25T21:56:50.459Z",
-  "updatedAt": "2026-03-27T18:04:19.168Z",
+  "updatedAt": "2026-03-28T17:53:08.286Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -26,7 +26,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/content/images/tileset_added.png",
+          "src": "/content/images/real_tileset.png",
           "alt": null,
           "title": null,
           "width": null,
@@ -2076,20 +2076,7 @@
         "content": [
           {
             "type": "text",
-            "text": "שימו לב שיתן לשנות את גודל האריחים, אך מומלץ לעשות זאת לפני טעינת ה-"
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "Sprite"
-          },
-          {
-            "type": "text",
-            "text": ". בתמונה שלעיל קבעתי את האריחים לפי "
+            "text": "בתמונה שלעיל קבעתי את האריחים לפי "
           },
           {
             "type": "text",
@@ -2154,14 +2141,7 @@
           },
           {
             "type": "text",
-            "text": " (כפי שתראו בתירגול בהמשך)."
-          },
-          {
-            "type": "hardBreak"
-          },
-          {
-            "type": "text",
-            "text": "תאים ש-"
+            "text": " (כפי שתראו בתירגול בהמשך). תאים ש-"
           },
           {
             "type": "text",
@@ -2175,14 +2155,109 @@
           {
             "type": "text",
             "text": " זיהה כ-”מאוכלסים” בהירים יותר ומסומנים במסגרת בצבע כתום, מה שלא נבחר\\לא פעיל - יהיה כהה יותר."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae730f",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "* ניתן לשנות את גודל האריחים, אך מומלץ לעשות זאת לפני טעינת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae730f",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae730f",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": ", דרך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae730f",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ae730f",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": ":"
           }
         ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/tileset_new.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
       },
       {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
           "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
         },
         "content": [
           {
@@ -2192,7 +2267,7 @@
                 "type": "bold"
               }
             ],
-            "text": "מאפייני משאב Atlas"
+            "text": "המאפיינים של משאב Atlas"
           },
           {
             "type": "text",
@@ -2603,11 +2678,27 @@
         "attrs": {
           "textAlign": "right",
           "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
         },
         "content": [
           {
             "type": "text",
-            "text": "כעת תוכלו ל”צייר/למקם” אריחים. בחרו ב-"
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא"
+          },
+          {
+            "type": "text",
+            "text": ": כעת תוכלו ל”צייר/למקם” אריחים. לשם הדגמה, בחרו ב-"
           },
           {
             "type": "text",
@@ -2645,6 +2736,13 @@
           "title": null,
           "width": null,
           "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
         }
       },
       {
@@ -3512,7 +3610,20 @@
         "content": [
           {
             "type": "text",
-            "text": "לעיתים נרצה אריח שחולק מקור ובסיס משותף עם אריח אחר, אך נראה קצת שונה, למשל: אריח מסוים שסיבבנו או הפכנו, קיר עם גוון קצת שונה מהרגיל, צורת התנגשות (Collision Shape) שונה, ועוד."
+            "text": "לעיתים נרצה אריח שחולק מקור ובסיס משותף עם אריח אחר, אך נראה קצת שונה, למשל: אריח מסוים שסיבבנו או הפכנו, קיר עם גוון קצת שונה מהרגיל, צורת התנגשות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Collision Shape"
+          },
+          {
+            "type": "text",
+            "text": ") שונה, ועוד."
           }
         ]
       },
@@ -4172,7 +4283,7 @@
           },
           {
             "type": "text",
-            "text": " אחר, של כל יוצר אחר, מה שטוב לתירגול הזה ב-"
+            "text": " אחר, של כל יוצר אחר. מה שטוב לתירגול הזה ב-"
           },
           {
             "type": "text",
@@ -4305,7 +4416,20 @@
                   },
                   {
                     "type": "text",
-                    "text": " לסצנה. ב-Inspector, ביחרו "
+                    "text": " לסצנה. ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ביחרו "
                   },
                   {
                     "type": "text",
@@ -4906,9 +5030,3649 @@
           },
           {
             "type": "text",
-            "text": " מוכן."
+            "text": " מוכן, וכעת ניתן “לצייר” איתו. ביחרו את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שיצרתם ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": ") וגשו לפאנל התחתון, יש בתחתית הפאנל מספר לשוניות לבחירה, ליחצו על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileMap"
+          },
+          {
+            "type": "text",
+            "text": ". כאן נבלה את רוב זמננו כאשר נעסוק בעיצוב שלב."
           }
         ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/atlas_tiles.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עורך ה-TileMap"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפאנל זה יש שלוש לשוניות עיקריות (בראש הפאנל משמאל):"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tiles"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מציגה את פלטת האריחים. ליחצו על אריח כדי לבחור אותו, ואז ליחצו על ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי למקם אותו. זו הלשונית העיקרית שבה נעבוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrains"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מציגה מברשות שטח ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain brushes"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") לציור אוטומטי. במקום לבחור אריח ספציפי, בוחרים סוג שטח (כמו דשא או אבן) ומציירים - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בוחר אוטומטית את הווריאנט המתאים (פינה, קצה, מרכז) בהתאם לשכנים. נרחיב על זה בהמשך."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Patterns"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שומרת קבוצות שמורות של אריחים שניתן להטביע שוב ושוב (שימושי למבנים שחוזרים על עצמם כמו דלתות או מדרגות)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מעל הפלטה ישנו סרגל כלים עם כלי ציור. אלו הם הכלים העיקריים"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כלי ציור"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Paint (D)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לחצו או גררו כדי למקם את האריח הנבחר. הכלי הבסיסי והשימושי ביותר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Eraser (E)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לחצו או גררו כדי למחוק אריחים מתאים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Rectangle (R)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - גררו כדי למלא אזור מלבני באריח הנבחר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Line (L)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לחצו על נקודת התחלה, גררו לנקודת סיום - זה ממלא קו ישר של אריחים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Bucket Fill (B)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ממלא אזור רציף של תאים ריקים (או תאים תואמים) באריח הנבחר."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ניתן להחליף בין כלים בעזרת קיצורי המקלדת או ע\"י לחיצה על האייקונים בסרגל הכלים. החזיקו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Shift"
+          },
+          {
+            "type": "text",
+            "text": " בזמן שימוש בכלי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Paint"
+          },
+          {
+            "type": "text",
+            "text": " כדי לצייר קו ישר אופקי או אנכי מהמיקום האחרון - שימושי לקירות ארוכים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Eyedropper — בחירת אריח מהמפה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Ctrl+Click"
+          },
+          {
+            "type": "text",
+            "text": " על ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " \"מרים\" את האריח שמתחת לסמן ההופך אותו לאריח הפעיל בפלטה. זה ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Eyedropper"
+          },
+          {
+            "type": "text",
+            "text": " - כלי חיוני כשעובדים עם פלטה גדולה ולא רוצים לגלול ולחפש את האריח הנכון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיבוב והיפוך"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כשאריח נבחר בפלטה, השתמשו בקיצורים הבאים לפני הציור:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "X"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - היפוך אופקי"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - היפוך אנכי"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Z"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - סיבוב 90° עם כיוון השעון"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Shift+Z"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - סיבוב 90° נגד כיוון השעון"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הטרנספורמציות מוחלות על כל אריח שתציירו עד שתכבו אותן. לחצו שוב על הקיצור כדי לבטל."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ציור אקראי (Scatter / Random)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ציור אותו אריח דשא על פני שדה שלם נראה שטוח וחוזר על עצמו. תכונת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Random"
+          },
+          {
+            "type": "text",
+            "text": " פותרת את זה:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בפלטת האריחים, בחרו מספר אריחים - החזיקו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ולחצו על מספר וריאנטים של דשא."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הפעילו את כפתור ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Random"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בסרגל הכלים (אייקון הקובייה)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ציירו כרגיל. כל תא יבחר אקראית אחד מהאריחים שבחרתם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לשליטה מדויקת יותר, ניתן לקבוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tile Probability"
+          },
+          {
+            "type": "text",
+            "text": " בעורך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " - ערך גבוה יותר = האריח מופיע לעיתים קרובות יותר בציור אקראי."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפים מעשיים"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עבדו בשכבות."
+                  },
+                  {
+                    "type": "text",
+                    "text": " ציירו רקע על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחד, קרקע מוצקה על שני, ופרטי חזית על שלישי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הציגו את הגריד."
+                  },
+                  {
+                    "type": "text",
+                    "text": " לחצו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "G"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי להציג/להסתיר את הרשת ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". עוזר לראות גבולות תאים בזמן ציור."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Undo נדיב."
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Z"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבטל כל משיכת ציור בנפרד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ציירו קרקע לפני עיטורים."
+                  },
+                  {
+                    "type": "text",
+                    "text": " קודם הקרקע, הקירות וגאומטריית ההתנגשויות - ואז הפרטים הויזואליים. הרבה יותר קשה לסדר מחדש אריחי מבנה כשכבר יש עיטורים סביבם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "11.4 Auto-Tiling ו-Terrain Rules"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לצייר אריחים אחד אחד באופן ידני זה משהו שיכול לעבוד - עד שאנחנו מגיעים לשלבים גדולים - ואז זה מתחיל להיות קשה ומורכב. אם נצטרך לשנות משהו בפלטפורמה שמורכבת מכמה אריחים (קצה,שטח,תחתית, וכו’), ומופיעה שוב ושוב בכל מיני אזורים בשלב - נצטרך ללכת ולשנות בכל אחת מהפלטפורמות באופן ידני."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrains"
+          },
+          {
+            "type": "text",
+            "text": " פותרים את זה. אנחנו מגדירים חוקים, למשל: “האריח הזה ימוקם באופן קבוע משמאל לאריח קרקע” - מנוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " ידע למקם את האריח הזה באופן אוטומטי כשנצייר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "החסרונות של סידור Tiles באופן ידני"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "דמיינו לכם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " פשוט של קיר מערה בעל 16 סוגי מבחר ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Variants"
+          },
+          {
+            "type": "text",
+            "text": "): פינה שמאלית עליונה, פינה שמאלית תחתונה, מרכז, וכו’. במידה שנבחר ונצייר כל פעם אריח אחד, זה יהיה:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תהליך איטי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - נצטרך לבחור בכל פעם את האריח הנכון. "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מועד לטעויות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - יהיו מקרים שבלי לשים לב מיקמנו את האריח במיקום הלא נכון / לא מדוייק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לא יציב, שברירי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שינוי של אריח בודד עלול לגרום לכל אלו שלידו להיראות פחות טוב או פחות מתאימים."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Auto-Tiling"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מצמצם את זה לסדר פעולות פשוט ונוח"
+          },
+          {
+            "type": "text",
+            "text": ": בחרו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " ותציירו. כל אריח ימוקם נכון באופן אוטומטי בהתאם לחוקי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain Sets"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "למערכת ה-Terrain יש שתי רמות ארגון:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- קבוצה של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrains"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אשר קשורים אחד לשני ו-”עובדים ביחד”. לכל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יש "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Matching"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Mode"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (שיטת התאמה) שקובע כמה אריחים לחבר. ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחד יכולים להיות כמה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Sets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (למשל אחד למשטחי קרקע, אחד לקירות, וכו’)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - סוג אחד של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בתוך סט. למשל, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יכול להכיל אריח “דשא”, אריח “אדמה” ואריח “אבן”. כל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מקבל צבע אחר בעורך למטרות ארגון (שיהיה יותר קל להבדיל ביניהם)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "TileSet",
+              "children": [
+                {
+                  "name": "Terrain Sets",
+                  "children": [
+                    {
+                      "name": "Terrain Set 0",
+                      "children": [
+                        {
+                          "name": "Terrain 0",
+                          "comment": "Grass (green)"
+                        },
+                        {
+                          "name": "Terrain 1",
+                          "comment": "Dirt (brown)"
+                        },
+                        {
+                          "name": "Terrain 2",
+                          "comment": "Stone (gray)"
+                        }
+                      ],
+                      "comment": "\"Ground\""
+                    },
+                    {
+                      "name": "Terrain Set 1",
+                      "children": [
+                        {
+                          "name": "Terrain 0",
+                          "comment": "Brick (red)"
+                        },
+                        {
+                          "name": "Terrain 1",
+                          "comment": "Cave (dark gray)"
+                        }
+                      ],
+                      "comment": "\"Walls\""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Matching Modes - שיטות התאמה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain Set"
+          },
+          {
+            "type": "text",
+            "text": " משתמש בשיטת התאמה (יש 3 שיטות). השיטה שנבחרה קובעת איזה חלק של האריח מתאים לאלה שלידו - על מנת שהמנגנון האוטומטי ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Auto-Tiler"
+          },
+          {
+            "type": "text",
+            "text": ") ידע לחשב איזה אריח מתאים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Match Corners and Sides"
+          },
+          {
+            "type": "text",
+            "text": ": השיטה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Mode"
+          },
+          {
+            "type": "text",
+            "text": ") המדוייקת ביותר. כל אריח נבדק בנפרד, ולמעשה זה נותן לנו שליטה מלאה: כל אריח יודע את מיקומו הספציפי  בסידור:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_peering_bits_fixed.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Match Sides"
+          },
+          {
+            "type": "text",
+            "text": ": נבדקים רק 4 צדדים של אריח (ללא שיקלול פינות\\אלכסונים). זה פשוט יותר להגדרה, שימושי לשבילים למשל שבהם אין לנו צורך באלכסונים:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_match_sides_fixed.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Match Corners"
+          },
+          {
+            "type": "text",
+            "text": ": בודק רק פינות/אלכסונים. פחות נפוץ בשימוש, אבל יכול להיות שימושי לעיצובים ספציפיים:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_match_corners.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "באיזה מהם עלינו להשתמש? התחילו עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Match Corners and Sides"
+          },
+          {
+            "type": "text",
+            "text": " כל עוד ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " שלכם אין שיטה אחרת שתתאים. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bits"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bits"
+          },
+          {
+            "type": "text",
+            "text": " הם המנגנון המרכזי. כל ביט על אריח אומר: \"בכיוון הזה, אני מצפה לשטח "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X"
+          },
+          {
+            "type": "text",
+            "text": ".\" כשמציירים שטח על המפה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " בודק את השכנים של כל תא ובוחר את הווריאנט שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bits"
+          },
+          {
+            "type": "text",
+            "text": " שלו תואמים לסביבה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לדוגמה, עבור ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bit"
+          },
+          {
+            "type": "text",
+            "text": " של הצד הימני של אריח קרקע:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם הוא מוגדר לשטח "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grass"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - האריח הזה מצפה לדשא מימין."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם הוא מוגדר ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "No Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (ריק / 1-) - האריח הזה מצפה לאוויר (או לשטח אחר) מימין."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אריח מילוי מרכזי ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Center Fill"
+          },
+          {
+            "type": "text",
+            "text": ") - כל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bits"
+          },
+          {
+            "type": "text",
+            "text": " שלו מוגדרים לשטח שלו עצמו, הוא מצפה לאותו שטח מכל הכיוונים. אריח קצה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Edge"
+          },
+          {
+            "type": "text",
+            "text": ") - חלק מהביטים מוגדרים לשטח שלו וחלק לריק, הוא מצפה לשטח בצד אחד ולכלום בצד השני."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "דוגמה ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Peering Bits"
+          },
+          {
+            "type": "text",
+            "text": " של אריח דשא בקצה ימני (במצב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Match Corners and Sides"
+          },
+          {
+            "type": "text",
+            "text": "):"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_peering_bits_neighbors.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תירגול: סדר השלבים להגדרת Terrains"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הוספת Terrain Set ל-TileSet."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ביחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שיצרתם ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": "), וגשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tile Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ופיתחו את תת-התפריט שלו - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sets"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", באמצעות לחיצה על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Add Element"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נוכל להוסיף "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חדש. ביחרו את שיטת ההתאמה שתרצו ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Match Corners and Sides"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יתאים לרוב המקרים, אבל לצורך הדגמה פשוטה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Match Sides"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יספיק בהחלט)."
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " הוסיפו Terrains ל-Set."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "מתחת ל-Terrain Set שייצרתם, תראו כפתור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Add Element"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חדש עבור הוספת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", הוסיפו, תנו לו את השם המתאים, למשל: “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ground"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“ וביחרו צבע אם אתה לא מרוצים מצבע הסימון. חיזרו עבור כל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נוסף שתצטרכו - אם תצטרכו (למשל: “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grass"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_set.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 3,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פיתחו את עורך ה-TileSet (פאנל תחתון) להגדרת ה-Terrain."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "ליחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Select"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לעבור למצב בחירה. כאשר תבחרו אריח, תוכלו לראות מצד שמאל את תפריט הגדרות ה-”"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrains"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” שלו."
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הצמדת Terrains לאריחים."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "לאחר שבחרתם אריח, תוכלו להגדיר לאיזה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ולאיזה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא שייך ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "0 זה העליון ביותר ברשימות, 1- משמעותו לא משוייך"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הגדירו את ה-Peering Bits."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "לאחר שבחרתם אריח ושייכתם אותו למספר ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Set"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הנכון, גשו לתת התפריט "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Peering Bits"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", גם כאן עיקרון ה-”1-” עובד אותו דבר, רק שנתינת ערך (0 ומעלה) לכל אחד מהצדדים תשייך את בדיקת הצד האמור למספר של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסויים, ותציג לנו על גבי האריח "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "UI"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מיוחד שמשקף את חוק ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שהחלנו עליו:"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/terrain_setup.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 6,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "חיזרו על שלב 5 עבור כל Variant. "
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "שימו לב לדוגמא שלמעלה, קיימים כאן 4 אריחים ששייכתי ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בשם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ground"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". האריח שמסומן כרגע הוא האריח שסימנתי כמרכז (כל הצדדים קיבלו 1-) משום שאריח זה בעל קצוות מעוגלות משני הצדדים ויראה טוב גם לבד בתור אריח בודד. אריח הקצה השמאלי “בודק” מה נמצא בצידו הימני (הוא קצה שמאלי, לא חשוב לנו לדעת מה יבוא משמאלו לשם התאמה), כלומר של-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Right Side"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלו נתתי את הערך 0 (כי 0 זה כמו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "On"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). אריח הקצה הימני מתנהג בדיוק כמו השמאלי רק הפוך. והאריח הרביעי שהוא גרסאת אמצע למצב של אריח לא בודד - היא לא מעוגלת באף אחת מהפינות, היא צריכה “לבדוק” את שני הצדדים כדי לדעת אם היא מתאימה, כלומר של-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Right Side"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ול-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Left Side"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שלו נתתי את הערך 0 (כי 0 זה כמו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "On"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). "
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "זה באמת נשמע “טריקי” ומורכב, אבל אחרי פעם או פעמיים שתעשו זאת ההבנה תגיע, ותהנו מכלי עוצמתי לתכנון שלב - שקצת “קשה” להגדיר אותו - אך לאחר ההגדרה השימוש בו פשוט ונוח."
+                  },
+                  {
+                    "type": "hardBreak"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ציירו עם ה-Terrain Brush."
+                  },
+                  {
+                    "type": "hardBreak"
+                  },
+                  {
+                    "type": "text",
+                    "text": "לחצו על הלשונית “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileMap"
+                  },
+                  {
+                    "type": "text",
+                    "text": "” בפאנל התחתון, ליחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrains"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בקצה העליון של הפאנל, בחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", סוג מברשת, והתחילו לצייר את השלב ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", אם עקבתם אחרי ההוראות במדוייק, תצליחו לצייר את השלב הבא ב-3 לחיצות בדיוק:"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/terrain_draw.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 8,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אתגר: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "התחילו מההתחלה והשתמשו בשיטת “"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Match Corners and Sides"
+                  },
+                  {
+                    "type": "text",
+                    "text": "“, הוסיפו לסיפור אריח אדמה שיהיה במרכז, את הדשא שימו בקצוות העליונים, וציירו את השלב הבא בקליק אחד בלבד:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/terrain_1_click.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCellsTerrainConnect"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - ציור Terrain דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ציור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד עובד באמצעות שימוש במתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCellsTerrainConnect"
+          },
+          {
+            "type": "text",
+            "text": ". במקום שנציין קוארדינטות ספציפיות ומיקומי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Atlas"
+          },
+          {
+            "type": "text",
+            "text": " - אנחנו מציינים תאים ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": ", ומנוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יודע לבחור את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Variant"
+          },
+          {
+            "type": "text",
+            "text": " הנכון."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class LevelGenerator : Node2D\n{\n    [Export] private TileMapLayer _groundLayer;\n\n    public override void _Ready()\n    {\n        // Define which cells should be terrain\n        var cells = new Godot.Collections.Array<Vector2I>();\n\n        // A flat platform from (2,5) to (12,5)\n        for (int x = 2; x <= 12; x++)\n        {\n            cells.Add(new Vector2I(x, 5));\n        }\n\n        // Add a second row underneath for thickness\n        for (int x = 2; x <= 12; x++)\n        {\n            cells.Add(new Vector2I(x, 6));\n        }\n\n        // terrainSet: 0, terrain: 0 (e.g., Grass)\n        _groundLayer.SetCellsTerrainConnect(cells, terrainSet: 0, terrain: 0);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה  "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCellsTerrainConnect"
+          },
+          {
+            "type": "text",
+            "text": " ממקמת אריחים ומחשבת את כל ה-Peering Bits בקריאה אחת. זה בודק את כל האריחים שמסביב למיקום ודואג שהאריחים יתחברו כמו שצריך במיקומים הנכונים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש גם את המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCellsTerrainPath"
+          },
+          {
+            "type": "text",
+            "text": " - זה עובד באותו אופן אבל מתייחס לתאים כאל נתיב ולא כאל נקודה. ההבדל משמעותי למבנים צרים ברוחב תא אחד כמו כבישים: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TerrainPath"
+          },
+          {
+            "type": "text",
+            "text": " מכריח כל תא להתחבר רק לתא הקודם והבא ברשימה, מה שמייצר קו מחובר ולא אזור מלא."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Place a winding road as a connected path\nvar roadPath = new Godot.Collections.Array<Vector2I>\n{\n    new Vector2I(0, 3),\n    new Vector2I(1, 3),\n    new Vector2I(2, 3),\n    new Vector2I(2, 2),\n    new Vector2I(2, 1),\n    new Vector2I(3, 1),\n};\n\n_groundLayer.SetCellsTerrainPath(roadPath, terrainSet: 1, terrain: 0);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חסרונות והגבלות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מערכת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " חזקה אבל היא לא קסם. חשוב להכיר את המגבלות:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עובד בתוך TileMapLayer בודד."
+                  },
+                  {
+                    "type": "text",
+                    "text": " הרזולוציה של שטחים לא בודקת בין שכבות. אם הקרקע על שכבה אחת והעיטורים על אחרת - שכבת העיטורים לא תתחשב באריחי הקרקע כשהיא בוחרת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Variants"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל שכבה מחשבת בנפרד"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "דורש TileSet שלם."
+                  },
+                  {
+                    "type": "text",
+                    "text": " אם חסר לכם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Variant"
+                  },
+                  {
+                    "type": "text",
+                    "text": " באיור - נגיד יש לכם פינות חיצוניות אבל לא פינות פנימיות - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Auto-Tiler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לא ימצא אריח מתאים לפניות קעורות. הוא ישאיר את התא ריק או יבחר את ההתאמה הקרובה ביותר, שבד\"כ נראית לא טוב. במצב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Match Corners and Sides"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", סט "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Blob"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מלא דורש עד "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "47"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וריאנטים לכל שטח."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "צורות אריח מותאמות לא נלקחות בחשבון."
+                  },
+                  {
+                    "type": "text",
+                    "text": " ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Auto-Tiler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בוחר אריחים לפי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Peering Bits"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", לא לפי צורות התנגשות. עדיין צריך להגדיר "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Collision"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ידנית לכל וריאנט בעורך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". הגדרת שטחים והגדרת התנגשויות הם תהליכים נפרדים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ביצועים עם הרבה Terrain Sets זה בסדר"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - חישוב השטחים מתרחש כשמציירים (בעורך) או כשקוראים ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()SetCellsTerrainConnect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (בזמן ריצה). זה עלות חד-פעמית לכל אריח שממוקם, לא עלות פר-פריים. אלפי תאים מחושבים תוך אלפיות שנייה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "חיבורים אלכסוניים דורשים Match Corners and Sides."
+                  },
+                  {
+                    "type": "text",
+                    "text": " אם משתמשים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Match Sides"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בלבד, לא תקבלו וריאנטים שונים לפינות פנימיות/חיצוניות - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Auto-Tiler"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פשוט לא יכול להבדיל ביניהם עם 4 ביטים בלבד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "11.5 התנגשויות אריחים ושכבות פיזיקליות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת כנראה שיש לכם שלב מאויר, והוא גם נראה אפילו לא רע בכלל."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       }
     ]
   }

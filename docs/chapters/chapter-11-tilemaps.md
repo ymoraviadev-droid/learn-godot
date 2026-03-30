@@ -857,12 +857,12 @@ A typical Z-index setup:
 ```text
 Background      Z-index: -10
 Terrain         Z-index: 0
-Decoration      Z-index: 0
-Player          Z-index: 0
-Foreground      Z-index: 10
+Decoration      Z-index: 5
+Player          Z-index: 10
+Foreground      Z-index: 20
 ```
 
-With this, the Foreground layer renders over everything regardless of where it sits in the tree. The Background layer always renders behind everything.
+With this, every layer has an explicit render order — no ambiguity and no reliance on scene tree position. Gaps between values (0, 5, 10, 20) leave room to insert new layers later without reshuffling everything.
 
 **Y-Sort and tile layers:** If your game uses top-down perspective with Y-sorting (entities behind other entities based on their Y position), enable **Y Sort Enabled** on the parent node and ensure each `TileMapLayer` has it set appropriately. For side-scrollers, Y-sort is typically irrelevant — use Z-index.
 

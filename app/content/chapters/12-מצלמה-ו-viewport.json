@@ -4,7 +4,7 @@
   "slug": "מצלמה-ו-viewport",
   "order": 12,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-03-31T08:47:44.856Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -12,23 +12,468 @@
       {
         "type": "heading",
         "attrs": {
+          "textAlign": "right",
+          "dir": null,
           "level": 1
         },
         "content": [
           {
             "type": "text",
-            "text": "מצלמה ו-Viewport"
+            "text": "פרק 12: מצלמה ו-Viewport"
           }
         ]
       },
       {
         "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
         "content": [
           {
             "type": "text",
-            "text": "בקרוב.."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "12.1 הגדרת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ומצלמת מעקב"
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ללא מצלמה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מרנדר את עולם המשחק מהמקור - חלון קבוע לפי קוארדינטות מעולם המשחק. במצב כזה, אם השחקן עובר את קצה המסך - הוא יעלם. השחקן עדיין קיים, פשוט הבעיה היא שהחלון לא זז עם השחקן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נפתור זאת באמצעות שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": ". זהו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " ששולט במה ניתן לראות על גבי המסך בזמן המשחק, אם נצמיד אותו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שזז - המצלמה תזוז איתו (דמות השחקן למשל)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יצירת מצלמה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": " לסצנה שלכם, ברוב המקרים נצמיד לדמות השחקן:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Player",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                },
+                {
+                  "name": "Camera2D",
+                  "type": "Camera2D"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": " הוא ילד של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שזז ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " במקרה הזה), הוא יורש את ה-Transform שלו, כלומר שהמצלמה תעקוב אחרי השחקן באופן אוטומטי, אין צורך בקוד שיגרום לזה לקרות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפיכת המצלמה לפעילה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לסצנה אחת ניתן להצמיד כמה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": ", אך רק אחת מהן תהיה פעילה בכל זמן נתוןץ המצלמה הפעילה היא זו שתשלוט בתצוגת המשחק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspecor"
+          },
+          {
+            "type": "text",
+            "text": ", אפשרו את המאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Enabled"
+          },
+          {
+            "type": "text",
+            "text": " (זה כבר מסומן, באופן דיפולטיבי). אם יש לנו מספר מצלמות - מאפיין זה יוכל להיות מסומן כפעיל רק באחת מהן באותו הזמן. ניתן להחליף את המצלמה הפעילה בזמן ריצת התוכנית:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Activate this camera\ncamera2D.MakeCurrent();\n\n// Or check which camera is active\nbool isActive = camera2D.IsCurrent();"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם כולן במצב לא פעיל - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יחזור לשדר את עולם המשחק מהמקור - חלון קבוע לפי קוארדינטות מעולם המשחק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "החלקת מיקום (Position Smoothing)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "באופן דיפולטיבי, "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       }
     ]
   }

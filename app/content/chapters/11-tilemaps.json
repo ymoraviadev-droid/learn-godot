@@ -4,7 +4,7 @@
   "slug": "tilemaps",
   "order": 11,
   "createdAt": "2026-03-25T21:56:50.459Z",
-  "updatedAt": "2026-03-30T18:32:03.194Z",
+  "updatedAt": "2026-03-31T08:21:43.199Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -15260,7 +15260,27 @@
         "content": [
           {
             "type": "text",
-            "text": "כלי הציור של העורך"
+            "text": "כלי הציור של העורך הם מצוינים לתכנון שלבים באופן ידני. אבל יש מקרים שבהם נרצה למקם אריחים דרך הקוד בזמן ריצה - מבוכים הנבנים בצורה פרוצדורלית, בלוקים\\קירות שהשחקן יכול למקם בעולם המשחק (כמו במשחקי קראפטינג מפורסמים) ועוד. "
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "בפרק זה נתמקד במניפולציה של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד."
           }
         ]
       },
@@ -15270,6 +15290,4205 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCell"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - מיקום אריח"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCell"
+          },
+          {
+            "type": "text",
+            "text": " היא מתודת הליבה. נשתמש בה על מנת למקם אריח בקוארדינטות נתונות."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "tileMapLayer.SetCell(\n    coords:          new Vector2I(5, 3),      // grid cell to place in\n    sourceId:        0,                        // TileSet source index (atlas ID)\n    atlasCoords:     new Vector2I(2, 1),       // position of the tile within the atlas\n    alternativeTile: 0                         // alternative tile ID (0 = base)\n);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרמטרים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Coords "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- מיקום התא ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grid"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". הערך "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "(0,0)Vector2I"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא מיקום התא המקורי, נוכל לתת ערכים חיוביים או שליליים - כפי שכבר למדנו ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grid"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא אינסופי. "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SourceId "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- באיזה משאב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " להשתמש. במידה ויש לכם רק אחד הערך יהיה 0. אם יש לכם כמה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SpriteSheets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlases"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") זה יהיה לפי האינדקס שלהם."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "atlasCoords "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- מיקום האריח ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". נמדד לפי אריחים (לא לפי פיקסלים). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "(0,0)Vector2I"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יהיה השמאלי העליון ביותר ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "(2,1)Vector2I"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יהיה בעמודה השלישית, השורה השניה. "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "alternativeTile "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- באיזה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Variant"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של האריח להשתמש. 0 הוא אריח הבסיס, כל אריח אלטרניטיבי שיצרנו לו ימוספר בהתאם לפי הסדר (…1,2,3). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קיצור לאריחי בסיס:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// alternativeTile defaults to 0, so you can omit it\ntileMapLayer.SetCell(new Vector2I(5, 3), 0, new Vector2I(2, 1));"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()EraseCell"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - הסרת אריח"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "tileMapLayer.EraseCell(new Vector2I(5, 3));"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מסיר אריח שנמצא בתא נתון, אם אין אריח בתא נתון זה - כלום לא יקרה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קריאת נתוני אריח"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עומדות לרשותנו מספר מתודות עזר לסקירת נתונים של מה שנמצא בתוך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Which atlas source is this cell using? Returns -1 if empty.\nint sourceId = tileMapLayer.GetCellSourceId(new Vector2I(5, 3));\n\n// Which tile within the atlas? Returns Vector2I(-1, -1) if empty.\nVector2I atlasCoords = tileMapLayer.GetCellAtlasCoords(new Vector2I(5, 3));\n\n// Which alternative tile? Returns -1 if empty.\nint altTile = tileMapLayer.GetCellAlternativeTile(new Vector2I(5, 3));\n\n// Get the full TileData resource for a cell (collision, custom data, etc.)\nTileData tileData = tileMapLayer.GetCellTileData(new Vector2I(5, 3));\n// Returns null if the cell is empty"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetCellSourceId"
+          },
+          {
+            "type": "text",
+            "text": " מחזירה 1-, זה אומר שאין אריח בתא זה. זאת הדרך הסטנדרטית לבדוק אם יש אריח בתא נתון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetUsedCells"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - תשאול ה-Grid"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// All cells that have a tile placed\nGodot.Collections.Array<Vector2I> allCells = tileMapLayer.GetUsedCells();\n\n// All cells using a specific atlas source\nGodot.Collections.Array<Vector2I> fromAtlas0 = tileMapLayer.GetUsedCellsById(0);\n\n// The bounding rectangle of all used cells\nRect2I bounds = tileMapLayer.GetUsedRect();"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "המתודה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetUsedCells"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מחזירה את התאים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שאינם ריקים "
+                  },
+                  {
+                    "type": "text",
+                    "text": "בשכבה. זה שימושי על מנת לבצע איטרציות על כל התאים שבשימוש (שמונחים בהם אריחים), למשל: בדיקת הקוארדינטות של כל האריחים ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Grid"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "המתודה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetUsedRect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מחזירה את המלבן ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Rect2I"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") הקטן ביותר שניתן לעטוף איתו את כל האריחים הממוקמים. שימושי לגבולות מצלמה, בדיקה מה גודל השלב, ועוד."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "המרת קוארדינטות: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()LocalToMap"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MapToLocal"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " משתמש בקוארדינטות מבוססות מספרים שלמים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Integers"
+          },
+          {
+            "type": "text",
+            "text": "), ועולם המשחק משתמש במיקומי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2"
+          },
+          {
+            "type": "text",
+            "text": " אשר מאפשרים מספרים עשרוניים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Floating Points"
+          },
+          {
+            "type": "text",
+            "text": "), ולכן לעיתים נזדקק להמרה בין השניים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// World position → tile coordinates\nVector2I tileCoords = tileMapLayer.LocalToMap(tileMapLayer.ToLocal(globalPosition));\n\n// Tile coordinates → world position (center of the cell)\nVector2 worldPos = tileMapLayer.ToGlobal(tileMapLayer.MapToLocal(new Vector2I(5, 3)));"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "LocalToMap(Vector2 localPos)"
+          },
+          {
+            "type": "text",
+            "text": " - ממירה מיקום מהחלל המקומי של השכבה לקוארדינטות ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "MapToLocal(Vector2I mapCoords)"
+          },
+          {
+            "type": "text",
+            "text": " - ממירה קוארדינטות ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " למיקום הלוקלי של מרכז האריח. כלומר שאריח בגודל של 16×16 במיקום (0,0) ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " יחזיר לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2(8, 8)"
+          },
+          {
+            "type": "text",
+            "text": " - המרכז של התא הראשון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שני המתודות הללו שימושיות מאוד ויודעות להתנהל מול כל גודל של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Grid"
+          },
+          {
+            "type": "text",
+            "text": " ותאים באופן אוטומטי, גם באומנות איזומטרית ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Hexagonal Grids"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא: מילוי מלבן באריחי קרקע"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מילוי אזור מלבני באריחים מסוג מסויים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class LevelGenerator : Node2D\n{\n    [Export] private TileMapLayer _groundLayer;\n\n    public override void _Ready()\n    {\n        FillRect(new Vector2I(0, 8), new Vector2I(19, 9), sourceId: 0, atlasCoords: new Vector2I(1, 0));\n    }\n\n    private void FillRect(Vector2I topLeft, Vector2I bottomRight, int sourceId, Vector2I atlasCoords)\n    {\n        for (int x = topLeft.X; x <= bottomRight.X; x++)\n        {\n            for (int y = topLeft.Y; y <= bottomRight.Y; y++)\n            {\n                _groundLayer.SetCell(new Vector2I(x, y), sourceId, atlasCoords);\n            }\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נצמיד סקריפט זה לשכבת הקרקע על מנת לצייר אריחי קרקע בתחתית המסך. זה די פשוט כמובן, אך זהו הבסיס לבניה פרוצדורלית של שלב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא: יצירה פרוצדורלית של מערות (Cellular Automaton)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אלגוריתם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Cellular Automata"
+          },
+          {
+            "type": "text",
+            "text": " מייצר מערות עם מראה אורגני מתוך רעש אקראי. ככה זה עובד:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "ממלאים כל תא באופן אקראי - בערך 45% קירות, 55% ריק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מריצים מספר סבבי החלקה. בכל סבב, תא הופך לקיר אם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "5 או יותר"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מתוך 8 השכנים שלו הם קירות. אחרת הוא הופך לריק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אחרי 4–5 סבבים, הרעש האקראי מתגבש לצורות חלקות שנראות כמו מערות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class CaveGenerator : Node2D\n{\n    [Export] private TileMapLayer _wallLayer;\n    [Export] private Vector2I _mapSize = new Vector2I(60, 34);\n    [Export] private int _smoothPasses = 4;\n    [Export(PropertyHint.Range, \"0.0,1.0\")] private float _wallChance = 0.45f;\n\n    private int _sourceId = 0;\n    private Vector2I _wallAtlas = new Vector2I(0, 0);  // your wall tile's atlas coords\n\n    public override void _Ready()\n    {\n        bool[,] map = GenerateCave();\n        PaintMap(map);\n    }\n\n    private bool[,] GenerateCave()\n    {\n        var random = new RandomNumberGenerator();\n        random.Randomize();\n\n        // Step 1: random fill\n        bool[,] map = new bool[_mapSize.X, _mapSize.Y];\n        for (int x = 0; x < _mapSize.X; x++)\n        {\n            for (int y = 0; y < _mapSize.Y; y++)\n            {\n                // Edges are always walls to seal the cave\n                bool isEdge = x == 0 || y == 0 || x == _mapSize.X - 1 || y == _mapSize.Y - 1;\n                map[x, y] = isEdge || random.Randf() < _wallChance;\n            }\n        }\n\n        // Step 2: smooth\n        for (int pass = 0; pass < _smoothPasses; pass++)\n        {\n            bool[,] next = new bool[_mapSize.X, _mapSize.Y];\n            for (int x = 1; x < _mapSize.X - 1; x++)\n            {\n                for (int y = 1; y < _mapSize.Y - 1; y++)\n                {\n                    int neighbors = CountWallNeighbors(map, x, y);\n                    next[x, y] = neighbors >= 5;\n                }\n            }\n            // Keep edges as walls\n            for (int x = 0; x < _mapSize.X; x++)\n            {\n                next[x, 0] = true;\n                next[x, _mapSize.Y - 1] = true;\n            }\n            for (int y = 0; y < _mapSize.Y; y++)\n            {\n                next[0, y] = true;\n                next[_mapSize.X - 1, y] = true;\n            }\n            map = next;\n        }\n\n        return map;\n    }\n\n    private int CountWallNeighbors(bool[,] map, int cx, int cy)\n    {\n        int count = 0;\n        for (int x = cx - 1; x <= cx + 1; x++)\n        {\n            for (int y = cy - 1; y <= cy + 1; y++)\n            {\n                if (x == cx && y == cy) continue;\n                if (map[x, y]) count++;\n            }\n        }\n        return count;\n    }\n\n    private void PaintMap(bool[,] map)\n    {\n        for (int x = 0; x < _mapSize.X; x++)\n        {\n            for (int y = 0; y < _mapSize.Y; y++)\n            {\n                if (map[x, y])\n                {\n                    _wallLayer.SetCell(new Vector2I(x, y), _sourceId, _wallAtlas);\n                }\n                else\n                {\n                    _wallLayer.EraseCell(new Vector2I(x, y));\n                }\n            }\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל הרצה מייצרת מערה שונה. שחקו עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "wallChance_"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "smoothPasses_"
+          },
+          {
+            "type": "text",
+            "text": " כדי לשלוט בצפיפות ובחלקות. ערך נמוך יותר ל-wall chance = יותר מרחב פתוח. יותר סבבי החלקה = קירות חלקים יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כדי שהמערה תיראה מלוטשת ויזואלית, שלבו את זה עם מערכת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מפרק 11.4"
+          },
+          {
+            "type": "text",
+            "text": " - אחרי שיצרתם את המפה הבוליאנית, השתמשו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCellsTerrainConnect"
+          },
+          {
+            "type": "text",
+            "text": " במקום "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCell"
+          },
+          {
+            "type": "text",
+            "text": " כך ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יבחר אוטומטית את וריאנטי הקצוות והפינות הנכונים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא: בלוקים שניתן “לשבור”"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אריחים שהשחקן יוכל לשבור במהלך המשחק - ארגזים, קירת סדוקים, וכו’. הרעיון המרכזי הוא זיהוי פגיע בתא האריח ומחיקת התא:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class BreakableBlockHandler : Node2D\n{\n    [Export] private TileMapLayer _breakableLayer;\n\n    /// <summary>\n    /// Call this when something hits a world position (bullet impact, melee swing, etc.)\n    /// </summary>\n    public void HitAt(Vector2 globalPos)\n    {\n        Vector2I cell = _breakableLayer.LocalToMap(_breakableLayer.ToLocal(globalPos));\n\n        // Check if there's a tile here\n        if (_breakableLayer.GetCellSourceId(cell) == -1) return;\n\n        // Optional: read custom data to check if this tile is actually breakable\n        TileData data = _breakableLayer.GetCellTileData(cell);\n        if (data == null) return;\n\n        bool isBreakable = data.GetCustomData(\"breakable\").AsBool();\n        if (!isBreakable) return;\n\n        // Remove the tile\n        _breakableLayer.EraseCell(cell);\n\n        // Spawn particle effect, play sound, drop item, etc.\n        SpawnBreakEffect(_breakableLayer.ToGlobal(_breakableLayer.MapToLocal(cell)));\n    }\n\n    private void SpawnBreakEffect(Vector2 position)\n    {\n        // Your particle/sound logic here\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הדפוס המרכזי: ממירים את מיקום הפגיעה מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "world-space"
+          },
+          {
+            "type": "text",
+            "text": " לקואורדינטות גריד באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()LocalToMap"
+          },
+          {
+            "type": "text",
+            "text": ", קוראים את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": " של האריח כדי לוודא שהוא שביר, ואז קוראים ל- "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()EraseCell"
+          },
+          {
+            "type": "text",
+            "text": " כדי להסיר אותו. שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": " (שמוסיפים בעורך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " תחת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": ") מאפשרות לסמן רק אריחים מסוימים כשבירים בלי לתחזק רשימה נפרדת."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפ:"
+          },
+          {
+            "type": "text",
+            "text": " שימו בלוקים שבירים על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " משלהם כך שמחיקתם לא תשפיע על השטח הקבוע. אפשר אפילו לשמור את מצב השכבה השבירה (באמצעות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetUsedCells"
+          },
+          {
+            "type": "text",
+            "text": ") כדי לשחזר בלוקים שנהרסו כשהשחקן חוזר לחדר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמא: מערכת בנייה (למשחק שבו השחקן ממקם אריח בקליק)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "טכניקה אשר מוכרת לנו ממשחקי קראפטינג, ניתן ליישם כך:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class BuildingSystem : Node2D\n{\n    [Export] private TileMapLayer _buildLayer;\n    [Export] private int _sourceId = 0;\n    [Export] private Vector2I _wallAtlas = new Vector2I(3, 0);\n    [Export] private Camera2D _camera;\n\n    private bool _buildMode = false;\n\n    public override void _UnhandledInput(InputEvent @event)\n    {\n        if (Input.IsActionJustPressed(\"toggle_build\"))\n        {\n            _buildMode = !_buildMode;\n        }\n\n        if (!_buildMode) return;\n\n        if (@event is InputEventMouseButton mouse && mouse.Pressed)\n        {\n            Vector2 worldPos = GetGlobalMousePosition();\n            Vector2I cell = _buildLayer.LocalToMap(_buildLayer.ToLocal(worldPos));\n\n            if (mouse.ButtonIndex == MouseButton.Left)\n            {\n                // Place tile if cell is empty\n                if (_buildLayer.GetCellSourceId(cell) == -1)\n                {\n                    _buildLayer.SetCell(cell, _sourceId, _wallAtlas);\n                }\n            }\n            else if (mouse.ButtonIndex == MouseButton.Right)\n            {\n                // Remove tile\n                _buildLayer.EraseCell(cell);\n            }\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לחיצה שמאלית ממקמת אריח קיר, לחיצה ימנית מסירה אותו. הבדיקה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "GetCellSourceId(cell) == -1"
+          },
+          {
+            "type": "text",
+            "text": " מונעת מיקום על גבי אריחים קיימים. מערכת בנייה אמיתית תוסיף בדיקות מלאי, ולידציית מיקום (אי אפשר לבנות באוויר), תצוגה מקדימה \"חצי-שקופה\", ומשוב ויזואלי של הצמדה לגריד - אבל הליבה של מניפולציית אריחים תמיד תהיה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()SetCell"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()EraseCell"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GetCellTileData ושכבות Custom Data"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השתמשנו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetCellTileData"
+          },
+          {
+            "type": "text",
+            "text": " בכמה דוגמאות. הוא ראוי למבט ממוקד כי שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": " הן הדרך לחבר לוגיקת משחק לאריחים בלי ירושה או חיפושים חיצוניים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת שכבות Custom Data:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "פתחו את משאב ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גללו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Custom Data Layers"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "-"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Add Element"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "תנו שם לשכבה (למשל: \""
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "surface"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\", \""
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "damage"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\", \""
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "breakable"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\", \""
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "slow_factor"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הגדירו את הסוג ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "String"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Bool"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Int"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Float"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וכו')."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הקצאת ערכים לכל אריח:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בעורך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": ", בחרו אריח. בחלק ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": " בפאנל המאפיינים, הגדירו ערכים לכל שכבת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": ". לאריח דשא אולי יהיה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "surface = \"grass\""
+          },
+          {
+            "type": "text",
+            "text": ". לאריח קוצים אולי יהיה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "damage = 10"
+          },
+          {
+            "type": "text",
+            "text": ". לאריח ארגז אולי יהיה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "breakable = true"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קריאה בקוד:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "TileData data = tileMapLayer.GetCellTileData(cell);\nif (data != null)\n{\n    string surface = data.GetCustomData(\"surface\").AsString();\n    int damage = data.GetCustomData(\"damage\").AsInt32();\n    float slowFactor = data.GetCustomData(\"slow_factor\").AsSingle();\n    bool breakable = data.GetCustomData(\"breakable\").AsBool();\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetCustomData"
+          },
+          {
+            "type": "text",
+            "text": " מחזיר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Variant"
+          },
+          {
+            "type": "text",
+            "text": ". השתמשו במתודת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()*AS"
+          },
+          {
+            "type": "text",
+            "text": " המתאימה כדי להמיר. אם שכבת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": " קיימת אבל לאריח לא הוגדר ערך, תקבלו את ברירת המחדל של הסוג (מחרוזת ריקה, 0, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "false"
+          },
+          {
+            "type": "text",
+            "text": " וכו')."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data "
+          },
+          {
+            "type": "text",
+            "text": "מוגדרות על ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileSet"
+          },
+          {
+            "type": "text",
+            "text": " וערכים נשמרים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לפי הגדרת האריח"
+          },
+          {
+            "type": "text",
+            "text": " - לא לפי תא שמוקם. כל מופע של אותו אריח מחזיר את אותו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Custom Data"
+          },
+          {
+            "type": "text",
+            "text": ". אם אתם צריכים מצב לפי תא (למשל בלוק עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "3 HP"
+          },
+          {
+            "type": "text",
+            "text": " שיורד כשנפגע), עקבו אחרי זה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "<Dictionary<Vector2I, int"
+          },
+          {
+            "type": "text",
+            "text": " בסקריפט שלכם, לא ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tile Data"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סקירה מהירה"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מתודה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מטרה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "SetCell(coords, sourceId, atlasCoords, alternativeTile)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מיקום אריח בקואורדינטות גריד"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "EraseCell(coords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הסרת אריח בקואורדינטות גריד"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetCellSourceId(coords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מזהה מקור ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Atlas"
+                      },
+                      {
+                        "type": "text",
+                        "text": " של האריח (1- אם ריק)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetCellAtlasCoords(coords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מיקום האריח ב-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Atlas"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetCellAlternativeTile(coords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מזהה ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Alternative Tile"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetCellTileData(coords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "משאב "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "TileData"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מלא (התנגשות, "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Custom Data"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetUsedCells()"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כל קואורדינטות התאים שאינם ריקים"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetUsedCellsById(sourceId)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "תאים לא ריקים ממקור "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Atlas"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ספציפי"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "GetUsedRect()"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Rect2I"
+                      },
+                      {
+                        "type": "text",
+                        "text": " חוסם של כל האריחים שמוקמו"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "LocalToMap(localPos)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Vector2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מקומי - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Vector2I"
+                      },
+                      {
+                        "type": "text",
+                        "text": " גריד"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "MapToLocal(mapCoords)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Vector2I"
+                      },
+                      {
+                        "type": "text",
+                        "text": " גריד - "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Vector2"
+                      },
+                      {
+                        "type": "text",
+                        "text": " מקומי (מרכז התא)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "SetCellsTerrainConnect(cells, terrainSet, terrain)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מיקום אריחים עם רזולוציית "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Terrain"
+                      },
+                      {
+                        "type": "text",
+                        "text": " אוטומטית"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "SetCellsTerrainPath(cells, terrainSet, terrain)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מיקום אריחים כנתיב "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Terrain"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "Clear()"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הסרת כל האריחים מהשכבה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileMap הוא גריד של תאי אריחים לשימוש חוזר"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שמרונדר ביעילות כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Batch"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחד. ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "+Godot 4.3"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TileMap"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הישן הוצא משימוש. משאב ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא הפלטה, ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא הקנבס."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מקורות TileSet מגדירים את האריחים."
+                  },
+                  {
+                    "type": "text",
+                    "text": " מקורות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Atlas"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חותכים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Spritesheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לגריד של אריחים. מקורות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Scene"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מטמיעים סצנות שלמות כאריחים. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Alternative Tiles"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יוצרים וריאנטים קלים (הפוכים, מסובבים, צבועים) בלי לשכפל נתוני טקסטורה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כלי הציור של העורך"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Paint"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Eraser"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Rectangle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Line"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Bucket"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Fill"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מאפשרים לבנות שלבים במהירות. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Click"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Eyedrop"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "X"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Z"
+                  },
+                  {
+                    "type": "text",
+                    "text": " להיפוך וסיבוב, וב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Patterns"
+                  },
+                  {
+                    "type": "text",
+                    "text": " להטבעת מבנים מוכנים מראש."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Auto-Tiling עם Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבטל את הצורך בבחירת אריחים ידנית. הגדירו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain Sets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Peering Bits"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Godot"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בוחר את וריאנטי הקצוות, הפינות והמילוי הנכונים תוך כדי ציור. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()SetCellsTerrainConnect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לאותה התנהגות בקוד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "התנגשות אריחים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מוגדרת על משאב ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", לא לפי תא שמוקם. הוסיפו שכבות פיזיקה, ציירו צורות התנגשות על אריחים בודדים (קיצור מלבן מלא לאריחים מוצקים, פוליגונים מותאמים למדרונות), והשתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Collision"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Layers"
+                  },
+                  {
+                    "type": "text",
+                    "text": "/"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Masks"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מאותה מערכת כמו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בפרק 10"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "שכבות פיזיקה מרובות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחד כדי להפריד קרקע מוצקה ממכשולים מאזורי זיהוי. הפעילו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Way"
+                  },
+                  {
+                    "type": "text",
+                    "text": " על צורת ההתנגשות של אריח לפלטפורמות קפיצה-דרך. ההתנגשות יעילה - צורות מוגדרות פעם אחת ומשומשות שוב, ומנוע הפיזיקה מפעיל גאומטריה רק ליד גופים פעילים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes מרובים של TileMapLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " יוצרים עומק - רקע מאחורי השחקן, שטח שהשחקן הולך עליו, חזית מלפנים. שתפו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileSet"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחד בין כל השכבות. רק שכבת ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " צריכה התנגשות. שלטו בסדר הרינדור עם מיקום בעץ הסצנה או "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Z-index"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מיקום אריחים פרוצדורלי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משתמש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()SetCell"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()EraseCell"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי לתפעל את הגריד בזמן ריצה. המירו בין קואורדינטות עולם וגריד עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()LocalToMap"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()MapToLocal"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". קראו מטא-דאטה של אריחים עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetCellTileData"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ושכבות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Custom Data"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". זה מה שמאפשר יצירת מערות, בלוקים שבירים, מערכות בנייה, וכל מניפולציית שלבים בזמן ריצה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שאלון ידע"
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": " מה ההבדל בין TileSet ל-TileMapLayer?",
+              "answers": [
+                "TileSet הוא Node בעץ הסצנה, TileMapLayer הוא משאב",
+                "TileSet מגדיר אילו אריחים קיימים ומה המאפיינים שלהם, TileMapLayer מגדיר איפה כל אריח ממוקם על הגריד",
+                "TileSet אחראי על פיזיקה בלבד, TileMapLayer אחראי על הוויזואליות בלבד",
+                "אין הבדל - הם שמות שונים לאותו דבר"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "למה TileMap הוצא משימוש (Deprecated) ב-Godot 4.3?",
+              "answers": [
+                "כי הוא לא תמך ב-#C",
+                "כי הוא צרך יותר מדי זיכרון",
+                " כי ב-TileMapLayer כל שכבה היא Node עצמאי בעץ הסצנה - אפשר להזיז, להסתיר, ולצרף סקריפטים לכל שכבה בנפרד",
+                " כי TileMap תמך רק באריחים בגודל 16×16"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "כמה לשוניות (Tabs) יש בפאנל עורך ה-TileMap?",
+              "answers": [
+                " שתיים - Tiles ו-Patterns",
+                "שלוש - Tiles, Terrains ו-Patterns ",
+                " ארבע - Tiles, Terrains, Patterns ו-Physics",
+                "אחת - Tiles בלבד"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה עושה Ctrl+Click על ה-Viewport בזמן עריכת TileMap?",
+              "answers": [
+                "מוחק את האריח שמתחת לסמן",
+                "מסובב את האריח 90 מעלות",
+                "פותח את חלון המאפיינים של האריח",
+                " \"מרים\" את האריח שמתחת לסמן והופך אותו לאריח הפעיל בפלטה (Eyedropper)"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "במצב Match Corners and Sides, כמה Peering Bits יש לכל אריח?",
+              "answers": [
+                " 4 (פינות בלבד)",
+                " 4 (צדדים בלבד)",
+                " 16 (4 פינות + 4 צדדים + 8 אלכסונים",
+                " 8 (4 פינות + 4 צדדים)"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "מה ההבדל בין ()SetCellsTerrainConnect ל-()SetCellsTerrainPath?",
+              "answers": [
+                " אין הבדל - שניהם עושים את אותו דבר",
+                "TerrainConnect עובד רק בעורך, TerrainPath עובד רק בזמן ריצה",
+                "TerrainConnect מתייחס לתאים ככתם ומחבר לכל השכנים, TerrainPath מכריח כל תא להתחבר רק לקודם והבא ברשימה ",
+                "TerrainPath מהיר יותר כי הוא לא בודק שכנים"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "מה קורה כשמציירים אריחים בלי להגדיר Collision Shapes על ה-TileSet?",
+              "answers": [
+                "Godot מוסיף צורות התנגשות אוטומטית",
+                "המשחק לא ירוץ ויזרוק שגיאה",
+                "האריחים יתנהגו כמו Area2D",
+                "האריחים יהיו ויזואליים בלבד - השחקן יפול דרכם ויעבור דרך קירות"
+              ],
+              "correct": 3
+            },
+            {
+              "question": "שכבות Custom Data מוגדרות לפי:",
+              "answers": [
+                "כל תא שמוקם בנפרד - אפשר לתת ערכים שונים לכל מופע של אותו אריח",
+                " ה-TileMapLayer - כל שכבה מגדירה ערכים משלה",
+                " הגדרת האריח ב-TileSet - כל מופע של אותו אריח מחזיר את אותו ערך",
+                "הסצנה - כל הסצנות חולקות את אותם ערכים"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "באלגוריתם Cellular Automata ליצירת מערות, תא הופך לקיר אם:",
+              "answers": [
+                "3 או יותר מ-8 שכניו הם קירות",
+                "5 או יותר מ-8 שכניו הם קירות",
+                "כל 8 שכניו הם קירות",
+                "לפחות שכן אחד הוא קיר"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "למה כדאי לשים בלוקים שבירים על TileMapLayer נפרד?",
+              "answers": [
+                " כי Godot לא מאפשר למחוק אריחים משכבה שיש בה התנגשויות",
+                "כדי שמחיקתם לא תשפיע על השטח הקבוע, ואפשר גם לשמור ולשחזר את מצב השכבה",
+                " כי בלוקים שבירים דורשים TileSet שונה",
+                "כי שכבה אחת לא יכולה להכיל יותר מ-100 אריחים"
+              ],
+              "correct": 1
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 12 — Camera & Viewport."
+          },
+          {
+            "type": "text",
+            "text": " השלבים שלכם בנויים מאריחים, אבל השחקן רואה רק חלון קטן מהעולם. עכשיו נשלוט במה שהחלון הזה מציג - מעקב מצלמה, גבולות מסך, זום, מסך מפוצל, ואפקטי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
       }
     ]
   }

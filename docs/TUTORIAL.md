@@ -126,6 +126,7 @@ Each part builds on the previous one. By the end, the reader will have built sev
 - 12.4 Viewport and resolution settings
 - 12.5 Pixel-perfect rendering
 - 12.6 Split-screen basics
+- 12.7 Parallax backgrounds
 
 ---
 

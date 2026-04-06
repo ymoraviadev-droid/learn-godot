@@ -678,6 +678,164 @@ Some games (like *Lego* co-op games) use a single shared view when players are c
 
 ---
 
+## 12.7 Parallax Backgrounds
+
+Parallax is the illusion of depth created by moving background layers at different speeds. When you walk down the street, nearby lampposts fly past while distant mountains barely move. The same principle makes 2D games feel less flat — a sky layer that scrolls at 10% of the camera speed, hills at 30%, trees at 60%, and the gameplay layer at 100%.
+
+This effect is tied directly to the camera. As the `Camera2D` moves, parallax layers shift by a fraction of that movement. That's why it belongs in this chapter — parallax is fundamentally a camera-relative rendering technique.
+
+### Godot's Parallax Nodes
+
+Godot provides two purpose-built nodes:
+
+- **`ParallaxBackground`** — a container node. It listens to the camera's movement and passes it to its children. Add one per scene, as a sibling of your game world.
+- **`ParallaxLayer`** — a child of `ParallaxBackground`. Each layer has a `Motion Scale` that controls how fast it moves relative to the camera. You place your visual content (sprites, tile maps, whatever) as children of the layer.
+
+```
+Level (Node2D)
+├── ParallaxBackground
+│   ├── SkyLayer (ParallaxLayer)          ← Motion Scale (0.1, 0.1)
+│   │   └── Sprite2D (sky texture)
+│   ├── MountainLayer (ParallaxLayer)     ← Motion Scale (0.3, 0.3)
+│   │   └── Sprite2D (mountains texture)
+│   └── TreeLayer (ParallaxLayer)         ← Motion Scale (0.6, 0.6)
+│       └── Sprite2D (trees texture)
+├── Terrain (TileMapLayer)                ← moves 1:1 with camera
+├── Player (CharacterBody2D)
+│   └── Camera2D
+└── Foreground (TileMapLayer)
+```
+
+### Motion Scale
+
+The core property. `Motion Scale` is a `Vector2` on each `ParallaxLayer`:
+
+| Motion Scale | Effect |
+| --- | --- |
+| `(0, 0)` | Layer doesn't move at all — stays fixed on screen (useful for a static sky or HUD-like background) |
+| `(0.1, 0.1)` | Moves at 10% of camera speed — very distant (sky, stars) |
+| `(0.5, 0.5)` | Moves at 50% — mid-distance (hills, clouds) |
+| `(1, 1)` | Moves at 100% — same as the gameplay layer (no parallax effect) |
+| `(1.2, 1.0)` | Moves *faster* than the camera horizontally — foreground parallax (rarely used, but creates a "passing close objects" effect) |
+
+Most platformers only need horizontal parallax. Set the Y component to `0` (or a very small value like `0.05`) so the background doesn't slide vertically when the player jumps:
+
+```
+SkyLayer:        Motion Scale (0.05, 0.0)
+MountainLayer:   Motion Scale (0.2, 0.05)
+TreeLayer:       Motion Scale (0.5, 0.1)
+```
+
+### Motion Mirroring — Infinite Scrolling
+
+A single sky texture ends eventually. As the camera moves far enough, the parallax layer runs out of image and the player sees empty space.
+
+**Motion Mirroring** solves this by tiling the layer infinitely. Set `Motion Mirroring` on the `ParallaxLayer` to the size of the texture:
+
+```
+Motion Mirroring:
+  X: 1920    ← width of the background image in pixels
+  Y: 0       ← no vertical tiling (0 = disabled on that axis)
+```
+
+Now the texture repeats seamlessly as the camera scrolls. The layer behaves as an infinite horizontal strip.
+
+**Important:** For mirroring to look seamless, your texture must tile horizontally. The left edge and right edge should connect without a visible seam. Most parallax background assets are designed this way. If yours isn't, you'll see a hard cut every `X` pixels.
+
+For vertical tiling (top-down games or vertical scrollers), set `Motion Mirroring.Y` to the texture height.
+
+### Motion Offset
+
+`Motion Offset` shifts the starting position of the layer. Use it to fine-tune alignment between layers without moving the actual sprite nodes. It's a `Vector2` in pixels — positive X moves the layer's starting position to the right.
+
+This is useful when your parallax layers are authored with different horizon lines or need manual alignment to look right together.
+
+### Step-by-Step: Adding Parallax to a Platformer
+
+**Step 1: Prepare your art.**
+
+You need background images that tile horizontally. Common approach: 3–5 layers of increasing detail — a solid sky gradient, distant mountains silhouette, mid-distance hills, nearby trees/buildings. Each layer is a separate PNG. All the same width (or a width you'll set as the mirror value).
+
+Many free asset packs include parallax background sets. Search for "parallax background pixel art" on itch.io — you'll find dozens.
+
+**Step 2: Add a `ParallaxBackground` node.**
+
+As a child of your level root, add a `ParallaxBackground`. It should be above your gameplay nodes in the tree so it renders behind everything.
+
+**Step 3: Add `ParallaxLayer` children — one per art layer.**
+
+For each background image, add a `ParallaxLayer` child inside the `ParallaxBackground`. Name them descriptively: "Sky", "Mountains", "Trees".
+
+**Step 4: Add sprites to each layer.**
+
+Inside each `ParallaxLayer`, add a `Sprite2D` and assign the corresponding texture. Set the sprite's **Offset → Centered** to `false` — this positions the texture from the top-left corner, which makes mirroring math simpler.
+
+**Step 5: Configure motion scale.**
+
+Set each layer's `Motion Scale` from slowest (sky) to fastest (closest layer):
+
+| Layer | Motion Scale |
+| --- | --- |
+| Sky | `(0.05, 0.0)` |
+| Mountains | `(0.2, 0.05)` |
+| Hills | `(0.4, 0.1)` |
+| Trees | `(0.7, 0.2)` |
+
+**Step 6: Configure motion mirroring.**
+
+On each layer, set `Motion Mirroring.X` to the texture's pixel width. This enables infinite horizontal scrolling.
+
+**Step 7: Test.**
+
+Run the scene and move the player. Each layer should scroll at a different speed, creating a sense of depth. Adjust motion scale values until it feels right — there's no formula, just eyeball it.
+
+### Parallax from Code
+
+You can adjust parallax properties at runtime — useful for dynamic effects like wind speeding up the cloud layer, or transitioning from outdoor to cave (fade out parallax layers).
+
+```csharp
+public partial class ParallaxController : ParallaxBackground
+{
+    [Export] private ParallaxLayer _cloudLayer;
+
+    public override void _Process(double delta)
+    {
+        // Slowly scroll clouds even when the camera isn't moving
+        _cloudLayer.MotionOffset += new Vector2(10.0f * (float)delta, 0);
+    }
+}
+```
+
+Incrementing `MotionOffset` every frame creates autonomous scrolling — clouds drift across the sky independently of camera movement. This adds life to scenes where the player might stand still.
+
+### Parallax with TileMapLayer
+
+You're not limited to sprites. A `ParallaxLayer` can contain a `TileMapLayer` — useful when your background is tile-painted rather than a single large image:
+
+```
+ParallaxBackground
+└── DistantWalls (ParallaxLayer)       ← Motion Scale (0.3, 0.3)
+    └── TileMapLayer                   ← painted with background wall tiles
+```
+
+The entire tile layer scrolls at the parallax rate. This works well for repeating structural backgrounds — a distant cityscape, cave walls, dungeon bricks.
+
+**Note:** Motion Mirroring doesn't automatically tile a `TileMapLayer` — it only tiles the visual output. For a tile-based parallax layer, you need to paint enough tiles to cover the scrollable area, accounting for the reduced motion scale. If the gameplay area is 3000px wide and the parallax layer moves at 0.3×, the layer only needs to cover ~900px worth of tiles (plus the viewport width as padding).
+
+### Common Pitfalls
+
+**Parallax layers render behind the ParallaxBackground node's position in the tree.** If your `ParallaxBackground` is below the player in the scene tree, the parallax layers render in front of the player. Always place `ParallaxBackground` above gameplay nodes.
+
+**Forgetting Motion Mirroring.** The player walks right for 30 seconds and the sky disappears. Set mirroring on every layer that should tile.
+
+**Non-tiling textures with mirroring enabled.** A visible seam repeats every cycle. Either use tileable art or set mirroring to 0 and make the texture wide enough to cover the full level scroll range.
+
+**Too many layers.** Each parallax layer is an extra draw call. 3–5 layers is typical. 10+ layers with large textures can affect performance on low-end hardware, especially mobile. Keep it reasonable.
+
+**Vertical parallax in platformers.** Having the sky move vertically when the player jumps looks weird — the sky doesn't get closer when you jump in real life. Set `Motion Scale.Y` to 0 or near-zero on distant layers. Only the closest layers (trees, bushes) should have noticeable vertical parallax.
+
+---
+
 ## Summary
 
 This chapter covered `Camera2D` and the viewport system — how the player sees your game world.
@@ -693,6 +851,8 @@ This chapter covered `Camera2D` and the viewport system — how the player sees 
 **Pixel-perfect rendering (12.5):** Snap transforms and vertices to pixels. Use nearest-neighbor filtering. Render at your pixel-art resolution with viewport stretch mode. Ensure integer scale factors for clean upscaling.
 
 **Split-screen (12.6):** Use `SubViewport` nodes with their own `Camera2D` instances to render multiple views. Share the `World2D` between viewports so they see the same game world. Route input through separate action sets or device indices.
+
+**Parallax backgrounds (12.7):** Use `ParallaxBackground` with `ParallaxLayer` children to create depth. Motion Scale controls each layer's speed relative to the camera. Motion Mirroring enables infinite tiling. Closest layers move fastest, distant layers barely move.
 
 ---
 
@@ -805,3 +965,25 @@ C) To disable position smoothing during the shake
 D) To set `Zoom` back to the default
 
 **Answer:** B. If you don't explicitly reset `Offset` to zero after the shake decays, the last random offset remains applied.
+
+---
+
+**Question 11:** You add a `ParallaxLayer` with a sky texture, but after scrolling far enough to the right the sky disappears and the player sees empty space. What property fixes this?
+
+A) Motion Scale — set it to `(0, 0)` so the sky never moves
+B) Motion Mirroring — set X to the texture's pixel width so it tiles infinitely
+C) Motion Offset — shift the sky to cover more area
+D) Z Index — the sky is rendering behind the viewport
+
+**Answer:** B. Motion Mirroring tiles the layer's content, repeating it every X pixels so it never runs out.
+
+---
+
+**Question 12:** In a platformer, distant mountains have `Motion Scale (0.2, 0.2)`. When the player jumps, the mountains visibly slide downward. How do you fix this?
+
+A) Increase Motion Scale to `(1.0, 1.0)`
+B) Set Motion Scale to `(0.2, 0.0)` — keep horizontal parallax but remove vertical
+C) Disable the `ParallaxBackground` node during jumps
+D) Move the mountains higher in the scene tree
+
+**Answer:** B. Distant objects shouldn't move vertically when the player jumps. Setting the Y component to 0 (or near-zero) keeps horizontal parallax while eliminating the unnatural vertical shift.

@@ -750,44 +750,9 @@ For vertical tiling (top-down games or vertical scrollers), set `Motion Mirrorin
 
 This is useful when your parallax layers are authored with different horizon lines or need manual alignment to look right together.
 
-### Step-by-Step: Adding Parallax to a Platformer
+### Practical Example
 
-**Step 1: Prepare your art.**
-
-You need background images that tile horizontally. Common approach: 3–5 layers of increasing detail — a solid sky gradient, distant mountains silhouette, mid-distance hills, nearby trees/buildings. Each layer is a separate PNG. All the same width (or a width you'll set as the mirror value).
-
-Many free asset packs include parallax background sets. Search for "parallax background pixel art" on itch.io — you'll find dozens.
-
-**Step 2: Add a `ParallaxBackground` node.**
-
-As a child of your level root, add a `ParallaxBackground`. It should be above your gameplay nodes in the tree so it renders behind everything.
-
-**Step 3: Add `ParallaxLayer` children — one per art layer.**
-
-For each background image, add a `ParallaxLayer` child inside the `ParallaxBackground`. Name them descriptively: "Sky", "Mountains", "Trees".
-
-**Step 4: Add sprites to each layer.**
-
-Inside each `ParallaxLayer`, add a `Sprite2D` and assign the corresponding texture. Set the sprite's **Offset → Centered** to `false` — this positions the texture from the top-left corner, which makes mirroring math simpler.
-
-**Step 5: Configure motion scale.**
-
-Set each layer's `Motion Scale` from slowest (sky) to fastest (closest layer):
-
-| Layer | Motion Scale |
-| --- | --- |
-| Sky | `(0.05, 0.0)` |
-| Mountains | `(0.2, 0.05)` |
-| Hills | `(0.4, 0.1)` |
-| Trees | `(0.7, 0.2)` |
-
-**Step 6: Configure motion mirroring.**
-
-On each layer, set `Motion Mirroring.X` to the texture's pixel width. This enables infinite horizontal scrolling.
-
-**Step 7: Test.**
-
-Run the scene and move the player. Each layer should scroll at a different speed, creating a sense of depth. Adjust motion scale values until it feels right — there's no formula, just eyeball it.
+We'll build a full parallax background with multiple layers in chapter 15 (section 15.6) when we create our platformer's level design. There we'll go through asset preparation, layer stacking, and tuning motion scale values against real gameplay. For now, the concepts above are everything you need to understand the system.
 
 ### Parallax from Code
 
@@ -987,3 +952,7 @@ C) Disable the `ParallaxBackground` node during jumps
 D) Move the mountains higher in the scene tree
 
 **Answer:** B. Distant objects shouldn't move vertically when the player jumps. Setting the Y component to 0 (or near-zero) keeps horizontal parallax while eliminating the unnatural vertical shift.
+
+---
+
+**Next up: Chapter 13 — Planning the Platformer.** You now have all the building blocks — sprites, movement, physics, collisions, tilemaps, camera, and viewport. Time to put them all together. We'll plan scope, set up the project structure, gather assets, and prepare to build a complete 2D platformer from scratch.

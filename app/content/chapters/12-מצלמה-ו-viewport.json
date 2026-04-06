@@ -4,7 +4,7 @@
   "slug": "מצלמה-ו-viewport",
   "order": 12,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-06T06:04:57.469Z",
+  "updatedAt": "2026-04-06T08:39:09.967Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -24,10 +24,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/camera2d_viewport_projection.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -2244,7 +2247,46 @@
         "content": [
           {
             "type": "text",
-            "text": "ל-Camera2D יש מאפיין Zoom אשר מקבל ערך Vector2 על מנת לקבוע את ממדי התצוגה. הערך הדיפולטיבי ("
+            "text": "ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": " יש מאפיין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Zoom"
+          },
+          {
+            "type": "text",
+            "text": " אשר מקבל ערך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לקבוע את ממדי התצוגה. הערך הדיפולטיבי ("
           },
           {
             "type": "text",
@@ -2257,7 +2299,20 @@
           },
           {
             "type": "text",
-            "text": ") הוא מיפוי פיקסלים ביחס גודל של 1:1. תקריב (זום) מציג אזור קטן יותר ביחס גודל שהוא גדול יותר. "
+            "text": ") הוא מיפוי פיקסלים ביחס גודל של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1:1"
+          },
+          {
+            "type": "text",
+            "text": ". תקריב (זום) מציג אזור קטן יותר ביחס גודל שהוא גדול יותר. "
           }
         ]
       },
@@ -4890,7 +4945,2704 @@
         "content": [
           {
             "type": "text",
-            "text": "אומנות פיקסלים"
+            "text": "אומנות פיקסלים דורשת דיוק. פיקסלים שלא מונחים במקום, או הפכו למטושטשים כתוצאה משינויי גודל וכו’, כל אלו הן בעיות נפוצות שניתן לפתור אותן על ידי שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Pixel-Perfect Rendering "
+          },
+          {
+            "type": "text",
+            "text": "- זה מוודא שכל פיקסל ממופה בצורה נקייה ללא הפרעות ועיוותים."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הבעיה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נניח ויש לנו משחק פיקסל-ארט ברזולוציה"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " 320×180"
+          },
+          {
+            "type": "text",
+            "text": " שמוצג בחלון של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1280×720"
+          },
+          {
+            "type": "text",
+            "text": ". יחס ההגדלה הוא בדיוק פי 4 - כל פיקסל הופך לבלוק של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "4×4"
+          },
+          {
+            "type": "text",
+            "text": " פיקסלים, וזה עובד מושלם. אבל אם החלון הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1366×768"
+          },
+          {
+            "type": "text",
+            "text": " (רזולוציה נפוצה במחשבים ניידים), יחס ההגדלה הוא פי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "4.26875"
+          },
+          {
+            "type": "text",
+            "text": ", וזה לא מספר שלם. חלק מהפיקסלים במשחק ממופים ל-4 פיקסלי מסך, אחרים ל-5. התוצאה: חלק מהפיקסלים נראים גדולים יותר מאחרים, קווים מרצדים בזמן גלילת המצלמה, והגרפיקה נראית לא בסדר באופן עדין."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 1: הגדרת מצב מתיחת Viewport"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Stretch Mode: viewport\nStretch Aspect: keep\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מצב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " מרנדר את המשחק ברזולוציית הבסיס ואז מגדיל את כל הפריים כתמונה אחת. זה שומר על כל פיקסלי המשחק באותו גודל יחסי - בלי הגדלה לא עקבית בתוך הפריים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "keep"
+          },
+          {
+            "type": "text",
+            "text": " מוסיף פסים שחורים במקום לעוות את התמונה, כך שרשת הפיקסלים נשארת מרובעת."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 2: הפעלת Snap 2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Project Settings - Rendering - 2D - Snap"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Snap 2D Transforms to Pixel"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Snap 2D Vertices to Pixel"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ההגדרות האלה מבטיחות שכל מיקומי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " הדו-ממדיים מעוגלים לערכי פיקסל שלמים לפני הרינדור. בלי זה, ספרייט במיקום "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "(10.3, 5.7)"
+          },
+          {
+            "type": "text",
+            "text": " היה מרונדר בהיסט תת-פיקסלי, מה שגורם למערכת הסינון לערבב פיקסלים שכנים. עם הצמדה, הוא מרונדר ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "(10, 6)"
+          },
+          {
+            "type": "text",
+            "text": " - נקי וחד."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 3: סינון טקסטורות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כברירת מחדל, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " משתמש בסינון ליניארי על טקסטורות - הוא מבצע אינטרפולציה בין פיקסלים בזמן הגדלה, מה שמייצר תוצאה מטושטשת. פיקסל-ארט צריך סינון "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "nearest-neighbor"
+          },
+          {
+            "type": "text",
+            "text": " (בלי אינטרפולציה - כל פיקסל הוא ריבוע חד)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו את זה גלובלית ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Project Settings - Rendering - Textures - Canvas Textures - Default Texture Filter"
+          },
+          {
+            "type": "text",
+            "text": ": "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Nearest"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "או לכל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " בנפרד: על כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CanvasItem"
+          },
+          {
+            "type": "text",
+            "text": " (כגון "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " וכו׳), הגדירו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Texture - Filter"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Nearest"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 4: שיקולי מצלמה ותנועה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "החלקת מצלמה עם הצמדת פיקסלים עלולה לגרום לרעידות."
+          },
+          {
+            "type": "text",
+            "text": " המצלמה עוקבת אחרי השחקן בצורה חלקה במיקומים שברירים, אבל ההצמדה מעגלת הכול למספרים שלמים. בכל פריים, מיקום המצלמה המעוגל עשוי לקפוץ ב-0 או 1 פיקסל, מה שגורם לגמגומים קטנים אך נראים לעין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קיימות שתי גישות:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1. לבטל את החלקת המצלמה."
+          },
+          {
+            "type": "text",
+            "text": " המצלמה קופצת למיקום השלם של השחקן בכל פריים. בלי רעידות, אבל התנועה מרגישה נוקשה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2. להשתמש בטריק היסט תת-פיקסלי."
+          },
+          {
+            "type": "text",
+            "text": " לרנדר את הסצנה ברזולוציה כפולה ולהקטין, או להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Offset"
+          },
+          {
+            "type": "text",
+            "text": " של המצלמה כדי להחליק את העיגול. זה מורכב יותר אבל שומר על תנועה חלקה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לרוב משחקי הפיקסל-ארט, הגישה הפשוטה (בלי החלקת מצלמה, להצמיד הכול) עובדת טוב. שחקנים מצפים למידה מסוימת של קפיצות בפיקסל-ארט - זה חלק מהאסתטיקה."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 5: יחס הגדלה שלם"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לתוצאות הנקיות ביותר, ודאו שגודל החלון הוא כפולה שלמה בדיוק של גודל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Viewport"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חלון"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הגדלה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "איכות"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "320×180"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "640×360"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "2×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מושלם"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "320×180"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "960×540"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "3×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מושלם"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "320×180"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "1280×720"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "4×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מושלם"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "320×180"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "1920×1080"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "6×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מושלם"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    114
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "320×180"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "1366×768"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "4.27×"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא מושלם - חלק מהפיקסלים גדולים יותר מאחרים"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אפשר לכפות הגדלה שלמה על ידי הגדרת גודל החלון ההתחלתי לכפולה מדויקת בהגדרות הפרויקט. למסך מלא, הפסים השחורים ממצב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "keep"
+          },
+          {
+            "type": "text",
+            "text": " ממלאים את הפער, ושומרים על הגדלה שלמה לתוכן המשחק."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "צ’קליסט ל-Pixel-Perfect Rendering"
+          }
+        ]
+      },
+      {
+        "type": "taskList",
+        "content": [
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גודל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " תואם לרזולוציית הפיקסל-ארט שלכם (למשל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "320×180"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Stretch Mode"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "viewport"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Stretch Aspect"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "keep"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Default Texture Filter"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Nearest"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Snap 2D Transforms to Pixel"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Snap 2D Vertices to Pixel"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "true"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גודל החלון הוא כפולה שלמה של גודל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (או מסך מלא עם פסים)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "החלקת מצלמה מבוטלת או מנוהלת בזהירות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "taskItem",
+            "attrs": {
+              "checked": false
+            },
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "כל הגרפיקה מצוירת בקנה מידה "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "1:1"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - בלי ספרייטים ברזולוציה גבוהה ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ברזולוציה נמוכה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עקבו אחרי הרשימה הזו והפיקסל-ארט שלכם ירונדר בדיוק כפי שצויר, בכל רזולוציית תצוגה."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "12.6 פיצול מסך"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פיצול מסך מאפשר ל-2 שחקנים (או יותר) לשחק על גבי אותו המסך, כאשר כל אחד מהם רואה את האזור של הדמות שלו. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מאפשר לנו את זה על ידי שימוש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewPort"
+          },
+          {
+            "type": "text",
+            "text": " - כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " מתרנדר עם מצלמה משלו, וניתן למקם אותם זה לצד זה בשכבת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "UI"
+          },
+          {
+            "type": "text",
+            "text": "."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הארכיטקטורה"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Root",
+              "children": [
+                {
+                  "name": "HSplitView",
+                  "children": [
+                    {
+                      "name": "SubViewportContainer",
+                      "children": [
+                        {
+                          "name": "SubViewport",
+                          "children": [
+                            {
+                              "name": "World",
+                              "children": [
+                                {
+                                  "name": "TileMapLayers..."
+                                },
+                                {
+                                  "name": "Player1",
+                                  "children": [
+                                    {
+                                      "name": "Camera2D",
+                                      "type": "Camera2D"
+                                    }
+                                  ],
+                                  "type": "CharacterBody2D"
+                                },
+                                {
+                                  "name": "Player2",
+                                  "children": [],
+                                  "type": "CharacterBody2D"
+                                }
+                              ],
+                              "comment": "the game scene, or a RemoteTransform2D target"
+                            }
+                          ]
+                        }
+                      ],
+                      "comment": "left half"
+                    },
+                    {
+                      "name": "SubViewportContainer",
+                      "children": [
+                        {
+                          "name": "SubViewport",
+                          "children": [
+                            {
+                              "name": "World",
+                              "children": [
+                                {
+                                  "name": "Camera2D",
+                                  "comment": "following Player2",
+                                  "type": "Camera2D"
+                                }
+                              ],
+                              "comment": "same or different world"
+                            }
+                          ]
+                        }
+                      ],
+                      "comment": "right half"
+                    }
+                  ],
+                  "comment": "HBoxContainer or custom Control"
+                },
+                {
+                  "name": "UI",
+                  "children": [],
+                  "type": "CanvasLayer",
+                  "comment": "HUD, menus, etc."
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לכל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " יש מצלמה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": ") משלו. המצלמה של שחקן 1 עוקבת אחריו, והמצלמה של שחקן 2 עוקבת אחרי שחקן 2. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewportContainer"
+          },
+          {
+            "type": "text",
+            "text": " דואג לרנדר כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " כטקסטורה על גבי המסך."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "השלבים להגדרה "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 1: יצירת הפריסה."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HBoxContainer"
+          },
+          {
+            "type": "text",
+            "text": " לסצנה שלכם (לפיצול אופקי) או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "VBoxContainer"
+          },
+          {
+            "type": "text",
+            "text": " (לפיצול אנכי). בתוכו, הוסיפו שני "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewportContainer"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו את מאפיין ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Stretch"
+          },
+          {
+            "type": "text",
+            "text": " של כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewportContainer"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "true"
+          },
+          {
+            "type": "text",
+            "text": " ותנו להם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Size Flags - Horizontal - Expand"
+          },
+          {
+            "type": "text",
+            "text": " שווים כדי שיחלקו את המרחב בצורה שווה. בפיצול אופקי, כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Container"
+          },
+          {
+            "type": "text",
+            "text": " תופס חצי מהרוחב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 2: הוספת SubViewports."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "בתוך כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewportContainer"
+          },
+          {
+            "type": "text",
+            "text": ", הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": ". הגדירו את הגודל שלו לחצי מרזולוציית המשחק. למשחק של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1280×720"
+          },
+          {
+            "type": "text",
+            "text": " עם פיצול אופקי:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SubViewport שמאלי: 640×720"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "SubViewport ימני: 640×720"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הפעילו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Handle Input Locally"
+          },
+          {
+            "type": "text",
+            "text": " על כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": " אם אתם צריכים שאירועי קלט ינותבו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " הנכון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 3: הוספת העולם."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "הגישה הפשוטה ביותר: שימו את עולם המשחק בתוך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": " אחד והשתמשו בשיתוף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "World2D"
+          },
+          {
+            "type": "text",
+            "text": " כדי ששני ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewports"
+          },
+          {
+            "type": "text",
+            "text": " יראו את אותו עולם."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// ב-_Ready() של הסקריפט של ה-SubViewport השני:\nvar mainViewport = GetNode<SubViewport>(\"../LeftViewport/SubViewport\");\nWorld2D = mainViewport.World2D;\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עכשיו שני ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewports"
+          },
+          {
+            "type": "text",
+            "text": " מרנדרים את אותו עולם פיזיקה, מפות אריחים וישויות — אבל כל אחד מנקודת המבט של המצלמה שלו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלב 4: הוספת מצלמות."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": " צריך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": " משלו. חברו מצלמה אחת לשחקן 1 ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " הראשון, ומצלמה אחרת לשחקן 2 (או מצלמה עצמאית) ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " השני. הגדירו כל מצלמה כפעילה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "current"
+          },
+          {
+            "type": "text",
+            "text": ") בתוך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " שלה."
           }
         ]
       },
@@ -4900,6 +7652,3174 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפול בקלט"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עם מסך מפוצל, צריך לנתב את הקלט בצורה נכונה. כל שחקן משתמש בפעולות קלט שונות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Input Map:\n  p1_move_left  - A מקש\n  p1_move_right - D מקש\n  p1_jump       - W מקש\n\n  p2_move_left  - חץ שמאלה\n  p2_move_right - חץ ימינה\n  p2_jump       - חץ למעלה\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הסקריפט של כל שחקן מאזין לסט הפעולות שלו. למערכת הקלט לא אכפת מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewports"
+          },
+          {
+            "type": "text",
+            "text": " - הפעולות הן גלובליות. הפיצול משפיע רק על הרינדור, לא על הקלט."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מסך מפוצל עם גיימפאדים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כשמשתמשים בגיימפאדים, לכל שחקן יש באופן טבעי מכשיר משלו. השתמשו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Input.GetJoyAxis"
+          },
+          {
+            "type": "text",
+            "text": " וב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Input.IsJoyButtonPressed"
+          },
+          {
+            "type": "text",
+            "text": " עם אינדקס המכשיר כדי להפריד קלט:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class SplitScreenPlayer : CharacterBody2D\n{\n    [Export] private int _deviceIndex = 0;  // 0 לגיימפאד 1, 1 לגיימפאד 2\n\n    public override void _PhysicsProcess(double delta)\n    {\n        float horizontal = Input.GetJoyAxis(_deviceIndex, JoyAxis.LeftX);\n        bool jump = Input.IsJoyButtonPressed(_deviceIndex, JoyButton.A);\n\n        // ... קוד תנועה שמשתמש ב-horizontal ו-jump ...\n    }\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הערות ביצועים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": " מרנדר את העולם באופן עצמאי. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שני viewports =  עלות הרינדור תהיה כמעט כפולה"
+          },
+          {
+            "type": "text",
+            "text": ". לרוב משחקי הדו-ממד זה בסדר - רינדור דו-ממדי הוא זול. אבל קחו את זה בחשבון למסך מפוצל תלת-ממדי או אם אתם כבר מעמיסים על ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GPU"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חיתוך ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Culling"
+          },
+          {
+            "type": "text",
+            "text": ") עוזר: כל מצלמה מרנדרת רק מה שבתוך שדה הראייה שלה. שתי מצלמות שמסתכלות על חלקים שונים של השלב לא מרנדרות את כל השלב פעמיים - כל אחת מרנדרת רק את החלק הנראה שלה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חלופה: פיצול/מיזוג דינמי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חלק מהמשחקים משתמשים בתצוגה משותפת אחת כשהשחקנים קרובים זה לזה, ומתפצלים ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewports"
+          },
+          {
+            "type": "text",
+            "text": " נפרדים כשהם מתרחקים. זה יותר מורכב - צריך להפעיל ולבטל את הפיצול באופן דינמי, להתאים את גדלי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " ולטפל במעבר - אבל זה מספק חוויה חלקה יותר. הטכניקה הבסיסית זהה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SubViewport"
+          },
+          {
+            "type": "text",
+            "text": " + "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": "), רק עם הפעלה/כיבוי בזמן ריצה וקו מפריד מותאם אישית."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "12.7 רקעים ואפקט Parallax"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " זה אשליית מרחב/עומק שנוצרת על ידי הזזת שכבות רקע במהירויות שונות. במציאות, כאשר אנחנו הולכים ברחוב, פנסי רחוב שלידנו זזים (לא באמת זזים, הם נראים כאילו הם זזים בגלל שאנחנו זזים) מהר, אך ההרים שברקע זזים הרבה יותר לאט כי הם מרוחקים יותר. אותו העיקרון קיים במשחקי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "2D"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לגרום להם להרגיש “עמוקים יותר” (למשל שכבה של עננים שזזה בכ-10% ממהירות המצלמה)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אפקט זה קשור למצלמה משום שכאשר המצלמה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": ") זזה, שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " צריכות לזוז בהתאם למהירות שלה באופן יחסי."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ה-Nodes היעודיים ל-Parallax"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המנוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מספק לנו 2 "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " יעודיים מובנים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParallaxBackground"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מעין מיכל/קונטיינר. הוא “משגיח/מאזין” לתנועת המצלמה ומעביר לילדים שלו. הוסיפו אחד כזה לסצנה - כילד של עולם המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParallaxLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - ילד של "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParallaxBackground"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". לכל שכבה יש מאפיין Motion Scale אשר מגדיר כמה מהר השכבה תזוז ביחס למצלמה. נמקם את התוכן הויזואלי (sprites, tile maps, וכו’) בתור ילדים של השכבה הזו."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Level",
+              "children": [
+                {
+                  "name": "ParallaxBackground",
+                  "children": [
+                    {
+                      "name": "SkyLayer",
+                      "children": [
+                        {
+                          "name": "Sprite2D",
+                          "type": "Sprite2D",
+                          "comment": "sky texture"
+                        }
+                      ],
+                      "type": "ParallaxLayer",
+                      "comment": "Motion Scale (0.1, 0.1)"
+                    },
+                    {
+                      "name": "MountainLayer",
+                      "children": [
+                        {
+                          "name": "Sprite2D",
+                          "type": "Sprite2D",
+                          "comment": "mountains texture"
+                        }
+                      ],
+                      "type": "ParallaxLayer",
+                      "comment": "Motion Scale (0.3, 0.3)"
+                    },
+                    {
+                      "name": "TreeLayer",
+                      "children": [
+                        {
+                          "name": "Sprite2D",
+                          "type": "Sprite2D",
+                          "comment": "trees texture"
+                        }
+                      ],
+                      "type": "ParallaxLayer",
+                      "comment": "Motion Scale (0.6, 0.6)"
+                    }
+                  ],
+                  "type": "ParallaxBackground"
+                },
+                {
+                  "name": "Terrain",
+                  "type": "TileMapLayer",
+                  "comment": "moves 1:1 with camera"
+                },
+                {
+                  "name": "Player",
+                  "children": [
+                    {
+                      "name": "Camera2D",
+                      "type": "Camera2D"
+                    }
+                  ],
+                  "type": "CharacterBody2D"
+                },
+                {
+                  "name": "Foreground",
+                  "type": "TileMapLayer"
+                }
+              ],
+              "type": "Node2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Scale"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מאפיין הליבה. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Scale"
+          },
+          {
+            "type": "text",
+            "text": " מקבל ערך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2"
+          },
+          {
+            "type": "text",
+            "text": " לכל שכבת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxLayer"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Motion Scale"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "השפעה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "(0, 0)\t"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "השכבה לא זזה בכלל - היא נשארת קבועה על גבי המסך (שימושי לרקעים סטטים)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "(0.1, 0.1)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "השכבה זהה במהירות של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "10%"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ממהירות המצלמה - איטי מאוד ולכן שימושי לרקעים מרוחקים מאוד (שמיים, כוכבים). "
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "(0.5, 0.5)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "השכבה זהה במהירות של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "50% "
+                      },
+                      {
+                        "type": "text",
+                        "text": "ממהירות המצלמה - מרחק בינוני (הרים, עננים)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "(1, 1)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "השכבה זהה במהירות של 1"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "00%"
+                      },
+                      {
+                        "type": "text",
+                        "text": " ממהירות המצלמה - זז באותה מהירות כמו השחקן (ללא אפקט "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Parallax"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "(1.2, 1.0)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    680
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "זז מהר יותר מהמצלמה (בכיוון אופקי) - אפקט "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Parallax"
+                      },
+                      {
+                        "type": "text",
+                        "text": " קדמי, מתאים ל-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Foreground"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (נדיר בשימוש)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "רוב משחקי הפלטפורמר זקוקים ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " אופקי בלבד, כך שיש להגדיר את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Y"
+          },
+          {
+            "type": "text",
+            "text": " ל-0 (או לתת לו ערך נמוך מאוד כמו 0.05), כך שהרקע לא יזוז מבחינה אורכית כשהשחקן קופץ:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "SkyLayer:        Motion Scale (0.05, 0.0)\nMountainLayer:   Motion Scale (0.2, 0.05)\nTreeLayer:       Motion Scale (0.5, 0.1)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Mirroring - גלילה אינסופית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "טקסטורה של שמיים נגמרת בסופו של דבר, היא לא אינסופית ויש לתמונה קצה. אם השחקן זז ללא הפסקה ויש לנו אפקט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": ", ותמונת הרקע תגיע לקצה כתוצאה מהגלילה - השחקן יראה אחריה שטח ריק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Mirroring"
+          },
+          {
+            "type": "text",
+            "text": " פותר זאת על ידי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tiling"
+          },
+          {
+            "type": "text",
+            "text": " של השכבה באופן אינסופי (התמונה תחזור על עצמה כשתגיע לקצה). אפשרו והגדירו את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Mirroring"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " בהתאם לגודל הטקסטורה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Motion Mirroring:\n  X: 1920    ← width of the background image in pixels\n  Y: 0       ← no vertical tiling (0 = disabled on that axis)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת הטקסטורה תחזור על עצמה לנצח, והשחקן לא יראה שטח ריק - לא משנה כמה הוא יזוז."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "* חשוב: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "על מנת שה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Mirroring"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " יראה טוב ואחיד ויחזור על עצמו נכון ובאופן אחיד - השתמשו בתמונות שמתאימות לכך - כלומר שהצד הימני יתחבר לשמאלי באופן מושלם (רוב ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax Assets"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a96f1e",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " שתמצאו ברשת הם כאלה)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Offset"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מאפיין זה קובע את נקודת ההתחלה של השכבה. השתמשו בו על מנת לדייק התאמה בין השכבות מבלי להזיז "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": ". זה ערך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Vector2"
+          },
+          {
+            "type": "text",
+            "text": " בפיקסלים - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X"
+          },
+          {
+            "type": "text",
+            "text": " חיובי מזיז את נקודת ההתחלה של השכבה לימין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה שימושי כאשר שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " שונות הן בעלות קווי אופק שונים או כשצריך לדייק באופן ידני התאמה של שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " מבלי להזיז את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " שלהן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דוגמה מעשית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נבנה רקע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " מלא עם מספר שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 15.6"
+          },
+          {
+            "type": "text",
+            "text": " כשניצור את עיצוב השלבים של הפלטפורמר שלנו. שם נעבור על הכנת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "text": ", שכבות מוערמות וכוונון ערכי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Scale"
+          },
+          {
+            "type": "text",
+            "text": " מול גיימפליי אמיתי. לעת עתה, הקונספטים למעלה הם כל מה שצריך כדי להבין את המערכת."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אפשר לשנות מאפייני פרלקס בזמן ריצה - שימושי לאפקטים דינמיים כמו רוח שמאיצה את שכבת העננים, או מעבר מחוץ למערה (עמעום שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public partial class ParallaxController : ParallaxBackground\n{\n    [Export] private ParallaxLayer _cloudLayer;\n\n    public override void _Process(double delta)\n    {\n        // גלילת עננים איטית גם כשהמצלמה לא זזה\n        _cloudLayer.MotionOffset += new Vector2(10.0f * (float)delta, 0);\n    }\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדלת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "MotionOffset"
+          },
+          {
+            "type": "text",
+            "text": " בכל פריים יוצרת גלילה אוטונומית - עננים נסחפים על פני השמיים ללא תלות בתנועת המצלמה. זה מוסיף חיים לסצנות שבהן השחקן עשוי לעמוד במקום."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרלקס עם TileMapLayer"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אתם לא מוגבלים לספרייטים. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxLayer"
+          },
+          {
+            "type": "text",
+            "text": " יכול להכיל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " - שימושי כשהרקע שלכם מצויר באריחים ולא כתמונה גדולה אחת:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "ParallaxBackground",
+              "children": [
+                {
+                  "name": "DistantWalls",
+                  "children": [
+                    {
+                      "name": "TileMapLayer",
+                      "comment": "צבוע עם אריחי קירות רקע",
+                      "type": "TileMapLayer"
+                    }
+                  ],
+                  "type": "ParallaxLayer",
+                  "comment": "Motion Scale (0.3, 0.3)"
+                }
+              ],
+              "type": "ParallaxBackground"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל שכבת האריחים נגללת בקצב ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": ". זה עובד טוב לרקעים מבניים חוזרים - נוף עירוני רחוק, קירות מערה, לבנים של מבוך."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הערה:"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Mirroring"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " לא מרבה אוטומטית "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " - הוא מרבה רק את הפלט הוויזואלי. לשכבת פרלקס מבוססת אריחים, צריך לצבוע מספיק אריחים כדי לכסות את אזור הגלילה, תוך התחשבות ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Motion Scale"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " המופחת. אם אזור המשחק רחב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "3000"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " פיקסלים ושכבת הפרלקס זזה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0.3×"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": ", השכבה צריכה לכסות רק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "900~"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " פיקסלים של אריחים (ועוד רוחב ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#ba701c",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " כריפוד)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בעיות נפוצות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכבות פרלקס מרונדרות מאחורי מיקום ה-Node של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " בעץ."
+          },
+          {
+            "type": "text",
+            "text": " אם ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "text": " נמצא מתחת לשחקן בעץ הסצנה, שכבות הפרלקס מרונדרות מול השחקן. תמיד מקמו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "text": " מעל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " של המשחק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכחת Motion Mirroring."
+          },
+          {
+            "type": "text",
+            "text": " השחקן הולך ימינה 30 שניות והשמיים נעלמים. הגדירו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "mirroring"
+          },
+          {
+            "type": "text",
+            "text": " על כל שכבה שצריכה להתרבות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טקסטורות שלא מתרבות עם mirroring מופעל."
+          },
+          {
+            "type": "text",
+            "text": " תפר נראה חוזר בכל מחזור. השתמשו בגרפיקה שגודלת חלקית, או הגדירו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "mirroring"
+          },
+          {
+            "type": "text",
+            "text": " ל-0 והפכו את הטקסטורה לרחבה מספיק כדי לכסות את כל טווח הגלילה של השלב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יותר מדי שכבות."
+          },
+          {
+            "type": "text",
+            "text": " כל שכבת פרלקס היא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "draw call"
+          },
+          {
+            "type": "text",
+            "text": " נוסף. 3-5 שכבות זה טיפוסי. 10+ שכבות עם טקסטורות גדולות יכולות להשפיע על ביצועים בחומרה חלשה, במיוחד במובייל. שמרו על סבירות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרלקס אנכי במשחקי פלטפורמר."
+          },
+          {
+            "type": "text",
+            "text": " שהשמיים זזים אנכית כשהשחקן קופץ זה נראה נראה מוזר - השמיים לא מתקרבים כשקופצים במציאות. הגדירו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Motion Scale.Y"
+          },
+          {
+            "type": "text",
+            "text": " ל-0 או קרוב לאפס על שכבות רחוקות. רק לשכבות הקרובות ביותר (עצים, שיחים) צריך להיות פרלקס אנכי מורגש."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פרק זה כיסה את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Camera2D"
+          },
+          {
+            "type": "text",
+            "text": " ומערכת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " - איך השחקן רואה את עולם המשחק שלכם."
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "יסודות Camera2D (12.1):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חברו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Camera2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לשחקן למעקב אוטומטי. הפעילו החלקת מיקום לתנועה מלוטשת. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "drag margins"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לאזור מת. השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Offset"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לאפקט מבט קדימה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "גבולות והחלקה (12.2):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הגדירו גבולות מצלמה כדי למנוע הצגת הריק מעבר לקצוות השלב. חשבו גבולות מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "TileMap"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אוטומטית. קראו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()ResetSmoothing"
+                  },
+                  {
+                    "type": "text",
+                    "text": " אחרי טלפורטציות וטעינת סצנות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "זום ורעידות (12.3):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בצעו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Tween"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למאפיין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Zoom"
+                  },
+                  {
+                    "type": "text",
+                    "text": " למעברי זום חלקים. ממשו רעידות מסך על ידי הזזה אקראית של המצלמה והנחתת העוצמה. השתמשו ברעידות מבוססות noise לתנועה חלקה ואורגנית יותר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Viewport ורזולוציה (12.4):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הוא משטח הרינדור של המשחק. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Stretch Mode"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולט איך ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ממופה לחלון - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפיקסל-ארט, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "canvas_items"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HD"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". המאפיין"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": " Stretch Aspect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולט איך יחסי גובה-רוחב לא תואמים מטופלים -"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "keep"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לבטיחות, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "expand"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לגמישות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "רינדור פיקסל מושלם (12.5):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הצמידו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "transforms"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "vertices"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפיקסלים. השתמשו בסינון "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "nearest-neighbor"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". רנדרו ברזולוציית הפיקסל-ארט שלכם עם מצב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "viewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". ודאו יחסי הגדלה שלמים להגדלה נקייה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מסך מפוצל (12.6):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "SubViewport"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם מופעי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Camera2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " משלהם לרינדור תצוגות מרובות. שתפו את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "World2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בין "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "viewports"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי שיראו את אותו עולם משחק. נתבו קלט דרך סטים נפרדים של פעולות או אינדקסי מכשירים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "רקעי פרלקס (12.7):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " השתמשו ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParallaxBackground"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם ילדים מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParallaxLayer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ליצירת עומק. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Motion Scale"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שולט במהירות כל שכבה ביחס למצלמה. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Motion Mirroring"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מאפשר ריבוי אינסופי. שכבות קרובות זזות הכי מהר, שכבות רחוקות בקושי זזות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שאלון ידע"
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "attrs": {
+          "questions": [
+            {
+              "question": " יצרתם Camera2D כילד של השחקן, אבל התצוגה לא עוקבת אחרי השחקן כשמריצים את המשחק. מה הסיבה הכי סבירה?",
+              "answers": [
+                " ה-Zoom של המצלמה מוגדר ל-Vector2(0, 0)",
+                " המצלמה לא מוגדרת כמצלמה הפעילה (מצלמה אחרת פעילה, או ש-Enabled כבוי) ",
+                " המצלמה צריכה ילד CollisionShape2D",
+                "הסקריפט של השחקן חייב לעדכן את מיקום המצלמה ידנית"
+              ],
+              "correct": 1
+            },
+            {
+              "question": " מה עושה ()ResetSmoothing על Camera2D?",
+              "answers": [
+                "מבטל את החלקת המיקום לצמיתות",
+                "מגדיר את מהירות ההחלקה ל-0",
+                "מקפיץ את המצלמה מיד למיקום המטרה, ומדלג על האינטרפולציה החלקה",
+                " מאפס את ה-Offset של המצלמה ל-Vector2.Zero"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "השחקן הולך מעבר לקצה השמאלי של השלב והמצלמה חושפת רווח אפור ריק. איך מתקנים?",
+              "answers": [
+                " עוד אריחים מעבר לגבול השלב",
+                "להגדיר את Limit Left של המצלמה לקצה השמאלי של השלב בפיקסלים",
+                "להקטין את ערך ה-Zoom של המצלמה",
+                "להפעיל Drag Horizontal"
+              ],
+              "correct": 1
+            },
+            {
+              "question": " ב-Camera2D, מה עושה Zoom = new Vector2(2, 2)?",
+              "answers": [
+                "מתרחק - מציג פי שניים מהעולם",
+                "מתקרב - מציג חצי מהעולם, דברים נראים גדולים יותר",
+                " מכפיל את מהירות התנועה של המצלמה",
+                "מגדיר את המצלמה להיסט 2× מהשחקן"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "מה ההבדל בין Stretch Mode מסוג viewport לבין canvas_items?",
+              "answers": [
+                "viewport מרנדר ברזולוציית הבסיס ומגדיל את התוצאה כתמונה אחת, canvas_items מרנדר מחדש אלמנטי UI ברזולוציית החלון לטקסט חד ",
+                "viewport הוא למשחקי תלת-ממד, canvas_items הוא למשחקי דו-ממד",
+                "הם זהים, רק השמות שונים",
+                "viewport מוסיף פסים שחורים, canvas_items מותח למילוי"
+              ],
+              "correct": 0
+            },
+            {
+              "question": "אתם מכינים משחק פיקסל-ארט ב-320×180. איזו הגדרת Stretch Aspect מונעת עיוות התמונה כשמשנים גודל חלון ליחס גובה-רוחב לא תואם?",
+              "answers": [
+                "ignore",
+                "expand",
+                "keep",
+                "canvas_items"
+              ],
+              "correct": 2
+            },
+            {
+              "question": "אילו שתי הגדרות פרויקט חייבות להיות מופעלות לרינדור פיקסל מושלם כדי למנוע מספרייטים להתרנדר במיקומי תת-פיקסל?",
+              "answers": [
+                "HDR ו-MSAA",
+                "Vsync ו-Anti-Aliasing",
+                "Physics Interpolation ו-Jitter Fix",
+                "Snap 2D Transforms to Pixel ו-Snap 2D Vertices to Pixel "
+              ],
+              "correct": 3
+            },
+            {
+              "question": "איך ממשים מעבר זום חלק של מצלמה?",
+              "answers": [
+                " להגדיר camera.Zoom ישירות ב-()Process_כל פריים",
+                "להשתמש ב-()CreateTween כדי לבצע tween למאפיין zoom לאורך זמן עם easing",
+                "לשנות את רזולוציית ה-viewport בזמן ריצה",
+                "להתאים את מאפיין ה-Offset"
+              ],
+              "correct": 1
+            },
+            {
+              "question": "בהגדרת מסך מפוצל, איך שני Nodes של SubViewport מרנדרים את אותו עולם משחק?",
+              "answers": [
+                " הם חולקים את אותו משאב World2D, כך ששניהם רואים את אותו עולם פיזיקה ורינדור",
+                " כל viewport חייב להכיל עותק מלא משלו של סצנת המשחק",
+                "מסך מפוצל אפשרי רק עם viewports תלת-ממדיים",
+                "משכפלים את כל עץ הסצנה לתוך כל viewport"
+              ],
+              "correct": 0
+            },
+            {
+              "question": " הוספתם ParallaxLayer עם טקסטורת שמיים, אבל אחרי גלילה מספיק רחוקה ימינה השמיים נעלמים והשחקן רואה רווח ריק. איזה מאפיין מתקן את זה?",
+              "answers": [
+                "Motion Mirroring - להגדיר X לרוחב הפיקסלים של הטקסטורה כדי שתתרבה אינסופית",
+                "Motion Scale - להגדיר ל-(0, 0) כדי שהשמיים לעולם לא יזוזו",
+                "Motion Offset - להזיז את השמיים כדי לכסות יותר שטח",
+                "Z Index - השמיים מתרנדרים מאחורי ה-viewport"
+              ],
+              "correct": 0
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 13 - תכנון המשחק"
+          },
+          {
+            "type": "text",
+            "text": ": עכשיו יש לכם את כל אבני הבניין - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites"
+          },
+          {
+            "type": "text",
+            "text": ", תנועה, פיזיקה, התנגשויות, מפות אריחים, מצלמה ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": ". הגיע הזמן לחבר את הכול. נתכנן היקף, נקים מבנה פרויקט, נאסוף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "text": ", ונתכונן לבנות פלטפורמר דו-ממדי שלם מאפס."
+          }
+        ]
       }
     ]
   }

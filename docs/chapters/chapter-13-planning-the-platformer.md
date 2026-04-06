@@ -195,8 +195,6 @@ Consistency matters more than the specific convention. Here's what we'll use:
 
 When you add an image or audio file to your project, Godot creates a `.import` file next to it (e.g., `player_spritesheet.png.import`). These files store import settings — compression mode, filter settings, etc.
 
-**Commit `.import` files to version control.** They contain project-specific settings. Without them, team members (or your future self on a new machine) would need to reconfigure import settings for every asset.
-
 Don't manually edit `.import` files. Change import settings through the Godot Inspector (select the asset, look at the Import dock at the top of the Inspector panel).
 
 ---
@@ -413,44 +411,7 @@ Every Godot project needs a main scene — the first scene loaded when the game 
 
 Press **F5** to run. You should see an empty black window at 1280×720. That's correct — we haven't added any content yet.
 
-### Step 6: Version Control
-
-If you haven't already, initialize git:
-
-```
-cd /path/to/CrystalCaverns
-git init
-```
-
-Godot generates a `.gitignore` for you (or you can create one). Make sure it includes:
-
-```
-# Godot 4+ specific ignores
-.godot/
-
-# Mono/C# specific ignores
-.mono/
-data_*/
-```
-
-The `.godot/` folder contains Godot's internal cache (imported resources, shader cache, editor data). It's regenerated automatically and should never be committed. The `.mono/` folder contains compiled C# assemblies — also regenerated on build.
-
-**Do commit:**
-
-- All `.tscn`, `.tres`, `.cs` files
-- All art and audio assets
-- `.import` files
-- `project.godot` (the project configuration)
-- `.csproj` and `.sln` files
-
-Make your first commit:
-
-```
-git add -A
-git commit -m "Initial project setup — folder structure, project settings, empty main scene"
-```
-
-### Step 7: The GameManager Autoload
+### Step 6: The GameManager Autoload
 
 We'll need a global manager to track game state across scenes — score, health, current level. Create it now as a skeleton:
 
@@ -526,7 +487,6 @@ At the end of this chapter, you have:
 - A clear design document defining what the game includes and (crucially) what it doesn't
 - A folder structure ready for scenes, scripts, art, audio, and UI
 - Project settings configured for pixel-art rendering at 320×180
-- A version-controlled project with a clean initial commit
 - A GameManager autoload skeleton tracking score and health
 - A list of assets needed and where to find them
 
@@ -538,101 +498,11 @@ No gameplay code yet — that's intentional. Planning and setup is invisible wor
 
 **Game design document (13.1):** Define scope before opening the editor. List what's in, list what's out, and write a concrete "done" checklist. Our game is Crystal Caverns — a 3-level platformer with crystals, enemies, hazards, and checkpoints.
 
-**Project structure (13.2):** Organize files by feature (`scenes/player/`, `scenes/enemies/`). Scripts use PascalCase, everything else uses snake_case. Scenes and their scripts live together. Commit `.import` files to git.
+**Project structure (13.2):** Organize files by feature (`scenes/player/`, `scenes/enemies/`). Scripts use PascalCase, everything else uses snake_case. Scenes and their scripts live together.
 
 **Free assets (13.3):** Kenney.nl for CC0 art and audio. itch.io and OpenGameArt for additional resources. Only import assets you'll actually use. Decide on tile size early (16×16 or 18×18) and stick with it.
 
-**Project setup (13.4):** Viewport at 320×180 with `viewport` stretch mode for pixel-perfect rendering. Nearest-neighbor texture filtering. 2D pixel snapping enabled. GameManager autoload for global state. Git initialized with proper `.gitignore`.
-
----
-
-## Quiz
-
-**Question 1:** Why is a "Not In Scope" list important in a game design document?
-
-A) It makes the document look more professional
-B) It explicitly prevents scope creep by defining what you will not build
-C) It's required by Godot's project wizard
-D) It lists features for a future update
-
-**Answer:** B. Saying "no" to features upfront prevents the project from growing indefinitely. Every excluded feature is time you can spend on the features that matter.
-
----
-
-**Question 2:** Where should a scene file and its associated C# script be placed?
-
-A) Scenes in `scenes/` and scripts in a separate `scripts/` folder
-B) Both in the same folder, grouped by feature (e.g., `scenes/player/`)
-C) Scripts must be in the project root
-D) It doesn't matter — Godot finds them automatically
-
-**Answer:** B. Co-locating scenes and scripts by feature makes files easy to find and keeps related code together.
-
----
-
-**Question 3:** Why do C# script files use PascalCase while other files use snake_case?
-
-A) Godot requires this specific combination
-B) C# classes use PascalCase by convention, and the file name matches the class name. Other assets follow Godot's snake_case convention
-C) PascalCase files compile faster
-D) snake_case files are easier for the engine to parse
-
-**Answer:** B. It's a convention alignment — C# classes are PascalCase, so their files are too. Everything else follows Godot's ecosystem convention.
-
----
-
-**Question 4:** What license should you look for when choosing free game assets for a commercial project?
-
-A) GPL — it allows any use
-B) CC0, CC-BY, or MIT — these allow commercial use (CC-BY requires attribution)
-C) Any asset found online is free to use commercially
-D) Only paid assets can be used commercially
-
-**Answer:** B. CC0 is public domain (no restrictions). CC-BY requires crediting the author. MIT is a permissive software license. Always read the license before using assets.
-
----
-
-**Question 5:** What viewport resolution and stretch mode are we using for the platformer, and why?
-
-A) 1920×1080 with `canvas_items` — for HD rendering
-B) 320×180 with `viewport` — for pixel-perfect rendering at a low resolution that scales cleanly to common display sizes
-C) 640×480 with `disabled` — for retro authenticity
-D) 1280×720 with `expand` — to fill any screen
-
-**Answer:** B. 320×180 is a standard 16:9 pixel-art canvas that scales to 720p (4×), 1080p (6×), and 4K (12×) at clean integer multiples. `viewport` stretch mode preserves pixel consistency.
-
----
-
-**Question 6:** Why do we create a GameManager as an autoload instead of a static C# class?
-
-A) Static classes are not supported in C#
-B) Autoloads are nodes — they persist across scenes, receive engine callbacks like `_Process()`, and can emit signals. Static classes can only hold data
-C) Autoloads are faster than static classes
-D) Godot cannot reference static classes from the Inspector
-
-**Answer:** B. The node lifecycle, signals, and scene-tree persistence make autoloads far more useful than plain static data containers for game-wide state management.
-
----
-
-**Question 7:** You download a pixel-art tileset pack containing 500 files. What should you do?
-
-A) Copy the entire pack into your project's `art/` folder
-B) Pick only the files you need, copy them into the appropriate subfolders, and rename them to match your naming convention
-C) Import everything and delete what you don't need later
-D) Keep the pack outside the project and reference files with absolute paths
-
-**Answer:** B. Only import what you'll use. Extra files inflate export size, clutter the FileSystem panel, and make it harder to find what you need.
-
----
-
-**Question 8:** Which files should be excluded from git version control in a Godot project?
-
-A) `.tscn` and `.tres` files — they're auto-generated
-B) The `.godot/` folder (editor cache) and `.mono/` folder (compiled C# assemblies)
-C) All image files — they're too large
-D) The `project.godot` file — it's environment-specific
-
-**Answer:** B. Both are regenerated automatically. The `.godot/` folder contains editor cache and imported resources. The `.mono/` folder contains build artifacts. Everything else — including `project.godot`, `.import` files, and assets — should be committed.
+**Project setup (13.4):** Viewport at 320×180 with `viewport` stretch mode for pixel-perfect rendering. Nearest-neighbor texture filtering. 2D pixel snapping enabled. GameManager autoload for global state.
 
 ---
 

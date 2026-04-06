@@ -123,7 +123,7 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 - H2 headings auto-generate `id` attributes from their text (via extended Heading extension)
 - H1 headings "סיכום" and "שאלון ידע" also get IDs for deep linking
 - Sidebar organized by **parts** (two-level accordion: part → chapter → subchapter headings)
-- "סיכום" and "שאלון ידע" always appear at the bottom of each chapter's subchapter list with a separator
+- "סיכום" and "שאלון ידע" appear at the bottom of each chapter's subchapter list with a separator, but only if the corresponding h1 heading exists in the chapter content (not all chapters have them — project chapters like 13–17 don't)
 - Clicking a main chapter link scrolls to top after navigation
 - Clicking a subchapter smooth-scrolls to the heading anchor
 
@@ -178,6 +178,7 @@ Custom `NodeTree` Tiptap node (`NodeTreeNode.ts`) for displaying hierarchical st
 - Chapters whose only content (besides the h1 title) is a paragraph starting with "בקרוב" are detected as placeholders via `isComingSoon()` in `lib/content.ts`
 - These chapters show "(בקרוב)" label next to the title in sidebar, mobile drawer, and landing page
 - Subchapter deep links (headings, סיכום, שאלון ידע) are hidden for coming-soon chapters
+- סיכום and שאלון ידע links are only shown when those h1 sections actually exist in the chapter content (checked via `hasH1()` in `lib/headings.ts`)
 - Detection is automatic — no manual flagging needed; replacing the placeholder with real content switches to normal display
 
 ## Routing

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/cn";
-import { extractHeadings } from "@/lib/headings";
+import { extractHeadings, hasH1 } from "@/lib/headings";
 import { groupChaptersByPart, hebrewPartLabel } from "@/lib/parts";
 import { getPartsOverrides, isComingSoon } from "@/lib/content";
 import type { Chapter } from "@/types/chapter";
@@ -158,25 +158,13 @@ export function ChapterSidebar({
                       const headings = comingSoon ? [] : extractHeadings(
                         chapter.content
                       );
-                      const hasSummary = headings.some(
-                        (h) => h.text === "סיכום"
-                      );
-                      const hasQuiz = headings.some((h) =>
-                        h.text.startsWith("שאלון")
-                      );
                       const allHeadings = comingSoon ? [] : [
                         ...headings,
-                        ...(!hasSummary
+                        ...(hasH1(chapter.content, "סיכום")
                           ? [{ id: "סיכום", text: "סיכום", level: 2 }]
                           : []),
-                        ...(!hasQuiz
-                          ? [
-                              {
-                                id: "שאלון-ידע",
-                                text: "שאלון ידע",
-                                level: 2,
-                              },
-                            ]
+                        ...(hasH1(chapter.content, "שאלון")
+                          ? [{ id: "שאלון-ידע", text: "שאלון ידע", level: 2 }]
                           : []),
                       ];
                       const hasHeadings = allHeadings.length > 0;

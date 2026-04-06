@@ -27,6 +27,17 @@ export function extractHeadings(content: JSONContent): HeadingItem[] {
   return headings;
 }
 
+/** Check whether an h1 with the given text exists in the content */
+export function hasH1(content: JSONContent, text: string): boolean {
+  if (!content.content) return false;
+  return content.content.some(
+    (node) =>
+      node.type === "heading" &&
+      node.attrs?.level === 1 &&
+      getTextFromNode(node).startsWith(text)
+  );
+}
+
 function getTextFromNode(node: JSONContent): string {
   if (node.text) return node.text;
   if (!node.content) return "";

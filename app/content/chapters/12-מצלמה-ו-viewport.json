@@ -4,7 +4,7 @@
   "slug": "מצלמה-ו-viewport",
   "order": 12,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-06T08:39:09.967Z",
+  "updatedAt": "2026-04-06T17:27:42.455Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -8083,10 +8083,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/parallax2d.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -8101,10 +8104,19 @@
             "type": "text",
             "marks": [
               {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
                 "type": "bold"
               }
             ],
-            "text": "ה-Nodes היעודיים ל-Parallax"
+            "text": " - ה-Node המודרני"
           }
         ]
       },
@@ -8117,7 +8129,7 @@
         "content": [
           {
             "type": "text",
-            "text": "המנוע "
+            "text": "החל מ-"
           },
           {
             "type": "text",
@@ -8126,11 +8138,83 @@
                 "type": "bold"
               }
             ],
-            "text": "Godot"
+            "text": "Godot 4.3"
           },
           {
             "type": "text",
-            "text": " מספק לנו 2 "
+            "text": ", המנוע מספק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " יחיד ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "text": ") שמחליף את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxLayer"
+          },
+          {
+            "type": "text",
+            "text": " הישנים (שהם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#aa1313",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "deprecated"
+          },
+          {
+            "type": "text",
+            "text": "). במערכת הישנה היה צריך שני "
           },
           {
             "type": "text",
@@ -8143,82 +8227,185 @@
           },
           {
             "type": "text",
-            "text": " יעודיים מובנים:"
+            "text": " בהיררכיה נוקשה - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "text": " שירש מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CanvasLayer"
+          },
+          {
+            "type": "text",
+            "text": ", וילדים מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxLayer"
+          },
+          {
+            "type": "text",
+            "text": ". המערכת החדשה פשוטה יותר:"
           }
         ]
       },
       {
-        "type": "bulletList",
+        "type": "paragraph",
         "attrs": {
+          "textAlign": "right",
           "dir": null
         },
         "content": [
           {
-            "type": "listItem",
-            "content": [
+            "type": "text",
+            "marks": [
               {
-                "type": "paragraph",
-                "attrs": {
-                  "textAlign": "right",
-                  "dir": null
-                },
-                "content": [
-                  {
-                    "type": "text",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "text": "ParallaxBackground"
-                  },
-                  {
-                    "type": "text",
-                    "text": " - מעין מיכל/קונטיינר. הוא “משגיח/מאזין” לתנועת המצלמה ומעביר לילדים שלו. הוסיפו אחד כזה לסצנה - כילד של עולם המשחק."
-                  }
-                ]
+                "type": "code"
               }
-            ]
+            ],
+            "text": "Parallax2D"
           },
           {
-            "type": "listItem",
-            "content": [
+            "type": "text",
+            "text": " יורש מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
               {
-                "type": "paragraph",
-                "attrs": {
-                  "textAlign": "right",
-                  "dir": null
-                },
-                "content": [
-                  {
-                    "type": "text",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "text": "ParallaxLayer"
-                  },
-                  {
-                    "type": "text",
-                    "text": " - ילד של "
-                  },
-                  {
-                    "type": "text",
-                    "marks": [
-                      {
-                        "type": "code"
-                      }
-                    ],
-                    "text": "ParallaxBackground"
-                  },
-                  {
-                    "type": "text",
-                    "text": ". לכל שכבה יש מאפיין Motion Scale אשר מגדיר כמה מהר השכבה תזוז ביחס למצלמה. נמקם את התוכן הויזואלי (sprites, tile maps, וכו’) בתור ילדים של השכבה הזו."
-                  }
-                ]
+                "type": "code"
               }
-            ]
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " (ולא מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CanvasLayer"
+          },
+          {
+            "type": "text",
+            "text": " כמו המערכת הישנה). כל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " כזה הוא שכבת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " אחת - פשוט הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "text": " לעץ הסצנה ושימו את התוכן הוויזואלי ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileMapLayers"
+          },
+          {
+            "type": "text",
+            "text": ") כילדים שלו. לא צריך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " קונטיינר משום שכל שכבה היא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " עצמאי."
           }
         ]
       },
@@ -8228,48 +8415,43 @@
           "items": [
             {
               "name": "Level",
+              "type": "Node2D",
               "children": [
                 {
-                  "name": "ParallaxBackground",
+                  "name": "SkyParallax",
+                  "type": "Parallax2D",
+                  "comment": "Scroll Scale (0.1, 0.1)",
                   "children": [
                     {
-                      "name": "SkyLayer",
-                      "children": [
-                        {
-                          "name": "Sprite2D",
-                          "type": "Sprite2D",
-                          "comment": "sky texture"
-                        }
-                      ],
-                      "type": "ParallaxLayer",
-                      "comment": "Motion Scale (0.1, 0.1)"
-                    },
-                    {
-                      "name": "MountainLayer",
-                      "children": [
-                        {
-                          "name": "Sprite2D",
-                          "type": "Sprite2D",
-                          "comment": "mountains texture"
-                        }
-                      ],
-                      "type": "ParallaxLayer",
-                      "comment": "Motion Scale (0.3, 0.3)"
-                    },
-                    {
-                      "name": "TreeLayer",
-                      "children": [
-                        {
-                          "name": "Sprite2D",
-                          "type": "Sprite2D",
-                          "comment": "trees texture"
-                        }
-                      ],
-                      "type": "ParallaxLayer",
-                      "comment": "Motion Scale (0.6, 0.6)"
+                      "name": "Sprite2D",
+                      "type": "Sprite2D",
+                      "comment": "sky texture"
                     }
-                  ],
-                  "type": "ParallaxBackground"
+                  ]
+                },
+                {
+                  "name": "MountainParallax",
+                  "type": "Parallax2D",
+                  "comment": "Scroll Scale (0.3, 0.3)",
+                  "children": [
+                    {
+                      "name": "Sprite2D",
+                      "type": "Sprite2D",
+                      "comment": "mountains texture"
+                    }
+                  ]
+                },
+                {
+                  "name": "TreeParallax",
+                  "type": "Parallax2D",
+                  "comment": "Scroll Scale (0.6, 0.6)",
+                  "children": [
+                    {
+                      "name": "Sprite2D",
+                      "type": "Sprite2D",
+                      "comment": "trees texture"
+                    }
+                  ]
                 },
                 {
                   "name": "Terrain",
@@ -8278,20 +8460,19 @@
                 },
                 {
                   "name": "Player",
+                  "type": "CharacterBody2D",
                   "children": [
                     {
                       "name": "Camera2D",
                       "type": "Camera2D"
                     }
-                  ],
-                  "type": "CharacterBody2D"
+                  ]
                 },
                 {
                   "name": "Foreground",
                   "type": "TileMapLayer"
                 }
-              ],
-              "type": "Node2D"
+              ]
             }
           ]
         }
@@ -8318,7 +8499,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Scale"
+            "text": "Scroll Scale"
           }
         ]
       },
@@ -8340,7 +8521,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Scale"
+            "text": "Scroll Scale"
           },
           {
             "type": "text",
@@ -8366,7 +8547,7 @@
                 "type": "code"
               }
             ],
-            "text": "ParallaxLayer"
+            "text": "Parallax2D"
           },
           {
             "type": "text",
@@ -8402,7 +8583,7 @@
                             "type": "bold"
                           }
                         ],
-                        "text": "Motion Scale"
+                        "text": "Scroll Scale"
                       }
                     ]
                   }
@@ -8857,7 +9038,7 @@
         "content": [
           {
             "type": "text",
-            "text": "SkyLayer:        Motion Scale (0.05, 0.0)\nMountainLayer:   Motion Scale (0.2, 0.05)\nTreeLayer:       Motion Scale (0.5, 0.1)"
+            "text": "SkyLayer:        Scroll Scale (0.05, 0.0)\nMountainLayer:   Scroll Scale (0.2, 0.05)\nTreeLayer:       Scroll Scale (0.5, 0.1)"
           }
         ]
       },
@@ -8883,7 +9064,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Mirroring - גלילה אינסופית"
+            "text": "Repeat Size - גלילה אינסופית"
           }
         ]
       },
@@ -8927,7 +9108,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Mirroring"
+            "text": "Repeat Size"
           },
           {
             "type": "text",
@@ -8953,7 +9134,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Mirroring"
+            "text": "Repeat Size"
           },
           {
             "type": "text",
@@ -8982,7 +9163,7 @@
         "content": [
           {
             "type": "text",
-            "text": "Motion Mirroring:\n  X: 1920    ← width of the background image in pixels\n  Y: 0       ← no vertical tiling (0 = disabled on that axis)"
+            "text": "Repeat Size:\n  X: 1920    ← width of the background image in pixels\n  Y: 0       ← no vertical tiling (0 = disabled on that axis)"
           }
         ]
       },
@@ -9117,7 +9298,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Offset"
+            "text": "Scroll Offset"
           }
         ]
       },
@@ -9308,7 +9489,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Scale"
+            "text": "Scroll Scale"
           },
           {
             "type": "text",
@@ -9372,7 +9553,7 @@
         "content": [
           {
             "type": "text",
-            "text": "public partial class ParallaxController : ParallaxBackground\n{\n    [Export] private ParallaxLayer _cloudLayer;\n\n    public override void _Process(double delta)\n    {\n        // גלילת עננים איטית גם כשהמצלמה לא זזה\n        _cloudLayer.MotionOffset += new Vector2(10.0f * (float)delta, 0);\n    }\n}\n"
+            "text": "public partial class ParallaxController : Node2D\n{\n    [Export] private Parallax2D _cloudLayer;\n\n    public override void _Process(double delta)\n    {\n        // גלילת עננים איטית גם כשהמצלמה לא זזה\n        _cloudLayer.ScrollOffset += new Vector2(10.0f * (float)delta, 0);\n    }\n}\n"
           }
         ]
       },
@@ -9394,7 +9575,7 @@
                 "type": "code"
               }
             ],
-            "text": "MotionOffset"
+            "text": "ScrollOffset"
           },
           {
             "type": "text",
@@ -9442,7 +9623,7 @@
                 "type": "code"
               }
             ],
-            "text": "ParallaxLayer"
+            "text": "Parallax2D"
           },
           {
             "type": "text",
@@ -9468,22 +9649,16 @@
         "attrs": {
           "items": [
             {
-              "name": "ParallaxBackground",
+              "name": "DistantWalls",
+              "type": "Parallax2D",
+              "comment": "Scroll Scale (0.3, 0.3)",
               "children": [
                 {
-                  "name": "DistantWalls",
-                  "children": [
-                    {
-                      "name": "TileMapLayer",
-                      "comment": "צבוע עם אריחי קירות רקע",
-                      "type": "TileMapLayer"
-                    }
-                  ],
-                  "type": "ParallaxLayer",
-                  "comment": "Motion Scale (0.3, 0.3)"
+                  "name": "TileMapLayer",
+                  "type": "TileMapLayer",
+                  "comment": "צבוע עם אריחי קירות רקע"
                 }
-              ],
-              "type": "ParallaxBackground"
+              ]
             }
           ]
         }
@@ -9564,7 +9739,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Mirroring"
+            "text": "Repeat Size"
           },
           {
             "type": "text",
@@ -9615,7 +9790,7 @@
                 "type": "bold"
               }
             ],
-            "text": "Motion Scale"
+            "text": "Scroll Scale"
           },
           {
             "type": "text",
@@ -9797,7 +9972,7 @@
                 "type": "code"
               }
             ],
-            "text": "ParallaxBackground"
+            "text": "Parallax2D"
           },
           {
             "type": "text",
@@ -9819,7 +9994,7 @@
                 "type": "code"
               }
             ],
-            "text": "ParallaxBackground"
+            "text": "Parallax2D"
           },
           {
             "type": "text",
@@ -9832,7 +10007,7 @@
                 "type": "code"
               }
             ],
-            "text": "ParallaxBackground"
+            "text": "Parallax2D"
           },
           {
             "type": "text",
@@ -9867,7 +10042,7 @@
                 "type": "bold"
               }
             ],
-            "text": "שכחת Motion Mirroring."
+            "text": "שכחת Repeat Size."
           },
           {
             "type": "text",
@@ -9985,7 +10160,7 @@
                 "type": "code"
               }
             ],
-            "text": "Motion Scale.Y"
+            "text": "Scroll Scale.Y"
           },
           {
             "type": "text",
@@ -10577,11 +10752,24 @@
                         "type": "code"
                       }
                     ],
+                    "text": "Parallax2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (Node אחד לכל שכבה) ליצירת עומק — מחליף את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
                     "text": "ParallaxBackground"
                   },
                   {
                     "type": "text",
-                    "text": " עם ילדים מסוג "
+                    "text": "/"
                   },
                   {
                     "type": "text",
@@ -10594,16 +10782,16 @@
                   },
                   {
                     "type": "text",
-                    "text": " ליצירת עומק. "
+                    "text": " שהוצאו משימוש. "
                   },
                   {
                     "type": "text",
                     "marks": [
                       {
-                        "type": "bold"
+                        "type": "code"
                       }
                     ],
-                    "text": "Motion Scale"
+                    "text": "Scroll Scale"
                   },
                   {
                     "type": "text",
@@ -10613,14 +10801,27 @@
                     "type": "text",
                     "marks": [
                       {
-                        "type": "bold"
+                        "type": "code"
                       }
                     ],
-                    "text": "Motion Mirroring"
+                    "text": "Repeat Size"
                   },
                   {
                     "type": "text",
-                    "text": " מאפשר ריבוי אינסופי. שכבות קרובות זזות הכי מהר, שכבות רחוקות בקושי זזות."
+                    "text": " מאפשר ריבוי אינסופי. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Autoscroll"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מוסיף גלילה עצמאית מהמצלמה ללא קוד. שכבות קרובות זזות מהר, שכבות רחוקות בקושי זזות."
                   }
                 ]
               }
@@ -10745,11 +10946,11 @@
               "correct": 0
             },
             {
-              "question": " הוספתם ParallaxLayer עם טקסטורת שמיים, אבל אחרי גלילה מספיק רחוקה ימינה השמיים נעלמים והשחקן רואה רווח ריק. איזה מאפיין מתקן את זה?",
+              "question": " הוספתם Parallax2D עם טקסטורת שמיים, אבל אחרי גלילה מספיק רחוקה ימינה השמיים נעלמים והשחקן רואה רווח ריק. איזה מאפיין מתקן את זה?",
               "answers": [
-                "Motion Mirroring - להגדיר X לרוחב הפיקסלים של הטקסטורה כדי שתתרבה אינסופית",
-                "Motion Scale - להגדיר ל-(0, 0) כדי שהשמיים לעולם לא יזוזו",
-                "Motion Offset - להזיז את השמיים כדי לכסות יותר שטח",
+                "Repeat Size - להגדיר X לרוחב הפיקסלים של הטקסטורה כדי שתתרבה אינסופית",
+                "Scroll Scale - להגדיר ל-(0, 0) כדי שהשמיים לעולם לא יזוזו",
+                "Scroll Offset - להזיז את השמיים כדי לכסות יותר שטח",
                 "Z Index - השמיים מתרנדרים מאחורי ה-viewport"
               ],
               "correct": 0

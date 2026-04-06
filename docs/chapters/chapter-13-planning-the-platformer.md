@@ -471,10 +471,11 @@ public partial class GameManager : Node
 
 Register it as an autoload:
 
-1. **Project → Project Settings → Autoload** tab.
-2. Click the folder icon and select `GameManager.cs`.
-3. Node Name: `GameManager`.
-4. Click **Add**.
+1. **Build the project first** — click the MSBuild panel's **Build** button (or press Alt+B). Godot cannot register a C# script as an autoload until it has been compiled. If you skip this step, you'll get: `Failed to create an autoload, script is not compiling`.
+2. **Project → Project Settings → Autoload** tab.
+3. Click the folder icon and select `GameManager.cs`.
+4. Node Name: `GameManager`.
+5. Click **Add**.
 
 Now `GameManager.Instance` is accessible from any script in any scene. The `static Instance` pattern gives us a typed reference without calling `GetNode` every time.
 

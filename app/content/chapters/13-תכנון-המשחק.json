@@ -4,7 +4,7 @@
   "slug": "תכנון-המשחק",
   "order": 13,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-06T23:05:32.081Z",
+  "updatedAt": "2026-04-06T23:42:47.847Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -26,7 +26,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/content/images/project_manager.png",
+          "src": "/content/images/project_structure.png",
           "alt": null,
           "title": null,
           "width": null,
@@ -7041,6 +7041,86 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a87300",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "* "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a87300",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימו לב:"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a87300",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " לא תראו חלק מהגדרות אלו עד שתסמנו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a87300",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Advanced Settings"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a87300",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " למעלה מימין בחלונית."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": "rtl"
+        },
+        "content": [
+          {
+            "type": "text",
             "text": "זה נותן לנו הגדרת פרוייקט קלאסית למשחקים באומנות פיקסלים:המשחק מתרנדר ברזולוציה של "
           },
           {
@@ -7681,7 +7761,7 @@
                         "type": "code"
                       }
                     ],
-                    "text": "Main"
+                    "text": "Level1"
                   },
                   {
                     "type": "text",
@@ -7930,7 +8010,7 @@
                         "type": "bold"
                       }
                     ],
-                    "text": "Project - Project Settings -"
+                    "text": "Project - Project Settings - Globals -"
                   },
                   {
                     "type": "text",
@@ -8050,6 +8130,37 @@
                   {
                     "type": "text",
                     "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם תראו שגיאה זה כי צריך לעשות קודם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Build"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לפרוייקט."
                   }
                 ]
               }

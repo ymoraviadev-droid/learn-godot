@@ -285,3 +285,46 @@ All 28 new placeholder chapter files created with "בקרוב.." content.
 - Part titles link to `/part/:partSlug`
 - Chapter titles link to `/chapter/:slug` (dimmed if not yet written)
 - Updated counts: "12 חלקים, 52 פרקים, ו-4 פרויקטים מעשיים"
+
+---
+
+## 2026-03-31 — Chapter 11 Complete
+
+### Chapter 11 — TileMaps (English Draft + Hebrew Translation)
+
+Written in English (docs/chapters/) and Hebrew translation completed. Covers:
+
+- 11.1 What Is a TileMap? — grid concept, TileSet vs TileMapLayer, deprecated `TileMap` node (Godot 4.3+), typical scene tree with multiple layers, when to use TileMaps vs individual sprites
+- 11.2 Creating a TileSet — atlas sources (sprite sheets), scene-based tiles, alternative tiles, tile size and separation/margin, Inspector workflow with screenshots
+- 11.3 Painting Tiles in the Editor — bottom panel tools, paint/line/rect/bucket fill, eraser, tile picker, random painting, scattered tiles
+- 11.4 Auto-Tiling and Terrain Rules — terrain sets, terrain modes (Match Corners and Sides, Match Corners, Match Sides), peering bits, one-click terrain painting, custom terrain rules
+- 11.5 Tile Collisions and Physics Layers — physics layer setup on TileSet, painting collision shapes per tile, layer/mask configuration, one-way platforms on tiles
+- 11.6 Multiple Tile Layers — background/ground/foreground pattern, Z-ordering, per-layer collision, Y-sorting with tile layers, practical 3-layer platformer setup
+- 11.7 Procedural Tile Placement from Code — `SetCell()` / `EraseCell()` / `GetCellSourceId()`, atlas coords, runtime level generation, chunk loading pattern, A* pathfinding integration
+- Summary + quiz
+
+### Visual Assets
+
+- 14 PNG screenshots (tileset editor, atlas setup, terrain painting, physics layers, multi-layer scenes)
+- 4 SVG diagrams: `tilemap_grid_balanced.svg`, `tilemap_separation_bleeding_v2.svg`, `terrain_peering_bits_fixed.svg`, `terrain_peering_bits_neighbors.svg`, `terrain_match_corners.svg`, `terrain_match_sides_fixed.svg`
+
+---
+
+## 2026-04-06 — Chapter 12 Complete
+
+### Chapter 12 — Camera & Viewport (English Draft + Hebrew Translation)
+
+Written in English (docs/chapters/) and Hebrew translation completed. Covers:
+
+- 12.1 Camera2D Setup and Following — creating a camera, making it active, position smoothing, drag margins
+- 12.2 Camera Limits and Smoothing — edge limits to prevent showing empty space, limit smoothing, clamping to level bounds
+- 12.3 Camera Zoom and Shake Effects — zoom property, smooth zoom transitions, screen shake with random offsets, trauma-based shake system
+- 12.4 Viewport and Resolution Settings — project resolution, stretch modes (viewport/canvas_items), stretch aspects (keep/expand/ignore), handling multiple resolutions
+- 12.5 Pixel-Perfect Rendering — viewport stretch mode for pixel art, snap settings, texture filtering (Nearest), common pixel-art pitfalls
+- 12.6 Split-Screen Basics — SubViewport and SubViewportContainer, assigning cameras per viewport, 2-player split-screen setup
+- 12.7 Parallax Backgrounds — ParallaxBackground + ParallaxLayer nodes, motion scale for depth, infinite scrolling with mirroring
+- Summary + quiz
+
+### Visual Asset
+
+- SVG diagram: `camera2d_viewport_projection.svg`

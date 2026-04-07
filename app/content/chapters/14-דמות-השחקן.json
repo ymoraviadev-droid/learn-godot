@@ -4,7 +4,7 @@
   "slug": "דמות-השחקן",
   "order": 14,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-07T00:48:46.596Z",
+  "updatedAt": "2026-04-07T02:24:50.724Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -986,6 +986,1332 @@
               }
             ],
             "text": "14.2 תנועה - ריצה, קפיצה, נפילה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זו בעצם הליבה של כל המשחק. אם תגדירו את זה כמו שצריך - והכל ייבנה על היסודות האלה. תגדירו את זה לא מספיק טוב - וזה ישפיע גם על הרבה אספקטים של המשחק, שירגיש מאוד לא מלוטש."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תנועה אופקית"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void HandleMovement()\n{\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n    Velocity = new Vector2(direction * MoveSpeed, Velocity.Y);\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Input.GetAxis"
+          },
+          {
+            "type": "text",
+            "text": " מחזירה מספר עשרוני בין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1-"
+          },
+          {
+            "type": "text",
+            "text": ". במקלדת זה מדוייק ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1-"
+          },
+          {
+            "type": "text",
+            "text": " משמעותו שמאל, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": " משמעותו ימין, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0"
+          },
+          {
+            "type": "text",
+            "text": " משמעותו לא זז/סטטי), בקונטרולר זה בהתאם לרמת המשיכה של הסטיק, כלומר שיעבור את כל הערכים מ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0"
+          },
+          {
+            "type": "text",
+            "text": " עד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1"
+          },
+          {
+            "type": "text",
+            "text": " (או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1-"
+          },
+          {
+            "type": "text",
+            "text": ") בהתאם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זוהי השיטה הבסיסית ביותר לתנועה אופקית. האצה מיידית, עצירה מיידית. זה מרגיש רספונסיבי אבל קצת רובוטי, נוסיף רמת חיכוך והאצה בהמשך הפרק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Input Map"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו ב-”"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Project - Project Settings - Input Map"
+          },
+          {
+            "type": "text",
+            "text": "”:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    284
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פעולה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    237
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מקשים במקלדת"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    303
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "GamePad"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    284
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "move_left"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    237
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "A / Left Arrow"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    303
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Left Stick Left"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    284
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "move_right"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    237
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "D / Right Arrow"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    303
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Left Stick Right"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    284
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "jump"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    237
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Space / W / Up Arrow"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": [
+                    303
+                  ]
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "A Button (Xbox) / Cross (PS)"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "גרביטציה בסיסית וקפיצה"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float JumpForce { get; set; } = 300f;\n[Export] public float Gravity { get; set; } = 980f;\n\nprivate void ApplyGravity(float delta)\n{\n    if (!IsOnFloor())\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * delta);\n    }\n}\n\nprivate void HandleJump()\n{\n    if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n    {\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגרביטציה (כוח המשיכה) מייושמת בכל פריים שהשחקן לא עומד על קרקע יציבה (“עומד באוויר”). קפיצה קובעת ערך שלילי של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Y Velocity"
+          },
+          {
+            "type": "text",
+            "text": " (זה אומר למעלה במערכת הקוארדינטות של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שילוב של המתודות"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    ApplyGravity((float)delta);\n    HandleMovement();\n    HandleJump();\n    MoveAndSlide();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " לוקחת את ערך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " הנוכחי, מזיזה את גוף השחקן, מנלת הצנגשויות, ומעדכנת את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לשקף התנגשויות שהתרחשו. נקרא לה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פעם אחת בסוף"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "דיוק הגרביטציה - פתרון ה-80%"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הנה לכם טיפ חשוב: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "גרביטציה במשחקי פלופורמר צריכה להיות הרבה יותר חזקה מאשר בעולם האמיתי, וקפיצות צריכות גם להיות גבוהות יותר"
+          },
+          {
+            "type": "text",
+            "text": ". תנאים של העולם האמיתי יגרמו לדמות להרגיש קצת “מרחפת” וכדאי יהיה לטפל בהם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ערכים התחלתיים אפשריים למשחק פלטפורמר בממדי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "180×320"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float MoveSpeed { get; set; } = 130f;\n[Export] public float JumpForce { get; set; } = 300f;\n[Export] public float Gravity { get; set; } = 980f;\n[Export] public float FallMultiplier { get; set; } = 1.5f;"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "משתנה ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "FallMultiplier"
+          },
+          {
+            "type": "text",
+            "text": " הוא המפתח. כאשר השחקן נופל ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "velocity.Y > 0"
+          },
+          {
+            "type": "text",
+            "text": "), נפעיל גרביטציה קצת מוגברת כדי שהשחקן יפול קצת מהר יותר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void ApplyGravity(float delta)\n{\n    if (!IsOnFloor())\n    {\n        float gravityScale = Velocity.Y > 0 ? FallMultiplier : 1.0f;\n        Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * gravityScale * delta);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "גובה קפיצה משתנה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שחקנים מצפים למצבים: לחיצה קלה על קפיצה = קפיצה קלה, כפתור הקפיצה מוחזק לחוץ = קפיצה מלאה. זה קריטי לתחושה והמשחקיות במשחקי פלטפורמר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הטריק: כאשר השחקן “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "משחרר"
+          },
+          {
+            "type": "text",
+            "text": "” את כפתור הקפיצה, נחתוך את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": ": "
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void HandleJump()\n{\n    if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n    {\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n    }\n\n    // Variable jump height: releasing jump early cuts upward velocity\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הכפלה פי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "0.5"
+          },
+          {
+            "type": "text",
+            "text": " חותכת בחצי את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " שעולה כלפי מעלה. השחקן עוד עולה, אך הקפיצה שלו נחלשת והוא נוחת מהר יותר. מכניקה זו גורמת לשליטה בקפיצה להרגיש הרבה יותר מדוייקת."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "האצה וחיכוך"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "האצה/עצירה מיידית מרגישה “רובוטית” וחדה מדי. נוסיף האצה (עד למהירות מקסימלית) וחיכוך (האטה עד עצירה). זה גורם לתנועה להרגיש נעימה ופיזיקלית יותר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float Acceleration { get; set; } = 900f;\n[Export] public float Friction { get; set; } = 1200f;\n[Export] public float AirFriction { get; set; } = 200f;\n\nprivate void HandleMovement()\n{\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n    if (direction != 0)\n    {\n        // Accelerate toward target speed\n        float targetSpeed = direction * MoveSpeed;\n        Velocity = new Vector2(\n            Mathf.MoveToward(Velocity.X, targetSpeed, Acceleration * (float)GetPhysicsProcessDeltaTime()),\n            Velocity.Y\n        );\n    }\n    else\n    {\n        // Apply friction to slow down\n        float friction = IsOnFloor() ? Friction : AirFriction;\n        Velocity = new Vector2(\n            Mathf.MoveToward(Velocity.X, 0, friction * (float)GetPhysicsProcessDeltaTime()),\n            Velocity.Y\n        );\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "רמת החיכוך עם האוויר נמוכה יותר מרמת החיכוך עם משטחים"
+          },
+          {
+            "type": "text",
+            "text": ". כלומר שעל הקרקע, השחקן יעצור יחסית מהר, ובאוויר לעומת זאת התנועה שומרת על מומנטום (רמת חיכוך אוויר נמוכה), הכוונה לנתיב שהשחקן עושה באוויר אחרי קפיצה. כשהחיכוך באוויר נמוך, השחקן שומר על התנע האופקי שלו בזמן שהוא באוויר - אז אם הוא קפץ ימינה, הוא ימשיך ימינה ולא יוכל לשנות כיוון מהר. זה נותן תחושה של \"אמינות\" לקפיצה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terminal Velocity"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ללא גבולות למהירות מקסימלית, כאשר השחקן נופל במשך הרבה זמן הוא מאיץ עוד ועוד באופן אינסופי. על מנת למנוע זאת, נוסיף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terminal"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float MaxFallSpeed { get; set; } = 400f;\n\nprivate void ApplyGravity(float delta)\n{\n    if (!IsOnFloor())\n    {\n        float gravityScale = Velocity.Y > 0 ? FallMultiplier : 1.0f;\n        Velocity = new Vector2(\n            Velocity.X,\n            Mathf.Min(Velocity.Y + Gravity * gravityScale * delta, MaxFallSpeed)\n        );\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט השלם (עד כה)"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Player : CharacterBody2D\n{\n    [Export] public float MoveSpeed { get; set; } = 130f;\n    [Export] public float Acceleration { get; set; } = 900f;\n    [Export] public float Friction { get; set; } = 1200f;\n    [Export] public float AirFriction { get; set; } = 200f;\n    [Export] public float JumpForce { get; set; } = 300f;\n    [Export] public float Gravity { get; set; } = 980f;\n    [Export] public float FallMultiplier { get; set; } = 1.5f;\n    [Export] public float MaxFallSpeed { get; set; } = 400f;\n\n    public override void _PhysicsProcess(double delta)\n    {\n        ApplyGravity((float)delta);\n        HandleMovement();\n        HandleJump();\n        MoveAndSlide();\n    }\n\n    private void ApplyGravity(float delta)\n    {\n        if (!IsOnFloor())\n        {\n            float gravityScale = Velocity.Y > 0 ? FallMultiplier : 1.0f;\n            Velocity = new Vector2(\n                Velocity.X,\n                Mathf.Min(Velocity.Y + Gravity * gravityScale * delta, MaxFallSpeed)\n            );\n        }\n    }\n\n    private void HandleMovement()\n    {\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n        if (direction != 0)\n        {\n            float targetSpeed = direction * MoveSpeed;\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, targetSpeed, Acceleration * (float)GetPhysicsProcessDeltaTime()),\n                Velocity.Y\n            );\n        }\n        else\n        {\n            float friction = IsOnFloor() ? Friction : AirFriction;\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, 0, friction * (float)GetPhysicsProcessDeltaTime()),\n                Velocity.Y\n            );\n        }\n    }\n\n    private void HandleJump()\n    {\n        if (Input.IsActionJustPressed(\"jump\") && IsOnFloor())\n        {\n            Velocity = new Vector2(Velocity.X, -JumpForce);\n        }\n\n        if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n        {\n            Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כרגע לא תוכלו עדיין לבדוק את זה כי השחקן יפול לתהום. אך תוכלו למקם כמה אריחים לבדיקה אם תרצו."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "14.3 אנימציות - Idle, Run, Jump, Fall"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שחקן שהדמות שלו קפואה בצורה סטטית זה משעמם"
           }
         ]
       },

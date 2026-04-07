@@ -12,7 +12,7 @@ Create a new scene (`Scene → New Scene`) and build this node tree:
 
 ```
 Player (CharacterBody2D)
-├── Sprite2D
+├── AnimatedSprite2D
 ├── CollisionShape2D
 ├── CoyoteTimer (Timer)
 ├── JumpBufferTimer (Timer)
@@ -20,6 +20,8 @@ Player (CharacterBody2D)
 ```
 
 Save it as `res://scenes/player/player.tscn`.
+
+We're using `AnimatedSprite2D` from the start instead of `Sprite2D` — Kenney's Pixel Platformer pack provides sprite sheets, and `AnimatedSprite2D` handles those natively. We'll set up the animations in section 14.3; for now, just add the node.
 
 Let's set up each node.
 
@@ -29,32 +31,28 @@ Select the root `Player` node and configure in the Inspector:
 
 ```
 Motion Mode:         Grounded
-Floor Stop on Slope: true
-Floor Max Angle:     0.785 (45°)
-Wall Min Slide Angle: 0.262 (15°)
+Floor → Stop on Slope: true
+Floor → Max Angle:     45°
 ```
+
+The remaining defaults (Snap Length, Wall Min Slide Angle, etc.) are fine as-is.
 
 **Grounded** motion mode is designed for platformers — it distinguishes between floor, wall, and ceiling based on a configurable up direction (default: `Vector2.Up`). This gives us `IsOnFloor()`, `IsOnWall()`, and `IsOnCeiling()` for free.
 
-### Sprite2D
+### AnimatedSprite2D
 
-If you're using Kenney's Pixel Platformer pack, the character sprites are 18×24 pixels (one tile wide, slightly taller). Drag your player sprite sheet into the `Texture` property.
+Leave this empty for now — we'll configure the `SpriteFrames` resource and animations in section 14.3. The character will be invisible until then, but the movement code in 14.2 works regardless.
 
-For a single static sprite (we'll switch to animations in 14.3):
-
-1. Set the `Texture` to your player idle sprite.
-2. Leave `Offset` at (0, 0) — adjust if the sprite isn't visually centered on the collision shape.
-
-**Pixel art reminder:** Make sure the texture's import settings use `Nearest` filtering (we set this as the project default in Chapter 13.4, but double-check if the sprite looks blurry).
+**Pixel art reminder:** If sprites look blurry later, verify that `Default Texture Filter` is set to `Nearest` in Project Settings (we did this in Chapter 13.4). You can also override per-node under Texture → Filter in the Inspector.
 
 ### CollisionShape2D
 
-Add a `RectangleShape2D` or `CapsuleShape2D`:
+Add a `CapsuleShape2D` (or `RectangleShape2D` if you prefer):
 
-- **Rectangle** — precise for pixel art, but can snag on tile edges.
 - **Capsule** — rounded bottom slides smoothly over terrain. Better for most platformers.
+- **Rectangle** — precise for pixel art, but can snag on tile edges.
 
-Set the shape size to match your sprite. For an 18×24 character sprite (Kenney's Pixel Platformer), a capsule of roughly 12×20 pixels works well — slightly smaller than the sprite so the player doesn't feel like they're colliding with things they visually aren't touching.
+Kenney's character sprites are 24×24 pixels (larger than the 18×18 tiles). Set the capsule to roughly **14×20 pixels** — slightly smaller than the sprite so the player doesn't feel like they're colliding with things they visually aren't touching. You won't see the sprite yet, but you can fine-tune the shape size once animations are set up in 14.3.
 
 **Important:** The collision shape should be slightly smaller than the sprite. Players feel cheated when they die to a spike they didn't visually touch. A forgiving hitbox makes the game feel fair.
 
@@ -382,44 +380,39 @@ Movement code is invisible. Animations are what the player actually sees. A char
 
 ### Setting Up AnimatedSprite2D
 
-Replace the `Sprite2D` node with an `AnimatedSprite2D`. This node plays frame-by-frame animations from a `SpriteFrames` resource.
+We already added the `AnimatedSprite2D` node in 14.1. Now let's give it animations.
 
-1. Delete the `Sprite2D` node.
-2. Add an `AnimatedSprite2D` as a child of the root `Player` node.
-3. In the Inspector, create a new `SpriteFrames` resource (click `SpriteFrames → New SpriteFrames`).
-4. Click the `SpriteFrames` resource to open the animation editor at the bottom of the screen.
+1. Select the `AnimatedSprite2D` node.
+2. In the Inspector, create a new `SpriteFrames` resource (click `Sprite Frames → New SpriteFrames`).
+3. Click the `SpriteFrames` resource to open the animation editor at the bottom of the screen.
 
-Updated scene tree:
+### Creating Animations from a Sprite Sheet
 
-```
-Player (CharacterBody2D)
-├── AnimatedSprite2D
-├── CollisionShape2D
-├── CoyoteTimer (Timer)
-├── JumpBufferTimer (Timer)
-└── Camera2D
-```
-
-### Creating Animations
-
-In the SpriteFrames editor (bottom panel):
+Kenney's pack (and most pixel art packs) provides characters as sprite sheets — a single image with all frames arranged in a grid. The SpriteFrames editor handles this directly:
 
 1. You'll see a "default" animation. Rename it to `idle`.
-2. Click **Add Animation** to create: `run`, `jump`, `fall`.
-3. For each animation, drag the relevant frames from the FileSystem panel into the frame list.
+2. Click **Add Animation** (the "+" icon) to create: `run`, `jump`, `fall`.
+3. For each animation, click the **Add Frames from Sprite Sheet** button (grid icon at the top of the frames area).
+4. Select the sprite sheet image from your project files.
+5. In the dialog that opens, set the grid size to match the sprite dimensions — for Kenney's characters, that's **24×24** pixels (or set the number of horizontal/vertical frames so the grid lines up).
+6. Click the frames you want for this animation in order, then click **Add Frames**.
+
+Repeat steps 3–6 for each animation, selecting the appropriate frames from the sheet.
+
+**What Kenney's base Pixel Platformer pack actually gives you:** 1 idle frame and 1 jump frame per character. That's it — no walk cycle, no fall frame. This is enough to get started: use the idle frame for both idle and run, and the jump frame for both jump and fall. The character will "slide" when running instead of animating, but movement will work.
+
+If you want proper animations, download the separate **Pixel Platformer Characters** pack from Kenney — it has full spritesheets with idle, run, and jump cycles.
 
 Configure each animation:
 
 | Animation | Frames | FPS | Loop |
 | --- | --- | --- | --- |
-| `idle` | 4–6 frames | 8 | Yes |
-| `run` | 6–8 frames | 10 | Yes |
-| `jump` | 1–2 frames | 10 | No |
-| `fall` | 1–2 frames | 10 | No |
+| `idle` | 1 frame (base pack) or 4–6 frames (Characters pack) | 8 | Yes |
+| `run` | Same as idle (base pack) or 6–8 frames (Characters pack) | 10 | Yes |
+| `jump` | 1 frame | 10 | No |
+| `fall` | Same as jump (or a separate frame if available) | 10 | No |
 
-**Loop** means the animation repeats. Idle and run loop continuously. Jump and fall play once and hold on the last frame.
-
-If your asset pack provides a single sprite sheet rather than individual frames, use the **Add frames from Sprite Sheet** button (grid icon). Set the grid size to match your sprite dimensions and select the frames for each animation.
+**Loop** means the animation repeats. Idle and run loop continuously. Jump and fall play once and hold on the last frame. Single-frame "animations" are fine — `AnimatedSprite2D` handles them without issues, and the code doesn't care how many frames each animation has.
 
 ### Sprite Flipping
 

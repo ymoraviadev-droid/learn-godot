@@ -211,12 +211,21 @@ These are high-quality, free, and commercially usable:
 
 | Pack | What It Contains | URL |
 | --- | --- | --- |
-| Pixel Platformer | 16×16 tileset, character sprites, items, backgrounds | kenney.nl/assets/pixel-platformer |
-| Pixel Platformer Characters | Additional character spritesheets (idle, run, jump) | kenney.nl/assets/pixel-platformer-characters |
+| Pixel Platformer | 18×18 tiles, 24×24 characters (1 idle + 1 jump frame each), items, backgrounds | kenney.nl/assets/pixel-platformer |
+| Pixel Platformer Characters | Additional characters with full animation spritesheets (idle, run, jump) | kenney.nl/assets/pixel-platformer-characters |
 | Pixel Platformer Industrial | Industrial-themed tiles, hazards, pipes, gears | kenney.nl/assets/pixel-platformer-industrial-expansion |
 | UI Pack (Pixel) | Buttons, panels, hearts, icons — pixel style | kenney.nl/assets/ui-pack-pixel-adventure |
 
-Kenney's Pixel Platformer pack alone is enough to build our game. The tiles are 18×18 pixels with a consistent style, and the pack includes a character, enemies, items, and terrain tiles.
+Kenney's Pixel Platformer pack alone is enough to build our game:
+
+| | |
+| --- | --- |
+| Category | 2D • Pixel Platformer |
+| Tile size | 18 × 18 |
+| Files | 200× |
+| License | Creative Commons CC0 |
+
+The pack includes a character, enemies, items, and terrain tiles — all in a consistent style.
 
 **itch.io Asset Packs** — The itch.io marketplace has thousands of free packs. Search for "free pixel platformer tileset" or browse the "Free" tag under "Game assets":
 
@@ -232,10 +241,10 @@ Based on our design document:
 
 | Category | Assets Needed |
 | --- | --- |
-| Player | Idle animation (4–6 frames), run (6–8 frames), jump (1–2 frames), fall (1–2 frames), hurt (2 frames) |
+| Player | Idle (1 frame in base pack, or full cycle from Characters pack), jump (1 frame). No run/fall in base pack — use Characters pack for those |
 | Terrain | Ground tiles, wall tiles, platform tiles, slope tiles — enough variety to build cave levels |
 | Background | 2–3 parallax layers (distant cave walls, mid-ground rocks, near stalactites) |
-| Enemies | Patrol enemy with walk animation (4–6 frames), defeat animation (2–3 frames) |
+| Enemies | Patrol enemy with walk animation, stomp/defeat animation (available for some enemies in the base pack) |
 | Objects | Crystal (animated, 4–6 frames), checkpoint flag (2 states: inactive/active), exit door, spikes |
 | UI | Heart icons (full/empty), crystal counter icon, button sprites for menus |
 | Audio SFX | Jump, land, collect crystal, take damage, enemy stomp, checkpoint activate |
@@ -267,8 +276,7 @@ For example, after downloading Kenney's Pixel Platformer:
 ```
 Downloaded pack:
   Tilemap/tilemap.png              → copy to art/tileset/cavern_tiles.png
-  Characters/character_idle.png    → copy to art/player/player_idle.png
-  Characters/character_run.png     → copy to art/player/player_run.png
+  Characters/character.png         → copy to art/player/player_spritesheet.png
   Items/item_gem.png               → copy to art/objects/crystal.png
   ...
 ```
@@ -368,15 +376,6 @@ Default Texture Filter:  Nearest
 
 This prevents Godot from applying bilinear filtering to sprites and tiles, which would make pixel art look blurry.
 
-**Rendering → 2D → Snap:**
-
-```
-Snap 2D Transforms to Pixel:  true
-Snap 2D Vertices to Pixel:    true
-```
-
-Prevents sub-pixel rendering artifacts. We covered this in Chapter 12.5.
-
 **Physics → 2D:**
 
 ```
@@ -385,19 +384,11 @@ Default Gravity:  980
 
 Godot's default gravity is 980 pixels/second². This is a reasonable starting value for our viewport size. We'll tune it during player movement in Chapter 14 — platformer gravity is a game-feel decision, not a physics-accuracy one.
 
-### Step 4: Import Settings for Pixel Art
+### Step 4: Verify Pixel Art Rendering
 
-When you import your first sprite or tileset image, select it in the FileSystem panel and look at the **Import** dock (top of the Inspector area). Set:
+We already set `Default Texture Filter: Nearest` in the project settings (Step 3). In Godot 4, this is the primary way to control texture filtering — there's no per-texture "Filter" toggle in the Import dock like there was in Godot 3.
 
-```
-Filter:         Nearest
-Mipmaps:        Disabled
-Fix Alpha Border: Disabled
-```
-
-Click **Reimport**. This ensures the asset renders with hard pixel edges.
-
-To apply these settings as the default for all future imports, click **Preset → Set as Default for 'Texture2D'**. Now every image you import will use nearest-neighbor filtering automatically.
+If a specific sprite or node needs different filtering, you can override it per-node: select any `CanvasItem` node (Sprite2D, AnimatedSprite2D, etc.) and in the Inspector under **Texture → Filter**, change it from `Inherit` to `Nearest` or `Linear`. But with the project default set to Nearest, you shouldn't need to touch this.
 
 ### Step 5: The Main Scene
 

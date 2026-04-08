@@ -290,6 +290,17 @@ FallingPlatform (AnimatableBody2D)
 └── ShakeTimer (Timer)
 ```
 
+This scene has **two** collision shapes serving different purposes:
+
+| Node | Type | Role | Layer | Mask |
+| --- | --- | --- | --- | --- |
+| `CollisionShape2D` | child of root `AnimatableBody2D` | Solid surface — the player stands on it via normal physics | 1 (terrain) | 0 |
+| `PlayerDetector` | separate `Area2D` with its own `CollisionShape2D` | Invisible trigger — detects when the player touches the platform | — | 2 (player) |
+
+The root `AnimatableBody2D` on layer 1 is what makes the platform solid — exactly like the `MovingPlatform`. The `PlayerDetector` is an additional Area2D we add purely to know *when* the player steps on it, so we can trigger the shake-and-fall sequence. The MovingPlatform doesn't need this because it moves forever regardless of the player.
+
+The `PlayerDetector`'s collision shape should be a thin rectangle matching the platform's top surface. It doesn't need to be on any layer (nothing needs to detect *it*) — it only needs mask 2 so it detects the player.
+
 ```csharp
 using Godot;
 
@@ -306,7 +317,7 @@ public partial class FallingPlatform : AnimatableBody2D
 
     public override void _Ready()
     {
-        _startPosition = GlobalPosition;
+        _startPosition = Position;
         _shakeTimer = GetNode<Timer>("ShakeTimer");
         _shakeTimer.WaitTime = ShakeDuration;
         _shakeTimer.OneShot = true;
@@ -342,22 +353,20 @@ public partial class FallingPlatform : AnimatableBody2D
         }
         else if (_falling)
         {
-            GlobalPosition += new Vector2(0, FallSpeed * (float)delta);
+            Position += new Vector2(0, FallSpeed * (float)delta);
 
             // Reset after falling off screen
-            if (GlobalPosition.Y > _startPosition.Y + 400)
+            if (Position.Y > _startPosition.Y + 400)
             {
                 _falling = false;
-                GlobalPosition = _startPosition;
+                Position = _startPosition;
             }
         }
     }
 }
 ```
 
-The `PlayerDetector` Area2D extends slightly above the platform's top edge — it detects when the player lands on the platform, not when they touch it from the side. Set its collision shape to a thin rectangle covering just the top surface.
-
-The sequence: player lands → platform shakes for 0.5 seconds (warning) → platform falls → after falling 400 pixels below start, it silently resets. The player sees the shake and learns to move quickly.
+The sequence: player lands → `PlayerDetector` fires `BodyEntered` → platform shakes for 0.5 seconds (warning) → platform falls → after falling 400 pixels below start, it silently resets. The player sees the shake and learns to move quickly.
 
 ---
 
@@ -544,28 +553,7 @@ private void GameOver()
 
 This is placeholder code — Chapter 17 replaces it with a proper game over screen. But it lets us test the full death/respawn loop right now.
 
-### Deactivating Old Checkpoints
-
-When the player activates a new checkpoint, should the old one deactivate? In Crystal Caverns, yes — only the most recent checkpoint matters. Update the level script:
-
-```csharp
-private void OnCheckpointActivated(Vector2 position)
-{
-    _respawnPosition = position;
-
-    // Deactivate all other checkpoints visually (optional)
-    foreach (var node in GetTree().GetNodesInGroup("checkpoints"))
-    {
-        if (node is Checkpoint cp && cp.GlobalPosition != position)
-        {
-            // Checkpoints stay visually active but only the last one is the respawn point
-            // No need to deactivate — the _respawnPosition variable handles it
-        }
-    }
-}
-```
-
-Actually, the simplest approach: don't deactivate old checkpoints. They stay visually active (the flag stays up), but `_respawnPosition` only stores the latest one. Players understand intuitively that the last checkpoint touched is the active one.
+Old checkpoints stay visually active (the flag stays up) — `_respawnPosition` only stores the latest one, so the last checkpoint touched is always the respawn point. Players understand this intuitively.
 
 ---
 

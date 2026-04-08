@@ -14,15 +14,14 @@ Create a new scene for the first level. The root node is `Node2D` — levels don
 
 ```
 Level01 (Node2D)
-├── ParallaxBackground
-│   ├── FarLayer (ParallaxLayer)
-│   │   └── Sprite2D
-│   ├── MidLayer (ParallaxLayer)
-│   │   └── Sprite2D
-│   └── NearLayer (ParallaxLayer)
-│       └── Sprite2D
-├── TileMapLayer (terrain — ground, walls, platforms)
-├── TileMapLayer2 (background decoration — non-collidable)
+├── FarParallax (Parallax2D)
+│   └── Sprite2D
+├── MidParallax (Parallax2D)
+│   └── Sprite2D
+├── NearParallax (Parallax2D)
+│   └── Sprite2D
+├── Terrain (TileMapLayer — ground, walls, platforms)
+├── Decoration (TileMapLayer — non-collidable background decoration)
 ├── Objects (Node2D)
 │   ├── Crystals (Node2D)
 │   ├── Checkpoints (Node2D)
@@ -43,7 +42,7 @@ Save as `res://scenes/levels/level_01.tscn`.
 
 If you're using Kenney's Pixel Platformer pack (18×18 tiles), create the TileSet:
 
-1. Select the `TileMapLayer` node.
+1. Select the `Terrain` node.
 2. In the Inspector, create a new `TileSet` resource.
 3. Set **Tile Size** to 18×18.
 4. In the TileSet editor (bottom panel), add an **Atlas Source** and select your tileset image (`art/tileset/cavern_tiles.png`).
@@ -57,9 +56,9 @@ Now set up physics. In the TileSet editor:
 
 We covered all of this in Chapter 11, sections 11.2 and 11.5. If the steps feel unfamiliar, revisit those sections.
 
-### The Second TileMapLayer — Background Decoration
+### Decoration — Background Tiles
 
-The second `TileMapLayer2` uses the same TileSet resource but has **no physics layer**. It's for visual-only tiles — background rocks, distant cave details, moss patches, dripping water sprites.
+The `Decoration` layer uses the same TileSet resource but has **no physics layer**. It's for visual-only tiles — background rocks, distant cave details, moss patches, dripping water sprites.
 
 Set its **Z Index** to -1 so it renders behind the main terrain layer and the player.
 
@@ -216,7 +215,7 @@ Spikes deal damage equal to max health — effectively instant death. We use the
 
 **Placing spikes in the level:** Instance `spike.tscn` into the level scene under the `Objects/Spikes` container. Position them at the bottom of pits, along walls, or on ceilings. A row of spikes across a pit bottom is a classic platformer pattern — the player must jump the gap or die.
 
-**Tile-based spikes:** Alternatively, you can use spike tiles in your TileSet instead of separate scenes. Add spike tiles with no collision on the TileMapLayer, and place an Area2D with a large collision rectangle over the spike region. The advantage of separate scenes is per-spike control (different sizes, rotations, animations). The advantage of tile-based spikes is faster level painting.
+**Tile-based spikes:** Alternatively, you can use spike tiles in your TileSet instead of separate scenes. Add spike tiles with no collision on the `Terrain` layer, and place an Area2D with a large collision rectangle over the spike region. The advantage of separate scenes is per-spike control (different sizes, rotations, animations). The advantage of tile-based spikes is faster level painting.
 
 ### Moving Platforms
 
@@ -838,19 +837,24 @@ Don't forget to update `NextLevelPath` on each level's exit door and set the mai
 
 A static background makes a level feel like a box. Parallax layers — backgrounds that scroll at different speeds — create depth and atmosphere. We covered the theory in Chapter 12.7. Here's the practical application for Crystal Caverns.
 
+### Parallax2D — Quick Recap
+
+In Chapter 12.7 we learned that `Parallax2D` is the modern parallax node (introduced in Godot 4.3), replacing the deprecated `ParallaxBackground`/`ParallaxLayer` system. Each `Parallax2D` is a standalone `Node2D` — no wrapper node needed. One node per layer, each with its own scroll speed.
+
 ### The Parallax Setup
 
 We already have the node structure in our level scene:
 
+```text
+FarParallax (Parallax2D)
+└── Sprite2D
+MidParallax (Parallax2D)
+└── Sprite2D
+NearParallax (Parallax2D)
+└── Sprite2D
 ```
-ParallaxBackground
-├── FarLayer (ParallaxLayer)
-│   └── Sprite2D
-├── MidLayer (ParallaxLayer)
-│   └── Sprite2D
-└── NearLayer (ParallaxLayer)
-    └── Sprite2D
-```
+
+These are direct children of the level root, placed above the `Terrain` and `Decoration` nodes in the scene tree so they render behind everything else (nodes higher in the tree render first, which means behind).
 
 Each layer needs a background image assigned to its `Sprite2D` child. Use the cavern background images from your asset pack:
 
@@ -858,50 +862,48 @@ Each layer needs a background image assigned to its `Sprite2D` child. Use the ca
 - `art/backgrounds/cavern_bg_mid.png` — mid-ground rock formations
 - `art/backgrounds/cavern_bg_near.png` — near stalactites, lighter tones
 
+**Important:** The child sprite's top-left corner must align with the origin of the `Parallax2D` node. If you center the sprite at `(0, 0)` instead, the repeat loop breaks — you'll see gaps and misaligned seams. We covered this pitfall in Chapter 12.7.
+
 ### Configuring Each Layer
 
-**FarLayer (ParallaxLayer):**
+**FarParallax (Parallax2D):**
 
-```
-Motion Scale: (0.1, 0.1)
-Motion Mirroring: (320, 0)
-```
-
-Moves at 10% of camera speed — very slow, very distant. `Motion Mirroring` tiles the image horizontally so it repeats seamlessly as the camera pans. Set the mirroring X value to match your background image width (or the viewport width if the image is at least that wide).
-
-**MidLayer (ParallaxLayer):**
-
-```
-Motion Scale: (0.3, 0.2)
-Motion Mirroring: (320, 0)
+```text
+Scroll Scale:  (0.1, 0.1)
+Repeat Size:   (320, 0)
 ```
 
-Moves at 30% horizontally, 20% vertically. Faster than the far layer but still clearly behind the terrain.
+Scrolls at 10% of camera speed — very slow, very distant. `Repeat Size` tiles the content horizontally so it loops seamlessly as the camera pans. Set the X value to match your background image width (or the viewport width if the image is at least that wide). Y = 0 means no vertical repeat.
 
-**NearLayer (ParallaxLayer):**
+**MidParallax (Parallax2D):**
 
+```text
+Scroll Scale:  (0.3, 0.2)
+Repeat Size:   (320, 0)
 ```
-Motion Scale: (0.6, 0.4)
-Motion Mirroring: (320, 0)
+
+Scrolls at 30% horizontally, 20% vertically. Faster than the far layer but still clearly behind the terrain.
+
+**NearParallax (Parallax2D):**
+
+```text
+Scroll Scale:  (0.6, 0.4)
+Repeat Size:   (320, 0)
 ```
 
-Moves at 60% — close to the action. This layer can have more detail: stalactites, crystal clusters, moss.
+Scrolls at 60% — close to the action. This layer can have more detail: stalactites, crystal clusters, moss.
 
 ### Background Image Sizing
 
-Each background image should be at least as wide and tall as the viewport (320×180). If smaller, the mirroring will have visible seams. If larger, that's fine — it gives more visual variety before the image repeats.
+Each background image should be at least as wide and tall as the viewport (320×180). If smaller, the repeat will have visible seams. If larger, that's fine — it gives more visual variety before the image repeats.
 
 For pixel art, make sure the background images are authored at the same pixel density as your tiles. A background painted at 1280×720 will look blurry when rendered in a 320×180 viewport with nearest-neighbor filtering. Paint or scale backgrounds to match the native resolution.
-
-### Z Ordering
-
-The `ParallaxBackground` node should be the first child of the level scene (or set its Z Index to a negative value). This ensures it renders behind everything else. The terrain `TileMapLayer` renders at Z = 0 by default, the player at Z = 0 (draw order determined by tree order), and the parallax background behind all of it.
 
 ### Parallax Without Art
 
 If you don't have parallax background art yet, you can fake depth with colored rectangles:
 
-1. Add `ColorRect` nodes as children of each `ParallaxLayer` instead of `Sprite2D`.
+1. Add `ColorRect` nodes as children of each `Parallax2D` instead of `Sprite2D`.
 2. Set sizes to cover the viewport.
 3. Use increasingly lighter shades of blue-gray from far to near: `#1a1a2e`, `#2a2a3e`, `#3a3a4e`.
 
@@ -911,7 +913,7 @@ This creates a simple depth illusion that works surprisingly well. Replace with 
 
 ## Summary
 
-**Building levels (15.1):** Level scene with `Node2D` root, TileMapLayers (collision + decoration), organized object containers, Marker2D for spawn, instanced player. Camera limits set per-level via exported values. Design levels to teach mechanics through geometry — introduce elements in isolation before combining them.
+**Building levels (15.1):** Level scene with `Node2D` root, two TileMapLayers — `Terrain` (collision) and `Decoration` (visual-only), organized object containers, Marker2D for spawn, instanced player. Camera limits set per-level via exported values. Design levels to teach mechanics through geometry — introduce elements in isolation before combining them.
 
 **Hazards (15.2):** Spikes as Area2D with instant-death damage. Moving platforms with `AnimatableBody2D` that ping-pong between two points. Falling platforms that shake before dropping. All scenes reusable with exported parameters.
 
@@ -921,7 +923,7 @@ This creates a simple depth illusion that works surprisingly well. Replace with 
 
 **Level transitions (15.5):** Exit door Area2D with exported next-level path. Optional crystal requirement to lock the door. `ChangeSceneToFile()` for level transitions. Score and health persist across levels via GameManager autoload.
 
-**Parallax backgrounds (15.6):** Three ParallaxLayers with decreasing motion scale for depth. Motion mirroring for seamless horizontal tiling. Background images sized to match the native viewport resolution.
+**Parallax backgrounds (15.6):** Three `Parallax2D` nodes (one per layer) with decreasing `Scroll Scale` for depth. `Repeat Size` for seamless horizontal tiling. Background images sized to match the native viewport resolution. Sprite origin aligned to top-left for correct repeat behavior.
 
 ---
 

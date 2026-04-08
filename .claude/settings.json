@@ -23,7 +23,11 @@
       "Bash(ls 37-*.json)",
       "WebFetch(domain:godotengine.org)",
       "Bash(curl -sL 'https://raw.githubusercontent.com/godotengine/godot/master/scene/resources/particle_process_material.cpp')",
-      "Bash(curl -sL 'https://raw.githubusercontent.com/godotengine/godot/master/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/')"
+      "Bash(curl -sL 'https://raw.githubusercontent.com/godotengine/godot/master/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/')",
+      "Bash(curl -s \"https://docs.godotengine.org/en/stable/classes/class_parallax2d.html\")",
+      "Bash(curl -s \"https://docs.godotengine.org/en/stable/classes/class_parallaxbackground.html\")",
+      "Bash(curl -s \"https://docs.godotengine.org/en/stable/classes/class_parallaxlayer.html\")",
+      "Bash(curl -s \"https://docs.godotengine.org/en/stable/tutorials/2d/2d_parallax.html\")"
     ]
   }
 }

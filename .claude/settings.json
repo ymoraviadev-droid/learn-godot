@@ -21,7 +21,9 @@
       "Bash(curl -s http://localhost:5173/content/chapters/01-%D7%9E%D7%91%D7%95%D7%90.json)",
       "Bash(curl -s http://localhost:5173/)",
       "Bash(ls 37-*.json)",
-      "WebFetch(domain:godotengine.org)"
+      "WebFetch(domain:godotengine.org)",
+      "Bash(curl -sL 'https://raw.githubusercontent.com/godotengine/godot/master/scene/resources/particle_process_material.cpp')",
+      "Bash(curl -sL 'https://raw.githubusercontent.com/godotengine/godot/master/modules/mono/glue/GodotSharp/GodotSharp/Generated/GodotObjects/')"
     ]
   }
 }

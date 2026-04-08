@@ -21,7 +21,7 @@ Player (CharacterBody2D)
 
 Save it as `res://scenes/player/player.tscn`.
 
-We're using `AnimatedSprite2D` from the start instead of `Sprite2D` — Kenney's Pixel Platformer pack provides sprite sheets, and `AnimatedSprite2D` handles those natively. We'll set up the animations in section 14.3; for now, just add the node.
+We're using `AnimatedSprite2D` from the start — whether your asset pack provides individual files or sprite sheets, `AnimatedSprite2D` handles both. We'll set up the animations in section 14.3; for now, just add the node.
 
 Let's set up each node.
 
@@ -52,7 +52,7 @@ Add a `CapsuleShape2D` (or `RectangleShape2D` if you prefer):
 - **Capsule** — rounded bottom slides smoothly over terrain. Better for most platformers.
 - **Rectangle** — precise for pixel art, but can snag on tile edges.
 
-Kenney's character sprites are 24×24 pixels (larger than the 18×18 tiles). Set the capsule to roughly **14×20 pixels** — slightly smaller than the sprite so the player doesn't feel like they're colliding with things they visually aren't touching. You won't see the sprite yet, but you can fine-tune the shape size once animations are set up in 14.3.
+Set the capsule to roughly **14×20 pixels** for a typical platformer character — slightly smaller than the sprite so the player doesn't feel like they're colliding with things they visually aren't touching. You won't see the sprite yet, but you can fine-tune the shape size once animations are set up in 14.3.
 
 **Important:** The collision shape should be slightly smaller than the sprite. Players feel cheated when they die to a spike they didn't visually touch. A forgiving hitbox makes the game feel fair.
 
@@ -374,7 +374,7 @@ Test this and spend time tweaking the exported values in the Inspector. Every pl
 
 ---
 
-## 14.3 Animations — Idle, Run, Jump, Fall
+## 14.3 Animations — Idle, Run, Jump
 
 Movement code is invisible. Animations are what the player actually sees. A character that slides around with a static image feels like a placeholder; a character that leans into their run, squashes on landing, and stretches during a jump feels alive.
 
@@ -386,33 +386,30 @@ We already added the `AnimatedSprite2D` node in 14.1. Now let's give it animatio
 2. In the Inspector, create a new `SpriteFrames` resource (click `Sprite Frames → New SpriteFrames`).
 3. Click the `SpriteFrames` resource to open the animation editor at the bottom of the screen.
 
-### Creating Animations from a Sprite Sheet
+### Creating Animations
 
-Kenney's pack (and most pixel art packs) provides characters as sprite sheets — a single image with all frames arranged in a grid. The SpriteFrames editor handles this directly:
+In the SpriteFrames editor (bottom panel):
 
 1. You'll see a "default" animation. Rename it to `idle`.
-2. Click **Add Animation** (the "+" icon) to create: `run`, `jump`, `fall`.
-3. For each animation, click the **Add Frames from Sprite Sheet** button (grid icon at the top of the frames area).
-4. Select the sprite sheet image from your project files.
-5. In the dialog that opens, set the grid size to match the sprite dimensions — for Kenney's characters, that's **24×24** pixels (or set the number of horizontal/vertical frames so the grid lines up).
-6. Click the frames you want for this animation in order, then click **Add Frames**.
+2. Click **Add Animation** (the "+" icon) to create: `run`, `jump`, `hurt`.
+3. Add frames to each animation using one of two methods, depending on your asset pack:
 
-Repeat steps 3–6 for each animation, selecting the appropriate frames from the sheet.
+**Individual image files** (e.g., Kenney's Platformer Art Deluxe): drag the relevant files from the FileSystem panel into the frame list. You can select multiple files and drag them all at once.
 
-**What Kenney's base Pixel Platformer pack actually gives you:** 1 idle frame and 1 jump frame per character. That's it — no walk cycle, no fall frame. This is enough to get started: use the idle frame for both idle and run, and the jump frame for both jump and fall. The character will "slide" when running instead of animating, but movement will work.
-
-If you want proper animations, download the separate **Pixel Platformer Characters** pack from Kenney — it has full spritesheets with idle, run, and jump cycles.
+**Sprite sheets** (e.g., Kenney's Pixel Platformer): click the **Add Frames from Sprite Sheet** button (grid icon), select the sprite sheet, set the grid size to match your sprites, click the frames you want in order, then click **Add Frames**.
 
 Configure each animation:
 
 | Animation | Frames | FPS | Loop |
 | --- | --- | --- | --- |
-| `idle` | 1 frame (base pack) or 4–6 frames (Characters pack) | 8 | Yes |
-| `run` | Same as idle (base pack) or 6–8 frames (Characters pack) | 10 | Yes |
+| `idle` | 1 frame | 8 | Yes |
+| `run` | 11 frames | 10 | Yes |
 | `jump` | 1 frame | 10 | No |
-| `fall` | Same as jump (or a separate frame if available) | 10 | No |
+| `hurt` | 1 frame | 10 | No |
 
-**Loop** means the animation repeats. Idle and run loop continuously. Jump and fall play once and hold on the last frame. Single-frame "animations" are fine — `AnimatedSprite2D` handles them without issues, and the code doesn't care how many frames each animation has.
+Single-frame "animations" work fine — `AnimatedSprite2D` handles them without issues, and the code doesn't care how many frames each animation has. We won't wire up `hurt` in this chapter — it gets used in Chapter 17 when we build the health system.
+
+**Loop** means the animation repeats. Idle and run loop continuously. Jump plays once and holds on the last frame — we'll use it for falling too, since most asset packs don't include a separate fall sprite.
 
 ### Sprite Flipping
 
@@ -440,14 +437,14 @@ private void UpdateFacing()
 
 ### Animation State Logic
 
-The player can be in one of four visual states: idle, running, jumping, or falling. The logic for choosing which animation to play:
+The player can be in one of three visual states: idle, running, or airborne. The logic for choosing which animation to play:
 
 ```csharp
 private void UpdateAnimation()
 {
     if (!IsOnFloor())
     {
-        _sprite.Play(Velocity.Y < 0 ? "jump" : "fall");
+        _sprite.Play("jump");
     }
     else if (Mathf.Abs(Velocity.X) > 10f)
     {
@@ -462,7 +459,7 @@ private void UpdateAnimation()
 
 The order matters:
 
-1. **Airborne check first** — if the player is in the air, show jump or fall regardless of horizontal movement.
+1. **Airborne check first** — if the player is in the air, show the jump sprite regardless of horizontal movement. We use the same sprite for jumping and falling — it works fine and most players won't notice.
 2. **Moving on ground** — if horizontal velocity is above a small threshold (10 px/sec avoids flickering during deceleration), show the run animation.
 3. **Everything else** — idle.
 
@@ -483,32 +480,6 @@ public override void _PhysicsProcess(double delta)
 ```
 
 Animation updates come after `MoveAndSlide()` — the velocity has been resolved by then, so the animation reflects the actual movement state, not the intended one.
-
-### Landing Squash (Optional Polish)
-
-A small scale animation on landing sells the weight of the character:
-
-```csharp
-private bool _wasInAir = false;
-
-private void CheckLanding()
-{
-    if (IsOnFloor() && _wasInAir)
-    {
-        // Squash: wider and shorter
-        _sprite.Scale = new Vector2(1.2f, 0.8f);
-    }
-    
-    // Lerp back to normal scale
-    _sprite.Scale = _sprite.Scale.Lerp(Vector2.One, 0.2f);
-    
-    _wasInAir = !IsOnFloor();
-}
-```
-
-This applies a squash (wide + short) on the frame the player lands, then smoothly returns to normal. It's subtle — maybe 2-3 frames of noticeable squash — but it adds satisfying impact.
-
-Add `CheckLanding()` to `_PhysicsProcess` after `MoveAndSlide()`.
 
 ---
 
@@ -815,26 +786,41 @@ private void HandleMovement()
         direction *= 0.3f;  // 30% control
     }
 
-    // ... rest of movement code
+    if (direction != 0)
+    {
+        float targetSpeed = direction * MoveSpeed;
+        Velocity = new Vector2(
+            Mathf.MoveToward(Velocity.X, targetSpeed, Acceleration * (float)GetPhysicsProcessDeltaTime()),
+            Velocity.Y
+        );
+    }
+    else
+    {
+        float friction = IsOnFloor() ? Friction : AirFriction;
+        Velocity = new Vector2(
+            Mathf.MoveToward(Velocity.X, 0, friction * (float)GetPhysicsProcessDeltaTime()),
+            Velocity.Y
+        );
+    }
 }
 ```
 
-Set `_wallJumpControlTimer = WallJumpControlDelay` when wall jumping. This approach is clean and tunable.
+Set `_wallJumpControlTimer = WallJumpControlDelay` in the wall jump block of `HandleJump()`. This approach is clean and tunable.
 
 ### Animation Updates for Wall Mechanics
 
-Add a `wall_slide` animation (or reuse the `fall` animation). Update the animation state:
+Update the animation state to handle wall sliding (we reuse the jump sprite — add a dedicated `wall_slide` animation later if you find a suitable sprite):
 
 ```csharp
 private void UpdateAnimation()
 {
     if (IsWallSliding())
     {
-        _sprite.Play("wall_slide");  // or "fall" if no dedicated animation
+        _sprite.Play("jump");  // reuse jump sprite for wall slide
     }
     else if (!IsOnFloor())
     {
-        _sprite.Play(Velocity.Y < 0 ? "jump" : "fall");
+        _sprite.Play("jump");
     }
     else if (Mathf.Abs(Velocity.X) > 10f)
     {
@@ -875,11 +861,11 @@ private void UpdateFacing()
 
 "Juice" is game designer shorthand for small visual and audio feedback that makes actions feel impactful. A jump without particles feels quiet. A jump with a puff of dust feels powerful. Juice doesn't change gameplay, but it transforms feel.
 
-### GPUParticles2D — Dust Effect
+### GpuParticles2D — Dust Effect
 
 Create a reusable dust particle scene or add particles directly to the player. We'll do it inline for simplicity.
 
-Add a `GPUParticles2D` node as a child of the player:
+Add a `GpuParticles2D` node as a child of the player:
 
 ```
 Player (CharacterBody2D)
@@ -887,7 +873,7 @@ Player (CharacterBody2D)
 ├── CollisionShape2D
 ├── CoyoteTimer (Timer)
 ├── JumpBufferTimer (Timer)
-├── DustParticles (GPUParticles2D)
+├── DustParticles (GpuParticles2D)
 └── Camera2D
 ```
 
@@ -897,15 +883,32 @@ Configure the `DustParticles` node:
 2. **Amount:** 6.
 3. **One Shot:** true (burst, don't loop).
 4. **Lifetime:** 0.3 seconds.
-5. Create a new `ParticleProcessMaterial`:
+5. Create a new `ParticleProcessMaterial` and configure these sections in the Inspector:
 
+**Spawn → Velocity:**
 ```
-Direction:       (0, -1, 0)    ← particles go upward
-Spread:          45°
-Initial Velocity: 30
-Gravity:         (0, 100, 0)   ← particles arc downward
-Scale:           2.0 → 0.0     ← shrink over lifetime
-Color:           white with alpha fade
+Direction:            (0, -1, 0)    ← particles go upward
+Spread:               45°
+Initial Velocity Min: 20
+Initial Velocity Max: 40
+```
+
+**Accelerations → Gravity:**
+```
+Gravity:              (0, 100, 0)   ← particles arc downward
+```
+
+**Display → Scale:**
+```
+Scale Min:            1.0
+Scale Max:            2.0
+Scale Curve:          create a CurveTexture that goes from 1.0 → 0.0 (shrink over lifetime)
+```
+
+**Display → Color Curves:**
+```
+Color:                white
+Alpha Curve:          create a CurveTexture that fades from 1.0 → 0.0
 ```
 
 For the particle texture, a simple 2×2 or 4×4 white square works perfectly for pixel art. Create a small white PNG or use `CanvasTexture`.
@@ -913,12 +916,12 @@ For the particle texture, a simple 2×2 or 4×4 white square works perfectly for
 ### Triggering Particles from Code
 
 ```csharp
-private GPUParticles2D _dustParticles;
+private GpuParticles2D _dustParticles;
 
 public override void _Ready()
 {
     // ... existing _Ready code
-    _dustParticles = GetNode<GPUParticles2D>("DustParticles");
+    _dustParticles = GetNode<GpuParticles2D>("DustParticles");
 }
 
 private void EmitDust()
@@ -928,71 +931,35 @@ private void EmitDust()
 }
 ```
 
-Call `EmitDust()` in these situations:
+Call `EmitDust()` on landing and jumping. Add it to the `HandleJump()` method in the ground jump and wall jump blocks:
 
 ```csharp
-// On landing
+// In HandleJump(), inside the ground jump block:
+EmitDust();
+
+// In HandleJump(), inside the wall jump block:
+EmitDust();
+```
+
+The full `CheckLanding()` with dust, squash, and screen shake is shown in the next section.
+
+### Squash, Stretch, and Screen Shake
+
+Squash on landing (wider + shorter) and stretch on jumping (taller + thinner) sell the character's weight. A tiny camera shake on hard landings adds impact. All of this is integrated into `CheckLanding()` and `HandleJump()`:
+
+```csharp
+private bool _wasInAir = false;
+
 private void CheckLanding()
 {
     if (IsOnFloor() && _wasInAir)
     {
         EmitDust();
-        _sprite.Scale = new Vector2(1.2f, 0.8f);
-    }
-    _sprite.Scale = _sprite.Scale.Lerp(Vector2.One, 0.2f);
-    _wasInAir = !IsOnFloor();
-}
+        _sprite.Scale = new Vector2(1.2f, 0.8f);  // Squash on land
 
-// On jump
-private void HandleJump()
-{
-    // ... inside the ground jump block:
-    if (wantsJump && CanJump())
-    {
-        Velocity = new Vector2(Velocity.X, -JumpForce);
-        EmitDust();
-        // ...
-    }
-    // ...
-}
-```
-
-### Stretch and Squash — Jump and Land
-
-Expand the landing squash from 14.3 to include a jump stretch:
-
-```csharp
-private void ApplyJumpStretch()
-{
-    // Stretch: taller and thinner when jumping
-    _sprite.Scale = new Vector2(0.8f, 1.2f);
-}
-
-private void ApplyLandSquash()
-{
-    // Squash: wider and shorter on landing
-    _sprite.Scale = new Vector2(1.2f, 0.8f);
-}
-```
-
-Call `ApplyJumpStretch()` when jumping and `ApplyLandSquash()` when landing. The `Lerp` back to `Vector2.One` in `_PhysicsProcess` smoothly returns the sprite to its normal proportions.
-
-### Screen Shake on Landing (Light)
-
-For heavier landings (falling from a height), a tiny camera shake adds impact. We built a shake system in Chapter 12.3. If you've implemented it:
-
-```csharp
-private void CheckLanding()
-{
-    if (IsOnFloor() && _wasInAir)
-    {
-        EmitDust();
-        ApplyLandSquash();
-
-        // Shake proportional to fall speed (only for fast falls)
+        // Screen shake on hard landings
         if (Velocity.Y > MaxFallSpeed * 0.8f)
         {
-            // Access camera and trigger light shake
             var camera = GetNode<Camera2D>("Camera2D");
             camera.Offset = new Vector2(
                 (float)GD.RandRange(-1.0, 1.0),
@@ -1001,11 +968,20 @@ private void CheckLanding()
         }
     }
 
+    // Lerp sprite scale back to normal every frame
+    _sprite.Scale = _sprite.Scale.Lerp(Vector2.One, 0.2f);
+
     _wasInAir = !IsOnFloor();
 }
 ```
 
-This is a quick-and-dirty shake — sets a small random offset that you `Lerp` back to zero. For production, use the trauma-based shake system from Chapter 12.
+For the jump stretch, add this line inside `HandleJump()` right after setting the jump velocity:
+
+```csharp
+_sprite.Scale = new Vector2(0.8f, 1.2f);  // Stretch on jump
+```
+
+The `Lerp` in `CheckLanding()` runs every frame, so both squash and stretch smoothly return to normal scale within a few frames. Add `CheckLanding()` to `_PhysicsProcess` after `MoveAndSlide()`.
 
 ### Particle Positioning
 
@@ -1071,7 +1047,7 @@ Half of these are invisible. The player will never notice coyote time or jump bu
 
 **Movement (14.2):** Horizontal movement with acceleration and friction (different on ground vs air). Gravity with a fall multiplier for snappy arcs. Variable jump height by cutting velocity on button release. Terminal velocity to cap fall speed. All values exported for Inspector tuning.
 
-**Animations (14.3):** `AnimatedSprite2D` with `SpriteFrames` resource. Four states: idle, run, jump, fall. State selected by priority: airborne → moving → idle. Sprite flipped horizontally based on input direction.
+**Animations (14.3):** `AnimatedSprite2D` with `SpriteFrames` resource. Three animations: idle, run, jump (jump sprite reused for falling and wall sliding). State selected by priority: airborne → moving → idle. Sprite flipped horizontally based on input direction.
 
 **Coyote time and jump buffering (14.4):** Two `Timer` nodes (0.1s, one-shot). Coyote time: grace period to jump after walking off an edge. Jump buffer: queued jump executes on next landing. Together they make input feel effortlessly responsive.
 

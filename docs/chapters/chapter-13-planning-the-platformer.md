@@ -211,21 +211,17 @@ These are high-quality, free, and commercially usable:
 
 | Pack | What It Contains | URL |
 | --- | --- | --- |
-| Pixel Platformer | 18×18 tiles, 24×24 characters (1 idle + 1 jump frame each), items, backgrounds | kenney.nl/assets/pixel-platformer |
-| Pixel Platformer Characters | Additional characters with full animation spritesheets (idle, run, jump) | kenney.nl/assets/pixel-platformer-characters |
+| Pixel Platformer | 18×18 tiles, 24×24 characters (1 idle + 1 jump), items, backgrounds | kenney.nl/assets/pixel-platformer |
+| Platformer Art Deluxe | Player sprites with walk cycle (11 frames), idle, jump, hurt | kenney.nl/assets/platformer-art-deluxe |
 | Pixel Platformer Industrial | Industrial-themed tiles, hazards, pipes, gears | kenney.nl/assets/pixel-platformer-industrial-expansion |
 | UI Pack (Pixel) | Buttons, panels, hearts, icons — pixel style | kenney.nl/assets/ui-pack-pixel-adventure |
 
-Kenney's Pixel Platformer pack alone is enough to build our game:
+The **Pixel Platformer** pack has everything you need for tiles, items, enemies, and level art. For the player character, you have two options: the base pack includes a character with 1 idle + 1 jump frame (enough to get started), or the **Platformer Art Deluxe** pack has a character with a full walk cycle (11 frames), idle, jump, and hurt sprites. Both are CC0.
 
 | | |
 | --- | --- |
-| Category | 2D • Pixel Platformer |
-| Tile size | 18 × 18 |
-| Files | 200× |
+| Tile size (Pixel Platformer) | 18 × 18 |
 | License | Creative Commons CC0 |
-
-The pack includes a character, enemies, items, and terrain tiles — all in a consistent style.
 
 **itch.io Asset Packs** — The itch.io marketplace has thousands of free packs. Search for "free pixel platformer tileset" or browse the "Free" tag under "Game assets":
 
@@ -241,7 +237,7 @@ Based on our design document:
 
 | Category | Assets Needed |
 | --- | --- |
-| Player | Idle (1 frame in base pack, or full cycle from Characters pack), jump (1 frame). No run/fall in base pack — use Characters pack for those |
+| Player | Idle (1 frame), walk (11 frames), jump (1 frame), hurt (1 frame) — from Platformer Art Deluxe |
 | Terrain | Ground tiles, wall tiles, platform tiles, slope tiles — enough variety to build cave levels |
 | Background | 2–3 parallax layers (distant cave walls, mid-ground rocks, near stalactites) |
 | Enemies | Patrol enemy with walk animation, stomp/defeat animation (available for some enemies in the base pack) |
@@ -271,14 +267,12 @@ Don't dump everything into one folder. When you download an asset pack:
 3. Copy selected files into the appropriate `art/` or `audio/` subfolder in your project.
 4. Rename files to match your naming convention if needed.
 
-For example, after downloading Kenney's Pixel Platformer:
+For example, after downloading a pack:
 
-```
-Downloaded pack:
-  Tilemap/tilemap.png              → copy to art/tileset/cavern_tiles.png
-  Characters/character.png         → copy to art/player/player_spritesheet.png
-  Items/item_gem.png               → copy to art/objects/crystal.png
-  ...
+```text
+Tilemap/tilemap.png        → copy to art/tileset/cavern_tiles.png
+Characters/character.png   → copy to art/player/
+Items/item_gem.png         → copy to art/objects/crystal.png
 ```
 
 Only import what you'll use. Extra files inflate your export size and clutter the FileSystem panel.

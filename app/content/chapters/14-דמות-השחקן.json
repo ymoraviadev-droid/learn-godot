@@ -4,7 +4,7 @@
   "slug": "דמות-השחקן",
   "order": 14,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-07T02:24:50.724Z",
+  "updatedAt": "2026-04-08T02:58:09.915Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -24,10 +24,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/sprite_frames.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -2268,6 +2271,28 @@
         ]
       },
       {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "14.3 אנימציות - Idle, Run, Jump"
+          }
+        ]
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
@@ -2276,7 +2301,2299 @@
         "content": [
           {
             "type": "text",
-            "text": "כרגע לא תוכלו עדיין לבדוק את זה כי השחקן יפול לתהום. אך תוכלו למקם כמה אריחים לבדיקה אם תרצו."
+            "text": "שחקן שהדמות שלו קפואה בצורה סטטית זה משעמם. במשחקים (כמעט מכל סוג), נרצה להשתמש באנימציות לדמויות על מנת שהמשחק ירגיש יותר “חי” ונעים מבחינה ויזואלית, למשל: נרצה לראות אנימצייה על גוף השחקן כאשר הוא רץ או קופץ."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 14.1"
+          },
+          {
+            "type": "text",
+            "text": " הוספנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": ". כעת בואו נוסיף את האנימציות."
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בחרו את ה-Node שייצרתם (ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", צרו משאב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Frames "
+                  },
+                  {
+                    "type": "text",
+                    "text": "חדש ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Frames - New SpriteFrames"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על המשאב על מנת שיפתח לכם העורך בפאנל התחתון."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "יצירת אנימציות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גשו לעורך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Frame"
+          },
+          {
+            "type": "text",
+            "text": " בפאנל התחתון."
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אתם תבחינו באנימציה בודדת ריקה בשם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "default"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". שנו את השם ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוסיפו אנימציות (על ידי לחיצה על אייקון הדף עם הפלוס בחלק העליון של הפאנל משמאל): hurt, jump, run (הסדר לא חשוב)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוסיפו פריימים לאנימציות באחת מהשיטות הבאות:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תמונות אינדבדואליות:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ניתן להוסיף תמונה בודדת או מספר תמונות בבת אחת על ידי לחיצה על אייקון התיקייה ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Add Frame From File"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") בחלק העליון של הפאנל במרכז (או לחיצה על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "O"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). תדאגו להעתיק מראש את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לתיקיית ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "art"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בפרוייקט."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite Sheet: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "ניתן להוסיף על ידי לחיצה על אייקון הרשת ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Add Frame From Sprite Sheet"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") בחלק העליון של הפאנל במרכז (או לחיצה על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Shift"
+                  },
+                  {
+                    "type": "text",
+                    "text": "+"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "O"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). תדאגו להעתיק מראש את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Assets"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לתיקיית ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "art"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בפרוייקט, ביחרו את הפריימים שברצונכם להוסיף."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/sprite_frames.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו כל אחת מהאנימציות, אם למשל לקחנו את אומנות הפיקסלים מהחבילה -"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://kenney.nl/assets/platformer-art-deluxe",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "https://kenney.nl/assets/platformer-art-deluxe"
+          },
+          {
+            "type": "text",
+            "text": ", אז ההגדרות הבאות יהיו נקודת פתיחה טובה:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "FPS"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "לולאה/Loop"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "idle"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "8"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כן"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "run"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "11"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כן"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "jump"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "hurt"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כרגע לא נתעסק יותר מדי עם אנימציית הפגיעה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "hurt"
+          },
+          {
+            "type": "text",
+            "text": "), נטפל בזה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 17"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כפתור בורר מצב ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Loop"
+          },
+          {
+            "type": "text",
+            "text": " נמצא בחלק העליון של הפאנל במרכז (אייקון בצורת חצים, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Animation Looping"
+          },
+          {
+            "type": "text",
+            "text": "). זה קובע האם אנימציה רצה בלולאה ללא הפסקה או שרצה פעם אחת בלבד כשמפעילים אותה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "היפוך Sprites (מראה)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השחקן צריך כיוון תנועה. עדיף להפוך אותו (מראה) לכיוון השני מאשר להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites"
+          },
+          {
+            "type": "text",
+            "text": " לכל כיוון:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private AnimatedSprite2D _sprite;\n\npublic override void _Ready()\n{\n    _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n}\n\nprivate void UpdateFacing()\n{\n    float direction = Input.GetAxis(\"move_left\", \"move_right\");\n    if (direction != 0)\n    {\n        _sprite.FlipH = direction < 0;\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "FlipH = true"
+          },
+          {
+            "type": "text",
+            "text": " הופך (מראה) את התמונה לצד השני מבחינה אופקית. אנו מעדכנים את כיוון השחקן רק כשיש ארוע רלוונטי (כרגע הוא מסתכל שמאלה ואז לחצנו ימינה)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Animation State Logic"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השחקן יכול להיות באחד מהמצבים הבאים: עומד במקום, רץ, או “עומד באויר”, נצטרך לוגיקה אשר מטפלת באיזה אנימציה צריך להציג בהתאם למצב:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateAnimation()\n{\n    if (!IsOnFloor())\n    {\n        _sprite.Play(\"jump\");\n    }\n    else if (Mathf.Abs(Velocity.X) > 10f)\n    {\n        _sprite.Play(\"run\");\n    }\n    else\n    {\n        _sprite.Play(\"idle\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "וכאן הסדר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כן"
+          },
+          {
+            "type": "text",
+            "text": " חשוב ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קריטי"
+          },
+          {
+            "type": "text",
+            "text": "):"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "“עומד באוויר” נבדק ראשון"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - במידה והשחקן לא עומד על קרקע יציבה, נראה את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של הקפיצה (תנועה אופקית לא תשפיע על זה). נשתמש בדוגמא זו באותו ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לקפיצה ונפילה לשם הפשטות, אך אם תרצו ללטש - תוכלו להשתמש ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Sprite"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שונה למצב של נפילה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תנועה על הקרקע"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - יראה את אנימציית הריצה כאשר הדמות זזה על הקרקע (כשרמת ההאצה עוברת סף של 10 פיקסלים לשניה)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל דבר אחר"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מצב סטטי (“"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": "”)."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סף 10 הפיקסלים לשניה מסעיף 2 מונע באג קטן:  כאשר השחקן מאט, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " עובר ממש בקצת את ה-0. ללא סף ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Threshold"
+          },
+          {
+            "type": "text",
+            "text": "), האנימציה “תזגזג” בין מצב סטטי למצב ריצה למשך כמה פריימים - מה שיגרום להיבהוב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שילוב ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    ApplyGravity((float)delta);\n    HandleMovement();\n    HandleJump();\n    MoveAndSlide();\n    UpdateFacing();\n    UpdateAnimation();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עדכוני האנימציה מגיעים אחרי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " - ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " כבר מטופל עד אז, כך שהאנימציה משקפת את מצב התנועה בפועל, ולא את העתידי."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "14.4 Coyote Time ו-Jump Buffering"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שני מכניקות אלו הם בלתי נראות, כלומר שמתרחשות מאחורי הקלעים, אבל אם עובדות נכון - הן יכולות להבדיל בין משחק שמרגיש הוגן לבין משחק שבו יש מצבים שבהם לחצנו על כפתור הקפיצה - והשחקן לא קפץ (מתסכל מאוד)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הבעיה"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בעיית Coyote Time:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " השחקן רץ, מגיע לקצה של פלטפורמה ומנסה לקפוץ, אבל הוא לחץ על קפיצה פריים אחד אחרי שכבר לא עמד על קרקע יציבה. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()IsOnFloor"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כבר יחזיר לנו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "false"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בשלב זה - אז לא תהיה קפיצה. פריים אחד בודד זה משהו שהעין האנושית כמעט ולא תבחין בו והשחקן יוכל להישבע שלחץ על הכפתור בזמן - והמשחק ירגיש לו לא הוגן והוא יאשים את המשחק."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בעיית Jump Buffer: "
+                  },
+                  {
+                    "type": "text",
+                    "text": "השחקן נופל באוויר ולוחץ על כפתור הקפיצה 3 פריימים לפני הנחיתה (זה מרגיש לו הזמן הנכון). עד שהשחקן מגיע לקרקע "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "IsActionJustPressed(\"jump\")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כבר טופל והסתיים (הקפיצה לא תתבצע כי הוא היה באוויר כשלחץ) - מה שאומר שהשחקן יצטרך ללחוץ שוב על קפיצה כדי לקפוץ. זה מרגיש “לאגי” ולא רספונסיבי."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לשתי הבעיות הללו יש את אותו הגורם: המשחק דורש דיוק בתזמון פיקסלים ופריימים - משהו שהעין האנושית לא יכולה לספק אצל מרבית האנשים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Coyote Time"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מושג זה קיבל את שמו מהדמות המצויירת המפורסמת “"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://en.wikipedia.org/wiki/Wile_E._Coyote_and_the_Road_Runner",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Wile E. Coyote"
+          },
+          {
+            "type": "text",
+            "text": "“, הלא הוא הקויוטי של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://www.warnerbros.com/",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Warner Brothers"
+          },
+          {
+            "type": "text",
+            "text": " שרץ מעבר לקצוות הרים - ועומד באויר שניה או 2 לפני שנופל לתהום. הרעיון המרכזי בהקשר של המשחק שלנו הוא לתת זמן חסד קצרצר לשחקן להספיק ללחוץ על קפיצה לפני שנופל לתהום מהפלטפורמה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בשלב זה כבר יש לנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Timer"
+          },
+          {
+            "type": "text",
+            "text": " בשם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "CoyoteTimer"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private Timer _coyoteTimer;\nprivate bool _wasOnFloor = false;\n\npublic override void _Ready()\n{\n    _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n    _coyoteTimer = GetNode<Timer>(\"CoyoteTimer\");\n}\n\nprivate bool CanJump()\n{\n    return IsOnFloor() || !_coyoteTimer.IsStopped();\n}\n\nprivate void UpdateCoyoteTimer()\n{\n    if (_wasOnFloor && !IsOnFloor() && Velocity.Y >= 0)\n    {\n        // Just left the ground by walking off (not jumping)\n        _coyoteTimer.Start();\n    }\n    _wasOnFloor = IsOnFloor();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "התנאי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Velocity.Y >= 0"
+          },
+          {
+            "type": "text",
+            "text": " הוא חשוב מאוד - זה מונע מהטיימר להיכנס לפעולה אחרי קפיצה. אנחנו רוצים שטיימר זה יעבוד רק כשהשחקן רץ ויוצא מקצה של פלטפורמה, לא בזמן קפיצה פעילה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת, עדכנו את המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()HandleJump"
+          },
+          {
+            "type": "text",
+            "text": " כך שתשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()CanJump"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void HandleJump()\n{\n    if (Input.IsActionJustPressed(\"jump\") && CanJump())\n    {\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _coyoteTimer.Stop();  // Consume coyote time\n    }\n\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Jump Buffering"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זו ההשלמה ללוגיקה שכרגע דיברנו עליה. כאשר השחקן לוחץ ונמצא באוויר והוא מספיק קרוב לקרקע, נזכור שלחץ על קפיצה ונבצע אותה באופן אוטומטי כשיגיע לקרקע."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private Timer _jumpBufferTimer;\n\npublic override void _Ready()\n{\n    _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n    _coyoteTimer = GetNode<Timer>(\"CoyoteTimer\");\n    _jumpBufferTimer = GetNode<Timer>(\"JumpBufferTimer\");\n}\n\nprivate void HandleJump()\n{\n    // Buffer jump presses\n    if (Input.IsActionJustPressed(\"jump\"))\n    {\n        _jumpBufferTimer.Start();\n    }\n\n    // Execute jump if we can\n    bool wantsJump = !_jumpBufferTimer.IsStopped();\n    if (wantsJump && CanJump())\n    {\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _jumpBufferTimer.Stop();  // Consume the buffer\n        _coyoteTimer.Stop();      // Consume coyote time too\n    }\n\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מעכשיו, זה מה שיקרה:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "השחקן לוחץ על קפיצה - ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Buffer Timer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נכנס לפעולה (0.1 שניות)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בכל פריים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Physics"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מתבצעת בדיקה האם יש "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Buffered Jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פעיל והאם ניתן לקפוץ."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם כן - ביצוע קפיצה ואיפוס של שני הטיימרים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם הזמן של הטיימר של ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Buffer Jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": " תם - זה מתעלם מהקפיצה."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "תמיד תוכלו אחר כך לשנות קצת את הזמן של הטיימרים על מנת להתאים באופן מושלם למשחק שלכם."
           }
         ]
       },
@@ -2298,7 +4615,7 @@
                 "type": "bold"
               }
             ],
-            "text": "14.3 אנימציות - Idle, Run, Jump, Fall"
+            "text": "14.5 קפיצה כפולה וקפיצה מקירות"
           }
         ]
       },
@@ -2311,7 +4628,7 @@
         "content": [
           {
             "type": "text",
-            "text": "שחקן שהדמות שלו קפואה בצורה סטטית זה משעמם"
+            "text": "שני פעולות שיכולות לשדרג מאוד את המשחק שלכם ולתת לשחקן שלכם משהו שלא ניתן למצוא בכל פלטפורמר."
           }
         ]
       },
@@ -2321,6 +4638,3294 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קפיצה כפולה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מכניקה נפוצה זו מאפשרת לשחקן לקפוץ פעם נוספת כאשר הוא כבר באוויר בזמן קפיצה."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public int MaxAirJumps { get; set; } = 1;\nprivate int _airJumpsRemaining;\n\nprivate void HandleJump()\n{\n    if (Input.IsActionJustPressed(\"jump\"))\n    {\n        _jumpBufferTimer.Start();\n    }\n\n    bool wantsJump = !_jumpBufferTimer.IsStopped();\n\n    if (wantsJump && CanJump())\n    {\n        // Ground jump (or coyote jump)\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _jumpBufferTimer.Stop();\n        _coyoteTimer.Stop();\n        _airJumpsRemaining = MaxAirJumps;\n    }\n    else if (wantsJump && _airJumpsRemaining > 0)\n    {\n        // Air jump\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _jumpBufferTimer.Stop();\n        _airJumpsRemaining--;\n    }\n\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קפיצה מהקרקע מאפסת את מונה הקפיצות באוויר, וקפיצה באוויר מורידה את המספר ב-1. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "MaxAirJumps = 1"
+          },
+          {
+            "type": "text",
+            "text": " נותן לנו את האפשרות לבצע קפיצה כפולה, אם נשנה אותו ל-0 נבטל את האפשרות, אם נשנה ל-2 - זה יתן לנו אפשרות ל3 קפיצות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הערה עיצובית: "
+          },
+          {
+            "type": "text",
+            "text": "לקפיצה באויר אמורה להיות אותה העוצמה כמו של קפיצה מהקרקע. חלק מהמשחקים מפחיתים קצת את העוצמה של הקפיצה השנייה, אבל זה גורם לאפקט להיות פחות מורגש ופחות אמין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אפסו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "airJumpsRemaining_"
+          },
+          {
+            "type": "text",
+            "text": " בעת נחיתה על הקרקע:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateCoyoteTimer()\n{\n    if (_wasOnFloor && !IsOnFloor() && Velocity.Y >= 0)\n    {\n        _coyoteTimer.Start();\n    }\n\n    // Reset air jumps on landing\n    if (IsOnFloor())\n    {\n        _airJumpsRemaining = MaxAirJumps;\n    }\n\n    _wasOnFloor = IsOnFloor();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "זיהוי קירות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפני שנטמיע וניישם קפיצה על קירות, נצטרך קודם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לזהות קירות"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "text": " מספ לנו את המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()IsOnWall"
+          },
+          {
+            "type": "text",
+            "text": ", אבל יש לנו צורך לדעת גם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "באיזה צד"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "  normal"
+          },
+          {
+            "type": "text",
+            "text": " זה הכיוון שבו \"הפנים\" של משטח מצביעות. תחשבו על זה כמו חץ שיוצא ניצב (90°) מהמשטח. כשהשחקן נוגע בקיר, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "normal"
+          },
+          {
+            "type": "text",
+            "text": " של הקיר מצביע הצידה - ככה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יודע לאיזה כיוון לדחוף את השחקן."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private int GetWallDirection()\n{\n    // Returns -1 for wall on left, 1 for wall on right, 0 for no wall\n    if (!IsOnWall()) return 0;\n    var normal = GetWallNormal();\n    return normal.X > 0 ? -1 : 1;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GetWallNormal"
+          },
+          {
+            "type": "text",
+            "text": " מחזירה לנו את משטח ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "normal"
+          },
+          {
+            "type": "text",
+            "text": " של הקיר שהשחקן נוגע בו . במידה וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "normal"
+          },
+          {
+            "type": "text",
+            "text": " מצביע ימינה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X+"
+          },
+          {
+            "type": "text",
+            "text": ") - זה אומר שהקיר משמאל, במידה והוא מצביע שמאלה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X-"
+          },
+          {
+            "type": "text",
+            "text": ") - זה אומר שהקיר מימין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "גלישה על קירות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפני שנתכנן מכניקת קפיצה מקירות - נתכנן “גלישה“ על קירות - השחקן מחליק לאיטו במורד קיר במקום ליפול לקרקע במהירות מלאה, זה נותן למשחק אפשרויות אינטרקציה נוספות וחיווי ויזואלי נהדר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float WallSlideSpeed { get; set; } = 50f;\n\nprivate bool IsWallSliding()\n{\n    return IsOnWall() && !IsOnFloor() && Velocity.Y > 0;\n}\n\nprivate void HandleWallSlide()\n{\n    if (IsWallSliding())\n    {\n        Velocity = new Vector2(Velocity.X, Mathf.Min(Velocity.Y, WallSlideSpeed));\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גלישה על קיר מופעלת כאשר הדמות נוגעת בקיר ולא עומדת על הקרקע. מהירות הגלישה קטנה משמעותית (50 פיקסלים לשניה) ממהירות נפילה (עד 400 פיקסלים לשניה), מה שנותן לשחקן זמן להגיב לפני שהוא מגיע לקרקע."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קפיצה מקירות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מכניקה המאפשרת לשחקן לקפוץ מקיר שהוא נוגע בו/גולש בו."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float WallJumpForce { get; set; } = 300f;\n[Export] public float WallJumpHorizontalForce { get; set; } = 200f;\n\nprivate void HandleJump()\n{\n    if (Input.IsActionJustPressed(\"jump\"))\n    {\n        _jumpBufferTimer.Start();\n    }\n\n    bool wantsJump = !_jumpBufferTimer.IsStopped();\n\n    if (wantsJump && CanJump())\n    {\n        // Ground jump\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _jumpBufferTimer.Stop();\n        _coyoteTimer.Stop();\n        _airJumpsRemaining = MaxAirJumps;\n    }\n    else if (wantsJump && IsOnWall() && !IsOnFloor())\n    {\n        // Wall jump — push away from wall and upward\n        int wallDir = GetWallDirection();\n        Velocity = new Vector2(-wallDir * WallJumpHorizontalForce, -WallJumpForce);\n        _jumpBufferTimer.Stop();\n        _airJumpsRemaining = MaxAirJumps;  // Wall jump resets air jumps\n    }\n    else if (wantsJump && _airJumpsRemaining > 0)\n    {\n        // Air jump\n        Velocity = new Vector2(Velocity.X, -JumpForce);\n        _jumpBufferTimer.Stop();\n        _airJumpsRemaining--;\n    }\n\n    if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n    {\n        Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סדר הקדימות מבחינת הקוד לקפיצה מקירות, הוא בין קפיצה מקרקע לבין קפיצה באוויר, וזה חשוב, משום שאנחנו רוצים לאפשר לשחקן לקפוץ כאשר הוא מחליק מקיר - מבלי לנצל את הקפיצה שנייה של מצב קפיצה באוויר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "wallDir * WallJumpHorizontalForce-"
+          },
+          {
+            "type": "text",
+            "text": " דוחף את השחקן מהקיר, אם הקיר משמאל, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Velocity"
+          },
+          {
+            "type": "text",
+            "text": " הולך לכיוון ימין. זה משולב עם כח הקפיצה - השחקן קופץ באופן אלכסוני מהקיר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קפיצה מקיר מאפסת את מונה הקפיצות מהאוויר. "
+          },
+          {
+            "type": "text",
+            "text": "וזה"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "text": "מאפשר את התרחיש הבא: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "קפיצה מקיר - קפיצה נוספת באויר - הגעה לקיר הבא - שוב קפיצה מקיר - והלאה והלאה"
+          },
+          {
+            "type": "text",
+            "text": ". זה מגדיל לנו את מגוון האפשרויות לעיצוב שלבים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עדכון אנימציות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עדכנו את מצב האנימציות בעת גלישה על קירות (נשתמש כרגע באותו ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " של קפיצה, אבל אם יש לכם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " מתאים - צרו אנימציה והשתמשו בו)."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateAnimation()\n{\n    if (IsWallSliding())\n    {\n        _sprite.Play(\"jump\");  // reuse jump sprite for wall slide\n    }\n    else if (!IsOnFloor())\n    {\n        _sprite.Play(\"jump\");\n    }\n    else if (Mathf.Abs(Velocity.X) > 10f)\n    {\n        _sprite.Play(\"run\");\n    }\n    else\n    {\n        _sprite.Play(\"idle\");\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במצב של גלישה על קירות נרצה גם לסובב את השחקן כך שלא יפנה לכיוון הקיר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateFacing()\n{\n    if (IsWallSliding())\n    {\n        // Face away from wall during slide\n        int wallDir = GetWallDirection();\n        _sprite.FlipH = wallDir > 0;  // wall on right → face left\n    }\n    else\n    {\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n        if (direction != 0)\n        {\n            _sprite.FlipH = direction < 0;\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "14.6 חלקיקי אבק ואפקטים ויזואליים (“Juice“)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "“"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Juice"
+          },
+          {
+            "type": "text",
+            "text": "“ (מיץ בעברית) משמעותו בתחום פיתוח המשחקים זה חיוויים ויזואליים קטנים וחיוויי שמע אשר מוסיפים למשחק המון עומק ואופי. קפיצה ללא חלקיקים מרגישה “שקטה”, אך עם קצת חלקיקי אבק היא מרגישה מלאה. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Juice"
+          },
+          {
+            "type": "text",
+            "text": " לא משפיע על המשחקיות אלא רק על החוויה והתחושה.  "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "GpuParticles2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - אפקט אבק"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נוסיף סצנת חלקיק אבק לשימוש חוזר, או שנוסיף ישירות לשחקן. לשם הפשטות - נעשה זאת באמת ישירות בסצנת השחקן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "GpuParticles2D"
+          },
+          {
+            "type": "text",
+            "text": " כילד של השחקן. לאחר ההוספה, עץ הסצנה אמור להיראות ככה: "
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Player",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D",
+                  "type": "AnimatedSprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                },
+                {
+                  "name": "CoyoteTimer",
+                  "type": "Timer"
+                },
+                {
+                  "name": "JumpBufferTimer",
+                  "type": "Timer"
+                },
+                {
+                  "name": "DustParticles",
+                  "type": "GpuParticles2D"
+                },
+                {
+                  "name": "Camera2D",
+                  "type": "Camera2D"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדירו את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " שהוספתם ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DustParticles"
+          },
+          {
+            "type": "text",
+            "text": "):"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Emitting:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " false (נטפל דרך הקוד)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Amount:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " 6."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "One Shot:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " true (ללא לולאה, אפקט “מתפרץ/חד-פעמי”)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Lifetime:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " 0.3 seconds."
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "attrs": {
+                  "src": "/content/images/dust_particles_settings.png",
+                  "alt": null,
+                  "title": null,
+                  "width": null,
+                  "height": null
+                }
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "צרו משאב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ParticleProcessMaterial"
+                  },
+                  {
+                    "type": "text",
+                    "text": "  והגדירו בתתי התפריטים את ההגדרות הבאות:"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spawn - Velocity:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Direction:            (0, -1, 0)    ← particles go upward\nSpread:               45°\nInitial Velocity Min: 20\nInitial Velocity Max: 40\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Accelerations - Gravity:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Gravity:              (0, 100, 0)   ← particles arc downward\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Display - Scale:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Scale Min:            1.0\nScale Max:            2.0\nScale Curve:          create a CurveTexture that goes from 1.0 → 0.0 (shrink over lifetime)\n"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/scale_velocity.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Display - Color Curves:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Color:                white\nAlpha Curve:          create a CurveTexture that fades from 1.0 → 0.0"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/color_curves.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור מאפיין ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Texture"
+          },
+          {
+            "type": "text",
+            "text": " של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": ", צרו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " פשוט ולבן בגודל של 2×2 או 4×4, הוסיפו לפרוייקט וגררו למאפיין ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הצגת החלקיקים דרך הקוד"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private GpuParticles2D _dustParticles;\n\npublic override void _Ready()\n{\n    // ... existing _Ready code\n    _dustParticles = GetNode<GpuParticles2D>(\"DustParticles\");\n}\n\nprivate void EmitDust()\n{\n    _dustParticles.Restart();\n    _dustParticles.Emitting = true;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קראו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()EmitDust"
+          },
+          {
+            "type": "text",
+            "text": " בעת קפיצה ובעת נחיתה. הוסיפו את הקריאה בתוך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()HandleJump"
+          },
+          {
+            "type": "text",
+            "text": " בבלוק של קפיצה מהרצפה ובבלוק של קפיצת קיר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void HandleJump()\n\t{\n\t\tif (Input.IsActionJustPressed(\"jump\"))\n\t\t{\n\t\t\t_jumpBufferTimer.Start();\n\t\t}\n\n\t\tbool wantsJump = !_jumpBufferTimer.IsStopped();\n\n\t\tif (wantsJump && CanJump())\n\t\t{\n\t\t\tVelocity = new Vector2(Velocity.X, -JumpForce);\n\t\t\t_jumpBufferTimer.Stop();\n\t\t\t_coyoteTimer.Stop();\n\t\t\t_airJumpsRemaining = MaxAirJumps;\n\t\t\tEmitDust();\n\t\t}\n\t\telse if (wantsJump && IsOnWall() && !IsOnFloor())\n\t\t{\n\t\t\tint wallDir = GetWallDirection();\n\t\t\tVelocity = new Vector2(-wallDir * WallJumpHorizontalForce, -WallJumpForce);\n\t\t\t_jumpBufferTimer.Stop();\n\t\t\t_airJumpsRemaining = MaxAirJumps;\n\t\t\tEmitDust();\n\t\t}\n\t\telse if (wantsJump && _airJumpsRemaining > 0)\n\t\t{\n\t\t\tVelocity = new Vector2(Velocity.X, -JumpForce);\n\t\t\t_jumpBufferTimer.Stop();\n\t\t\t_airJumpsRemaining--;\n\t\t}\n\n\t\tif (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n\t\t{\n\t\t\tVelocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n\t\t}\n\t}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "המתודה המלאה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()CheckLanding"
+          },
+          {
+            "type": "text",
+            "text": " עם אבק, כיווץ, ורעידת מסך מוצגת בחלק הבא."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כיווץ, מתיחה ורעידת מסך"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כיווץ בנחיתה (רחב יותר + נמוך יותר) ומתיחה בקפיצה (גבוה יותר + צר יותר) מוסיפים תחושת משקל לדמות. רעידת מסך קלה בנחיתות קשות מוסיפה אימפקט. הכל משולב ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()CheckLanding"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private bool _wasInAir = false;\n\nprivate void CheckLanding()\n{\n    if (IsOnFloor() && _wasInAir)\n    {\n        EmitDust();\n        _sprite.Scale = new Vector2(1.2f, 0.8f);  // Squash on land\n\n        // Screen shake on hard landings\n        if (Velocity.Y > MaxFallSpeed * 0.8f)\n        {\n            var camera = GetNode<Camera2D>(\"Camera2D\");\n            camera.Offset = new Vector2(\n                (float)GD.RandRange(-1.0, 1.0),\n                (float)GD.RandRange(-1.0, 1.0)\n            );\n        }\n    }\n\n    // Lerp sprite scale back to normal every frame\n    _sprite.Scale = _sprite.Scale.Lerp(Vector2.One, 0.2f);\n\n    _wasInAir = !IsOnFloor();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לאפקט המתיחה בקפיצה, הוסיפו את השורה הזו בתוך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()HandleJump"
+          },
+          {
+            "type": "text",
+            "text": " מיד אחרי הגדרת מהירות הקפיצה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "_sprite.Scale = new Vector2(0.8f, 1.2f);  // Stretch on jump"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Lerp (קיצור של Linear Interpolation):"
+          },
+          {
+            "type": "text",
+            "text": "  פונקציה שמקבלת שני ערכים (מקור ויעד), מספר בין 0 ל-1, ומחזירה ערך ביניים. למשל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Lerp(0, 100, 0.2f)"
+          },
+          {
+            "type": "text",
+            "text": " מחזיר 20 - כלומר 20% מהדרך בין 0 ל-100. כשקוראים לזה כל פריים, זה יוצר תנועה חלקה שמתחילה מהר ומאטה ככל שמתקרבים ליעד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Lerp"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()CheckLanding"
+          },
+          {
+            "type": "text",
+            "text": " רץ בכל פריים, כך שגם הכיווץ וגם המתיחה חוזרים בצורה חלקה לגודל הרגיל תוך מספר פריימים. הוסיפו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()CheckLanding"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": " אחרי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מיקום חלקיקים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חלקיקי האבק צריכים להיות מוקרנים מהרגליים של הדמות, לא מהמרכז. נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Offset"
+          },
+          {
+            "type": "text",
+            "text": " על מנת להסיט את מיקום ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " (ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DustParticles"
+          },
+          {
+            "type": "text",
+            "text": "), למשל:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "DustParticles:\n  Position: (0, 8)   - adjust X and Y to match the center bottom of your collision shape"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור חלקיקי אבק כתוצאה מקפיצה מקיר, נוכל להוסיף עוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " עבור חלקיקי צד - או לשנות באופן דינמי את מיקום ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " דרך הקוד:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// Before emitting wall jump dust\n_dustParticles.Position = new Vector2(wallDir * 6, 0);  // emit from wall side\nEmitDust();\n_dustParticles.Position = new Vector2(0, 8);  // reset to feet position"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אפקטי שמע"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Juice "
+          },
+          {
+            "type": "text",
+            "text": "הוא לא רק ויזואלי. חיווי קולי  משפר עוד את החוויה האמינות והתחושה של פעולות במשחק. נבנה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AudioManager"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 17"
+          },
+          {
+            "type": "text",
+            "text": ", אך לעת עתה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Placeholder"
+          },
+          {
+            "type": "text",
+            "text": " פשוט יספיק לנו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו Node מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AudioStreamPlayer2D"
+          },
+          {
+            "type": "text",
+            "text": " (או יותר מאחד - אחד עבור כל צליל):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private AudioStreamPlayer2D _jumpSound;\n\npublic override void _Ready()\n{\n    // ... existing code\n    _jumpSound = GetNode<AudioStreamPlayer2D>(\"JumpSound\");\n}\n\n// When jumping:\n_jumpSound.Play();"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו למאפיין ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Stream"
+          },
+          {
+            "type": "text",
+            "text": " קובץ קול מתאים, אפילו בליפ קטן יספיק עד שתמצאו צליל שתאהבו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "רשימת ה-Juice"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הנה מה שהוספנו מעבר לתנועה הבסיסית:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אלמנט"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "טריגר"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אפקט"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "כיווץ בנחיתה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "נגיעה ברצפה אחרי זמן באוויר"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ממדי הספרייט (1.2, 0.8) וחזרה חלקה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מתיחה בקפיצה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "עזיבת הרצפה עם קפיצה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ממדי הספרייט (0.8, 1.2) וחזרה חלקה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חלקיקי אבק"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קפיצה, נחיתה, קפיצת קיר"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פרץ חלקיקים ברגליים/בקיר"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "רעידת מסך"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "נחיתה קשה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הזזה קלה של המצלמה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "סאונד קפיצה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קפיצה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פידבק שמיעתי"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "גובה קפיצה משתנה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "שחרור מוקדם של כפתור הקפיצה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הקשת הקפיצה מגיבה למשך הלחיצה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Coyote time"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הליכה מקצה פלטפורמה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "חלון סליחה בלתי נראה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Jump buffer"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לחיצה על קפיצה לפני נחיתה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "שיפור תגובתיות בלתי נראה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חצי מהאלמנטים האלה בלתי נראים. השחקן לעולם לא ישים לב ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "coyote tim"
+          },
+          {
+            "type": "text",
+            "text": "e או ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "jump buffering"
+          },
+          {
+            "type": "text",
+            "text": " - הוא פשוט יגיד שהמשחק \"מרגיש רספונסיבי\". הוא לא ישים לב לכיווץ בנחיתה - הוא יגיד שהדמות \"מרגישה חיה\". ככה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Juice"
+          },
+          {
+            "type": "text",
+            "text": " עובד כשהוא מוצלח."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הקוד הסופי של פרק 14"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Player : CharacterBody2D\n{\n    [Export] public float MoveSpeed { get; set; } = 130f;\n    [Export] public float Acceleration { get; set; } = 900f;\n    [Export] public float Friction { get; set; } = 1200f;\n    [Export] public float AirFriction { get; set; } = 200f;\n    [Export] public float JumpForce { get; set; } = 300f;\n    [Export] public float Gravity { get; set; } = 980f;\n    [Export] public float FallMultiplier { get; set; } = 1.5f;\n    [Export] public float MaxFallSpeed { get; set; } = 400f;\n    [Export] public int MaxAirJumps { get; set; } = 1;\n    [Export] public float WallSlideSpeed { get; set; } = 50f;\n    [Export] public float WallJumpForce { get; set; } = 300f;\n    [Export] public float WallJumpHorizontalForce { get; set; } = 200f;\n\n    private AnimatedSprite2D _sprite;\n    private Timer _coyoteTimer;\n    private Timer _jumpBufferTimer;\n    private GpuParticles2D _dustParticles;\n    private AudioStreamPlayer2D _jumpSound;\n\n    private bool _wasInAir = false;\n    private bool _wasOnFloor = false;\n    private int _airJumpsRemaining;\n\n    public override void _Ready()\n    {\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _coyoteTimer = GetNode<Timer>(\"CoyoteTimer\");\n        _jumpBufferTimer = GetNode<Timer>(\"JumpBufferTimer\");\n        _dustParticles = GetNode<GpuParticles2D>(\"DustParticles\");\n        _jumpSound = GetNode<AudioStreamPlayer2D>(\"JumpSound\");\n    }\n\n    public override void _PhysicsProcess(double delta)\n    {\n        ApplyGravity((float)delta);\n        HandleMovement();\n        HandleWallSlide();\n        UpdateCoyoteTimer();\n        HandleJump();\n        MoveAndSlide();\n        CheckLanding();\n        UpdateFacing();\n        UpdateAnimation();\n    }\n\n    private void EmitDust()\n    {\n        _dustParticles.Restart();\n        _dustParticles.Emitting = true;\n    }\n\n    private bool IsWallSliding()\n    {\n        return IsOnWall() && !IsOnFloor() && Velocity.Y > 0;\n    }\n\n    private void HandleWallSlide()\n    {\n        if (IsWallSliding())\n        {\n            Velocity = new Vector2(Velocity.X, Mathf.Min(Velocity.Y, WallSlideSpeed));\n        }\n    }\n\n    private int GetWallDirection()\n    {\n        if (!IsOnWall()) return 0;\n        var normal = GetWallNormal();\n        return normal.X > 0 ? -1 : 1;\n    }\n\n    private bool CanJump()\n    {\n        return IsOnFloor() || !_coyoteTimer.IsStopped();\n    }\n\n    private void UpdateCoyoteTimer()\n    {\n        if (_wasOnFloor && !IsOnFloor() && Velocity.Y >= 0)\n        {\n            _coyoteTimer.Start();\n        }\n\n        if (IsOnFloor())\n        {\n            _airJumpsRemaining = MaxAirJumps;\n        }\n\n        _wasOnFloor = IsOnFloor();\n    }\n\n    private void CheckLanding()\n    {\n        if (IsOnFloor() && _wasInAir)\n        {\n            EmitDust();\n            _sprite.Scale = new Vector2(1.2f, 0.8f);\n\n            if (Velocity.Y > MaxFallSpeed * 0.8f)\n            {\n                var camera = GetNode<Camera2D>(\"Camera2D\");\n                camera.Offset = new Vector2(\n                    (float)GD.RandRange(-1.0, 1.0),\n                    (float)GD.RandRange(-1.0, 1.0)\n                );\n            }\n        }\n\n        _sprite.Scale = _sprite.Scale.Lerp(Vector2.One, 0.2f);\n        _wasInAir = !IsOnFloor();\n    }\n\n    private void UpdateFacing()\n    {\n        if (IsWallSliding())\n        {\n            int wallDir = GetWallDirection();\n            _sprite.FlipH = wallDir > 0;\n        }\n        else\n        {\n            float direction = Input.GetAxis(\"move_left\", \"move_right\");\n            if (direction != 0)\n            {\n                _sprite.FlipH = direction < 0;\n            }\n        }\n    }\n\n    private void UpdateAnimation()\n    {\n        if (IsWallSliding())\n        {\n            _sprite.Play(\"jump\");\n        }\n        else if (!IsOnFloor())\n        {\n            _sprite.Play(\"jump\");\n        }\n        else if (Mathf.Abs(Velocity.X) > 10f)\n        {\n            _sprite.Play(\"run\");\n        }\n        else\n        {\n            _sprite.Play(\"idle\");\n        }\n    }\n\n    private void ApplyGravity(float delta)\n    {\n        if (!IsOnFloor())\n        {\n            float gravityScale = Velocity.Y > 0 ? FallMultiplier : 1.0f;\n            Velocity = new Vector2(\n                Velocity.X,\n                Mathf.Min(Velocity.Y + Gravity * gravityScale * delta, MaxFallSpeed)\n            );\n        }\n    }\n\n    private void HandleMovement()\n    {\n        float direction = Input.GetAxis(\"move_left\", \"move_right\");\n\n        if (direction != 0)\n        {\n            float targetSpeed = direction * MoveSpeed;\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, targetSpeed, Acceleration * (float)GetPhysicsProcessDeltaTime()),\n                Velocity.Y\n            );\n        }\n        else\n        {\n            float friction = IsOnFloor() ? Friction : AirFriction;\n            Velocity = new Vector2(\n                Mathf.MoveToward(Velocity.X, 0, friction * (float)GetPhysicsProcessDeltaTime()),\n                Velocity.Y\n            );\n        }\n    }\n\n    private void HandleJump()\n    {\n        if (Input.IsActionJustPressed(\"jump\"))\n        {\n            _jumpBufferTimer.Start();\n        }\n\n        bool wantsJump = !_jumpBufferTimer.IsStopped();\n\n        if (wantsJump && CanJump())\n        {\n            Velocity = new Vector2(Velocity.X, -JumpForce);\n            _sprite.Scale = new Vector2(0.8f, 1.2f);\n            _jumpBufferTimer.Stop();\n            _coyoteTimer.Stop();\n            _airJumpsRemaining = MaxAirJumps;\n            _jumpSound.Play();\n            EmitDust();\n        }\n        else if (wantsJump && IsOnWall() && !IsOnFloor())\n        {\n            int wallDir = GetWallDirection();\n            Velocity = new Vector2(-wallDir * WallJumpHorizontalForce, -WallJumpForce);\n            _jumpBufferTimer.Stop();\n            _airJumpsRemaining = MaxAirJumps;\n            _dustParticles.Position = new Vector2(wallDir * 6, 0);\n            _jumpSound.Play();\n            EmitDust();\n            _dustParticles.Position = new Vector2(0, 8);\n        }\n        else if (wantsJump && _airJumpsRemaining > 0)\n        {\n            Velocity = new Vector2(Velocity.X, -JumpForce);\n            _jumpBufferTimer.Stop();\n            _airJumpsRemaining--;\n            _jumpSound.Play();\n        }\n\n        if (Input.IsActionJustReleased(\"jump\") && Velocity.Y < 0)\n        {\n            Velocity = new Vector2(Velocity.X, Velocity.Y * 0.5f);\n        }\n    }\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "הגדרת סצנת השחקן (14.1):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "root"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CollisionShape2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", טיימרים ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "coyote"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "time"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ,"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "buffering"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ו-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Camera2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". השתמשו בצורת התנגשות קטנה מעט מהספרייט לתחושת משחק הוגנת."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תנועה (14.2):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " תנועה אופקית עם האצה וחיכוך (שונה בקרקע לעומת אוויר). גרביטציה עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "fall"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "multiplier"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לקשתות קפיצה חדות. גובה קפיצה משתנה על ידי חיתוך המהירות בשחרור הכפתור. מהירות נפילה מקסימלית. כל הערכים מיוצאים לכיוונון ב-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Inspector"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אנימציות (14.3):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "AnimatedSprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם משאב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "SpriteFrames"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". שלוש אנימציות: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "idle"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "run"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (ספרייט הקפיצה משמש גם לנפילה וגם להחלקה על קיר). מצב נבחר לפי עדיפות: אוויר > תנועה > עמידה. הספרייט מתהפך אופקית לפי כיוון התנועה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Coyote time ו-jump buffering (14.4):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שני "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Timer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (0.1 שניות, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "one-shot"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Coyote"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "time"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": חלון הזדמנות לקפיצה אחרי הליכה מקצה. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Jump"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "buffer"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": קפיצה בתור מתבצעת בנחיתה הבאה. יחד הם הופכים את הקלט לתגובתי ללא מאמץ."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קפיצה כפולה וקפיצת קיר (14.5):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מונה קפיצות אוויר שמתאפס בנחיתה ובקפיצת קיר. זיהוי קירות דרך "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()GetWallNormal"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". החלקה על קיר במהירות מופחתת. קפיצת קיר משגרת את השחקן הרחק מהקיר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Juice (14.6):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חלקיקי אבק בקפיצה/נחיתה/קפיצת קיר. כיווץ ספרייט בנחיתה, מתיחה בקפיצה. רעידת מסך קלה בנחיתות קשות. אפקטי סאונד. הנגיעות הקטנות האלה הן ההבדל בין \"עובד\" ל\"מרגיש מעולה\"."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 15 - עיצוב שלבים."
+          },
+          {
+            "type": "text",
+            "text": " נבנה שלבים למשחק עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "TileMaps"
+          },
+          {
+            "type": "text",
+            "text": ", נוסיף מכשולים (קוצים, פלטפורמות נעות), נפזר קריסטלים לאיסוף, ניצור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Checkpoints"
+          },
+          {
+            "type": "text",
+            "text": ", ונחבר מעברים בין שלבים באמצעות דלתות."
+          }
+        ]
       }
     ]
   }

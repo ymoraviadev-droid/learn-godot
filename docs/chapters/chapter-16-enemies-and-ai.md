@@ -43,7 +43,7 @@ Same settings we used for the player in Chapter 14.1. The enemy walks on the sam
 
 ### Collision Shape
 
-Add a `CapsuleShape2D` or `RectangleShape2D` to the `CollisionShape2D`. Size it to match your enemy sprite — for a slime using Kenney's pack, something like 14×12 pixels works well.
+Add a `CapsuleShape2D` or `RectangleShape2D` to the `CollisionShape2D`. Size it to match your enemy sprite — for a slime using Kenney's Pixel Platformer pack (24×24 character sprites), something like 20×16 pixels works well. Slightly smaller than the visual for fairness.
 
 ### Collision Layers
 
@@ -84,12 +84,14 @@ This ray shoots horizontally in the movement direction. When it collides with te
 **FloorDetector:**
 
 ```
-Target Position: (10, 10)    — points down-right ahead of the enemy
+Target Position: (20, 15)    — points down-right ahead of the enemy
 Collision Mask: 1             — terrain only
 Enabled: true
 ```
 
 This ray points diagonally downward in the movement direction. When it *stops* colliding (no floor ahead), the enemy turns around — it won't walk off ledges.
+
+**Why (20, 15)?** The ray starts at the enemy's origin (center of the 24×24 sprite). X = 20 looks far enough ahead to catch ledge edges before the enemy walks off. Y = 15 extends past the bottom of the collision shape (~12px below origin) to reliably reach the floor tile beneath. Too short and the ray misses the floor → the enemy thinks there's a ledge and reverses every frame.
 
 We covered `RayCast2D` fundamentals in Chapter 10.5 — `IsColliding()`, `GetCollider()`, collision masks, and the difference between node-based raycasts and one-off physics queries. The enemy uses node-based raycasts because they need to check every physics frame.
 
@@ -99,10 +101,10 @@ Create a `SpriteFrames` resource with these animations:
 
 | Animation | Frames | FPS | Loop |
 | --- | --- | --- | --- |
-| walk | 4–6 | 8 | Yes |
-| death | 3–4 | 10 | No |
+| walk | 2 | 8 | Yes |
+| stomped | 1 | 10 | No |
 
-If you're using Kenney's assets, the slime spritesheet has walk frames and a squished frame for death.
+Kenney's Pixel Platformer pack includes 24×24 enemy sprites: a 2-frame walk cycle and a single squished "stomped" frame. That's all you need — the walk loop handles patrol, and the stomped frame plays once on death before the enemy is freed.
 
 ### The Patrol Script
 
@@ -135,8 +137,11 @@ public partial class PatrolEnemy : CharacterBody2D
             Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
         }
 
-        // Check for wall or ledge
-        if (_wallDetector.IsColliding() || !_floorDetector.IsColliding())
+        // Check for wall or ledge — only when grounded.
+        // Without the IsOnFloor() guard, raycasts fire while the enemy
+        // is still falling after spawn (floor detector sees nothing →
+        // Reverse() every frame → enemy shakes in place).
+        if (IsOnFloor() && (_wallDetector.IsColliding() || !_floorDetector.IsColliding()))
         {
             Reverse();
         }
@@ -247,7 +252,7 @@ Collision Layer: 0 (nothing — it doesn't need to be detected)
 Collision Mask: 2 (player)
 ```
 
-**Shape placement:** A thin rectangle on top of the enemy collision shape. For a 14×12 enemy, something like 12×4 pixels positioned at the very top. The stomp zone must be above the hurtbox — if the player enters the stomp zone, they shouldn't also trigger damage.
+**Shape placement:** A thin rectangle on top of the enemy collision shape. For a 20×16 enemy collision, something like 18×4 pixels positioned at the very top. The stomp zone must be above the hurtbox — if the player enters the stomp zone, they shouldn't also trigger damage.
 
 ### Why Two Separate Areas?
 
@@ -317,14 +322,15 @@ private void Die()
     MoveSpeed = 0;
 
     // Play death animation
-    _sprite.Play("death");
+    _sprite.Play("stomped");
 
     // Emit particles
     var particles = GetNode<GpuParticles2D>("DeathParticles");
     particles.Emitting = true;
 
-    // Remove after animation
-    _sprite.AnimationFinished += () => QueueFree();
+    // Remove after a short delay (stomped is a single frame, no AnimationFinished)
+    var timer = GetTree().CreateTimer(0.4);
+    timer.Timeout += QueueFree;
 }
 ```
 
@@ -361,7 +367,7 @@ var stompSound = GetNode<AudioStreamPlayer2D>("StompSound");
 stompSound.Play();
 ```
 
-If you want the sound to finish playing after the enemy is freed, parent the `AudioStreamPlayer2D` to the level instead, or use `AudioServer` — but for a short stomp sound effect, it's fine. `QueueFree()` happens after the death animation, and the sound is shorter than the animation.
+If you want the sound to finish playing after the enemy is freed, parent the `AudioStreamPlayer2D` to the level instead, or use `AudioServer` — but for a short stomp sound effect, it's fine. `QueueFree()` happens after a 0.4-second delay showing the stomped sprite, and the sound is shorter than that.
 
 ### Damage Feedback on the Player
 
@@ -759,10 +765,11 @@ private void Die()
     _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
     _stompDetector.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
     Velocity = Vector2.Zero;
-    _sprite.Play("death");
+    _sprite.Play("stomped");
     var particles = GetNode<GpuParticles2D>("DeathParticles");
     particles.Emitting = true;
-    _sprite.AnimationFinished += () => QueueFree();
+    var timer = GetTree().CreateTimer(0.4);
+    timer.Timeout += QueueFree;
 }
 ```
 
@@ -1522,7 +1529,7 @@ Five stomps to win. Each stomp makes the next cycle harder. The player needs to 
 
 **Patrol enemies (16.1):** `CharacterBody2D` with two RayCast2D detectors — one for walls ahead, one for floor ahead. Reverses direction on wall collision or ledge detection. Walk animation, configurable speed, placed per-instance in the level.
 
-**Damage and stomping (16.2):** Two Area2D zones — `HurtBox` damages the player on side contact, `StompDetector` kills the enemy when the player lands from above (positive Y velocity). `SetDeferred` disables collision during death. Invincibility frames on the player prevent multi-hit damage. Sprite blinking provides visual feedback during invincibility.
+**Damage and stomping (16.2):** Two Area2D zones — `HurtBox` damages the player on side contact, `StompDetector` kills the enemy when the player lands from above (positive Y velocity). `SetDeferred` disables collision during the stomped state. Invincibility frames on the player prevent multi-hit damage. Sprite blinking provides visual feedback during invincibility.
 
 **Chasing AI (16.3):** Enum-based state machine with Patrol, Chase, and Return states. `DetectionZone` (Area2D) checks proximity, `PlayerDetector` (RayCast2D) checks line of sight. Both must be true to chase. Enemy won't walk off ledges while chasing. Returns to home position when line of sight is lost.
 

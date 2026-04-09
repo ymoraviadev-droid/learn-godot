@@ -498,7 +498,7 @@ AddToGroup("checkpoints");
 
 When should the player respawn? Two cases:
 
-1. **Death** — health reaches 0 (handled by `GameManager.TakeDamage()`, which calls `GameOver()`). For now, we'll make death trigger a respawn instead of a game over screen — we'll add the proper game over screen in Chapter 17.
+1. **Death** — health reaches 0. `GameManager.TakeDamage()` calls `LoseLife()`, which deducts a life and respawns the player at the last checkpoint (health resets to max, score is kept). If lives reach 0, `GameOver()` fires — resetting score, health, and lives.
 
 2. **Falling off the map** — the player falls below the level geometry into the void.
 
@@ -533,25 +533,7 @@ public partial class KillZone : Area2D
 }
 ```
 
-Same as spikes — deals max damage for instant death. The `GameManager` then handles the respawn logic (which we'll connect in Chapter 17).
-
-For now, add a temporary respawn call to `GameManager.GameOver()`:
-
-```csharp
-private void GameOver()
-{
-    GD.Print("Game Over!");
-    // Temporary: respawn instead of showing game over screen
-    ResetState();
-    var level = ((SceneTree)Engine.GetMainLoop()).CurrentScene;
-    if (level is Level currentLevel)
-    {
-        currentLevel.RespawnPlayer();
-    }
-}
-```
-
-This is placeholder code — Chapter 17 replaces it with a proper game over screen. But it lets us test the full death/respawn loop right now.
+Same as spikes — deals max damage for instant death. The `GameManager` handles the rest: `TakeDamage()` → `LoseLife()` → respawn (if lives remain) or `GameOver()` (if not). Score is preserved on death but reset on game over.
 
 Old checkpoints stay visually active (the flag stays up) — `_respawnPosition` only stores the latest one, so the last checkpoint touched is always the respawn point. Players understand this intuitively.
 
@@ -573,12 +555,7 @@ Save as `res://scenes/objects/crystal.tscn`.
 
 The crystal should look alive. Use `AnimatedSprite2D` with a short looping animation — 4 to 6 frames of the crystal rotating or glowing. If your asset pack doesn't have animated crystals, a single frame works too — we'll add a floating motion in code.
 
-| Animation | Frames | FPS | Loop |
-| --- | --- | --- | --- |
-| `spin` | 4–6 frames | 8 | Yes |
-| `collect` | 3–4 frames (flash/burst) | 12 | No |
-
-The `collect` animation plays when the player picks up the crystal — a quick visual pop before the crystal disappears. If your art doesn't include a collect animation, skip it; the crystal will just vanish, which is fine.
+A single `default` animation with the glow frames is enough — set it to loop. No need for separate named animations.
 
 Collision layers:
 
@@ -603,7 +580,7 @@ public partial class Crystal : Area2D
     public override void _Ready()
     {
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        _sprite.Play("spin");
+        _sprite.Play("default");
         _startPosition = Position;
         BodyEntered += OnBodyEntered;
     }
@@ -632,20 +609,11 @@ public partial class Crystal : Area2D
         _collected = true;
         GameManager.Instance.AddScore(Value);
 
-        // Play collect animation if it exists, then remove
-        if (_sprite.SpriteFrames.HasAnimation("collect"))
-        {
-            _sprite.Play("collect");
-            _sprite.AnimationFinished += () => QueueFree();
-        }
-        else
-        {
-            QueueFree();
-        }
-
         // Disable collision immediately so it can't be collected twice
         var collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
         collisionShape.SetDeferred("disabled", true);
+
+        QueueFree();
     }
 }
 ```
@@ -708,30 +676,45 @@ public partial class ExitDoor : Area2D
 
     private AnimatedSprite2D _sprite;
     private bool _transitioning = false;
+    private bool _playerInside = false;
 
     public override void _Ready()
     {
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         BodyEntered += OnBodyEntered;
+        BodyExited += OnBodyExited;
+        UpdateDoorVisual();
+    }
 
-        if (RequiredCrystals > 0)
+    public override void _Process(double delta)
+    {
+        if (_playerInside && !_transitioning && GameManager.Instance.Score >= RequiredCrystals)
         {
-            _sprite.Play("closed");
+            StartTransition();
         }
-        else
-        {
-            _sprite.Play("open");
-        }
+
+        UpdateDoorVisual();
+    }
+
+    private void UpdateDoorVisual()
+    {
+        bool unlocked = GameManager.Instance.Score >= RequiredCrystals;
+        _sprite.Play(unlocked ? "open" : "closed");
     }
 
     private void OnBodyEntered(Node2D body)
     {
-        if (body is Player && !_transitioning)
+        if (body is Player)
         {
-            if (GameManager.Instance.Score >= RequiredCrystals)
-            {
-                StartTransition();
-            }
+            _playerInside = true;
+        }
+    }
+
+    private void OnBodyExited(Node2D body)
+    {
+        if (body is Player)
+        {
+            _playerInside = false;
         }
     }
 
@@ -796,9 +779,9 @@ private async void StartTransition()
 
 ### Level State Reset
 
-When changing levels, `GameManager` persists across scenes (it's an autoload). Score carries over. Health carries over. This is correct — the player's progress should survive level transitions.
+When changing levels, `GameManager` persists across scenes (it's an autoload). Score, health, and lives all carry over — the player's progress survives level transitions.
 
-However, within a level, respawning should not reset the score. The player already collected those crystals — taking them away on death feels punishing. Our current code handles this correctly: `ResetState()` resets score and health to defaults, but we only call it on game over, not on checkpoint respawn.
+Within a level, dying costs a life but keeps the score. The player already collected those crystals — taking them away on death feels punishing. Only `GameOver()` (zero lives) resets everything.
 
 ### Building Levels 02 and 03
 

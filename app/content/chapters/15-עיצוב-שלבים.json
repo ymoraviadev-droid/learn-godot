@@ -4,7 +4,7 @@
   "slug": "עיצוב-שלבים",
   "order": 15,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-08T22:42:25.466Z",
+  "updatedAt": "2026-04-09T17:56:26.369Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -26,7 +26,7 @@
       {
         "type": "image",
         "attrs": {
-          "src": "/content/images/platformer_3_layers.png",
+          "src": "/content/images/level_tiles.png",
           "alt": null,
           "title": null,
           "width": null,
@@ -2298,10 +2298,13 @@
         ]
       },
       {
-        "type": "paragraph",
+        "type": "image",
         "attrs": {
-          "textAlign": "right",
-          "dir": null
+          "src": "/content/images/level_tiles.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
       },
       {
@@ -3548,6 +3551,16 @@
             "text": ". פזרו קוצים ברחבי השלב במקומות שצמודים לקרקע ויש רווח בין האריחים. - החייב יהיה חייב לקפוץ מעליהם או שייפסל."
           }
         ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/spikes_better.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
       },
       {
         "type": "paragraph",
@@ -5203,6 +5216,16 @@
         ]
       },
       {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/checkpoints.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
@@ -5597,7 +5620,7 @@
                   },
                   {
                     "type": "text",
-                    "text": "- כוח החיים של השחקן הגיע ל-0 (מנוהל על ידי ("
+                    "text": "- כוח החיים הגיע ל-0. "
                   },
                   {
                     "type": "text",
@@ -5606,11 +5629,11 @@
                         "type": "code"
                       }
                     ],
-                    "text": ")GameManager.TakeDamage"
+                    "text": "GameManager.TakeDamage()"
                   },
                   {
                     "type": "text",
-                    "text": ", אשר קורא ל-"
+                    "text": " קורא ל-"
                   },
                   {
                     "type": "text",
@@ -5619,11 +5642,11 @@
                         "type": "code"
                       }
                     ],
-                    "text": "()GameOver"
+                    "text": "()LoseLife"
                   },
                   {
                     "type": "text",
-                    "text": "). כרגע, נטפל בפסילה כך שתפעיל "
+                    "text": ", שמוריד חיים ומבצע "
                   },
                   {
                     "type": "text",
@@ -5636,7 +5659,7 @@
                   },
                   {
                     "type": "text",
-                    "text": " ולא תציג מסך "
+                    "text": " לנקודת ה-"
                   },
                   {
                     "type": "text",
@@ -5645,24 +5668,24 @@
                         "type": "bold"
                       }
                     ],
-                    "text": "GameOver"
+                    "text": "Checkpoint"
                   },
                   {
                     "type": "text",
-                    "text": " - ניצור מסך כזה "
+                    "text": " האחרונה (בריאות מתאפסת למקסימום, הניקוד נשמר). אם נגמרו החיים, "
                   },
                   {
                     "type": "text",
                     "marks": [
                       {
-                        "type": "bold"
+                        "type": "code"
                       }
                     ],
-                    "text": "בפרק 17"
+                    "text": "()GameOver"
                   },
                   {
                     "type": "text",
-                    "text": ". "
+                    "text": " נקרא - מאפס ניקוד, בריאות וחיים."
                   }
                 ]
               }
@@ -5785,6 +5808,16 @@
         ]
       },
       {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/killzone.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
         "type": "paragraph",
         "attrs": {
           "textAlign": "right",
@@ -5841,7 +5874,40 @@
           },
           {
             "type": "text",
-            "text": " מנהל את ה-"
+            "text": " מטפל בשאר:"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TakeDamage()"
+          },
+          {
+            "type": "text",
+            "text": " - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "LoseLife()"
+          },
+          {
+            "type": "text",
+            "text": " - "
           },
           {
             "type": "text",
@@ -5851,6 +5917,32 @@
               }
             ],
             "text": "Respawn"
+          },
+          {
+            "type": "text",
+            "text": " (אם נשארו חיים) או "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GameOver"
+          },
+          {
+            "type": "text",
+            "text": " (אם לא). הניקוד נשמר בפסילה אך מתאפס ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Game"
           },
           {
             "type": "text",
@@ -5863,110 +5955,11 @@
                 "type": "bold"
               }
             ],
-            "text": "Logic"
+            "text": "Over"
           },
           {
             "type": "text",
-            "text": " לאחר מכן (נחבר "
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "בפרק 17"
-          },
-          {
-            "type": "text",
-            "text": "), בשלב זה, פשוט נוסיף באופן זמני קריאה ל-"
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "Respawn"
-          },
-          {
-            "type": "text",
-            "text": " מ-"
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "code"
-              }
-            ],
-            "text": "()GameManager.GameOver"
-          },
-          {
-            "type": "text",
-            "text": " , ערכו זאת בסקריפט של ה-"
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "GameManager"
-          },
-          {
-            "type": "text",
-            "text": ":"
-          }
-        ]
-      },
-      {
-        "type": "codeBlock",
-        "attrs": {
-          "language": "csharp"
-        },
-        "content": [
-          {
-            "type": "text",
-            "text": "private void GameOver()\n{\n    GD.Print(\"Game Over!\");\n    // Temporary: respawn instead of showing game over screen\n    ResetState();\n    var level = ((SceneTree)Engine.GetMainLoop()).CurrentScene;\n    if (level is Level currentLevel)\n    {\n        currentLevel.RespawnPlayer();\n    }\n}"
-          }
-        ]
-      },
-      {
-        "type": "paragraph",
-        "attrs": {
-          "textAlign": "right",
-          "dir": null
-        },
-        "content": [
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "בפרק 17"
-          },
-          {
-            "type": "text",
-            "text": " ניצור מסך "
-          },
-          {
-            "type": "text",
-            "marks": [
-              {
-                "type": "bold"
-              }
-            ],
-            "text": "GameOver"
-          },
-          {
-            "type": "text",
-            "text": " כמו שצריך, כרגע הלוגיקה הזאת תספיק לנו להמשך הפיתוח."
+            "text": "."
           }
         ]
       },
@@ -6061,7 +6054,7 @@
         "content": [
           {
             "type": "text",
-            "text": "קריסטלים"
+            "text": "קריסטלים הם חפץ הליבה במשחק שלנו - הם מפוזרים ברחבי השלבים של המשחק, ועל השחקן למצוא אותם. זו למעשה הדרך של השחקן להרוויח ניקוד במשחק. "
           }
         ]
       },
@@ -6071,6 +6064,3551 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סצנת הקריסטלים"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Crystal",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D",
+                  "type": "AnimatedSprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "Area2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שמרו את הסצנה בנתיב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "res://scenes/objects/crystal.tscn"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סצנת הקריסטלים צריכה להיראות “חיה” ולא דוממת, זה יותר מושך את העין והופך את העניין ש-”זה חפץ שניתן לאסוף” לברור. לשם כך נשתמש באנימציה. השתמשו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": " עם אנימציה קצרה בלופ - 4 עד 6 פריימים יוכל להספיק. אם בחבילת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Assets"
+          },
+          {
+            "type": "text",
+            "text": " שאתם משתמשים אין אנימציה לקריסטלים, פריים בודד יהיה בסדר, נוסיף בכל מקרה אפקט “ריחוף” לקריסטלים דרך הקוד."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/crystal.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכבות התנגשות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Layer: 5 (collectibles)\nMask:  2 (player)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סקריפט הקריסטל"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Crystal : Area2D\n{\n    [Export] public int Value { get; set; } = 1;\n\n    private AnimatedSprite2D _sprite;\n    private bool _collected = false;\n    private Vector2 _startPosition;\n\n    public override void _Ready()\n    {\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _sprite.Play(\"default\");\n        _startPosition = Position;\n        BodyEntered += OnBodyEntered;\n    }\n\n    public override void _Process(double delta)\n    {\n        if (!_collected)\n        {\n            // Gentle floating motion\n            Position = _startPosition + new Vector2(\n                0, Mathf.Sin((float)Time.GetTicksMsec() / 300f) * 2f\n            );\n        }\n    }\n\n    private void OnBodyEntered(Node2D body)\n    {\n        if (body is Player && !_collected)\n        {\n            Collect();\n        }\n    }\n\n    private void Collect()\n    {\n        _collected = true;\n        GameManager.Instance.AddScore(Value);\n\n        // Disable collision immediately so it can't be collected twice\n        var collisionShape = GetNode<CollisionShape2D>(\"CollisionShape2D\");\n        collisionShape.SetDeferred(\"disabled\", true);\n\n        QueueFree();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Floating motion. Mathf.Sin"
+          },
+          {
+            "type": "text",
+            "text": " יוצר עם הזמן לאט לאט אפקט תנועת ריחוף לקריסטל (תנועה מחזורית חלקה למעלה ולמטה). זה רץ ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Process_"
+          },
+          {
+            "type": "text",
+            "text": " כי זה עניין ויזואלי, לא פיזיקלי - ורק כל עוד הקריסטל קיים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SetDeferred(\"disabled\", true)"
+          },
+          {
+            "type": "text",
+            "text": " - כפי שהוסבר בפרק מוקדם יותר, לא ניתן לבטל צורת התנגשות בזמן ריצה - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יזרוק לנו שגיאה. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SetDeferred"
+          },
+          {
+            "type": "text",
+            "text": " גורמת לזה לקרות בסוף הפריים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "collected_"
+          },
+          {
+            "type": "text",
+            "text": " - בורר זה עוזר למנוע מצב שבו קריסטל נאסף פעמיים. בלי זה, אם 2 פריימים פיזיים חלים על אותו הקריסטל - השחקן עלול לקבל 2 נקודות במקום 1."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()QueueFree"
+          },
+          {
+            "type": "text",
+            "text": " - מסיר את הקריסטל מעץ הסצנה בסוף הפריים. אם יש אנימציית איסוף - ניתן לה להסתיים קודם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מיקום קריסטלים ברחבי השלב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "צרו מופעים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "crystal.tscn"
+          },
+          {
+            "type": "text",
+            "text": " בסצנה ככל שתצטרכו תחת הקונטיינר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Objects/Crystals"
+          },
+          {
+            "type": "text",
+            "text": ". מקמו אותם:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "לאורך הנתיב הראשי"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - פרס לשחקן עבור התקדמות לאורך השלב."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מעל פלטפורמות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - כוונו את השחקן לקפוץ למקומות הנכונים, קריסטלים הם בין היתר גם סימוני דרך."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "במקומות שקשה להגיע אליהם "
+                  },
+                  {
+                    "type": "text",
+                    "text": "- מוסיף אתגר, ומעודד את השחקן לחקור את השלב ולנסות להגיע למקומות שקשה להגיע אליהם."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "במקומות חבויים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מאחורי קיר בלתי נקראה, או אזור שלא ברור איך להגיע אליו, מוסיף מסתורין."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מונה קריסטלים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GameManager"
+          },
+          {
+            "type": "text",
+            "text": " כבר סופר נקודות וחיברנו את הכל דרך הקוד. נציג את הנקודות על גבי המסך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 17"
+          },
+          {
+            "type": "text",
+            "text": " כאשר נבנה את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HUD"
+          },
+          {
+            "type": "text",
+            "text": ". בשלב זה, הניקוד רק מודפס לקונסול בעת איסוף קריסטלים."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "15.5 דלתות ומעבר בין שלבים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לפי מסמך עיצוב המשחק שלנו, אמורים להיות 3 שלבים. השחקן צריך דרך לעבור ביניהם, ניצור דלת יציאה מהשלב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סצנת דלת היציאה"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "ExitDoor",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D",
+                  "type": "AnimatedSprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                }
+              ],
+              "type": "Area2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שמרו בנתיב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "res://scenes/objects/exit_door.tscn"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לדלת אמורים להיות 2 מצבים עיקריים: נעולה (סגורה) ולא נעולה (פתוחה). לשם הפשטות, נשאיר אותה תמיד לא נעולה - השחקן פשוט עובר דרכה והשלב נגמר."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Loop"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "closed"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "open"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1 (או 3-4 עבור אנימציית פתיחה)"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכבות התנגשות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Layer: 6 (interactables)\nMask:  2 (player)"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class ExitDoor : Area2D\n{\n    [Export] public string NextLevelPath { get; set; } = \"\";\n    [Export] public int RequiredCrystals { get; set; } = 0;\n\n    private AnimatedSprite2D _sprite;\n    private bool _transitioning = false;\n    private bool _playerInside = false;\n\n    public override void _Ready()\n    {\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        BodyEntered += OnBodyEntered;\n        BodyExited += OnBodyExited;\n        UpdateDoorVisual();\n    }\n\n    public override void _Process(double delta)\n    {\n        if (_playerInside && !_transitioning && GameManager.Instance.Score >= RequiredCrystals)\n        {\n            StartTransition();\n        }\n\n        UpdateDoorVisual();\n    }\n\n    private void UpdateDoorVisual()\n    {\n        bool unlocked = GameManager.Instance.Score >= RequiredCrystals;\n        _sprite.Play(unlocked ? \"open\" : \"closed\");\n    }\n\n    private void OnBodyEntered(Node2D body)\n    {\n        if (body is Player)\n        {\n            _playerInside = true;\n        }\n    }\n\n    private void OnBodyExited(Node2D body)\n    {\n        if (body is Player)\n        {\n            _playerInside = false;\n        }\n    }\n\n    private void StartTransition()\n    {\n        _transitioning = true;\n\n        if (NextLevelPath != \"\")\n        {\n            GetTree().ChangeSceneToFile(NextLevelPath);\n        }\n        else\n        {\n            GD.Print(\"No next level set — you win!\");\n            // Chapter 17 will add a victory screen here\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה ונרצה שהדלת תהיה נעולה עד שהשחקן יאסוף מספר מסויים של קריסטלים, הוספנו מאפייין בשם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RequiredCrystals"
+          },
+          {
+            "type": "text",
+            "text": " עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "[Export]"
+          },
+          {
+            "type": "text",
+            "text": " שיאפר לנו את הדבר, נוכל פשוט להזין את הכמות הרצויה."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "NextLevelPath"
+          },
+          {
+            "type": "text",
+            "text": " מייוצא לעורך (עם"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": " [Export]"
+          },
+          {
+            "type": "text",
+            "text": "), ערכו אותו בהתאם כך שכל דלת תוביל לשלב הבא:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הדלת בשלב 01: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "res://scenes/levels/level_02.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הדלת בשלב 02: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "res://scenes/levels/level_03.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הדלת בשלב 03: נשאיר ריק, זה השלב האחרון."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מעבר שלב בלק יותר"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "על מנת שלא יהיה מעבר חד ומיידי בין שלבים, תוכלו להוסיף אנימציה וטיימר (או רק טיימר אם אין לכם אנימציה) לפני מעבר בין שלבים, ערכו את המתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()StartTransition"
+          },
+          {
+            "type": "text",
+            "text": " שנמצאת בסקריפט של דלת היציאה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private async void StartTransition()\n{\n    _transitioning = true;\n    _sprite.Play(\"open\");\n\n    // Wait for open animation if it has one\n    if (_sprite.SpriteFrames.GetFrameCount(\"open\") > 1)\n    {\n        await ToSignal(_sprite, AnimatedSprite2D.SignalName.AnimationFinished);\n    }\n\n    // Brief pause before scene change\n    await ToSignal(GetTree().CreateTimer(0.5), SceneTreeTimer.SignalName.Timeout);\n\n    if (NextLevelPath != \"\")\n    {\n        GetTree().ChangeSceneToFile(NextLevelPath);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ToSignal"
+          },
+          {
+            "type": "text",
+            "text": " היא דרך תומכת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "await"
+          },
+          {
+            "type": "text",
+            "text": " של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "#C"
+          },
+          {
+            "type": "text",
+            "text": " על מנת “להמתין” ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": ". תהיה המתנה של 0.5 שניות לפני מעבר בין שלבים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איפוס מצב השלב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כאשר משנים שלב, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GameManager"
+          },
+          {
+            "type": "text",
+            "text": " עדיין זוכר ערכים מהשלב (הסצנה) הקודם (הרי זה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "autoload"
+          },
+          {
+            "type": "text",
+            "text": "). ניקוד, בריאות וחיים נשמרים בין שלבים - ההתקדמות של השחקן שורדת מעבר בין סצנות. בתוך שלב, פסילה עולה חיים אחד אבל שומרת את הניקוד. רק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()GameOver"
+          },
+          {
+            "type": "text",
+            "text": " (0 חיים) מאפס הכול."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "15.6 רקעי Parallax"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "רקע סטטי גורם לשלב להרגיש כמו קופסא דוממת. שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " הן רקעים שנגללים במהירויות שונות, וזה יוצר עומק ואווירה. כיסינו זאת כבר באופן תאורטי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 12.7"
+          },
+          {
+            "type": "text",
+            "text": ", כעת בואו נבין איך ניתן להשתמש בזה באופן מעשי במשחק שלנו."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/parallax_bg.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " - סקירה מהירה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 12.7"
+          },
+          {
+            "type": "text",
+            "text": " למדנו ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "text": " הוא ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " החדש והמתאים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " לשכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " (הוצג לראשונה בגרסא 4.3). הוא מחליף את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxBackground"
+          },
+          {
+            "type": "text",
+            "text": "/"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "ParallaxLayer"
+          },
+          {
+            "type": "text",
+            "text": " הישנים שהם כעת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#b91d1d",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Deprecated"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת Parallax"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כבר יש לנו את המבנה המתאים בעץ הסצנה של השלב:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "FarParallax",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                }
+              ],
+              "type": "Parallax2D"
+            },
+            {
+              "name": "MidrParallax",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                }
+              ],
+              "type": "Parallax2D"
+            },
+            {
+              "name": "NearParallax",
+              "children": [
+                {
+                  "name": "Sprite2D",
+                  "type": "Sprite2D"
+                }
+              ],
+              "type": "Parallax2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אלו הם ילדים ישירים של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " הראשי של סצנת השלב, ממוקמים מעל ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Decoration"
+          },
+          {
+            "type": "text",
+            "text": " על מנת שהרקע יתרנדר מאחורי כל דבר אחר ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " אשר ממוקמים יותר למעלה בעץ - מתרנדרים קודם, שזה אומר שהם נמצאים יותר מאחורה מבחינה ויזואלית)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל שכבת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " צריכה תמונת רקע במאפיין הטקסטורה של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Sprite2D"
+          },
+          {
+            "type": "text",
+            "text": ". השתמשו ברקעים אשר מתאימים למערה (מקור נחמד וחינמי: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://slashdashgamesstudio.itch.io/cave-background-assets?download#google_vignette",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "https://slashdashgamesstudio.itch.io/cave-background-assets?download#google_vignette"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "הוסיפו את 3 התמונות שבחרתם לפרוייקט בנתיב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "/art/backgrounds"
+          },
+          {
+            "type": "text",
+            "text": " , והתאימו תמונה לכל שכבה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חשוב:"
+          },
+          {
+            "type": "text",
+            "text": " הפינה השמאלית העליונה של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " חייב להיות תואם לפינה השמאלית של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": ". "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת שכבות ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "FarParallax:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Scroll Scale:  (0.1, 0.1)\nRepeat Size:   (320, 0)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגלל בכ-10% ממהירות המצלמה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "MidParallax:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Scroll Scale:  (0.3, 0.2)\nRepeat Size:   (320, 0)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגלל בכ-30% ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X"
+          },
+          {
+            "type": "text",
+            "text": ") לרוחב ו-20% לאורך ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Y"
+          },
+          {
+            "type": "text",
+            "text": ") ממהירות המצלמה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "NearParallax:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Scroll Scale:  (0.6, 0.4)\nRepeat Size:   (320, 0)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגלל בכ-60% ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "X"
+          },
+          {
+            "type": "text",
+            "text": ") לרוחב ו-40% לאורך ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Y"
+          },
+          {
+            "type": "text",
+            "text": ") ממהירות המצלמה."
+          },
+          {
+            "type": "hardBreak",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תרגישו חופשי לשנות ולהתנסות עם הערכים עד שתגיעו לתוצאה שתהיו מרוצים ממנה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "גודל תמונת הרקע"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל תמונת רקע צריכה להיות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לפחות "
+          },
+          {
+            "type": "text",
+            "text": "בממדי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " (במקרה שלנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "180×320"
+          },
+          {
+            "type": "text",
+            "text": "). אם התמונה תהיה קטנה יותר, יהיו רווחים וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Parallax"
+          },
+          {
+            "type": "text",
+            "text": " לא יהיה רציף, אם היא יותר גדולה - אין בעיה - זה יתן לנו יותר מגוון עד שהתמונה תחזור על עצמה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור אומנות פיקסלים השתדלו שממדי התמונה יהיו כמה שיותר קרובים לממדי ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Viewport"
+          },
+          {
+            "type": "text",
+            "text": " כדי למנוע טשטושים ועיוותים, נסו לשנות גודל של תמונות על מנת להתאים אותן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אפקט Parallax ללא תמונות רקע מוכנות מראש"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה ואין ברשותכם Assets מתאימים כרגע, נוכל ליצור עומק עם מלבנים בצבעים."
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הוסיפו "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Nodes"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסוג "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ColorRect"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כילדים ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Parallax2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " במקום ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Sprite2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הגדירו את הגודל כך שיכסה את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ViewPort"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השתמשו בגוון יותר בהיר של כחול-אפור מה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Far"
+          },
+          {
+            "type": "text",
+            "text": " (השכבה הרחוקה) עד ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Near"
+          },
+          {
+            "type": "text",
+            "text": " (השכבה הקרובה), למשל:"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "#1a1a2e"
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "rgb(51, 51, 51)",
+                  "fontFamily": "\"Helvetica Neue\", Helvetica, \"Segoe UI\", Arial, freesans, sans-serif"
+                }
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "#2a2a3e"
+          },
+          {
+            "type": "text",
+            "text": ","
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "rgb(51, 51, 51)",
+                  "fontFamily": "\"Helvetica Neue\", Helvetica, \"Segoe UI\", Arial, freesans, sans-serif"
+                }
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "#3a3a4e"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה יוצר אשליית עומק שעובדת בצורה מפתיעה, תמיד תוכלו להחליף אחר כך לתמונות."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/parallax_no_image.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בניית השלבים 02 ו-03"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שכפלו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "level_01.tscn"
+          },
+          {
+            "type": "text",
+            "text": " בתור התחלה:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "גשו ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "FileSystem"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - קליק ימני של העכבר על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "level_01.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - לחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Duplicate"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בתפריט הנפתח."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "שנו את שם הקובץ ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "level_02.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "פתחו ושנו בהתאם לאיך שתרצו את השלב השני."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חזרו שוב עבור השלב השלישי."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כל שלב צריך להיות יותר קשה ואף לחשוף יותר פיצ’רים מאשר השלב הקודם, למשל:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "שלב"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אלמנטים חדשים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "רמת קושי"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "01"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "תהום, קפיצה כפולה, קפיצה מקירות, קריסטלים, קוצים, צ’קפוינט אחד"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קל"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "02"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פלטפורמות נעות, פלטפורמות נופלות, 2 צ’קפוינטים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "בינוני"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "03"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קטעים קשים למעבר, יותר סכנות, 3 צ’קפוינטים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "קשה"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בניית שלבים (15.1):"
+          },
+          {
+            "type": "text",
+            "text": " סצנת שלב עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "root"
+          },
+          {
+            "type": "text",
+            "text": ", שתי שכבות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TileMapLayer"
+          },
+          {
+            "type": "text",
+            "text": " : לשם התנגשות- "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Decoration"
+          },
+          {
+            "type": "text",
+            "text": " (ויזואלי בלבד), קונטיינרים מאורגנים לאובייקטים, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Marker2D"
+          },
+          {
+            "type": "text",
+            "text": " לנקודת הופעה, ומופע של השחקן. מגבלות מצלמה מוגדרות לכל שלב דרך ערכים מיוצאים. תכננו שלבים שמלמדים מכניקות דרך הגיאומטריה - הציגו אלמנטים בנפרד לפני שמשלבים אותם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מכשולים (15.2):"
+          },
+          {
+            "type": "text",
+            "text": " קוצים כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " עם נזק של מוות מיידי. פלטפורמות נעות עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatableBody2D"
+          },
+          {
+            "type": "text",
+            "text": " שנעות הלוך ושוב בין שתי נקודות. פלטפורמות נופלות שרועדות לפני שנופלות. כל הסצנות ניתנות לשימוש חוזר עם פרמטרים מיוצאים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נקודות שמירה ו-Respawn (15.3):"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Checkpoint"
+          },
+          {
+            "type": "text",
+            "text": " כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " עם מצבים ויזואליים פעיל/לא פעיל, פולט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signal"
+          },
+          {
+            "type": "text",
+            "text": " בהפעלה. סקריפט השלב שומר את מיקום ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Respawn"
+          },
+          {
+            "type": "text",
+            "text": " האחרון. אזור מוות מתחת לשלב תופס שחקנים שנופלים. חיבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Signals"
+          },
+          {
+            "type": "text",
+            "text": " מבוסס קבוצות לניהול נקי של נקודות שמירה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חפצים לאיסוף (15.4):"
+          },
+          {
+            "type": "text",
+            "text": " קריסטל כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " עם אנימציית ריחוף, משוב איסוף, ואינטגרציה עם הניקוד דרך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GameManager"
+          },
+          {
+            "type": "text",
+            "text": ". התנגשות מושבתת עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SetDeferred"
+          },
+          {
+            "type": "text",
+            "text": " בזמן איסוף. מיקום הקריסטלים מנחה את השחקן דרך השלב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מעבר בין שלבים (15.5):"
+          },
+          {
+            "type": "text",
+            "text": " דלת יציאה כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " עם נתיב שלב הבא מיוצא. דרישת קריסטלים אופציונלית לנעילת הדלת. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()ChangeSceneToFile"
+          },
+          {
+            "type": "text",
+            "text": " למעבר בין שלבים. ניקוד ובריאות נשמרים בין שלבים דרך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "GameManager"
+          },
+          {
+            "type": "text",
+            "text": " כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "autoload"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "רקעים בפרלקס (15.6):"
+          },
+          {
+            "type": "text",
+            "text": " שלושה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Parallax2D"
+          },
+          {
+            "type": "text",
+            "text": " (אחד לכל שכבה) עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Scroll Scale"
+          },
+          {
+            "type": "text",
+            "text": " יורד ליצירת עומק. Repeat"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " Size"
+          },
+          {
+            "type": "text",
+            "text": " לריצוף אופקי חלק. תמונות רקע בגודל שמתאים לרזולוציית ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "viewport"
+          },
+          {
+            "type": "text",
+            "text": " המקורית. מקור הספרייט מיושר לפינה השמאלית העליונה להתנהגות repeat תקינה."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 16 - אויבים ובינה מלאכותית."
+          },
+          {
+            "type": "text",
+            "text": " ניצור אויבי סיור שמסתובבים הלוך ושוב, נממש מכניקת דריכה להריגת אויבים, נוסיף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AI"
+          },
+          {
+            "type": "text",
+            "text": " לרדיפה של האויבים עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "raycasts"
+          },
+          {
+            "type": "text",
+            "text": ", נבנה מייצרי אויבים, ונתכנן קרב בוס בסיסי."
+          }
+        ]
       }
     ]
   }

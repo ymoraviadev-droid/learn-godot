@@ -4,7 +4,7 @@
   "slug": "דמות-השחקן",
   "order": 14,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-08T03:06:28.100Z",
+  "updatedAt": "2026-04-09T18:12:59.491Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -19,6 +19,11 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
             "text": "פרק 14: דמות השחקן"
           }
         ]

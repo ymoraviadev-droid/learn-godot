@@ -4,7 +4,7 @@
   "slug": "עיצוב-שלבים",
   "order": 15,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-09T17:56:26.369Z",
+  "updatedAt": "2026-04-09T18:12:55.182Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -19,6 +19,11 @@
         "content": [
           {
             "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
             "text": "פרק 15: עיצוב שלבים"
           }
         ]

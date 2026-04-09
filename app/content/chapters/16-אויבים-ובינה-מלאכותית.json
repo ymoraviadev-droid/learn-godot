@@ -4,7 +4,7 @@
   "slug": "אויבים-ובינה-מלאכותית",
   "order": 16,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-04-09T18:14:32.806Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -12,23 +12,67 @@
       {
         "type": "heading",
         "attrs": {
+          "textAlign": "right",
+          "dir": null,
           "level": 1
         },
         "content": [
           {
             "type": "text",
-            "text": "אויבים ובינה מלאכותית"
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 16: אויבים ובינה מלאכותית"
           }
         ]
       },
       {
         "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
         "content": [
           {
             "type": "text",
-            "text": "בקרוב.."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "16.1 סצנת אויב בסיסית (מפטרל מימין לשמאל)"
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "משחק פלטפור"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       }
     ]
   }

@@ -4,7 +4,7 @@
   "slug": "אויבים-ובינה-מלאכותית",
   "order": 16,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-09T21:40:42.032Z",
+  "updatedAt": "2026-04-10T15:21:36.154Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -203,10 +203,6 @@
                     }
                   ],
                   "type": "Area2D"
-                },
-                {
-                  "name": "DeathParticles",
-                  "type": "GpuParticles2D"
                 }
               ],
               "type": "CharacterBody2D"
@@ -571,7 +567,7 @@
           },
           {
             "type": "text",
-            "text": " אז האריחים ב-"
+            "text": ") אז האריחים ב-"
           },
           {
             "type": "text",
@@ -2369,7 +2365,7 @@
         "attrs": {
           "textAlign": "right",
           "dir": null,
-          "level": 3
+          "level": 2
         },
         "content": [
           {
@@ -2661,7 +2657,4954 @@
         "attrs": {
           "textAlign": "right",
           "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StompDetector"
+          },
+          {
+            "type": "text",
+            "text": " הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " אשר נמצא בקצהו העליון של האויב. מדובר באיזור דק יחסית, ורחב - חשבו על זה כעל “ראש” השחקן - כאשר השחקן נוחת עליו, האויב נמעך ומת, ציירו צורת התנגשות מעל ראש היריב בהתאם."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/enemy_stomp_detector.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
         }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת שכבות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Collision Layer: 0 (nothing — it doesn't need to be detected)\nCollision Mask: 2 (player)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נוסיף לסקריפט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PatrolEnemy.cs"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private Area2D _stompDetector;\nprivate bool _isDead = false;\n\npublic override void _Ready()\n{\n    // ... existing code ...\n    _stompDetector = GetNode<Area2D>(\"StompDetector\");\n    _stompDetector.BodyEntered += OnStompDetectorBodyEntered;\n}\n\nprivate void OnStompDetectorBodyEntered(Node2D body)\n{\n    if (body is Player player && !_isDead)\n    {\n        // Only count as stomp if player is falling\n        if (player.Velocity.Y > 0)\n        {\n            Die();\n            // Bounce the player upward\n            player.Velocity = new Vector2(player.Velocity.X, -200f);\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה לבדוק "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Velocity.Y > 0"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "?"
+          },
+          {
+            "type": "text",
+            "text": " השחקן חייב לנוע כלפי מטה (ליפול) כדי שדריכה תיחשב. בלי הבדיקה הזו, שחקן שקופץ כלפי מעלה דרך אזור הדריכה גם היה הורג את האויב - וזה לא מרגיש נכון."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה להקפיץ את השחקן?"
+          },
+          {
+            "type": "text",
+            "text": " אחרי דריכה על אויב, השחקן מקבל דחיפה קטנה כלפי מעלה. זה משרת שתי מטרות: זה מאשר שהדריכה קרתה (פידבק) וזה נותן לשחקן זמן לנחות בבטחה במקום ליפול לאן שהאויב היה. הערך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "200"
+          },
+          {
+            "type": "text",
+            "text": " קטן מכוח הקפיצה המלא ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "300-"
+          },
+          {
+            "type": "text",
+            "text": ") - חצי-קפיצה, לא קפיצה מלאה."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מניעת דריכה ונזק בו-זמנית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "יש מצב תחרות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "race condition"
+          },
+          {
+            "type": "text",
+            "text": "): השחקן נוחת על האויב, וגם ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StompDetector"
+          },
+          {
+            "type": "text",
+            "text": " וגם ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "text": " נורים באותו פריים. השחקן דורך על האויב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              }
+            ],
+            "text": "וגם"
+          },
+          {
+            "type": "text",
+            "text": " מקבל נזק. זה מרגיש נורא."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מתקנים את זה על ידי בדיקת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "isDead_"
+          },
+          {
+            "type": "text",
+            "text": " בתוך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "handler"
+          },
+          {
+            "type": "text",
+            "text": " ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Hurtbox"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void OnHurtBoxBodyEntered(Node2D body)\n{\n    if (body is Player && !_isDead)\n    {\n        GameManager.Instance.TakeDamage(1);\n    }\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ומוודאים ש-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Die"
+          },
+          {
+            "type": "text",
+            "text": " מגדיר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "isDead = true_"
+          },
+          {
+            "type": "text",
+            "text": " לפני כל דבר אחר:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void Die()\n{\n    _isDead = true;\n\n    // ביטול כל ההתנגשויות\n    _hurtBox.GetNode<CollisionShape2D>(\"CollisionShape2D\").SetDeferred(\"disabled\", true);\n    _stompDetector.GetNode<CollisionShape2D>(\"CollisionShape2D\").SetDeferred(\"disabled\", true);\n\n    // עצירת תנועה\n    Velocity = Vector2.Zero;\n    MoveSpeed = 0;\n\n    // הפעלת אנימציית מוות\n    _sprite.Play(\"stomped\");\n\n    // פליטת חלקיקים\n    var particles = GetNode<GpuParticles2D>(\"DeathParticles\");\n    particles.Emitting = true;\n\n    // הסרה אחרי השהייה קצרה (stomped זה פריים בודד, אין AnimationFinished)\n    var timer = GetTree().CreateTimer(0.4);\n    timer.Timeout += QueueFree;\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SetDeferred"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "?"
+          },
+          {
+            "type": "text",
+            "text": " אי אפשר לבטל צורות התנגשות בזמן "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "callback"
+          },
+          {
+            "type": "text",
+            "text": " של פיזיקה - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " יזרוק שגיאה. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SetDeferred"
+          },
+          {
+            "type": "text",
+            "text": " מכניס את השינוי לתור לפריים הבא, וזה בטוח. השתמשנו באותו דפוס בדיוק לאיסוף קריסטלים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 15.4"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חשיפת כוח ההקפצה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הקפצת השחקן אחרי דריכה מקודדת באופן קשיח ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "200-"
+          },
+          {
+            "type": "text",
+            "text": ". זה עובד, אבל כדי לשמור על גמישות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "[Export] public float StompBounceForce { get; set; } = 200f;\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ואז ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "handler"
+          },
+          {
+            "type": "text",
+            "text": " הדריכה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "player.Velocity = new Vector2(player.Velocity.X, -StompBounceForce);"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אפקטים קוליים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "במידה ותרצו, תוכלו להוסיף צליל לסצנת האויב לשם המעיכה/דריכה. הוסיפו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AudioStreamPlayer2D"
+          },
+          {
+            "type": "text",
+            "text": " לעץ הסמנה של האויב:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "PatrolEnemy",
+              "children": [
+                {
+                  "name": "...",
+                  "comment": "existing nodes"
+                },
+                {
+                  "name": "StompSound",
+                  "type": "AudioStreamPlayer2D"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגנו את הצליל במתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Die"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "var stompSound = GetNode<AudioStreamPlayer2D>(\"StompSound\");\nstompSound.Play();"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "חיווי ויזואלי בעת נזק לשחקן"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נכון לרגע זה, כאשר אויב נוגע בדמות השחקן, זה מפעיל את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "GameManager.Instance.TakeDamage(1)"
+          },
+          {
+            "type": "text",
+            "text": " - ואין שום אנימציה שמראה שהשחקן נפגע (חוץ מהדפסה שהוצאנו לקונסול - אבל שחקנים לא רואים את זה). גם אין חיווי ויזואלי כלשהו שאומר שהשחקן נפגע וירד לו כוח. הגיע הזמן שנטפל גם בזה - כאשר השחקן נפגע אנחנו רוצים שיתרחשו 3 דברים: לנגן אנימציית פגיעה, להדוף אחורה את השחקן, ולתת לו כמה פריימים במצב מהבהב (שלא ניתן לפגוע בו) כדי לאפשר לו לברוח מהסכנה אחרי שנפגע ממנה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת האנימציה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו אנימציית פגיעה לשחקן, גם פריים אחד יכול להספיק:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "FPS"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Loop"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "hurt"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1-4"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מתודת הפגיעה - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()TakeHit"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הוסיפו לסקריפט השחקן ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Player.cs"
+          },
+          {
+            "type": "text",
+            "text": "):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private bool _isInvincible = false;\nprivate float _invincibilityTimer = 0f;\nprivate const float InvincibilityDuration = 1.5f;\nprivate bool _isHurt = false;\nprivate float _hurtTimer = 0f;\nprivate const float HurtDuration = 0.5f;\n\n[Export] public float KnockbackHorizontal { get; set; } = 100f;\n[Export] public float KnockbackVertical { get; set; } = 150f;\n\npublic void TakeHit(int damage, Vector2 enemyPosition)\n{\n    if (_isInvincible) return;\n\n    GameManager.Instance.TakeDamage(damage);\n\n    // Knockback — push away from the enemy and slightly upward\n    float knockbackDirection = Mathf.Sign(GlobalPosition.X - enemyPosition.X);\n    if (knockbackDirection == 0) knockbackDirection = 1; // Default to right if directly on top\n    Velocity = new Vector2(knockbackDirection * KnockbackHorizontal, -KnockbackVertical);\n\n    // Hurt state — locks out movement input briefly\n    _isHurt = true;\n    _hurtTimer = HurtDuration;\n    _sprite.Play(\"hurt\");\n\n    // Invincibility frames\n    _isInvincible = true;\n    _invincibilityTimer = InvincibilityDuration;\n    BlinkSprite();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בשביל מה העברנו את מיקום האויב ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "enemyPosition"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": ")? "
+          },
+          {
+            "type": "text",
+            "text": "כיוון ההדיפה של השחקן תלוי במיקום האויב - למשל, אם האויב משמאל - השחקן יהדף לימין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מצב פגיעה ב-()PhysicsProcess_"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בזמן שהשחקן נפגע, יש כמה פריימים שבהם לא ניתן לשלוט בשחקן על מנת שההדיפה מהפגיעה לא תיחתך באמצע:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    if (_isInvincible)\n    {\n        _invincibilityTimer -= (float)delta;\n        if (_invincibilityTimer <= 0)\n        {\n            _isInvincible = false;\n        }\n    }\n\n    if (_isHurt)\n    {\n        _hurtTimer -= (float)delta;\n        if (_hurtTimer <= 0)\n        {\n            _isHurt = false;\n        }\n\n        // During hurt: apply gravity and move, but ignore input\n        ApplyGravity((float)delta);\n        MoveAndSlide();\n        return; // Skip all input handling\n    }\n\n    // ... rest of physics process (movement, jump, etc.)\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "return"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "זה כל הטריק כאן "
+          },
+          {
+            "type": "text",
+            "text": "- הוא מדלג על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HandleMovement"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HandleJump"
+          },
+          {
+            "type": "text",
+            "text": ", ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "UpdateAnimation"
+          },
+          {
+            "type": "text",
+            "text": " לחלוטין, כך שהשחקן נתון לחסדי הפיזיקה למשך חצי שניה מבלי יכולת לשלוט בתנועה (הגרביטציה עדיין פעילה כמובן)."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עדכון מתודת האנימציה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנימציית הפגיעה צריכה למנוע מכל אנימציה אחרת להתנגן בזמן שהיא פעילה:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateAnimation()\n{\n    if (_isHurt)\n    {\n        _sprite.Play(\"hurt\");\n        return;\n    }\n\n    // ... existing animation logic (airborne → moving → idle)\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הבהוב השחקן בזמן שהוא לא פגיע (Invincibility)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לאחר שאנימציית הפגיעה מסתיימת (חצי שניה), השליטה בדמות חוזרת לשחקן, אבל הוא בלתי פגיע ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Invincible"
+          },
+          {
+            "type": "text",
+            "text": ") למשך עוד שניה אחת כדי לאפשר לו לברוח מהסכנה לפני שתהיה פגיעה נוספת. עלינו לתת לשחקן חיווי ויזואלי על מנת שידע שהוא במצב בלתי פגיע ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Invincible"
+          },
+          {
+            "type": "text",
+            "text": "), נהוג בדרך כלל להציג אנימציית הבהוב לשם כך. אין צורך ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " נוסף, נעשה זאת דרך הקוד:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private async void BlinkSprite()\n{\n    while (_isInvincible)\n    {\n        _sprite.Modulate = new Color(1, 1, 1, 0.3f);\n        await ToSignal(GetTree().CreateTimer(0.1), SceneTreeTimer.SignalName.Timeout);\n        _sprite.Modulate = new Color(1, 1, 1, 1.0f);\n        await ToSignal(GetTree().CreateTimer(0.1), SceneTreeTimer.SignalName.Timeout);\n    }\n    _sprite.Modulate = new Color(1, 1, 1, 1.0f);\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנימציית ההבהוב משנה את מאפיין השקיפות ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Opacity"
+          },
+          {
+            "type": "text",
+            "text": ") של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " מ-30% ל-100% בכל 0.1 שניות. היא רצה בכל זמן שהשחקן במצב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Invincibility"
+          },
+          {
+            "type": "text",
+            "text": " - כולל בזמן שהשליטה מבוטלת. השחקן רואה: אנימציית פגיעה + הבהוב - מקבל את השליטה בחזרה (עדיין מהבהב) - עד שההבהוב נפסק."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עדכון ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " של האויב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כעת נעדכן את אזור הפגיעה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "hurtbox"
+          },
+          {
+            "type": "text",
+            "text": ") של האויב על מנת לקרוא למתודה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TakeHit"
+          },
+          {
+            "type": "text",
+            "text": " של השחקן עם מיקום האויב (בסקריפט של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PatrolEnemy"
+          },
+          {
+            "type": "text",
+            "text": "):"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void OnHurtBoxBodyEntered(Node2D body)\n{\n    if (body is Player player && !_isDead)\n    {\n        player.TakeHit(1, GlobalPosition);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כל התרחיש"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה מה שהשחקן חווה כאשר הוא נוגע באויב:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פריים 0:"
+          },
+          {
+            "type": "text",
+            "text": " ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "text": " מזהה את השחקן - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TakeHit(1, enemyPos)"
+          },
+          {
+            "type": "text",
+            "text": " נורה."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פריים 0:"
+          },
+          {
+            "type": "text",
+            "text": " החיים יורדים, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "velocity"
+          },
+          {
+            "type": "text",
+            "text": " נקבע לדחיפה לאחור, אנימציית הפגיעה מתנגנת, ההבהוב מתחיל."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פריימים 1-30 (0.5 שניות):"
+          },
+          {
+            "type": "text",
+            "text": " השחקן עף לאחור בקשת, לא מתקבל קלט, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprite"
+          },
+          {
+            "type": "text",
+            "text": " הפגיעה מוצג, מהבהב."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פריים 30:"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "isHurt_"
+          },
+          {
+            "type": "text",
+            "text": " פג, השחקן מקבל בחזרה שליטה מלאה, האנימציות הרגילות חוזרות, עדיין מהבהב."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פריים 90 (1.5 שניות):"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "isInvincible_"
+          },
+          {
+            "type": "text",
+            "text": " פג, ההבהוב נפסק, השחקן פגיע שוב לחלוטין."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ערכי הדחיפה (100 אופקי, 150 אנכי) הם נקודת התחלה. אם השחקן בקושי זז, הגדילו אותם. אם הוא עף מחוץ למסך, הקטינו אותם. הם מיוצאים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "exported"
+          },
+          {
+            "type": "text",
+            "text": "), כך שאפשר לכוונן לכל פרויקט ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " בלי לגעת בקוד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "טיפול דומה לשחקן שנוגע בקוצים וסכנות (Hazards)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נרצה שהאויב יהדף לאחור, יהבהב, ויציג אנימציית פגיעה גם כאשר הוא נוגע באריחים שנמצאים בשכבת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Hazards"
+          },
+          {
+            "type": "text",
+            "text": ", כמו קוצים למשל, נעדכן את הסקריפט של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spike"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class Spike : Area2D\n{\n    public override void _Ready()\n    {\n        BodyEntered += OnBodyEntered;\n    }\n\n    private void OnBodyEntered(Node2D body)\n    {\n        if (body is Player player)\n        {\n            player.TakeHit(GameManager.Instance.MaxHealth, GlobalPosition);\n            // or: player.TakeHit(1, GlobalPosition); \n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם תרצו שהשחקן פשוט יאבד כח במקום ישר להיפסל במגע עם קוצים תוכלו פשוט לכתוב “1” במקום להוריד לשחקן את כל הכוח:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "player.TakeHit(1, GlobalPosition);"
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "16.3 אויב רודף (AI) - עטלף מערות "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אויבים מפטרלים הם צפויים - השחקן משנן את הדפוס שלהם ויכול לתכנן בקלות את הדרך שלו לעבור/להרוג אותם. אובים שרודפים אחרי השחקן מוסיפים מתח - הם מתעלמים מהשחקן עד שהם מבחינים בו, ואז מתחילים לרדוף אחריו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור המשחק שלנו, עטלפי מערות הם אויב רדיפה קלאסי - העטלף מרחף באזורים מסיומים של המערה, אורבים בשקט לשחקן - ושועטים לעברו ברגע שמזהים אותו. התעופה משנה את האינורקציה: העטלף לא נצמד לרצפה, כך שהשחקן לא יכול לתכנן את ההריגה כמו עם אויב מפטרל - השחקן צריך לאלתר ולתכנן את זמן הקפיצה באופן אחר."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/cave_bat.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "תכנון עיצוב העטלף"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בחבילה שבה אנחנו משתמשים ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://kenney.nl/assets/pixel-platformer",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "https://kenney.nl/assets/pixel-platformer"
+          },
+          {
+            "type": "text",
+            "text": ") לדמות העטף יש 3 Sprites ב-SpriteSheet של הדמויות: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "כנפיים למעלה, כנפיים ישרות, כנפיים למטה"
+          },
+          {
+            "type": "text",
+            "text": ", נועד לניגון ברצף בזמן התנועה. אין לעטלף Sprite למעיכה משום שעטלף לא אמור “להימעך“ (אין קונטרה מהרצפה, זה לא יהיה הגיוני). במקום זה, נהדוף אותו קלות עם הבהוב בכיוון אלכסוני, ונשמיד אותו לאחר השהיה קצרה."
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אלמנט"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תאור"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תנועה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "תעופה - לא מושפע מגרביטציה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "3 - כנפיים למעלה, כנפיים ישרות, כנפיים למטה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "fly"
+                      },
+                      {
+                        "type": "text",
+                        "text": " (לופ של 3 פריימים בתדירות של "
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "10 FPS"
+                      },
+                      {
+                        "type": "text",
+                        "text": ")"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "התנהגות דריכה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": " הדיפה קלה + הבהוב בכיוון אלכסוני, השמדה לאחר השהיה קצרה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "זיהוי"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מרחק ושדה ראייה שכשאשר השחקן נכנס אליהם - העטלף נכנס לפעולה ומתחיל לרדוף."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "התנגשויות ב-Terrain"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ללא"
+                      },
+                      {
+                        "type": "text",
+                        "text": " - העטלף מתעלם ועובר דרך קירות, רצפות, תקרות ופלטפורמות."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עץ הסצנה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סצנת עטלף היא קצת פשוטה יותר מאשר סצנה של אויב שרודף על הקרקע, אין זיהוי התנגשויות, העטלף עובר דרך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "CaveBat",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D",
+                  "type": "AnimatedSprite2D"
+                },
+                {
+                  "name": "CollisionShape2D",
+                  "type": "CollisionShape2D"
+                },
+                {
+                  "name": "PlayerDetector",
+                  "type": "RayCast2D"
+                },
+                {
+                  "name": "HurtBox",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D",
+                      "type": "CollisionShape2D"
+                    }
+                  ],
+                  "type": "Area2D"
+                },
+                {
+                  "name": "StompDetector",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D",
+                      "type": "CollisionShape2D"
+                    }
+                  ],
+                  "type": "Area2D"
+                },
+                {
+                  "name": "DetectionZone",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D",
+                      "type": "CollisionShape2D"
+                    }
+                  ],
+                  "type": "Area2D"
+                }
+              ],
+              "type": "CharacterBody2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שמרו את הסצנה בנתיב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "res://scenes/enemies/cave_bat.tscn"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך לגרום לעטלף לעבור דרך Terrain"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגדיר שכבות התנגשות:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Collision Layer: 3 (enemies)\nCollision Mask: 0 (nothing)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מיקמנו את העטלף בשכבה 3 כדי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שדברים אחרים יוכלו לזהות אותו"
+          },
+          {
+            "type": "text",
+            "text": ", הוא ממומקם באותה השכבה הייעודית (3) עם שאר האויבים, כלומר שהשחקן יזהה פגיעה ממנו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הגדרנו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "ללא"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Mask"
+          },
+          {
+            "type": "text",
+            "text": " משום שהעטלף לא צריך לוגיקת התנגשות עם ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " כפי שכבר הוסבר. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()MoveAndSlide"
+          },
+          {
+            "type": "text",
+            "text": " בכל זאת יוצאת לפועל לעדכן את מיקום ואנימציות העטלף, אבל ללא התנגשויות - הוא פשוט עובר דרך כל האריחים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StompDetector"
+          },
+          {
+            "type": "text",
+            "text": ", ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DetectionZone"
+          },
+          {
+            "type": "text",
+            "text": " עדיין יקבלו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Mask 2"
+          },
+          {
+            "type": "text",
+            "text": " על מנת לזהות את השחקן (שנמצא על "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכבה 2"
+          },
+          {
+            "type": "text",
+            "text": ") כדי שהוא יפגע כשיגע באזור הפגיעה של העטלף, וכדי שהעטלף יפגע כאשר השחקן קופץ עליו, ויזהה את השחקן שמתקרב אליו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע שנרצה שהעטלף יעבור דרך Terrain? "
+          },
+          {
+            "type": "text",
+            "text": "בהמון משחקי פלטפורמר שיש בהם עטלפים זו טכניקה נפוצה שנועדה לגרום לעטלפים להרגיש “מסוכנים” יותר וקצת על טבעיים, וממחישה את היותם קטנים ומעופפים, אבל תוכלו לתכנן את זה אחרת אם תרצו כמובן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מקמו את העטלפים בחוכמה: "
+          },
+          {
+            "type": "text",
+            "text": " בגלל שהם עוברים דרך קירות - אזורים נמוכים מדי יהפכו את זה לבלתי אפשרי עבור השחקן שלא יוכל להתחמק מהעטלף, עדיף שזה יהיה באזורים שיש לשחקן מקום לתמרן (ואל תמקמו בתוך קיר או פלטפורמה, זה יראה רע)."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a9780f",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "*"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a9780f",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a9780f",
+                  "fontFamily": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שימו לב שעלול לקרות לכם שאם תשכפלו עטלף שייבאתם לסצנת השלב - זה ישכפל את אזורי הזיהוי שלו והכל - מה שיגרום לכך שרק העטלף הראשון יגיב לשחקן. עדיף שתייבאו מופע חדש של עטלף במקום לשכפל אחד קיים"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "#a9780f",
+                  "fontFamily": null
+                }
+              }
+            ],
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DetectionZone"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ,"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StompDetector"
+          },
+          {
+            "type": "text",
+            "text": ", ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Collision Layer: 0 (nothing)\nCollision Mask: 2 (player)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עבור ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DetectionZone"
+          },
+          {
+            "type": "text",
+            "text": " השתמשו בצורת התנגשות מעגלית ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CircleShape2D"
+          },
+          {
+            "type": "text",
+            "text": ") עם רדיוס של 100-80 פיקסלים - זה יוצא זיהוי למרחק של 5-6 אריחים בערך."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PlayerDetector"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "RayCast2D"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Target Position: (0, 0)     — we'll set this dynamically in code\nCollision Mask: 1, 2         — terrain and player\nEnabled: true"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הקרן מכוונת אל השחקן כל הזמן - רדיפה מתחילה רק אם יש קו/שדה ראייה, כלומר אין "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Terrain"
+          },
+          {
+            "type": "text",
+            "text": " שמסתיר את השחקן."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעטלף יש 3 מצבי התנהגות: Idle, Chase, Return. נוכל לממש זאת באמצעות State Machine מבוסס Enum:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class CaveBat : CharacterBody2D\n{\n    private enum State\n    {\n        Idle,\n        Chase,\n        Return,\n        Dying\n    }\n\n    [Export] public float ChaseSpeed { get; set; } = 90f;\n    [Export] public float ReturnSpeed { get; set; } = 60f;\n    [Export] public float HoverAmplitude { get; set; } = 3f;\n    [Export] public float HoverFrequency { get; set; } = 2f;\n\n    private State _currentState = State.Idle;\n    private AnimatedSprite2D _sprite;\n    private RayCast2D _playerDetector;\n    private Area2D _detectionZone;\n    private Area2D _hurtBox;\n    private Area2D _stompDetector;\n    private bool _isDead = false;\n    private Player _targetPlayer = null;\n    private Vector2 _homePosition;\n\n    public override void _Ready()\n    {\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _playerDetector = GetNode<RayCast2D>(\"PlayerDetector\");\n        _detectionZone = GetNode<Area2D>(\"DetectionZone\");\n        _hurtBox = GetNode<Area2D>(\"HurtBox\");\n        _stompDetector = GetNode<Area2D>(\"StompDetector\");\n        _homePosition = GlobalPosition;\n\n        _detectionZone.BodyEntered += OnDetectionZoneBodyEntered;\n        _detectionZone.BodyExited += OnDetectionZoneBodyExited;\n        _hurtBox.BodyEntered += OnHurtBoxBodyEntered;\n        _stompDetector.BodyEntered += OnStompDetectorBodyEntered;\n\n        _sprite.Play(\"fly\");\n    }\n\n    private void OnDetectionZoneBodyEntered(Node2D body)\n    {\n        if (body is Player player)\n        {\n            _targetPlayer = player;\n        }\n    }\n\n    private void OnDetectionZoneBodyExited(Node2D body)\n    {\n        if (body is Player)\n        {\n            _targetPlayer = null;\n        }\n    }\n\n    public override void _PhysicsProcess(double delta)\n    {\n        if (_isDead)\n        {\n            // When dying, gravity pulls the bat down\n            Velocity = new Vector2(Velocity.X, Velocity.Y + 980f * (float)delta);\n            MoveAndSlide();\n            return;\n        }\n\n        switch (_currentState)\n        {\n            case State.Idle:\n                ProcessIdle((float)delta);\n                break;\n            case State.Chase:\n                ProcessChase();\n                break;\n            case State.Return:\n                ProcessReturn();\n                break;\n        }\n\n        MoveAndSlide();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע החלנו על העטלף גרביטציה כשהוא מת? "
+          },
+          {
+            "type": "text",
+            "text": "עטלף חי יכול לעוף - לא צריך גרביטציה, עטלף מת נופל - הגרביטציה נדלקת ומושכת אות כלפי מטה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מצב Idle"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בניגוד לאויב מפטרל שהולך על משטח הלוך ושוב,  העטלף מרחף במקום עד שהוא מזהה את השחקן בקרבתו, הוא לא זז ימינה ושמאלה אלא רק מרחף בלמעלה ולמטה בעדינות. "
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void ProcessIdle(float delta)\n{\n    // Bob up and down using a sine wave\n    float yOffset = Mathf.Sin((float)Time.GetTicksMsec() / 1000f * HoverFrequency) * HoverAmplitude;\n    GlobalPosition = new Vector2(_homePosition.X, _homePosition.Y + yOffset);\n    Velocity = Vector2.Zero;\n\n    // Transition: player detected with line of sight?\n    if (_targetPlayer != null && HasLineOfSight())\n    {\n        _currentState = State.Chase;\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מצב מרדף"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "העטלף עף בקו ישר אל השחקן, בגלל שזה אויב שמסוגל לעוף - הוא יכול לזוז לכל הכיוונים:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void ProcessChase()\n{\n    if (_targetPlayer == null || !HasLineOfSight())\n    {\n        _currentState = State.Return;\n        return;\n    }\n\n    // Direction vector from bat to player\n    Vector2 toPlayer = (_targetPlayer.GlobalPosition - GlobalPosition).Normalized();\n    _sprite.FlipH = toPlayer.X < 0;\n\n    Velocity = toPlayer * ChaseSpeed;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מצב חזרה למקום"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אם העטלף מאבד את האויב (האויב יצא משדה הראייה שלו), הוא חוזר בחזרה למקום שהתחיל בו בתנוחת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Idle"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void ProcessReturn()\n{\n    Vector2 toHome = _homePosition - GlobalPosition;\n\n    if (toHome.Length() < 5f)\n    {\n        // Close enough to home — resume hovering\n        GlobalPosition = _homePosition;\n        _currentState = State.Idle;\n        return;\n    }\n\n    Vector2 direction = toHome.Normalized();\n    _sprite.FlipH = direction.X < 0;\n    Velocity = direction * ReturnSpeed;\n\n    // If player re-enters detection, chase again\n    if (_targetPlayer != null && HasLineOfSight())\n    {\n        _currentState = State.Chase;\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מהירות החזרה למקום (60 פיקסלים לשניה) היא איטית יותר ממהירות המרדף (90 פיקסלים לשניה) במכוון. העטלף פחות להוט כשהוא חוזר למקום מאשר כשהוא רודף אחרי השחקן. אם בזמן זה השחקן חוזר לשדה הראייה - העטלף חוזר למצב רדיפה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בדיקת קו/שדה ראייה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נכוון קרן תמידית אל השחקן ונבדוק במה היא פוגעת כדי לדעת עם יש לעטלף קו ראייה ישיר אל השחקן ושום דבר לא מסתיר אותו, אם הקרן פוגעת במשהו בדרך - סימן שזה מסתיר את השחקן."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private bool HasLineOfSight()\n{\n    if (_targetPlayer == null) return false;\n\n    // Aim the raycast at the player\n    _playerDetector.TargetPosition = _targetPlayer.GlobalPosition - GlobalPosition;\n    _playerDetector.ForceRaycastUpdate();\n\n    if (!_playerDetector.IsColliding()) return true; // Nothing blocking\n\n    // Something is blocking — is it the player?\n    var collider = _playerDetector.GetCollider();\n    return collider == _targetPlayer;\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "נזק, דריכה, ואנימציית פגיעה בעטלף"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "text": " עובד כאן כמו אצל אויבים אחרים בדיוק:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void OnHurtBoxBodyEntered(Node2D body)\n{\n    if (body is Player player && !_isDead)\n    {\n        player.TakeHit(1, GlobalPosition);\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ולגבי אנימציית הפגיעה, רצינו שהעטלף יהדף בצורה אלכסונית ויהבהב עד שיעלם:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void OnStompDetectorBodyEntered(Node2D body)\n{\n    if (body is Player player && !_isDead)\n    {\n        if (player.Velocity.Y > 0)\n        {\n            Die(player.GlobalPosition);\n            player.Velocity = new Vector2(player.Velocity.X, -200f);\n        }\n    }\n}\n\nprivate async void Die(Vector2 stompSourcePosition)\n{\n    _isDead = true;\n    _currentState = State.Dying;\n\n    // Disable all the hit zones so the dying bat can't damage the player\n    // or be stomped again\n    _hurtBox.GetNode<CollisionShape2D>(\"CollisionShape2D\").SetDeferred(\"disabled\", true);\n    _stompDetector.GetNode<CollisionShape2D>(\"CollisionShape2D\").SetDeferred(\"disabled\", true);\n\n    // Soft diagonal knockback — away from the stomp source, slightly upward\n    float knockbackDirection = Mathf.Sign(GlobalPosition.X - stompSourcePosition.X);\n    if (knockbackDirection == 0) knockbackDirection = 1;\n    Velocity = new Vector2(knockbackDirection * 80f, -120f);\n\n    // Blink for 0.8 seconds while the bat tumbles away.\n    // Alpha 0 (fully invisible) makes the blink very obvious.\n    for (int i = 0; i < 8; i++)\n    {\n        _sprite.Modulate = new Color(1, 1, 1, 0f);\n        await ToSignal(GetTree().CreateTimer(0.05), SceneTreeTimer.SignalName.Timeout);\n        _sprite.Modulate = new Color(1, 1, 1, 1f);\n        await ToSignal(GetTree().CreateTimer(0.05), SceneTreeTimer.SignalName.Timeout);\n    }\n\n    QueueFree();\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה דחיפה אלכסונית?"
+          },
+          {
+            "type": "text",
+            "text": " דחיפה ישר למעלה תגרום לעטלף לרחף באוויר לפני הנפילה - וזה נראה סטטי. דחיפה ישר אופקית תגרור אותו על הרצפה אחרי שהכבידה תמשוך אותו למטה - נראה כמו החלקה. אלכסונית (X = 80, Y = -120) זורקת את העטלף למעלה והצידה, ואז הכבידה משתלטת. התוצאה: קשת מתהפכת שנקראת כ\"העטלף חטף מכה והוא נופל\"."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה 80 אופקי ו-120 אנכי?"
+          },
+          {
+            "type": "text",
+            "text": " 120 כלפי מעלה מספיק כדי להעיף את העטלף מעל ראש השחקן בלי לטוס מחוץ למסך. 80 אופקי הוא עדין - העטלף לא מתעופף לקצה השני של החדר, רק נהדף הצידה. אלה ערכים רכים בהשוואה לדחיפה של השחקן (100 אופקי, 150 אנכי) - העטלף נרתע פחות דרמטית מהשחקן, ומדגיש שהשחקן הוא הצד החזק יותר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "async void"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "await"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "?"
+          },
+          {
+            "type": "text",
+            "text": " אנחנו צריכים להשהות בין הבהובים בלי לחסום את הת'רד הראשי. "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "await ToSignal(GetTree().CreateTimer(0.05), ...)"
+          },
+          {
+            "type": "text",
+            "text": " מחכה עד שטיימר קצר נורה, ואז ממשיך. הסימון "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "async void"
+          },
+          {
+            "type": "text",
+            "text": " במתודה מאפשר לנו להשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "await"
+          },
+          {
+            "type": "text",
+            "text": " בתוך "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "callback"
+          },
+          {
+            "type": "text",
+            "text": " של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": ". בזמן שלולאת ההבהוב רצה, ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "_PhysicsProcess"
+          },
+          {
+            "type": "text",
+            "text": " של העטלף ממשיך לרוץ - הענף של כבידה-בזמן-מוות בקוד הפיזיקה שלנו מושך אותו מטה באופן טבעי במהלך ההבהוב."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה לבטל את אזורי הפגיעה מיידית?"
+          },
+          {
+            "type": "text",
+            "text": " במהלך 0.8 השניות של הבהוב-ונפילה, העטלף עדיין נראה באוויר. בלי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SetDeferred(\"disabled\", true)"
+          },
+          {
+            "type": "text",
+            "text": ", ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "hurtbox"
+          },
+          {
+            "type": "text",
+            "text": " היה ממשיך לפגוע בשחקן אם הוא היה רץ מתחת לעטלף הנופל. ביטול גם של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "hurtbox"
+          },
+          {
+            "type": "text",
+            "text": " וגם של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "stomp detector"
+          },
+          {
+            "type": "text",
+            "text": " בתחילת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()Die"
+          },
+          {
+            "type": "text",
+            "text": " מבטיח שהעטלף הופך לבובת סמרטוטים לא מזיקה ברגע שהוא חוטף את המכה."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אנימציה"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לעטלף יש רק אנימציה אחת - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "fly"
+          },
+          {
+            "type": "text",
+            "text": " - עם שלושת פריימי הספרייט. אין אנימציה ייעודית למרדף, אז אנחנו יכולים להאיץ את הכנפיים במהלך המרדף כדי לאותת \"הדבר הזה נע מהר יותר\":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "private void UpdateAnimation()\n{\n    if (_isDead) return;\n\n    _sprite.Play(\"fly\");\n    _sprite.SpeedScale = _currentState == State.Chase ? 1.8f : 1.0f;\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קראו לה בסוף "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "()PhysicsProcess_"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "public override void _PhysicsProcess(double delta)\n{\n    // ... טיפול קיים במצבים ...\n\n    MoveAndSlide();\n    UpdateAnimation();\n}\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נפנוף כנפיים מהיר יותר במהלך המרדף נקרא כ\"אגרסיבי, נרגש\". נפנוף איטי יותר ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "idle"
+          },
+          {
+            "type": "text",
+            "text": "/"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "return"
+          },
+          {
+            "type": "text",
+            "text": " נקרא כ\"רגוע, בסיור שגרתי\". אותם שלושה ספרייטים, שני מצבים רגשיים שונים - הכל מפרמטר אחד."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "פידבק ויזואלי לזיהוי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "נגיעה אופציונלית: לצבוע את העטלף באדום כשהוא מבחין בשחקן:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "// בתחילת ProcessChase:\n_sprite.Modulate = new Color(1.2f, 0.8f, 0.8f); // גוון אדום עדין\n\n// ב-ProcessIdle וב-ProcessReturn:\n_sprite.Modulate = Colors.White;\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "זה מאותת לשחקן שהעטלף מודע אליו. עדין, אבל יוצר רגע של מתח - \"הוא רואה אותי\"."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "טיפים למיקום"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "העטלף זורח במרחבים אנכיים שבהם אויב סיור יהיה חסר תועלת:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "תקרות גבוהות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מרחף למעלה, מכריח את השחקן לקפוץ דרך קשת התנועה שלו."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "פינות אפלות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מתחבא בגומחות, אורב לשחקן מלמעלה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "בורות פתוחים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מעל פערים, השחקן חייב להתחייב לקפיצה תוך כדי התחמקות מהעטלף באוויר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "ליד קריסטלים"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שומר על פריט נאסף ומכריח את השחקן לבחור בין בטיחות לחמדנות."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הימנעו ממיקום עטלפים במסדרונות צרים שבהם לשחקן אין מקום לתמרון. אויבים מעופפים זקוקים למרחב פתוח כדי להרגיש הוגנים."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שכפול מול Instancing - הבחנה קריטית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "כשרוצים כמה עטלפים ברמה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אל תשתמשו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Ctrl+D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " כדי לשכפל את ה-node"
+          },
+          {
+            "type": "text",
+            "text": ". שמרו את העטלף כסצנה משלו ועשו לה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " במקום. זה חל על כל האויבים השמישים-שוב, אבל זה במיוחד קל לפשל עם סצנות עתירות "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " כמו העטלף."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הבעיה עם שכפול."
+          },
+          {
+            "type": "text",
+            "text": " כשאתם עושים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Ctrl+D"
+          },
+          {
+            "type": "text",
+            "text": " ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " בעורך, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " מעתיק את עץ ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " אבל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "משתף את תת-המשאבים (sub-resources) בהפניה (by reference)"
+          },
+          {
+            "type": "text",
+            "text": ". ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CircleShape2D"
+          },
+          {
+            "type": "text",
+            "text": " של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "DetectionZone"
+          },
+          {
+            "type": "text",
+            "text": ", משאב ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SpriteFrames"
+          },
+          {
+            "type": "text",
+            "text": " של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": ", צורות הפיזיקה של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "HurtBox"
+          },
+          {
+            "type": "text",
+            "text": " וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "StompDetector"
+          },
+          {
+            "type": "text",
+            "text": " - כל אלה מצביעים לאותם משאבים בסיסיים בין כל השכפולים. עם מספר "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " מסוג "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Area2D"
+          },
+          {
+            "type": "text",
+            "text": " שחולקים את אותן צורות התנגשות, שיגור הסיגנלים יכול להתנהג באופן בלתי צפוי. תסמין נפוץ: רק העטלף הראשון מזהה את השחקן, והשאר לא מגיבים. הורגים את הראשון והשאר נשארים קפואים לנצח."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הפתרון: לעשות instance לסצנה."
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " של סצנה הוא עותק עצמאי לחלוטין - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Nodes"
+          },
+          {
+            "type": "text",
+            "text": " משלו, הפניות משאבים משלו, חיבורי סיגנלים משלו. כל עטלף מעבד התנגשויות וסיגנלים בעצמו, מבלי להיות מודע לאחרים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "שלבים ליצירת instance של עטלף:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אם העטלף עדיין לא סצנה, בחרו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " השורשי שלו ברמה, קליק ימני - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Save Branch as Scene"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שמרו כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "res://scenes/enemies/cave_bat.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". זה הופך את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שבתוך הרמה לסצנה מסודרת עם מקור אמת יחיד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "מחקו את כל השכפולים מ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Ctrl+D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מהסצנה - הם שבורים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בחרו את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Node"
+                  },
+                  {
+                    "type": "text",
+                    "text": " המכל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Enemies"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בעץ."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "לחצו על "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אייקון השרשרת"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בראש ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Scene dock"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (קיצור: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Ctrl+Shift+A"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") כדי ליצור "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "instance"
+                  },
+                  {
+                    "type": "text",
+                    "text": " של סצנת ילד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "בחרו את "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "cave_bat.tscn"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", הזיזו את ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "instance"
+                  },
+                  {
+                    "type": "text",
+                    "text": " החדש למיקום הרצוי."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חזרו על הפעולה עבור כל עטלף."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך להבדיל ביניהם ויזואלית."
+          },
+          {
+            "type": "text",
+            "text": " סצנה שעשו לה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " מופיעה עם אייקון קטן של קלאפר/סרט קולנוע ליד שמה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "dock"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " משוכפל לא מציג אותו. אם אתם רואים כמה עטלפים בלי האייקון, הם שכפולים - מחקו אותם ועשו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " לעותקים חדשים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הכלל הזה חל על כל אויב בפרק הזה"
+          },
+          {
+            "type": "text",
+            "text": " - אויבי סיור, עטלפי מערה, קוביות קופצות, ושומר המערה. כל סצנה שימושית-חוזרת צריכה להישמר כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": ".tscn"
+          },
+          {
+            "type": "text",
+            "text": " משלה ולעבור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " לכל רמה. נגענו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instancing"
+          },
+          {
+            "type": "text",
+            "text": " של סצנות עוד "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 3.4"
+          },
+          {
+            "type": "text",
+            "text": ", זה המצב שבשבילו הוא נבנה."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "16.4 בלוק קופץ - סכנה פתאומית"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לא כל אויב צריך להיות ניתן להריגה"
+          }
+        ]
       },
       {
         "type": "paragraph",

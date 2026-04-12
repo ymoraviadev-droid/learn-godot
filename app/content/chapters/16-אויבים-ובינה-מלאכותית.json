@@ -4,7 +4,7 @@
   "slug": "אויבים-ובינה-מלאכותית",
   "order": 16,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-04-10T15:21:36.154Z",
+  "updatedAt": "2026-04-12T13:53:54.851Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -36,6 +36,38 @@
           "title": null,
           "width": null,
           "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "textStyle",
+                "attrs": {
+                  "color": "rgb(160, 96, 24)",
+                  "fontFamily": ""
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "* מדובר בפרק ארוך מהרגיל, מומלץ מאוד ללמוד אותו בחלקים, לבצע את כל התירגולים, ולחזור עליו בשנית."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
         }
       },
       {
@@ -5829,7 +5861,46 @@
         "content": [
           {
             "type": "text",
-            "text": "לעטלף יש 3 מצבי התנהגות: Idle, Chase, Return. נוכל לממש זאת באמצעות State Machine מבוסס Enum:"
+            "text": "לעטלף יש 3 מצבי התנהגות: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Idle"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Chase"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Return"
+          },
+          {
+            "type": "text",
+            "text": ". נוכל לממש זאת באמצעות State Machine מבוסס Enum:"
           }
         ]
       },
@@ -7602,7 +7673,486 @@
         "content": [
           {
             "type": "text",
-            "text": "לא כל אויב צריך להיות ניתן להריגה"
+            "text": "לא כל אויב צריך להיות ניתן להריגה, יש אויבים שאנחנו פשוט רוצים שהשחקן יתחמק מהם. נוסיף סכנה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Hazard"
+          },
+          {
+            "type": "text",
+            "text": ") חדשה למשחק: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בלוק קופץ"
+          },
+          {
+            "type": "text",
+            "text": " - בחבילה שלנו ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "link",
+                "attrs": {
+                  "href": "https://kenney.nl/assets/pixel-platformer",
+                  "target": "_blank",
+                  "rel": "noopener noreferrer",
+                  "class": null,
+                  "title": null
+                }
+              },
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "https://kenney.nl/assets/pixel-platformer"
+          },
+          {
+            "type": "text",
+            "text": ") תמצאו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Spritesheet"
+          },
+          {
+            "type": "text",
+            "text": " של הדמויות 2 פריימים של בלוק קופץ - בפריים אחד הוא נראה כועס (זה יהיה הפריים שנרצה להציג כשהבלוק קופץ), ובשני מבוהל (נציג כשהבלוק נוחת). נמקם אותו בין שני קצוות, כך שהשחקן יצטרך לקפוץ מעליו בזמן על מנת לא להיפגע."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/angry_block_level.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "העיצוב"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אלמנט"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תאור"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "התנהגות"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "יושב בתחתית המסך מתחת לשדה הראייה האפשרי של השחקן, קופץ מדי פעם למעלה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "קצב"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "פרקי זמן קבועים (לא רנדומלי, נאפשר לשחקן ללמוד את הקצב). "
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Sprites"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "להדגמה הבסיסית 2 יספיקו (וזה מה שיש לנו בחבילה בדיוק), אחד לקפיצה אחד לנחיתה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ניתן להריגה?"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא. דריכה לא פוגעת בקובייה - השחקן נפגע ממנה בכל מגע כלשהו."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מיקום"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "ברווחים בין פלטפורמות (יראה הכי טוב ומפתיע אפילו קצת מתחת), עדיף בשורה התחתונה ביותר של ה-"
+                      },
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Grid"
+                      },
+                      {
+                        "type": "text",
+                        "text": "."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע מבוסס זמן ולא ריאקטיבי? "
+          },
+          {
+            "type": "text",
+            "text": "אם זה יהיה ריאקטיבי זה יהיה מפתיע, אבל עד כדי לא צפוי, ועלול להיות קשה למעבר. לא בטוח שתרצו שהמשחק שלכם יהיה קשה מדי - שחקנים עלולים לזנוח אותו."
           }
         ]
       },
@@ -7612,6 +8162,4763 @@
           "textAlign": "right",
           "dir": null
         }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מבנה הסצנה"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "JumpingBlock",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D",
+                  "type": "AnimatedSprite2D"
+                },
+                {
+                  "name": "HurtBox",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D",
+                      "type": "CollisionShape2D"
+                    }
+                  ],
+                  "type": "Area2D"
+                },
+                {
+                  "name": "JumpTimer",
+                  "type": "Timer"
+                }
+              ],
+              "type": "Node2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שמרו את הסצנה בנתיב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "res://scenes/enemies/jumping_block.tscn"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מדוע "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": " ולא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CharacterBody2D"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "? "
+          },
+          {
+            "type": "text",
+            "text": "הבלוק הקופץ לא זקוק לפיזיקה, הוא לא מתנגש עם שום דבר בעולם הפיזי ואינו זקוק לגרביטציה. נשתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tween"
+          },
+          {
+            "type": "text",
+            "text": " עבור האנימציה - הזזה פשוטה למעלה ולמטה. הבחירה ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Node2D"
+          },
+          {
+            "type": "text",
+            "text": " היא קלילה יותר מבחינת משאבים ולכן זו תהיה בחירה יותר נכונה לסיטואציה שלנו. "
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Sprites"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בחרו את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": " וצרו משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "SpriteFrames"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "FPS"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "Loop"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "down"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "up"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הפריים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "down"
+          },
+          {
+            "type": "text",
+            "text": " זה הפריים שבו הבלוק נראה מבוהל/מופתע, הפריים של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "up"
+          },
+          {
+            "type": "text",
+            "text": " זה הפריים שבו הבלוק נראה כועס."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/angry_block.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת ה-HurtBox"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אזור הפגיעה צריך לכסות את כל אריח הבלוק. הוא תמיד פעיל - אין מצב מכובה או מהבהב."
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Collision Layer: 4 (hazards)\nCollision Mask: 2 (player)"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת ה-JumpTimer"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "text"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Wait Time: 2.0\nOne Shot: false\nAutostart: true"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "בכל 2 שניות הבלוק מתחיל את מחזור הקפיצה, זה אמור להספיק לשחקן לראות ולדלג מעל הסכנה בזמן, שנו בהתאם לצרכים שלכם."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class JumpingBlock : Node2D\n{\n    [Export] public float JumpHeight { get; set; } = 60f;\n    [Export] public float RiseDuration { get; set; } = 0.4f;\n    [Export] public float HangDuration { get; set; } = 0.2f;\n    [Export] public float FallDuration { get; set; } = 0.4f;\n\n    private AnimatedSprite2D _sprite;\n    private Area2D _hurtBox;\n    private Timer _jumpTimer;\n    private Vector2 _restPosition;\n    private bool _isJumping = false;\n\n    public override void _Ready()\n    {\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _hurtBox = GetNode<Area2D>(\"HurtBox\");\n        _jumpTimer = GetNode<Timer>(\"JumpTimer\");\n\n        _restPosition = Position;\n        _sprite.Play(\"down\");\n\n        _jumpTimer.Timeout += OnJumpTimerTimeout;\n        _hurtBox.BodyEntered += OnHurtBoxBodyEntered;\n    }\n\n    private void OnJumpTimerTimeout()\n    {\n        if (!_isJumping)\n        {\n            StartJump();\n        }\n    }\n\n    private void StartJump()\n    {\n        _isJumping = true;\n        _sprite.Play(\"up\");\n\n        var peakPosition = _restPosition + new Vector2(0, -JumpHeight);\n\n        var tween = CreateTween();\n        // Rise\n        tween.TweenProperty(this, \"position\", peakPosition, RiseDuration)\n            .SetEase(Tween.EaseType.Out)\n            .SetTrans(Tween.TransitionType.Quad);\n        // Hang at the top\n        tween.TweenInterval(HangDuration);\n        // Fall back down\n        tween.TweenProperty(this, \"position\", _restPosition, FallDuration)\n            .SetEase(Tween.EaseType.In)\n            .SetTrans(Tween.TransitionType.Quad);\n        // Swap back to the down sprite\n        tween.TweenCallback(Callable.From(() =>\n        {\n            _sprite.Play(\"down\");\n            _isJumping = false;\n        }));\n    }\n\n    private void OnHurtBoxBodyEntered(Node2D body)\n    {\n        if (body is Player player)\n        {\n            player.TakeHit(1, GlobalPosition);\n        }\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך עובדת שרשרת ה-Tween?"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קודם כל, מה זה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tween"
+          },
+          {
+            "type": "text",
+            "text": " בכלל? לא נעמיק כרגע כי נקדיש לכך חלק שלם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק 18.5"
+          },
+          {
+            "type": "text",
+            "text": ", אבל נכון לרגע זה ניתן יהיה להסביר במילים הכי פשוטות שמדובר בטכניקה לכתוב תת-אנימציה על מאפיין של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " בין שני ערכים."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "בדוגמא שלעיל בנינו מערכת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Tween"
+          },
+          {
+            "type": "text",
+            "text": " מחזורית בעלת 4 צעדים:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עלייה (0.4 שניות)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ease-out quadratic"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": מהיר בהתחלה, מאט ליד השיא. מחקה את ההאטה של קפיצה אמיתית תחת כבידה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "השהייה בשיא (0.2 שניות)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TweenInterval"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עוצר את הרצף למשך זמן קבוע. זה חלון הסכנה בשיא שבו הקובייה משתהה, ומעניק לה כובד."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "נפילה (0.4 שניות)"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "ease-in quadratic"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": איטי בהתחלה, מהיר למטה. משקף את העלייה ויוצר קשת סימטרית."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Callback"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TweenCallback"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "(...)Callable.From"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מריץ פונקציה אנונימית אחרי שהרצף מסתיים. אנחנו מחליפים את הספרייט בחזרה ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "down"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ומאפסים את הדגל "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "isJumping_"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כדי שתקתוק הטיימר הבא יוכל להתחיל מחזור חדש."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סך כל המחזור:"
+          },
+          {
+            "type": "text",
+            "text": " שנייה אחת של תנועה + שנייה אחת של מנוחה (מתוך טיימר של 2 שניות פחות שנייה אחת של קפיצה). הקובייה מבלה חצי מהזמן שלה במצב נראה-פגיע בתחתית, וחצי מהזמן במצב מסוכן באוויר."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מיקום הבלוק הקופץ בשלב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הבלוק הקופץ נועד לרווחים בין קצוות - יש למקום אותו בתחתית המסך בין שני קצוות - מתחת לשורת הקצוות בתחתית המסך:"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/jumping_block_v3.svg",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "גשו לשלב שלכם, צרו עותקים של הבלוק בתוך ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Container"
+          },
+          {
+            "type": "text",
+            "text": " הייעודי - "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Enemies"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Enemies",
+              "children": [
+                {
+                  "name": "...",
+                  "children": []
+                },
+                {
+                  "name": "JumpingBlock",
+                  "children": []
+                },
+                {
+                  "name": "JumpingBlock2"
+                },
+                {
+                  "name": "JumpingBlock3"
+                }
+              ],
+              "type": "Node2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "16.5 בוס סוף המשחק"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קרבות בוס הם מבחן מסכם - השחקן צריך לשלב את כל המיומנויות שרכש עד רגע זה של המשחק בקרב סופי ומסכם מול בוס."
+          },
+          {
+            "type": "hardBreak"
+          },
+          {
+            "type": "text",
+            "text": "העיצוב מכוון פשוט: "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אויב מפטרל גדול יותר עם 5 נקודות חיים שמייצר חיזוקים."
+          },
+          {
+            "type": "text",
+            "text": " הבוס הולך הלוך ושוב בין קירות (אותה התנהגות כמו אויב המפטרל מ-16.1), ובכל פעם שהשחקן דורך עליו - נוצר אויב מפטרל חדש בזירה. כל 60 שניות, הבוס נהיה חסין לזמן קצר ומייצר 2 אויבים נוספים. הקושי עולה דרך הצטברות אויבים, לא דרך דפוסי התקפה מורכבים."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/boss.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "עיצוב הבוס"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אלמנט"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תאור"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "שם"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "Cave Guardian"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "גודל"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גדול פי 2-3 מאויבים רגילים."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "כוח חיים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "5 דריכות להכרעה."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "תנועה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הולך שמאלה-ימינה כמו אויב מפטרל (מתהפך בקירות)."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "דריכה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "השחקן קופץ על הראש → הבוס מאבד 1 חיים + מייצר אויב מפטרל."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "טיימר"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כל 60 שניות, הבוס נהיה חסין לזמן קצר ומייצר 2 אויבים מפטרלים."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "לולאת הליבה"
+          },
+          {
+            "type": "text",
+            "text": ": הבוס הולך הלוך ושוב בין הקירות - אותה התנהגות בדיוק כמו אויב מפטרל, רק גדול יותר ועם יותר חיים. השחקן קופץ על ראש הבוס כדי לגרום 1 נזק. כל דריכה מייצרת אויב מפטרל חדש בזירה. הבוס ממשיך ללכת. הזירה נהיית צפופה יותר. חמש דריכות והבוס מת."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הטיימר"
+          },
+          {
+            "type": "text",
+            "text": ": כל 60 שניות, הבוס נהיה חסין לזמן קצר (גוון כחול, אי אפשר לדרוך עליו) ומייצר 2 אויבים מפטרלים נוספים. זה מעניש משחק איטי - ככל שהקרב נמשך יותר, כך מצטברים יותר אויבים."
+          },
+          {
+            "type": "hardBreak"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "למה זה עובד כבוס סוף?"
+          },
+          {
+            "type": "text",
+            "text": " זה משתמש שוב באויב המפטרל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מפרק"
+          },
+          {
+            "type": "text",
+            "text": " "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "16.1"
+          },
+          {
+            "type": "text",
+            "text": " - השחקן כבר למד איך הוא מתנהג, אז אין כללים חדשים ללמד. הקושי מגיע מהצטברות, לא ממכניקות חדשות. אחרי 3 דריכות, יש 3 אויבים נוספים מסתובבים. אחרי 4 דריכות, 4 אויבים. הזירה הופכת לפקק תנועה. השחקן חייב להתחמק מאויבי מפטרל תוך כדי תזמון הקפיצה הבאה על ראש הבוס. כללים פשוטים, קושי שצומח מעצמו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מבנה סצנת הבוס"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סצנת הבוס דומה לאויב המפטרל, עם תוספת של סרגל חיים, מרקרים ליצירת אויבים, וטיימרים:"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "CaveGuardian",
+              "type": "CharacterBody2D",
+              "children": [
+                {
+                  "name": "AnimatedSprite2D"
+                },
+                {
+                  "name": "CollisionShape2D"
+                },
+                {
+                  "name": "WallDetector",
+                  "type": "RayCast2D"
+                },
+                {
+                  "name": "FloorDetector",
+                  "type": "RayCast2D"
+                },
+                {
+                  "name": "HurtBox",
+                  "type": "Area2D",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "StompDetector",
+                  "type": "Area2D",
+                  "children": [
+                    {
+                      "name": "CollisionShape2D"
+                    }
+                  ]
+                },
+                {
+                  "name": "MinionSpawnLeft",
+                  "type": "Marker2D"
+                },
+                {
+                  "name": "MinionSpawnRight",
+                  "type": "Marker2D"
+                },
+                {
+                  "name": "InvulnerableCycleTimer",
+                  "type": "Timer"
+                },
+                {
+                  "name": "InvulnerableDurationTimer",
+                  "type": "Timer"
+                },
+                {
+                  "name": "HealthBar",
+                  "type": "TextureProgressBar"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "שמרו כ-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "res://scenes/enemies/cave_guardian.tscn"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "זה אותו מבנה כמו האויב המפטרל מפרק 16.1"
+          },
+          {
+            "type": "text",
+            "text": ", בתוספת: שני "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Marker2D"
+          },
+          {
+            "type": "text",
+            "text": " למיקום הופעת אויבים (אחד מכל צד של הזירה), שני "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Timer"
+          },
+          {
+            "type": "text",
+            "text": " לשלב החסינות, ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TextureProgressBar"
+          },
+          {
+            "type": "text",
+            "text": " לסרגל החיים. אם כבר בניתם את האויב המפטרל, הסצנה הזו תרגיש מוכרת."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הגדרת שכבות התנגשות"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אותו דבר כמו האויב המפטרל "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מפרק 16.1"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "CaveGuardian:\n  Collision Layer: 3 (אויבים)\n  Collision Mask: 1 (טריין)\n\nHurtBox:\n  Collision Layer: 4 (מכשולים)\n  Collision Mask: 2 (שחקן)\n\nStompDetector:\n  Collision Layer: 0\n  Collision Mask: 2 (שחקן)\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אנימציות הבוס"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הבוס משתמש ב"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "אותם שני פריימי ספרייט"
+          },
+          {
+            "type": "text",
+            "text": " כמו האויב המפטרל: מחזור "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "walk"
+          },
+          {
+            "type": "text",
+            "text": " של 2 פריימים וספרייט "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "stomped"
+          },
+          {
+            "type": "text",
+            "text": " של פריים אחד. לא צריך אמנות חדשה."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "צרו משאב "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SpriteFrames"
+          },
+          {
+            "type": "text",
+            "text": " על ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": " של הבוס עם האנימציות הבאות:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "אנימציה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פריימים"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "FPS"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "לופ"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "walk"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "2"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "8"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "כן"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "stomped"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "1"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "10"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "לא"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "attrs": {
+          "src": "/content/images/boss_animation.png",
+          "alt": null,
+          "title": null,
+          "width": null,
+          "height": null
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "השתמשו באותם פריימים מהחבילה של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Kenney"
+          },
+          {
+            "type": "text",
+            "text": ". הגדילו את הבוס פי 2-3 דרך מאפיין ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Scale"
+          },
+          {
+            "type": "text",
+            "text": " של ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "AnimatedSprite2D"
+          },
+          {
+            "type": "text",
+            "text": " ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " כדי שייראה גדול יותר מאויבים רגילים. אל תגדילו את תמונות המקור - תנו לסינון ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "nearest-neighbor"
+          },
+          {
+            "type": "text",
+            "text": " של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Godot"
+          },
+          {
+            "type": "text",
+            "text": " לשמור על הפיקסלים חדים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הבוס משתמש ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "walk"
+          },
+          {
+            "type": "text",
+            "text": " בזמן שהוא חי וב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "stomped"
+          },
+          {
+            "type": "text",
+            "text": " כשהוא מובס. צבע ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Modulate"
+          },
+          {
+            "type": "text",
+            "text": " וה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "SpeedScale"
+          },
+          {
+            "type": "text",
+            "text": " עושים את שאר הסיפור הוויזואלי:"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "content": [
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מצב"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "ספרייט"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableHeader",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "טיפול ויזואלי"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "הליכה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "walk"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "מהירות רגילה, צבע רגיל"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "פגיעה"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "walk"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הבזק אדום למשך 0.3 שניות"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "חסין"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "stomped"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "גוון כחול פועם"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "tableRow",
+            "content": [
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "bold"
+                          }
+                        ],
+                        "text": "מובס"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "code"
+                          }
+                        ],
+                        "text": "stomped"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableCell",
+                "attrs": {
+                  "colspan": 1,
+                  "rowspan": 1,
+                  "colwidth": null
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "textAlign": "right",
+                      "dir": null
+                    },
+                    "content": [
+                      {
+                        "type": "text",
+                        "text": "הבזק אדום × 5, ואז התכווצות לאפס"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "הסקריפט של הבוס"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הסקריפט המלא. קראו אותו - כל מתודה קצרה, והתגובות מסבירות כל חלק:"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": "csharp"
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "using Godot;\n\npublic partial class CaveGuardian : CharacterBody2D\n{\n    [Export] public int MaxHealth { get; set; } = 5;\n    [Export] public float MoveSpeed { get; set; } = 60f;\n    [Export] public float Gravity { get; set; } = 980f;\n    [Export] public float InvulnerableInterval { get; set; } = 60f;\n    [Export] public float InvulnerableDuration { get; set; } = 2f;\n    [Export] public PackedScene MinionScene { get; set; }\n\n    private int _currentHealth;\n    private AnimatedSprite2D _sprite;\n    private Area2D _hurtBox;\n    private Area2D _stompDetector;\n    private RayCast2D _wallDetector;\n    private RayCast2D _floorDetector;\n    private Marker2D _minionSpawnLeft;\n    private Marker2D _minionSpawnRight;\n    private Timer _invulnerableCycleTimer;\n    private Timer _invulnerableDurationTimer;\n    private TextureProgressBar _healthBar;\n    private int _direction = 1;\n    private bool _isDead = false;\n    private bool _isInvulnerable = false;\n\n    public override void _Ready()\n    {\n        _currentHealth = MaxHealth;\n        _sprite = GetNode<AnimatedSprite2D>(\"AnimatedSprite2D\");\n        _hurtBox = GetNode<Area2D>(\"HurtBox\");\n        _stompDetector = GetNode<Area2D>(\"StompDetector\");\n        _wallDetector = GetNode<RayCast2D>(\"WallDetector\");\n        _floorDetector = GetNode<RayCast2D>(\"FloorDetector\");\n        _minionSpawnLeft = GetNode<Marker2D>(\"MinionSpawnLeft\");\n        _minionSpawnRight = GetNode<Marker2D>(\"MinionSpawnRight\");\n        _invulnerableCycleTimer = GetNode<Timer>(\"InvulnerableCycleTimer\");\n        _invulnerableDurationTimer = GetNode<Timer>(\"InvulnerableDurationTimer\");\n        _healthBar = GetNode<TextureProgressBar>(\"HealthBar\");\n\n        _invulnerableCycleTimer.WaitTime = InvulnerableInterval;\n        _invulnerableCycleTimer.OneShot = false;\n        _invulnerableCycleTimer.Timeout += OnInvulnerableCycleTimeout;\n        _invulnerableCycleTimer.Start();\n\n        _invulnerableDurationTimer.WaitTime = InvulnerableDuration;\n        _invulnerableDurationTimer.OneShot = true;\n        _invulnerableDurationTimer.Timeout += OnInvulnerableDurationTimeout;\n\n        _hurtBox.BodyEntered += OnHurtBoxBodyEntered;\n        _stompDetector.BodyEntered += OnStompDetectorBodyEntered;\n\n        _healthBar.MaxValue = MaxHealth;\n        _healthBar.Value = MaxHealth;\n\n        _sprite.Play(\"walk\");\n    }\n\n    public override void _PhysicsProcess(double delta)\n    {\n        if (_isDead) return;\n\n        // Apply gravity\n        if (!IsOnFloor())\n        {\n            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);\n        }\n\n        // Reverse on wall or ledge — same logic as the patrol enemy\n        if (IsOnFloor() && (_wallDetector.IsColliding() || !_floorDetector.IsColliding()))\n        {\n            Reverse();\n        }\n\n        Velocity = new Vector2(_direction * MoveSpeed, Velocity.Y);\n        MoveAndSlide();\n    }\n\n    private void Reverse()\n    {\n        _direction *= -1;\n        _sprite.FlipH = _direction < 0;\n\n        var wallTarget = _wallDetector.TargetPosition;\n        _wallDetector.TargetPosition = new Vector2(-wallTarget.X, wallTarget.Y);\n\n        var floorTarget = _floorDetector.TargetPosition;\n        _floorDetector.TargetPosition = new Vector2(-floorTarget.X, floorTarget.Y);\n    }\n\n    // --- Damage ---\n\n    private void OnHurtBoxBodyEntered(Node2D body)\n    {\n        if (body is not Player player) return;\n\n        // If the player is moving vertically (jumping, falling, or bouncing\n        // off a stomp), they're not running into the boss — don't damage them.\n        if (Mathf.Abs(player.Velocity.Y) > 50f) return;\n\n        if (_isDead || _isInvulnerable) return;\n\n        player.TakeHit(1, GlobalPosition);\n    }\n\n    private void OnStompDetectorBodyEntered(Node2D body)\n    {\n        if (body is not Player player) return;\n        if (player.Velocity.Y <= 0) return;\n\n        if (_isInvulnerable)\n        {\n            // Bounce off — can't damage the boss right now\n            player.Velocity = new Vector2(player.Velocity.X, -180f);\n            return;\n        }\n\n        if (!_isDead)\n        {\n            TakeDamage();\n            player.Velocity = new Vector2(player.Velocity.X, -250f);\n        }\n    }\n\n    private void TakeDamage()\n    {\n        _currentHealth--;\n        _healthBar.Value = _currentHealth;\n\n        // Flash red\n        _sprite.Modulate = new Color(1, 0.3f, 0.3f);\n        var tween = CreateTween();\n        tween.TweenProperty(_sprite, \"modulate\", Colors.White, 0.3f);\n\n        if (_currentHealth <= 0)\n        {\n            Die();\n            return;\n        }\n\n        // Spawn a patrol enemy as reinforcement\n        SpawnMinion(_minionSpawnLeft.GlobalPosition);\n    }\n\n    // --- Minion Spawning ---\n\n    private void SpawnMinion(Vector2 position)\n    {\n        if (MinionScene == null) return;\n\n        var minion = MinionScene.Instantiate<Node2D>();\n        minion.GlobalPosition = position;\n\n        GetParent().CallDeferred(Node.MethodName.AddChild, minion);\n    }\n\n    // --- Invulnerable Phase (every 60 seconds) ---\n\n    private void OnInvulnerableCycleTimeout()\n    {\n        if (_isDead || _isInvulnerable) return;\n\n        _isInvulnerable = true;\n\n        // Disable hurtbox so player can safely bounce off\n        _hurtBox.GetNode<CollisionShape2D>(\"CollisionShape2D\")\n            .SetDeferred(\"disabled\", true);\n\n        // Spawn 2 minions, one from each side\n        SpawnMinion(_minionSpawnLeft.GlobalPosition);\n        SpawnMinion(_minionSpawnRight.GlobalPosition);\n\n        // Visual: blue tint on stomped sprite\n        _sprite.Play(\"stomped\");\n        _sprite.Modulate = new Color(0.6f, 0.8f, 1.3f);\n\n        _invulnerableDurationTimer.Start();\n    }\n\n    private void OnInvulnerableDurationTimeout()\n    {\n        _isInvulnerable = false;\n\n        // Re-enable hurtbox\n        _hurtBox.GetNode<CollisionShape2D>(\"CollisionShape2D\")\n            .SetDeferred(\"disabled\", false);\n\n        // Back to normal\n        _sprite.Play(\"walk\");\n        _sprite.Modulate = Colors.White;\n    }\n\n    // --- Death ---\n\n    private async void Die()\n    {\n        _isDead = true;\n\n        // Disable all collision\n        _hurtBox.GetNode<CollisionShape2D>(\"CollisionShape2D\")\n            .SetDeferred(\"disabled\", true);\n        _stompDetector.GetNode<CollisionShape2D>(\"CollisionShape2D\")\n            .SetDeferred(\"disabled\", true);\n        _healthBar.Visible = false;\n        Velocity = Vector2.Zero;\n\n        // Flash red 5 times\n        _sprite.Play(\"stomped\");\n        for (int i = 0; i < 5; i++)\n        {\n            _sprite.Modulate = new Color(1, 0.3f, 0.3f);\n            await ToSignal(GetTree().CreateTimer(0.15),\n                SceneTreeTimer.SignalName.Timeout);\n            _sprite.Modulate = Colors.White;\n            await ToSignal(GetTree().CreateTimer(0.15),\n                SceneTreeTimer.SignalName.Timeout);\n        }\n\n        // Shrink to nothing\n        var tween = CreateTween();\n        tween.TweenProperty(this, \"scale\", Vector2.Zero, 0.5f)\n            .SetEase(Tween.EaseType.In)\n            .SetTrans(Tween.TransitionType.Back);\n        await ToSignal(tween, Tween.SignalName.Finished);\n\n        QueueFree();\n    }\n}"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "איך הסקריפט משתווה לאויב המפטרל מ-16.1:"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "קוד התנועה ("
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "PhysicsProcess"
+          },
+          {
+            "type": "text",
+            "text": ", "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Reverse"
+          },
+          {
+            "type": "text",
+            "text": ") "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "זהה"
+          },
+          {
+            "type": "text",
+            "text": " לאויב המפטרל. אותה כבידה, אותו זיהוי קירות, אותו זיהוי רצפה, אותו היפוך כיוון. אם הבנתם את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 16.1"
+          },
+          {
+            "type": "text",
+            "text": ", אתם מבינים את תנועת הבוס."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "החלקים החדשים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()TakeDamage"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מוריד "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HP"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", מבהיק באדום, מייצר אויב. כשה-HP מגיע ל-0, קורא ל-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Die()"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()SpawnMinion"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - יוצר אויב מפטרל במיקום מרקר באמצעות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CallDeferred"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (בטוח לקריאה מתוך "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "callback"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פיזיקלי)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מחזור חסינות"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - שני טיימרים: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "InvulnerableCycleTimer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " נורה כל 60 שניות, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "InvulnerableDurationTimer"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מסיים את השלב אחרי 2 שניות. במהלך השלב, ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "hurtbox"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבוטל, הבוס מציג ספרייט "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "stomped"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם גוון כחול, ו-2 אויבים נוצרים משני הצדדים."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()Die"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מבהיק באדום 5 פעמים, מתכווץ לאפס עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "tween"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ואז "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "()QueueFree"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סרגל חיים"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "TextureProgressBar"
+          },
+          {
+            "type": "text",
+            "text": " יושב מעל הבוס. הגדירו ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "codeBlock",
+        "attrs": {
+          "language": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "Size: (40, 6)\nPosition: (-20, -30)     - ממורכז מעל הבוס, התאימו לגודל הספרייט שלכם\nMin Value: 0\nMax Value: 5              - תואם ל-MaxHealth (מוגדר בקוד דרך _Ready)\nValue: 5\n"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "לטקסטורות, השתמשו במלבנים צבעוניים פשוטים:"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Under texture:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " סרגל אפור כהה (הרקע)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Progress texture:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " סרגל אדום או ירוק (החיים הנוכחיים)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "סרגל החיים זז עם הבוס אוטומטית כי הוא "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Node"
+          },
+          {
+            "type": "text",
+            "text": " ילד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "מיקום הבוס בשלב"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מקמו את הבוס באזור שטוח של הרמה עם קירות משני הצדדים (כדי שהבוס ילך ביניהם). הבוס יסייר כמו אויב רגיל - לא צריך הגדרת זירה מיוחדת מעבר לשני קירות."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עשו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "instance"
+          },
+          {
+            "type": "text",
+            "text": " לבוס ברמה תחת קונטיינר ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "Enemies"
+          },
+          {
+            "type": "text",
+            "text": ":"
+          }
+        ]
+      },
+      {
+        "type": "nodeTree",
+        "attrs": {
+          "items": [
+            {
+              "name": "Enemies",
+              "children": [
+                {
+                  "name": "..."
+                },
+                {
+                  "name": "CaveGuardian",
+                  "comment": "instance from cave_guardian.tscn"
+                }
+              ],
+              "type": "Node2D"
+            }
+          ]
+        }
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ב-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Inspector"
+          },
+          {
+            "type": "text",
+            "text": " גשו ל-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "CaveGuardian"
+          },
+          {
+            "type": "text",
+            "text": ", גררו את "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "patrol_enemy.tscn"
+          },
+          {
+            "type": "text",
+            "text": " לתוך שדה "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Minion Scene"
+          },
+          {
+            "type": "text",
+            "text": ". בלי זה, הבוס לא ייצר אויבים (הוא נכשל בשקט עם בדיקת "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "null"
+          },
+          {
+            "type": "text",
+            "text": ")."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "מקמו את שני המרקרים "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "MinionSpawnLeft"
+          },
+          {
+            "type": "text",
+            "text": " ו-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "code"
+              }
+            ],
+            "text": "MinionSpawnRight"
+          },
+          {
+            "type": "text",
+            "text": " בצד שמאל ובצד ימין של אזור הסיור של הבוס. שם יופיעו האויבים."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 3
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום קרב הבוס"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "האינטראקציה המלאה:"
+          }
+        ]
+      },
+      {
+        "type": "orderedList",
+        "attrs": {
+          "dir": null,
+          "start": 1,
+          "type": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הבוס הולך שמאלה-ימינה בין קירות, כמו אויב מפטרל אבל גדול יותר."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "השחקן קופץ על ראש הבוס - הבוס מאבד 1 חיים - אויב מפטרל מופיע בצד שמאל."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "הבוס ממשיך ללכת, עכשיו עם אויב נוסף בזירה."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "חוזרים על התהליך - כל דריכה מוסיפה עוד אויב."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "כל 60 שניות:"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הבוס הופך כחול, נהיה חסין ל-2 שניות, ומייצר 2 אויבים נוספים (שמאל + ימין)."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "אחרי 5 דריכות - אנימציית מוות - הבוס נעלם."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "הקרב מסלים דרך הצטברות אויבים, לא דרך מכניקות בוס מורכבות. מתחיל יכול לבנות את זה כי זה אויב מפטרל עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HP"
+          },
+          {
+            "type": "text",
+            "text": " וייצור אויבים - בלי "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "state machines"
+          },
+          {
+            "type": "text",
+            "text": ", בלי התקפות הסתערות, בלי מתמטיקה של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "wall-normal"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 1
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          }
+        ]
+      },
+      {
+        "type": "bulletList",
+        "attrs": {
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "אויב מפטרל (16.1):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם שני "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RayCast2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אחד לקירות לפנים ואחד לרצפה לפנים. מתהפך בהתנגשות בקיר או בזיהוי מצוק. אנימציית הליכה, מהירות הניתנת להגדרה, ממוקם כ-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "instance"
+                  },
+                  {
+                    "type": "text",
+                    "text": " לכל לשלב."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "נזק ודריכה (16.2):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " שני אזורי "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "HurtBox"
+                  },
+                  {
+                    "type": "text",
+                    "text": " פוגע בשחקן במגע צדדי, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "StompDetector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " הורג את האויב כשהשחקן נוחת מלמעלה (מהירות "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Y"
+                  },
+                  {
+                    "type": "text",
+                    "text": " חיובית). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "SetDeferred"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבטל את ההתנגשויות במצב "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "stomped"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". פריימי חסינות של השחקן מונעים פגיעה מרובה. הבהוב ספרייט נותן פידבק ויזואלי במהלך החסינות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "עטלף המערה (16.3):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CharacterBody2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מעופף עם כבידה מבוטלת בזמן חיים ו"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "מסכת התנגשות מוגדרת ל-0"
+                  },
+                  {
+                    "type": "text",
+                    "text": " כך שהוא עובר דרך כל ה-"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Terrain"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (קירות, תקרות, פלטפורמות חד-כיווניות). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "State machine"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבוסס "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Enum, "
+                  },
+                  {
+                    "type": "text",
+                    "text": "למשל"
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": ":"
+                  },
+                  {
+                    "type": "text",
+                    "text": " Idle (ריחוף גל סינוס במיקום הבית), "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Chase"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (טיסה ישירה לשחקן), "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Return"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (טיסה איטית יותר הביתה), "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Dying"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (כבידה פועלת, גלגול + הבהוב). "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "DetectionZone"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Area2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") בודק קרבה, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "PlayerDetector"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ("
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RayCast2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": ") בודק קו ראייה - קו ראייה עדיין חשוב למרות שהעטלף מתעלם מטריין, כי התחבאות מאחורי קיר שוברת את המרדף ומאפשרת לשחקן לברוח. אנימציית "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "fly"
+                  },
+                  {
+                    "type": "text",
+                    "text": " בת 3 פריימים עם כנפיים מואצות (1.8× במרדף). ללא ספרייט "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "stomped"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - מוות מפעיל דחיפה אלכסונית רכה, מבהיב את הספרייט ל-0.6 שניות בזמן שהכבידה מושכת את העטלף למטה, ואז משחרר אותו. "
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קוביה קופצת (16.4):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מכשול מתוזמן בלתי ניתן להריגה הממוקם בפערים. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "Node2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": " עם שרשרת "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "tween"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - עלייה, השהייה, נפילה, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "callback"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - על טיימר של 2 שניות. שפה ויזואלית דו-ספרייטית: "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "down"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (מבוהל) במנוחה, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "up"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (כועס) באמצע קפיצה. "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "Hurtbox"
+                  },
+                  {
+                    "type": "text",
+                    "text": " תמיד פעיל שמלמד תזמון במקום קרב. מיקום בפערים מכריח קפיצות מחויבות."
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "listItem",
+            "content": [
+              {
+                "type": "paragraph",
+                "attrs": {
+                  "textAlign": "right",
+                  "dir": null
+                },
+                "content": [
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "קרב בוס (16.5):"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "CaveGuardian"
+                  },
+                  {
+                    "type": "text",
+                    "text": " - אויב מפטרל גדול יותר עם 5 "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "HP"
+                  },
+                  {
+                    "type": "text",
+                    "text": " וסרגל חיים. הולך שמאלה-ימינה בין קירות עם אותה לוגיקת תנועה כמו האויב המפטרל (זיהוי קירות/רצפה עם "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "RayCast2D"
+                  },
+                  {
+                    "type": "text",
+                    "text": "). כל דריכה גורמת 1 נזק ומייצרת אויב מפטרל כחיזוק. כל 60 שניות, הבוס נהיה חסין לזמן קצר (גוון כחול, "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "text": "hurtbox"
+                  },
+                  {
+                    "type": "text",
+                    "text": " מבוטל) ומייצר 2 אויבים נוספים משני צדי הזירה. הקושי מסלים דרך הצטברות אויבים, לא דרך דפוסי התקפה מורכבים. סרגל חיים "
+                  },
+                  {
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "code"
+                      }
+                    ],
+                    "text": "TextureProgressBar"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". אנימציית מוות מבהיקה באדום ומתכווצת לאפס."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "בפרק הבא: פרק 17 - ליטוש הפלטפורמר,"
+          },
+          {
+            "type": "text",
+            "text": " נבנה את ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "HUD"
+          },
+          {
+            "type": "text",
+            "text": " (לבבות חיים, תצוגת ניקוד), ניצור תפריטים (תפריט ראשי, השהייה, "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "game over"
+          },
+          {
+            "type": "text",
+            "text": "), נוסיף אפקטי סאונד ומוזיקה, נממש מעברי מסך, ונוסיף את שכבת ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "game feel"
+          },
+          {
+            "type": "text",
+            "text": " האחרונה שמחברת הכל יחד."
+          }
+        ]
       }
     ]
   }

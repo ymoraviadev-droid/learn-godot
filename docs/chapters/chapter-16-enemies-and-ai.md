@@ -1194,7 +1194,7 @@ Position each block at the bottom of its gap. Adjust the `JumpHeight` so the pea
 
 ## 16.5 Boss Fight — The Cave Guardian
 
-A boss fight is a capstone encounter — a test of everything the player has learned. For Crystal Caverns, we'll build a boss for the end of level 03: a larger enemy that charges, slams into walls, and summons reinforcements each time it's hit.
+A boss fight is a capstone encounter — a test of everything the player has learned. For Crystal Caverns, we'll build a boss for the end of level 03. The design is deliberately simple: **a bigger patrol enemy with 5 HP that summons reinforcements.** The boss walks back and forth between walls (same behavior as the patrol enemy from 16.1), and each time the player stomps it, a new patrol enemy spawns in the arena. Every 60 seconds, the boss becomes briefly invulnerable and spawns 2 more minions. The fight escalates through accumulated minions, not through complex attack patterns.
 
 ### The Boss Design
 
@@ -1202,33 +1202,35 @@ A boss fight is a capstone encounter — a test of everything the player has lea
 | --- | --- |
 | Name | Cave Guardian |
 | Size | 2–3× larger than regular enemies |
-| Health | 5 hits |
-| Attack | Charge — rushes toward the player |
-| Vulnerability | Stunned for 2 seconds after charge hits a wall |
-| Defeat condition | Stomp 5 times during stun windows |
-| Escalation | Each stomp spawns a patrol enemy in the arena |
+| Health | 5 stomps to defeat |
+| Movement | Walks left-right like a patrol enemy (reverses on walls) |
+| Damage | Touching its body hurts the player (same as patrol enemy) |
+| Stomp | Player jumps on its head → boss takes 1 damage + spawns a patrol enemy |
+| Timer | Every 60 seconds, boss becomes briefly invulnerable and spawns 2 patrol enemies |
+| Defeat | At 0 HP → death animation → `QueueFree()` |
 
-**The core loop:** The boss charges toward the player. Player jumps over the charge. Boss slams into a wall and is stunned. Player stomps the boss during the stun window. The boss takes 1 damage and **spawns a patrol enemy** in the arena. The boss recovers and charges again — but now there's a patrol enemy walking around too.
+**The core loop:** The boss walks back and forth between walls — the same behavior as a patrol enemy, just bigger and with more health. The player jumps on the boss's head to deal 1 damage. Each stomp spawns a new patrol enemy in the arena. The boss keeps walking. The arena gets more crowded. Five stomps and the boss dies.
 
-**Why this escalation and not a difficulty scale?** Faster charges or shorter cooldowns are *numbers getting bigger* — a mechanical difficulty lever. Summoning minions is *the arena changing* — a tangible consequence the player sees. After 5 stomps, the arena has 5 patrol enemies plus the boss. The player must manage both threats: time their stomps on the boss *and* avoid the patrols wandering underfoot. Same challenge curve, but readable and dramatic.
+**The timer:** Every 60 seconds, the boss becomes briefly invulnerable (blue tint, can't be stomped) and spawns 2 more patrol enemies. This punishes slow play — the longer the fight takes, the more enemies pile up.
 
-It also reuses the patrol enemy from 16.1 — the player already learned how it behaves, so no new rules to teach. The boss fight becomes a synthesis of everything in the chapter: stomping, timing, reading patrol patterns, and managing multiple threats at once.
+**Why this works as a final boss:** It reuses the patrol enemy from 16.1 — the player already learned how patrols behave, so no new rules to teach. The difficulty comes from accumulation, not new mechanics. After 3 stomps, there are 3 extra enemies walking around. After 4 stomps, 4 enemies. The arena turns into a traffic jam. The player must dodge patrols while timing their next jump onto the boss's head. Simple rules, emergent difficulty.
 
 ### Boss Scene Structure
+
+The boss scene is similar to a patrol enemy, plus a health bar, spawn markers, and timers:
 
 ```
 CaveGuardian (CharacterBody2D)
 ├── AnimatedSprite2D
 ├── CollisionShape2D
+├── WallDetector (RayCast2D)
+├── FloorDetector (RayCast2D)
 ├── HurtBox (Area2D)
 │   └── CollisionShape2D
 ├── StompDetector (Area2D)
 │   └── CollisionShape2D
-├── ShockwaveSpawn (Marker2D)
 ├── MinionSpawnLeft (Marker2D)
 ├── MinionSpawnRight (Marker2D)
-├── StunTimer (Timer)
-├── AttackCooldown (Timer)
 ├── InvulnerableCycleTimer (Timer)
 ├── InvulnerableDurationTimer (Timer)
 └── HealthBar (TextureProgressBar)
@@ -1236,9 +1238,13 @@ CaveGuardian (CharacterBody2D)
 
 Save as `res://scenes/enemies/cave_guardian.tscn`.
 
-The `ShockwaveSpawn` marker is where the ground pound shockwaves originate. The two `MinionSpawn` markers are where patrol enemies appear — place one on each side of the arena so minions can spawn left, right, or both depending on the context (single stomp vs. invulnerable phase).
+**This is the same structure as the patrol enemy from 16.1**, plus: two `Marker2D` nodes for minion spawn positions (one on each side of the arena), two `Timer` nodes for the invulnerable phase, and a `TextureProgressBar` for the health bar. If you already built the patrol enemy, this scene should feel familiar.
+
+The `WallDetector` and `FloorDetector` raycasts work exactly like the patrol enemy's — same configuration, same target positions. The boss reverses direction on walls and ledges using the same logic.
 
 ### Collision Configuration
+
+Same as the patrol enemy from 16.1:
 
 ```
 CaveGuardian body:
@@ -1254,51 +1260,59 @@ StompDetector:
   Collision Mask: 2 (player)
 ```
 
-Same pattern as regular enemies. The boss is just bigger.
+### Boss Animations
 
-### Boss State Machine
+The boss uses the **same two sprite frames** as the patrol enemy: a 2-frame `walk` cycle and a 1-frame `stomped` sprite. No new art needed.
 
-The boss has more states than a patrol enemy. An enum keeps it organized:
+Create a `SpriteFrames` resource on the boss's `AnimatedSprite2D` with these animations:
+
+| Animation | Frames | FPS | Loop |
+| --- | --- | --- | --- |
+| walk | 2 | 8 | Yes |
+| stomped | 1 | 10 | No |
+
+Use the same frames from Kenney's pack. Scale the boss up 2-3× via the `AnimatedSprite2D`'s `Scale` property in the Inspector so it looks bigger than regular enemies. Don't upscale the source images — let Godot's nearest-neighbor filtering keep the pixels crisp.
+
+The boss uses `walk` while alive and `stomped` when defeated. The `Modulate` color and `SpeedScale` do the rest of the visual storytelling:
+
+| State | Sprite | Visual treatment |
+| --- | --- | --- |
+| **Walking** | `walk` | Normal speed, normal color |
+| **Hurt** | `walk` | Red flash for 0.3s |
+| **Invulnerable** | `stomped` | Pulsing blue tint |
+| **Defeated** | `stomped` | Red flash × 5, then shrink to zero |
+
+### The Boss Script
+
+The full script. Read through it — every method is short, and the comments explain each piece:
+
 
 ```csharp
 using Godot;
 
 public partial class CaveGuardian : CharacterBody2D
 {
-    private enum BossState
-    {
-        Idle,
-        Charge,
-        GroundPound,
-        Stunned,
-        Invulnerable,
-        Defeated
-    }
-
     [Export] public int MaxHealth { get; set; } = 5;
-    [Export] public float ChargeSpeed { get; set; } = 200f;
+    [Export] public float MoveSpeed { get; set; } = 60f;
     [Export] public float Gravity { get; set; } = 980f;
-    [Export] public float StunDuration { get; set; } = 2.0f;
-    [Export] public float AttackCooldownTime { get; set; } = 1.5f;
     [Export] public float InvulnerableInterval { get; set; } = 60f;
     [Export] public float InvulnerableDuration { get; set; } = 2f;
     [Export] public PackedScene MinionScene { get; set; }
 
-    private BossState _state = BossState.Idle;
-    private BossState _previousState = BossState.Idle;
     private int _currentHealth;
     private AnimatedSprite2D _sprite;
     private Area2D _hurtBox;
     private Area2D _stompDetector;
+    private RayCast2D _wallDetector;
+    private RayCast2D _floorDetector;
     private Marker2D _minionSpawnLeft;
     private Marker2D _minionSpawnRight;
-    private Timer _stunTimer;
-    private Timer _attackCooldown;
     private Timer _invulnerableCycleTimer;
     private Timer _invulnerableDurationTimer;
     private TextureProgressBar _healthBar;
-    private Player _player;
-    private int _direction = -1;
+    private int _direction = 1;
+    private bool _isDead = false;
+    private bool _isInvulnerable = false;
 
     public override void _Ready()
     {
@@ -1306,21 +1320,13 @@ public partial class CaveGuardian : CharacterBody2D
         _sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _hurtBox = GetNode<Area2D>("HurtBox");
         _stompDetector = GetNode<Area2D>("StompDetector");
+        _wallDetector = GetNode<RayCast2D>("WallDetector");
+        _floorDetector = GetNode<RayCast2D>("FloorDetector");
         _minionSpawnLeft = GetNode<Marker2D>("MinionSpawnLeft");
         _minionSpawnRight = GetNode<Marker2D>("MinionSpawnRight");
-        _stunTimer = GetNode<Timer>("StunTimer");
-        _attackCooldown = GetNode<Timer>("AttackCooldown");
         _invulnerableCycleTimer = GetNode<Timer>("InvulnerableCycleTimer");
         _invulnerableDurationTimer = GetNode<Timer>("InvulnerableDurationTimer");
         _healthBar = GetNode<TextureProgressBar>("HealthBar");
-
-        _stunTimer.WaitTime = StunDuration;
-        _stunTimer.OneShot = true;
-        _stunTimer.Timeout += OnStunTimerTimeout;
-
-        _attackCooldown.WaitTime = AttackCooldownTime;
-        _attackCooldown.OneShot = true;
-        _attackCooldown.Timeout += OnAttackCooldownTimeout;
 
         _invulnerableCycleTimer.WaitTime = InvulnerableInterval;
         _invulnerableCycleTimer.OneShot = false;
@@ -1337,641 +1343,241 @@ public partial class CaveGuardian : CharacterBody2D
         _healthBar.MaxValue = MaxHealth;
         _healthBar.Value = MaxHealth;
 
-        // Find the player in the scene
-        _player = GetTree().GetFirstNodeInGroup("player") as Player;
-    }
-}
-```
-
-**Finding the player:** The boss needs a reference to the player for targeting. Using groups is cleaner than `GetNode` with a hardcoded path — add the player to a `"player"` group (in Player's `_Ready`: `AddToGroup("player")`), and the boss finds it at runtime regardless of scene tree structure.
-
-**The `MinionScene` export:** Drag `patrol_enemy.tscn` into this slot in the Inspector. The boss doesn't hardcode the minion type — you could swap in a chaser enemy for a harder variant without touching code.
-
-**The two invulnerability timers:** `InvulnerableCycleTimer` is a repeating 60-second clock — every minute, it fires and triggers the invulnerable phase. `InvulnerableDurationTimer` is a one-shot that runs while the boss is invulnerable, and fires once to return to normal state after 2 seconds. Two timers because they serve two different purposes: one schedules the event, one measures the event's length.
-
-**Don't forget to add the two new Timer nodes** to the boss scene tree (`InvulnerableCycleTimer` and `InvulnerableDurationTimer`) alongside `StunTimer` and `AttackCooldown`.
-
-### The Physics Loop
-
-```csharp
-public override void _PhysicsProcess(double delta)
-{
-    if (_state == BossState.Defeated) return;
-
-    if (!IsOnFloor())
-    {
-        Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        _sprite.Play("walk");
     }
 
-    switch (_state)
+    public override void _PhysicsProcess(double delta)
     {
-        case BossState.Idle:
-            ProcessIdle();
-            break;
-        case BossState.Charge:
-            ProcessCharge();
-            break;
-        case BossState.GroundPound:
-            ProcessGroundPound((float)delta);
-            break;
-        case BossState.Stunned:
-            ProcessStunned();
-            break;
-        case BossState.Invulnerable:
-            ProcessInvulnerable();
-            break;
+        if (_isDead) return;
+
+        // Apply gravity
+        if (!IsOnFloor())
+        {
+            Velocity = new Vector2(Velocity.X, Velocity.Y + Gravity * (float)delta);
+        }
+
+        // Reverse on wall or ledge — same logic as the patrol enemy
+        if (IsOnFloor() && (_wallDetector.IsColliding() || !_floorDetector.IsColliding()))
+        {
+            Reverse();
+        }
+
+        Velocity = new Vector2(_direction * MoveSpeed, Velocity.Y);
+        MoveAndSlide();
     }
 
-    MoveAndSlide();
-}
-```
-
-### Idle State — Choosing an Attack
-
-```csharp
-private void ProcessIdle()
-{
-    Velocity = new Vector2(0, Velocity.Y);
-    _sprite.Play("idle");
-
-    // Face the player
-    if (_player != null)
+    private void Reverse()
     {
-        _direction = _player.GlobalPosition.X < GlobalPosition.X ? -1 : 1;
+        _direction *= -1;
         _sprite.FlipH = _direction < 0;
+
+        var wallTarget = _wallDetector.TargetPosition;
+        _wallDetector.TargetPosition = new Vector2(-wallTarget.X, wallTarget.Y);
+
+        var floorTarget = _floorDetector.TargetPosition;
+        _floorDetector.TargetPosition = new Vector2(-floorTarget.X, floorTarget.Y);
     }
 
-    // Wait for attack cooldown to finish
-    if (_attackCooldown.IsStopped())
+    // --- Damage ---
+
+    private void OnHurtBoxBodyEntered(Node2D body)
     {
-        ChooseAttack();
+        if (body is not Player player) return;
+
+        // If the player is moving vertically (jumping, falling, or bouncing
+        // off a stomp), they're not running into the boss — don't damage them.
+        if (Mathf.Abs(player.Velocity.Y) > 50f) return;
+
+        if (_isDead || _isInvulnerable) return;
+
+        player.TakeHit(1, GlobalPosition);
     }
-}
 
-private void OnAttackCooldownTimeout() { /* no-op; polled in ProcessIdle */ }
-
-private void ChooseAttack()
-{
-    // Alternate attacks, more ground pounds at low health
-    float groundPoundChance = 1.0f - ((float)_currentHealth / MaxHealth);
-
-    if (GD.Randf() < groundPoundChance)
+    private void OnStompDetectorBodyEntered(Node2D body)
     {
-        StartGroundPound();
-    }
-    else
-    {
-        StartCharge();
-    }
-}
-```
+        if (body is not Player player) return;
+        if (player.Velocity.Y <= 0) return;
 
-The boss gets more aggressive as health decreases. At full health, it mostly charges. At 1 HP, ground pounds dominate. This creates natural escalation without explicit phase transitions — *on top of* the minion accumulation from stomps and the periodic invulnerable phases from the 1-minute timer. Three escalation vectors stacking.
-
-### Charge Attack
-
-```csharp
-private void StartCharge()
-{
-    _state = BossState.Charge;
-    _sprite.Play("charge");
-
-    // Face the player before charging
-    if (_player != null)
-    {
-        _direction = _player.GlobalPosition.X < GlobalPosition.X ? -1 : 1;
-        _sprite.FlipH = _direction < 0;
-    }
-}
-
-private void ProcessCharge()
-{
-    Velocity = new Vector2(_direction * ChargeSpeed, Velocity.Y);
-
-    // Hit a wall? Become stunned
-    if (IsOnWall())
-    {
-        StartStun();
-    }
-}
-```
-
-The charge is simple: lock direction, move fast, stop when hitting a wall. The player's job is to dodge (jump over) and wait for the wall impact.
-
-### Stun State — The Vulnerability Window
-
-```csharp
-private void StartStun()
-{
-    _state = BossState.Stunned;
-    Velocity = Vector2.Zero;
-    _sprite.Play("stunned");
-    _stunTimer.Start();
-
-    // Screen shake for impact
-    var camera = GetTree().GetFirstNodeInGroup("player")?.GetNode<Camera2D>("Camera2D");
-    if (camera != null)
-    {
-        camera.Offset = new Vector2(
-            (float)GD.RandRange(-2.0, 2.0),
-            (float)GD.RandRange(-2.0, 2.0)
-        );
-    }
-}
-
-private void ProcessStunned()
-{
-    Velocity = new Vector2(0, Velocity.Y);
-
-    // Visual: shake in place
-    _sprite.Offset = new Vector2((float)GD.RandRange(-1.0, 1.0), 0);
-}
-
-private void OnStunTimerTimeout()
-{
-    _sprite.Offset = Vector2.Zero;
-    _state = BossState.Idle;
-    _attackCooldown.Start();
-}
-```
-
-During the stun window, the boss shakes in place (tiny random offset on the sprite). The `StompDetector` is always active, but stomping only deals damage during the stun — we'll add that check next.
-
-### Ground Pound Attack
-
-```csharp
-private float _groundPoundStartY;
-private bool _isRising = false;
-
-private void StartGroundPound()
-{
-    _state = BossState.GroundPound;
-    _isRising = true;
-    _groundPoundStartY = GlobalPosition.Y;
-    Velocity = new Vector2(0, -250f); // Jump up
-    _sprite.Play("jump");
-}
-
-private void ProcessGroundPound(float delta)
-{
-    if (_isRising)
-    {
-        // Move toward player horizontally while rising
-        if (_player != null)
+        if (_isInvulnerable)
         {
-            float targetX = _player.GlobalPosition.X;
-            float moveX = Mathf.MoveToward(GlobalPosition.X, targetX, 100f * delta);
-            GlobalPosition = new Vector2(moveX, GlobalPosition.Y);
-        }
-
-        // Start falling when upward velocity runs out
-        if (Velocity.Y >= 0)
-        {
-            _isRising = false;
-            Velocity = new Vector2(0, 400f); // Fast drop
-            _sprite.Play("ground_pound");
-        }
-    }
-    else
-    {
-        // Falling — did we hit the ground?
-        if (IsOnFloor())
-        {
-            OnGroundPoundLand();
-        }
-    }
-}
-
-private void OnGroundPoundLand()
-{
-    // Screen shake
-    var camera = GetTree().GetFirstNodeInGroup("player")?.GetNode<Camera2D>("Camera2D");
-    if (camera != null)
-    {
-        camera.Offset = new Vector2(
-            (float)GD.RandRange(-3.0, 3.0),
-            (float)GD.RandRange(-3.0, 3.0)
-        );
-    }
-
-    SpawnShockwave();
-
-    _state = BossState.Idle;
-    _attackCooldown.Start();
-    _sprite.Play("idle");
-}
-```
-
-The ground pound has three phases: rise (jump up while drifting toward the player's X position), fall (straight down, fast), and land (shockwave + screen shake). The player must avoid the landing spot and the shockwave.
-
-### Shockwave
-
-The shockwave is a simple Area2D that expands outward from the impact point:
-
-```csharp
-[Export] public PackedScene ShockwaveScene { get; set; }
-
-private void SpawnShockwave()
-{
-    if (ShockwaveScene == null) return;
-
-    var shockwave = ShockwaveScene.Instantiate<Node2D>();
-    shockwave.GlobalPosition = GetNode<Marker2D>("ShockwaveSpawn").GlobalPosition;
-    GetParent().AddChild(shockwave);
-}
-```
-
-Create a separate shockwave scene:
-
-```
-Shockwave (Area2D)
-├── CollisionShape2D (RectangleShape2D)
-└── AnimatedSprite2D
-```
-
-Save as `res://scenes/enemies/shockwave.tscn`.
-
-```csharp
-using Godot;
-
-public partial class Shockwave : Area2D
-{
-    [Export] public float ExpandSpeed { get; set; } = 300f;
-    [Export] public float MaxWidth { get; set; } = 150f;
-
-    private CollisionShape2D _shape;
-    private float _currentWidth = 0f;
-
-    public override void _Ready()
-    {
-        _shape = GetNode<CollisionShape2D>("CollisionShape2D");
-        BodyEntered += OnBodyEntered;
-
-        // Collision setup
-        CollisionLayer = 1 << 3; // Layer 4 (hazards) — zero-indexed bit
-        CollisionMask = 1 << 1;  // Layer 2 (player) — zero-indexed bit
-    }
-
-    public override void _Process(double delta)
-    {
-        _currentWidth += ExpandSpeed * (float)delta;
-
-        if (_currentWidth >= MaxWidth)
-        {
-            QueueFree();
+            // Bounce off — can't damage the boss right now
+            player.Velocity = new Vector2(player.Velocity.X, -180f);
             return;
         }
 
-        // Expand the collision shape
-        var rect = _shape.Shape as RectangleShape2D;
-        if (rect != null)
-        {
-            rect.Size = new Vector2(_currentWidth, 10);
-        }
-    }
-
-    private void OnBodyEntered(Node2D body)
-    {
-        if (body is Player player)
-        {
-            player.TakeHit(1, GlobalPosition);
-        }
-    }
-}
-```
-
-The shockwave expands horizontally from the impact point. The player must jump over it. It auto-destroys when reaching max width.
-
-**Note:** Setting collision layers in code uses zero-indexed bit positions: `1 << 3` means bit 3 (layer 4), `1 << 1` means bit 1 (layer 2). Alternatively, set these in the Inspector on the shockwave scene — that's less error-prone.
-
-### Stomping the Boss
-
-The stomp only works during the stun window. On a successful stomp: damage the boss, bounce the player, and **spawn a patrol enemy** as reinforcement.
-
-```csharp
-private void OnStompDetectorBodyEntered(Node2D body)
-{
-    if (body is Player player && _state == BossState.Stunned)
-    {
-        if (player.Velocity.Y > 0)
+        if (!_isDead)
         {
             TakeDamage();
             player.Velocity = new Vector2(player.Velocity.X, -250f);
         }
     }
-}
 
-private void TakeDamage()
-{
-    _currentHealth--;
-    _healthBar.Value = _currentHealth;
-
-    // Flash red
-    _sprite.Modulate = new Color(1, 0.3f, 0.3f);
-    var tween = CreateTween();
-    tween.TweenProperty(_sprite, "modulate", Colors.White, 0.3f);
-
-    if (_currentHealth <= 0)
+    private void TakeDamage()
     {
-        Defeat();
-        return;
-    }
+        _currentHealth--;
+        _healthBar.Value = _currentHealth;
 
-    // Summon a patrol enemy as reinforcement
-    SpawnMinion(_minionSpawnLeft.GlobalPosition);
-
-    // Increase difficulty: faster charges
-    ChargeSpeed += 20f;
-    AttackCooldownTime = Mathf.Max(0.5f, AttackCooldownTime - 0.2f);
-    _attackCooldown.WaitTime = AttackCooldownTime;
-
-    // Exit stun immediately after being hit
-    _stunTimer.Stop();
-    _sprite.Offset = Vector2.Zero;
-    _state = BossState.Idle;
-    _attackCooldown.Start();
-}
-```
-
-Each hit makes the boss faster (+20 px/s charge, -0.2s cooldown, minimum 0.5s) *and* adds a patrol enemy to the arena. The fight escalates on two axes at once: the boss itself gets more dangerous, and the arena gets more crowded.
-
-**Why spawn only from the left marker on stomps?** We reserve the right marker for the invulnerable phase (next section), which spawns from both sides. This creates a subtle visual language: left-side spawns are routine reinforcements, both-side spawns are the panic moment.
-
-### Spawning Minions
-
-```csharp
-private void SpawnMinion(Vector2 position)
-{
-    if (MinionScene == null) return;
-
-    var minion = MinionScene.Instantiate<Node2D>();
-    minion.GlobalPosition = position;
-
-    // Spawn effect: scale from zero with a bouncy pop
-    minion.Scale = Vector2.Zero;
-    var tween = CreateTween();
-    tween.TweenProperty(minion, "scale", Vector2.One, 0.3f)
-        .SetEase(Tween.EaseType.Out)
-        .SetTrans(Tween.TransitionType.Back);
-
-    GetParent().AddChild(minion);
-}
-```
-
-**Parenting:** `GetParent().AddChild(minion)` adds the minion as a sibling of the boss, under the same `Enemies` container. This keeps the scene tree clean and matches the placement convention for hand-placed enemies.
-
-**Spawn animation:** `Tween.TransitionType.Back` creates a slight overshoot — the minion scales up past 1.0 then settles back. It's a bouncy pop-in that visually announces "a new enemy just appeared" so the player notices instead of being surprised by a minion that walked in from offscreen.
-
-### The Invulnerable Phase — The Panic Moment
-
-Every 60 seconds of fight time, the boss becomes **invulnerable for 2 seconds and spawns 2 minions** from both sides of the arena. This is the panic moment — the player can't damage the boss during this window, so they have to focus on dodging the boss *and* managing the new minions *and* timing the next stomp for when invulnerability ends.
-
-The cycle is independent of the stomp loop. It fires on a real-time clock, regardless of how much progress the player has made. Take too long on the fight → deal with multiple invulnerable phases.
-
-```csharp
-private void OnInvulnerableCycleTimeout()
-{
-    // Don't trigger during stun or if already invulnerable/defeated
-    if (_state == BossState.Stunned
-        || _state == BossState.Invulnerable
-        || _state == BossState.Defeated)
-    {
-        return;
-    }
-
-    StartInvulnerablePhase();
-}
-
-private void StartInvulnerablePhase()
-{
-    _previousState = _state;
-    _state = BossState.Invulnerable;
-    Velocity = new Vector2(0, Velocity.Y);
-
-    // Spawn minions from both sides simultaneously
-    SpawnMinion(_minionSpawnLeft.GlobalPosition);
-    SpawnMinion(_minionSpawnRight.GlobalPosition);
-
-    // Visual: shielded blue tint + slow pulse
-    _sprite.Modulate = new Color(0.6f, 0.8f, 1.3f);
-    _sprite.Play("idle");
-
-    _invulnerableDurationTimer.Start();
-}
-
-private void ProcessInvulnerable()
-{
-    Velocity = new Vector2(0, Velocity.Y);
-
-    // Pulsing alpha for shield effect
-    float pulse = 0.7f + 0.3f * Mathf.Sin((float)Time.GetTicksMsec() / 100f);
-    _sprite.Modulate = new Color(0.6f * pulse, 0.8f * pulse, 1.3f * pulse);
-}
-
-private void OnInvulnerableDurationTimeout()
-{
-    _sprite.Modulate = Colors.White;
-    _state = BossState.Idle;
-    _attackCooldown.Start();
-}
-```
-
-### The Invulnerability Check
-
-The `OnStompDetectorBodyEntered` only damages the boss during `BossState.Stunned`. Since `Invulnerable` is a separate state, stomps are automatically ignored — the stomp zone still detects the player and bounces them, but `TakeDamage()` never gets called.
-
-Wait, actually — re-read the stomp handler:
-
-```csharp
-if (body is Player player && _state == BossState.Stunned)
-```
-
-This check only allows damage when stunned, which means invulnerability is already enforced by design. But we should still bounce the player off the boss during invulnerability so they don't take damage from the hurtbox. Update the handler:
-
-```csharp
-private void OnStompDetectorBodyEntered(Node2D body)
-{
-    if (body is not Player player) return;
-    if (player.Velocity.Y <= 0) return;
-
-    if (_state == BossState.Stunned)
-    {
-        TakeDamage();
-        player.Velocity = new Vector2(player.Velocity.X, -250f);
-    }
-    else if (_state == BossState.Invulnerable)
-    {
-        // Bounce off — no damage dealt, no damage taken
-        player.Velocity = new Vector2(player.Velocity.X, -180f);
-    }
-}
-```
-
-Now the player can safely land on the boss during invulnerability and bounce off. The bounce is slightly weaker (-180 vs -250) to communicate "this didn't work" through feel. We also need to disable the hurtbox during invulnerability so the player doesn't take damage from a friendly bounce:
-
-```csharp
-private void StartInvulnerablePhase()
-{
-    _previousState = _state;
-    _state = BossState.Invulnerable;
-    Velocity = new Vector2(0, Velocity.Y);
-
-    // Disable the hurtbox so the player can safely bounce off
-    _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-
-    // Spawn minions from both sides simultaneously
-    SpawnMinion(_minionSpawnLeft.GlobalPosition);
-    SpawnMinion(_minionSpawnRight.GlobalPosition);
-
-    // Visual: shielded blue tint + slow pulse
-    _sprite.Modulate = new Color(0.6f, 0.8f, 1.3f);
-    _sprite.Play("idle");
-
-    _invulnerableDurationTimer.Start();
-}
-
-private void OnInvulnerableDurationTimeout()
-{
-    // Re-enable hurtbox
-    _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", false);
-
-    _sprite.Modulate = Colors.White;
-    _state = BossState.Idle;
-    _attackCooldown.Start();
-}
-```
-
-### Reading the Blue Shield
-
-The blue pulsing tint during invulnerability is a visual language the player learns after one or two fight attempts:
-
-- **White sprite** → normal, dodge the attacks
-- **Red flash** → just took damage, stomp landed
-- **Stunned + sprite offset shaking** → vulnerability window, go for the stomp
-- **Pulsing blue tint** → invulnerable, don't bother stomping, deal with the minions
-
-No text popup, no UI indicator. The game teaches through color and motion.
-
-### Why These Three Escalation Layers Work Together
-
-The fight now has three independent escalation vectors:
-
-1. **Health-based attack scaling** — the boss charges faster and ground pounds more often as HP drops. Rewards aggressive play (finish faster → less scaling), punishes slow play.
-2. **Minion accumulation per stomp** — each hit adds a permanent patrol enemy to the arena. Rewards efficiency (fewer stomps → fewer surviving minions), punishes missed opportunities.
-3. **Timed invulnerable phases** — every 60 seconds, the boss becomes untouchable and spawns 2 more minions. Rewards speed (finish in under 60s → never see this phase), punishes stalling.
-
-The three vectors don't compete — they reinforce each other. All three reward the player for ending the fight quickly. A skilled player might finish before the first invulnerable phase even fires. A struggling player accumulates minions, slower charges become faster, and panic phases add more minions on top. The difficulty curve adjusts to the player's performance without scripted phase transitions.
-
-### Defeat
-
-```csharp
-private async void Defeat()
-{
-    _state = BossState.Defeated;
-    Velocity = Vector2.Zero;
-
-    // Disable collision
-    _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-    _stompDetector.GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-    _healthBar.Visible = false;
-
-    // Death animation — flash and shrink
-    _sprite.Play("stunned");
-    for (int i = 0; i < 5; i++)
-    {
+        // Flash red
         _sprite.Modulate = new Color(1, 0.3f, 0.3f);
-        await ToSignal(GetTree().CreateTimer(0.15), SceneTreeTimer.SignalName.Timeout);
-        _sprite.Modulate = Colors.White;
-        await ToSignal(GetTree().CreateTimer(0.15), SceneTreeTimer.SignalName.Timeout);
+        var tween = CreateTween();
+        tween.TweenProperty(_sprite, "modulate", Colors.White, 0.3f);
+
+        if (_currentHealth <= 0)
+        {
+            Die();
+            return;
+        }
+
+        // Spawn a patrol enemy as reinforcement
+        SpawnMinion(_minionSpawnLeft.GlobalPosition);
     }
 
-    var tween = CreateTween();
-    tween.TweenProperty(this, "scale", Vector2.Zero, 0.5f)
-        .SetEase(Tween.EaseType.In)
-        .SetTrans(Tween.TransitionType.Back);
-    await ToSignal(tween, Tween.SignalName.Finished);
+    // --- Minion Spawning ---
 
-    QueueFree();
+    private void SpawnMinion(Vector2 position)
+    {
+        if (MinionScene == null) return;
+
+        var minion = MinionScene.Instantiate<Node2D>();
+        minion.GlobalPosition = position;
+
+        GetParent().CallDeferred(Node.MethodName.AddChild, minion);
+    }
+
+    // --- Invulnerable Phase (every 60 seconds) ---
+
+    private void OnInvulnerableCycleTimeout()
+    {
+        if (_isDead || _isInvulnerable) return;
+
+        _isInvulnerable = true;
+
+        // Disable hurtbox so player can safely bounce off
+        _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D")
+            .SetDeferred("disabled", true);
+
+        // Spawn 2 minions, one from each side
+        SpawnMinion(_minionSpawnLeft.GlobalPosition);
+        SpawnMinion(_minionSpawnRight.GlobalPosition);
+
+        // Visual: blue tint on stomped sprite
+        _sprite.Play("stomped");
+        _sprite.Modulate = new Color(0.6f, 0.8f, 1.3f);
+
+        _invulnerableDurationTimer.Start();
+    }
+
+    private void OnInvulnerableDurationTimeout()
+    {
+        _isInvulnerable = false;
+
+        // Re-enable hurtbox
+        _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D")
+            .SetDeferred("disabled", false);
+
+        // Back to normal
+        _sprite.Play("walk");
+        _sprite.Modulate = Colors.White;
+    }
+
+    // --- Death ---
+
+    private async void Die()
+    {
+        _isDead = true;
+
+        // Disable all collision
+        _hurtBox.GetNode<CollisionShape2D>("CollisionShape2D")
+            .SetDeferred("disabled", true);
+        _stompDetector.GetNode<CollisionShape2D>("CollisionShape2D")
+            .SetDeferred("disabled", true);
+        _healthBar.Visible = false;
+        Velocity = Vector2.Zero;
+
+        // Flash red 5 times
+        _sprite.Play("stomped");
+        for (int i = 0; i < 5; i++)
+        {
+            _sprite.Modulate = new Color(1, 0.3f, 0.3f);
+            await ToSignal(GetTree().CreateTimer(0.15),
+                SceneTreeTimer.SignalName.Timeout);
+            _sprite.Modulate = Colors.White;
+            await ToSignal(GetTree().CreateTimer(0.15),
+                SceneTreeTimer.SignalName.Timeout);
+        }
+
+        // Shrink to nothing
+        var tween = CreateTween();
+        tween.TweenProperty(this, "scale", Vector2.Zero, 0.5f)
+            .SetEase(Tween.EaseType.In)
+            .SetTrans(Tween.TransitionType.Back);
+        await ToSignal(tween, Tween.SignalName.Finished);
+
+        QueueFree();
+    }
 }
 ```
 
-The defeat sequence: flash red 5 times, shrink to nothing, then free. It's dramatic enough to feel like a real boss kill without requiring custom animation frames.
+**How the script compares to the patrol enemy from 16.1:**
 
-### Health Bar Setup
+The movement code (`_PhysicsProcess`, `Reverse`) is **identical** to the patrol enemy. Same gravity, same wall detection, same floor detection, same direction flipping. If you understood 16.1, you understand the boss's movement.
 
-The `TextureProgressBar` sits above the boss sprite. Configure it:
+The new parts are:
+
+- **`TakeDamage()`** — decrements HP, flashes red, spawns a minion. When HP reaches 0, calls `Die()`.
+- **`SpawnMinion()`** — instantiates a patrol enemy at a marker position using `CallDeferred` (safe for physics callbacks).
+- **Invulnerable cycle** — two timers: `InvulnerableCycleTimer` fires every 60 seconds, `InvulnerableDurationTimer` ends the phase after 2 seconds. During the phase, the hurtbox is disabled, the boss shows a blue-tinted `stomped` sprite, and 2 minions spawn from both sides.
+- **`Die()`** — flashes red 5 times, shrinks to zero with a tween, then `QueueFree()`.
+
+### Health Bar
+
+The `TextureProgressBar` sits above the boss. Configure it in the Inspector:
 
 ```
 Size: (40, 6)
 Position: (-20, -30)     — centered above the boss, adjust to your sprite size
 Min Value: 0
-Max Value: 5              — matches MaxHealth (set in code)
+Max Value: 5              — matches MaxHealth (set in code via _Ready)
 Value: 5
 ```
 
-For the textures, you can use simple colored rectangles:
+For the textures, use simple colored rectangles:
 
 - **Under texture:** dark gray bar (the background)
 - **Progress texture:** red or green bar (current health)
 
-Or use `StyleBoxFlat` resources for a code-free approach: set `ProgressBar` custom theme overrides with a red `fill` style and dark `background` style.
+The health bar moves with the boss automatically since it's a child node.
 
-The health bar moves with the boss automatically since it's a child node. No extra code needed for positioning.
+### Placing the Boss in the Level
 
-### Boss Arena
+Place the boss in a flat area of your level with walls on both sides (so the boss walks between them). The boss will patrol like a normal enemy — no special arena setup needed beyond two walls.
 
-The boss fight needs a contained arena. In the level scene:
+Instance the boss in your level under the `Enemies` container:
 
-1. Place the `CaveGuardian` in a flat area with walls on both sides.
-2. Add a trigger Area2D at the arena entrance.
-3. When the player enters, close the entrance with an `AnimatableBody2D` or `StaticBody2D` that slides into place.
-4. When the boss is defeated, open the path forward.
-
-```csharp
-// In the level script
-private void OnBossArenaEntered(Node2D body)
-{
-    if (body is Player)
-    {
-        // Close the arena entrance
-        var gate = GetNode<AnimatableBody2D>("BossArena/EntranceGate");
-        var tween = CreateTween();
-        tween.TweenProperty(gate, "position:y",
-            gate.Position.Y - 36, 0.5f); // Slide gate down
-
-        // Connect to boss defeat
-        var boss = GetNode<CaveGuardian>("BossArena/CaveGuardian");
-        boss.TreeExiting += OnBossDefeated;
-    }
-}
-
-private void OnBossDefeated()
-{
-    // Open the exit
-    var exitGate = GetNode<AnimatableBody2D>("BossArena/ExitGate");
-    var tween = CreateTween();
-    tween.TweenProperty(exitGate, "position:y",
-        exitGate.Position.Y + 36, 0.5f);
-}
+```
+Level03 (Node2D)
+├── ...
+└── Enemies (Node2D)
+    ├── ...
+    └── CaveGuardian (instanced from cave_guardian.tscn)
 ```
 
-The arena entrance closes behind the player (no running away), and the exit opens after the boss dies. Simple containment that makes the fight feel like an event.
+In the Inspector on the `CaveGuardian` instance, assign `patrol_enemy.tscn` to the **Minion Scene** slot. Without this, the boss won't spawn minions (it fails silently with a null check).
+
+Position the two `MinionSpawnLeft` and `MinionSpawnRight` markers on the left and right side of the boss's patrol area. That's where minions will appear.
 
 ### Boss Fight Summary
 
-The complete interaction loop:
+The complete interaction:
 
-1. Player enters arena → gate closes → 60-second invulnerable cycle starts
-2. Boss idles, faces the player
-3. Boss charges OR ground pounds (more ground pounds as HP drops)
-4. Player dodges the attack, waits for the opening
-5. Boss slams into a wall → stunned for 2 seconds
-6. Player stomps during stun → boss takes 1 damage → patrol enemy spawns on the left
-7. Boss recovers, charges/pounds become faster, arena now has a new minion
-8. **Every 60 seconds:** boss glows blue, becomes untouchable, spawns 2 more minions from both sides → player survives for 2 seconds → normal fight resumes
-9. At 0 HP → defeat animation → exit gate opens
+1. Boss walks left-right between walls, like a patrol enemy but bigger
+2. Player jumps on the boss's head → boss takes 1 damage → a patrol enemy spawns on the left
+3. Boss keeps walking, now with a minion in the arena
+4. Repeat — each stomp adds another minion
+5. **Every 60 seconds:** boss turns blue, becomes untouchable for 2 seconds, spawns 2 more minions (left + right)
+6. After 5 stomps → death animation → boss disappears
 
-Five stomps to win. Each stomp scales the boss's attacks *and* adds a permanent minion. Every minute adds 2 more minions during a panic phase. The player must master jumping (from Chapter 14), stomping timing (from 16.2), reading patrol patterns (from 16.1), and threat prioritization (all of the above at once). The boss is a final exam for the whole chapter.
+The fight escalates through accumulated enemies, not through complex boss mechanics. A beginner can build this because it's a patrol enemy with HP and minion spawning — no state machines, no charge attacks, no wall-normal math.
 
 ---
 
@@ -1985,7 +1591,7 @@ Five stomps to win. Each stomp scales the boss's attacks *and* adds a permanent 
 
 **Jumping block (16.4):** Unkillable timed hazard placed in gaps. `Node2D` with a tween chain — rise, hang, fall, callback — on a 2-second timer. Two-sprite visual language: `down` (worried) at rest, `up` (angry) mid-jump. Always-active hurtbox teaches timing instead of combat. Placement in gaps forces committed jumps.
 
-**Boss fight (16.5):** `CaveGuardian` with charge and ground pound attacks. Stunned after hitting a wall during charge — that's the stomp window. Three independent escalation layers: (1) health-based attack scaling (faster charges, more ground pounds at low HP), (2) minion accumulation — each stomp spawns a patrol enemy, (3) timed invulnerable phases — every 60 seconds the boss glows blue, becomes untouchable for 2 seconds, and spawns 2 minions from both sides of the arena. Shockwave Area2D expands horizontally on ground pound. `TextureProgressBar` health bar. Arena gates close on entry, open on defeat.
+**Boss fight (16.5):** `CaveGuardian` — a larger patrol enemy with 5 HP and a health bar. Walks left-right between walls using the same movement logic as the patrol enemy (RayCast2D wall/floor detection). Each stomp deals 1 damage and spawns a patrol enemy as reinforcement. Every 60 seconds, the boss becomes briefly invulnerable (blue tint, hurtbox disabled) and spawns 2 more minions from both sides of the arena. Difficulty escalates through accumulated minions, not through complex attack patterns. `TextureProgressBar` health bar. Death animation flashes red and shrinks to zero.
 
 ---
 

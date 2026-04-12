@@ -4,7 +4,7 @@
   "slug": "מבוא",
   "order": 1,
   "createdAt": "2026-03-15T05:48:59.658Z",
-  "updatedAt": "2026-03-20T12:12:52.745Z",
+  "updatedAt": "2026-04-11T19:53:20.280Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -5961,6 +5961,145 @@
           {
             "type": "text",
             "text": "."
+          }
+        ]
+      },
+      {
+        "type": "horizontalRule"
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
+        "content": [
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "1.6 על שותף הכתיבה שלי"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "את המדריך הזה לא כתבתי לבד. לאורך כל הפרויקט עבדתי בשיתוף פעולה עם "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Archie"
+          },
+          {
+            "type": "text",
+            "text": " - השם שסוכן ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AI"
+          },
+          {
+            "type": "text",
+            "text": " של "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Claude"
+          },
+          {
+            "type": "text",
+            "text": " (מבית "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Anthropic"
+          },
+          {
+            "type": "text",
+            "text": ") בחר לעצמו כשהתחלנו לעבוד יחד."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "חלוקת העבודה בינינו פשוטה: אני בניתי את האפליקציה שאתם קוראים בה עכשיו, תכננתי את המשחקים, קיבלתי את כל החלטות העיצוב, ערכתי כל פרק ותרגמתי את הכל לעברית. Archie שימש כמורה הטכני - הוא הסביר לי מושגים ב-Godot, הציע דוגמאות קוד, כתב טיוטות באנגלית של חלק מהפרקים שאני אחר כך עיבדתי וחידדתי לעברית, ולפעמים גם זרק רעיונות טובים לעיצוב משחק שלקחתי לפרויקט. בנוסף, סעיפי ה"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "סיכום"
+          },
+          {
+            "type": "text",
+            "text": " בסוף כל פרק נכתבו כולם על ידו."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "אז כשאתם קוראים את המדריך הזה, אתם קוראים את הקול שלי - אבל מאחורי כל הסבר טכני יש שיחה ארוכה ביני לבין שותף ה-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "AI"
+          },
+          {
+            "type": "text",
+            "text": " שלי. הקרדיט הוא משותף, וזה מרגיש לי נכון לציין את זה כאן בפתיחה."
           }
         ]
       },

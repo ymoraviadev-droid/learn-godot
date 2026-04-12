@@ -4,7 +4,7 @@
   "slug": "ליטוש-ופולישינג",
   "order": 17,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-04-12T14:05:01.883Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -12,23 +12,67 @@
       {
         "type": "heading",
         "attrs": {
+          "textAlign": "right",
+          "dir": null,
           "level": 1
         },
         "content": [
           {
             "type": "text",
-            "text": "ליטוש ופולישינג"
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 17: ליטוש ופולישינג"
           }
         ]
       },
       {
         "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
         "content": [
           {
             "type": "text",
-            "text": "בקרוב.."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "17.1 HUD"
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "ע"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       }
     ]
   }

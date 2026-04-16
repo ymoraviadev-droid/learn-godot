@@ -2,11 +2,11 @@
 
 ---
 
-## 17.1 HUD — Health Hearts and Score Display
+## 17.1 HUD — Health, Lives, and Score Display
 
-The player has 3 HP, collects crystals, and can die. But none of that is visible — there's no health bar, no score counter, no feedback. The game works, but it doesn't *communicate*. Time to fix that.
+The player has HP, lives, collects crystals, and can die. But none of that is visible — there's no health display, no life counter, no score. The game works, but it doesn't *communicate*. Time to fix that.
 
-A HUD (Heads-Up Display) is a UI layer that sits on top of the game world and shows the player critical information: how much health they have, how many crystals they've collected, what level they're on. It doesn't scroll with the camera, doesn't interact with physics, and never moves.
+A HUD (Heads-Up Display) is a UI layer that sits on top of the game world and shows the player critical information: how much health they have, how many lives remain, how many crystals they've collected. It doesn't scroll with the camera, doesn't interact with physics, and never moves.
 
 ### Why CanvasLayer?
 
@@ -14,29 +14,116 @@ The game camera follows the player. If you put UI nodes as children of the level
 
 Think of it like a transparent sheet of glass between you and the TV — the game scrolls behind it, but the HUD stays pinned in place.
 
+### The Spritesheet
+
+Kenney's UI pack includes a spritesheet with all the HUD elements we need: heart frames (full, half, empty), digit sprites (0–9), an "X" symbol, and character icons. It's one image file with everything laid out in a grid.
+
+We *could* use the individual PNG files that Kenney also provides — one file per heart state, etc. But for hearts specifically, the spritesheet is one image, and Godot's `AtlasTexture` lets us slice out exactly the region we need from it. For digits (0–9), we'll use individual PNGs — they map naturally to an array index, so separate files are actually easier to work with.
+
+### AtlasTexture — Cutting Sprites from a Sheet
+
+An `AtlasTexture` is a texture that points to a rectangular region inside a larger image. You give it the full spritesheet and a pixel rectangle, and it returns just that portion as a usable texture.
+
+To create one in the Inspector:
+
+1. Select a `TextureRect` node.
+2. In the `Texture` property, click the dropdown and choose **New AtlasTexture**.
+3. Click the new `AtlasTexture` to expand its properties:
+   - **Atlas:** assign your spritesheet image (`art/ui/hud_spritesheet.png`)
+   - **Region:** the pixel rectangle of the sprite you want, e.g. `(0, 0, 18, 18)` for the top-left 18×18 sprite
+
+You'll need to know the pixel coordinates of each sprite in your sheet. Open the spritesheet in any image editor and note the position and size of each element:
+
+| Sprite | Region (example) |
+| --- | --- |
+| Heart full | `(0, 0, 18, 18)` |
+| Heart half | `(18, 0, 18, 18)` |
+| Heart empty | `(36, 0, 18, 18)` |
+| Digit 0 | `(0, 18, 18, 18)` |
+| Digit 1 | `(18, 18, 18, 18)` |
+| ... | ... |
+| Digit 9 | `(162, 18, 18, 18)` |
+| X symbol | `(180, 18, 18, 18)` |
+| Player icon | `(0, 36, 18, 18)` |
+
+Your actual coordinates depend on how your spritesheet is laid out — these are examples. Measure yours.
+
+**Creating AtlasTextures in code:**
+
+```csharp
+private AtlasTexture CreateAtlas(Texture2D sheet, Rect2 region)
+{
+    var atlas = new AtlasTexture();
+    atlas.Atlas = sheet;
+    atlas.Region = region;
+    return atlas;
+}
+```
+
+This is useful when you need to create textures dynamically — like updating digit sprites based on a changing number.
+
+### Two Display Strategies
+
+Before building the scene, you need to make a design decision. There are two ways to show a value like HP or lives, and the right choice depends on how large the number can get.
+
+**Strategy A — Individual icons (best for 3 or fewer):**
+
+Display one icon per unit. Three hearts for 3 HP. Two character sprites for 2 lives. Each icon shows the state directly — a full heart, a half heart, an empty heart. The player reads the state at a glance without counting.
+
+```
+♥ ♥ ♡        — 2 out of 3 HP (full, full, empty)
+♥ ♥½ ♡       — 3 out of 6 HP with half-hearts (full, half, empty)
+🧑 🧑 🧑      — 3 lives remaining
+```
+
+This is the classic approach from NES/SNES platformers. It works beautifully when the maximum is small — you see the state instantly. But it breaks down at higher numbers: ten hearts in a row is hard to count and eats screen space in a 320×180 viewport.
+
+**Strategy B — Icon × number (best for more than 3):**
+
+Display a single icon, the "X" sprite, and digit sprites for the count. One heart, an X, and the number 5 means 5 HP. Compact and scales to any number.
+
+```
+♥ × 5        — 5 HP
+🧑 × 7        — 7 lives
+```
+
+This is the approach from games like Mega Man or Sonic. It uses fixed screen space regardless of the value.
+
+**Which should you use?** It depends on your game:
+
+- If your game has 3 HP and 3 lives (like our Crystal Caverns design document from Chapter 13), Strategy A is more expressive — half-hearts show partial damage, and the visual density is readable at a glance.
+- If you want more HP or more lives (5+ of either), Strategy B keeps the HUD compact. Ten individual hearts would span half the viewport width.
+- You can mix them — hearts for HP (Strategy A with half-hearts) and icon × number for lives (Strategy B), or vice versa.
+
+We'll build both. Pick the one that fits your game, or combine them.
+
 ### HUD Scene Structure
 
-Create a new scene with `CanvasLayer` as the root:
+The scene structure depends on which strategies you choose. Here's the full layout that supports both:
 
 ```
 HUD (CanvasLayer)
 └── MarginContainer
-    ├── HealthContainer (HBoxContainer)
-    │   ├── Heart1 (TextureRect)
-    │   ├── Heart2 (TextureRect)
-    │   └── Heart3 (TextureRect)
-    └── ScoreContainer (HBoxContainer)
-        ├── CrystalIcon (TextureRect)
-        └── ScoreLabel (Label)
+    ├── HealthDisplay (HBoxContainer)     — top-left
+    ├── LivesDisplay (HBoxContainer)      — bottom-left
+    └── ScoreColumn (VBoxContainer)       — top-right
+        ├── ScoreContainer (HBoxContainer)
+        │   ├── CrystalIcon (TextureRect)
+        │   ├── XSymbol (TextureRect)
+        │   └── Digits (HBoxContainer)
+        └── CrystalRequirement (HBoxContainer)  — hidden by default
+            ├── CrystalIcon (TextureRect)
+            ├── Slash (TextureRect)
+            └── RequiredDigits (HBoxContainer)
 ```
 
 Save as `res://scenes/ui/hud.tscn`.
 
+The children inside `HealthDisplay` and `LivesDisplay` depend on which strategy you use — we'll populate them in the script or in the editor depending on the approach. `ScoreColumn` is a `VBoxContainer` that stacks the score and crystal requirement vertically — `ScoreContainer` always shows (crystal + X + digits), and `CrystalRequirement` is hidden by default and only appears on levels that require a minimum crystal count (more on this below).
+
 ### MarginContainer — Keeping UI Off the Edges
 
-The `MarginContainer` pushes all its children inward from the screen edges. Without it, hearts would sit flush against the corner — cramped and hard to read on different screen sizes.
-
-Configure the margins in the Inspector:
+The `MarginContainer` pushes all its children inward from the screen edges. Without it, icons would sit flush against the corner — cramped and hard to read.
 
 ```
 Layout → Anchors Preset: Full Rect    — fills the entire screen
@@ -49,21 +136,183 @@ Theme Overrides → Constants:
 
 4 pixels is enough for pixel art at 320×180 resolution. It's subtle but keeps the UI breathing.
 
-### Health Hearts
+### Score Display
 
-Each `TextureRect` displays a heart image. We'll swap between `heart_full.png` and `heart_empty.png` based on current health.
-
-**Heart node configuration:**
+Score uses the same icon × number pattern as Strategy B — a crystal icon, the X sprite, and digit images. Visually consistent with the rest of the HUD.
 
 ```
-Texture: heart_full.png
+ScoreContainer (HBoxContainer)
+├── CrystalIcon (TextureRect)
+├── XSymbol (TextureRect)
+└── Digits (HBoxContainer)
+```
+
+**CrystalIcon (TextureRect):**
+
+Assign an `AtlasTexture` pointing to the crystal region in your spritesheet:
+
+```
 Stretch Mode: Keep
-Custom Minimum Size: (11, 10)    — match your heart sprite size
+Custom Minimum Size: (18, 18)    — match your sprite size
 ```
 
-`Stretch Mode: Keep` prevents the texture from being scaled or distorted by the container. The heart renders at its native pixel size.
+**XSymbol (TextureRect):**
 
-**HealthContainer (HBoxContainer):**
+Same as in the health/lives multiplier displays — `AtlasTexture` pointing to the X region.
+
+**Digits (HBoxContainer):**
+
+Starts empty. The script populates it with digit `TextureRect` nodes dynamically at runtime. But first, the digit images need to exist in the project.
+
+### Setting Up the Digit Images
+
+Kenney's Pixel Platformer pack includes individual PNG files for each digit (0–9) and the X symbol. Find them in the pack — they're typically named something like `number_0.png` through `number_9.png` and `x.png` (exact names vary by pack version — check your download).
+
+Copy these files into your project's UI art folder:
+
+```
+res://art/ui/
+├── number_0.png
+├── number_1.png
+├── number_2.png
+├── number_3.png
+├── number_4.png
+├── number_5.png
+├── number_6.png
+├── number_7.png
+├── number_8.png
+├── number_9.png
+└── x.png
+```
+
+After copying, switch back to the Godot editor — it auto-imports new files in the `res://` directory. You should see them in the FileSystem dock.
+
+**Assigning the digits to the HUD script:**
+
+1. Select the `HUD` root node in the scene.
+2. In the Inspector, find the `Digit Textures` property — it shows an array with 10 slots (0–9).
+3. Expand the array. For each slot, drag the matching PNG from the FileSystem dock:
+   - Slot 0 → `number_0.png`
+   - Slot 1 → `number_1.png`
+   - ... and so on through slot 9.
+
+The index matches the digit — when the script needs to display "5", it reads `DigitTextures[5]`, which is `number_5.png`.
+
+**The X symbol** is not part of the digit array. It's a separate `TextureRect` node (`XSymbol`) in the scene tree — assign `x.png` to its `Texture` property directly in the Inspector, either as a standalone texture or as an `AtlasTexture` region from the spritesheet.
+
+The digit images and X symbol are used everywhere Strategy B appears: score display, HP multiplier, lives multiplier, and crystal requirement. Set them up once on the HUD scene, and every instance of the HUD across all levels shares the same assignments.
+
+**ScoreColumn (VBoxContainer):**
+
+```
+Alignment: End
+```
+
+`Alignment: End` pushes the children to the right side. The `MarginContainer` parent handles screen-edge positioning.
+
+**ScoreContainer (HBoxContainer):**
+
+```
+Theme Overrides → Constants:
+  Separation: 2
+```
+
+### Crystal Requirement Display
+
+In Chapter 15.5, the `ExitDoor` has a `RequiredCrystals` property — some levels lock the door until the player collects enough crystals. When a level has this requirement, the player needs to see how many crystals are left. When a level doesn't (requirement is 0), the display should be hidden entirely.
+
+`CrystalRequirement` is already in the scene tree from above — it sits inside `ScoreColumn` directly below `ScoreContainer`. The `VBoxContainer` stacks them vertically so they don't overlap.
+
+This shows the target: the current score is already visible in the `ScoreContainer` above, and this row shows what the player needs to reach. For example, if the door requires 5 crystals and the player has 2, the score shows `crystal × 2` and the requirement shows `crystal / 5`.
+
+Alternatively, you can show remaining crystals: `crystal × 3` (3 left to collect). Pick whichever reads more naturally for your game.
+
+**The key:** this element is only visible when the level's exit door has a non-zero crystal requirement.
+
+The HUD needs to know the requirement at startup. Since the `ExitDoor` is a sibling in the level scene, the level script can pass the value to the HUD:
+
+```csharp
+// Add to Level.cs — in _Ready(), after setting up the HUD
+
+var exitDoor = GetNodeOrNull<ExitDoor>("ExitDoor");
+var hud = GetNode<HUD>("HUD");
+
+if (exitDoor != null && exitDoor.RequiredCrystals > 0)
+{
+    hud.ShowCrystalRequirement(exitDoor.RequiredCrystals);
+}
+```
+
+And in the HUD script:
+
+```csharp
+// Add to HUD.cs
+
+private HBoxContainer _crystalRequirement;
+private HBoxContainer _requiredDigits;
+private int _requiredCrystals;
+
+public void ShowCrystalRequirement(int required)
+{
+    _requiredCrystals = required;
+    _crystalRequirement = GetNode<HBoxContainer>(
+        "MarginContainer/ScoreColumn/CrystalRequirement");
+    _requiredDigits = _crystalRequirement.GetNode<HBoxContainer>(
+        "RequiredDigits");
+
+    _crystalRequirement.Visible = true;
+    UpdateDigits(_requiredDigits, required);
+}
+```
+
+In `_Ready()`, hide it by default:
+
+```csharp
+GetNode<HBoxContainer>("MarginContainer/ScoreColumn/CrystalRequirement").Visible = false;
+```
+
+**Why not read the ExitDoor directly from the HUD?** The HUD is a reusable scene — it shouldn't know about level-specific nodes like `ExitDoor`. The level script acts as the middleman: it knows both the door and the HUD, and wires them together. This keeps the HUD generic and the coupling in one place.
+
+If you want the display to update dynamically (e.g., showing remaining crystals that counts down as the player collects), subscribe to `ScoreChanged` and recalculate:
+
+```csharp
+private void UpdateCrystalRequirement(int currentScore)
+{
+    if (_requiredCrystals <= 0) return;
+
+    int remaining = Mathf.Max(0, _requiredCrystals - currentScore);
+    UpdateDigits(_requiredDigits, remaining);
+
+    if (remaining == 0)
+    {
+        // Optional: hide or change color to signal "door unlocked"
+        _crystalRequirement.Modulate = new Color(0.5f, 1f, 0.5f);
+    }
+}
+```
+
+Hook this up alongside the other signal subscriptions in `_Ready()` — but only after `ShowCrystalRequirement` has been called (otherwise `_requiredCrystals` is 0 and the method returns immediately, which is the correct default).
+
+### Strategy A — Individual Hearts (≤ 3 HP)
+
+For this approach, add `TextureRect` children directly in the editor:
+
+```
+HealthDisplay (HBoxContainer)
+├── Heart1 (TextureRect)
+├── Heart2 (TextureRect)
+└── Heart3 (TextureRect)
+```
+
+Each `TextureRect` gets an `AtlasTexture` pointing to the full heart region of your spritesheet:
+
+```
+Texture: AtlasTexture → Atlas: hud_spritesheet.png, Region: (your full heart region)
+Stretch Mode: Keep
+Custom Minimum Size: (18, 18)    — match your heart sprite size
+```
+
+**HealthDisplay (HBoxContainer):**
 
 ```
 Layout → Anchors Preset: Top Left
@@ -71,142 +320,444 @@ Theme Overrides → Constants:
   Separation: 2    — 2px gap between hearts
 ```
 
-### Score Display
+The script swaps each heart's `AtlasTexture` region based on current HP. With half-hearts, 6 max HP maps to 3 heart icons — each heart represents 2 HP:
 
-**CrystalIcon (TextureRect):**
+```csharp
+// Strategy A — individual hearts with full/half/empty states
+
+[Export] public Texture2D Spritesheet { get; set; }
+[Export] public Rect2 HeartFullRegion { get; set; }
+[Export] public Rect2 HeartHalfRegion { get; set; }
+[Export] public Rect2 HeartEmptyRegion { get; set; }
+
+private TextureRect[] _hearts;
+
+private void SetupHealthIcons()
+{
+    var container = GetNode<HBoxContainer>("MarginContainer/HealthDisplay");
+    _hearts = new TextureRect[container.GetChildCount()];
+    for (int i = 0; i < _hearts.Length; i++)
+    {
+        _hearts[i] = container.GetChild<TextureRect>(i);
+    }
+}
+
+private void UpdateHealthIcons(int currentHealth)
+{
+    // Each heart represents 2 HP (full = 2, half = 1, empty = 0)
+    for (int i = 0; i < _hearts.Length; i++)
+    {
+        int heartHp = currentHealth - (i * 2);
+
+        Rect2 region;
+        if (heartHp >= 2)
+            region = HeartFullRegion;
+        else if (heartHp == 1)
+            region = HeartHalfRegion;
+        else
+            region = HeartEmptyRegion;
+
+        _hearts[i].Texture = CreateAtlas(Spritesheet, region);
+    }
+}
+```
+
+**How half-hearts work:** If max HP is 6 and current HP is 5, the three hearts show: full (2), full (2), half (1). If current HP is 4: full, full, empty. If current HP is 3: full, half, empty. Each heart holds 2 HP, so the half state represents an odd remainder.
+
+If you don't want half-hearts, set max HP to 3 (not 6) and remove the half-heart logic — each heart is simply full or empty:
+
+```csharp
+// Simpler version — no half-hearts, 1 HP per heart
+private void UpdateHealthIcons(int currentHealth)
+{
+    for (int i = 0; i < _hearts.Length; i++)
+    {
+        Rect2 region = i < currentHealth ? HeartFullRegion : HeartEmptyRegion;
+        _hearts[i].Texture = CreateAtlas(Spritesheet, region);
+    }
+}
+```
+
+### Strategy B — Icon × Number (> 3 HP or Lives)
+
+For this approach, the container holds three elements: the icon, the X sprite, and a container for digit sprites:
 
 ```
-Texture: crystal_icon.png
-Stretch Mode: Keep
-Custom Minimum Size: (10, 10)    — match your crystal icon size
+HealthDisplay (HBoxContainer)
+├── HeartIcon (TextureRect)      — single full heart
+├── XSymbol (TextureRect)        — the "X" sprite
+└── Digits (HBoxContainer)       ��� holds digit TextureRects
 ```
 
-**ScoreLabel (Label):**
+Kenney's pack includes individual PNG files for each digit (0–9). We export a `Texture2D` for each one and drag them into the Inspector — 10 slots, one per digit. The script looks up the right texture by index:
+
+```csharp
+// Strategy B — icon × number display
+
+[Export] public Texture2D[] DigitTextures { get; set; } = new Texture2D[10];
+
+private HBoxContainer _digitsContainer;
+
+private void SetupMultiplierDisplay(string containerPath)
+{
+    _digitsContainer = GetNode<HBoxContainer>(
+        $"MarginContainer/{containerPath}/Digits");
+}
+
+private void UpdateDigits(int value)
+{
+    // Clear old digits
+    foreach (var child in _digitsContainer.GetChildren())
+    {
+        child.QueueFree();
+    }
+
+    // Convert value to digit string and create a TextureRect per digit
+    string digits = value.ToString();
+    foreach (char c in digits)
+    {
+        int digit = c - '0';
+        var rect = new TextureRect();
+        rect.Texture = DigitTextures[digit];
+        rect.StretchMode = TextureRect.StretchModeEnum.Keep;
+        _digitsContainer.AddChild(rect);
+    }
+}
+```
+
+In the Inspector, the `DigitTextures` array shows 10 slots. Drag `digit_0.png` into slot 0, `digit_1.png` into slot 1, and so on up to slot 9. The index matches the digit — `DigitTextures[3]` is the image for "3".
+
+**Why sprite images instead of a Label?** Consistency. The heart, X, and digit images all come from the same art pack, so they share the same pixel style and weight. A `Label` with a font would look slightly different — different baseline, different anti-aliasing. For a pixel art HUD, sprite digits look cleaner.
+
+That said, if you'd rather keep it simple, a `Label` works fine. Replace the `Digits` container and `UpdateDigits` method with a plain label and `label.Text = value.ToString()`. Pragmatism over perfection.
+
+### Lives Display
+
+Lives follow the exact same two strategies as HP. The only difference is the icon — a small player character sprite instead of a heart.
+
+**Strategy A — Individual character icons (�� 3 lives):**
 
 ```
-Text: "0"
-Horizontal Alignment: Left
+LivesDisplay (HBoxContainer)
+├── Life1 (TextureRect)    — player icon from spritesheet
+├── Life2 (TextureRect)
+└── Life3 (TextureRect)
 ```
 
-For pixel art games, you'll want a pixel font. Godot's default font is vector-based and looks out of place next to 18×18 tiles. Import a `.ttf` pixel font (plenty of free ones on itch.io and Google Fonts — "Press Start 2P", "Pixelify Sans", etc.) and set it on the label:
+Show or hide icons based on remaining lives. Full opacity for remaining lives, low opacity (or a grayed-out region) for lost ones.
 
-```
-Theme Overrides → Fonts → Font: your_pixel_font.ttf
-Theme Overrides → Font Sizes → Font Size: 8
-```
-
-8px matches the 320×180 viewport scale nicely.
-
-**ScoreContainer (HBoxContainer):**
-
-```
-Layout → Anchors Preset: Top Right
-Theme Overrides → Constants:
-  Separation: 2
+```csharp
+private void UpdateLivesIcons(int currentLives)
+{
+    for (int i = 0; i < _lifeIcons.Length; i++)
+    {
+        _lifeIcons[i].Modulate = i < currentLives
+            ? Colors.White
+            : new Color(1, 1, 1, 0.2f);
+    }
+}
 ```
 
-### HUD Script
+**Strategy B — Icon × number (> 3 lives):**
+
+```
+LivesDisplay (HBoxContainer)
+├── PlayerIcon (TextureRect)
+├── XSymbol (TextureRect)
+└── Digits (HBoxContainer)
+```
+
+Same `UpdateDigits` pattern as HP — reuse the method with a different container path.
+
+### Putting It Together — The Full HUD Script
+
+Here's the complete script that supports both strategies. Pick the methods that match your design:
 
 ```csharp
 using Godot;
 
 public partial class HUD : CanvasLayer
 {
-    private TextureRect[] _hearts;
-    private Label _scoreLabel;
+    [Export] public Texture2D Spritesheet { get; set; }
 
-    [Export] public Texture2D HeartFull { get; set; }
-    [Export] public Texture2D HeartEmpty { get; set; }
+    // Heart regions in the spritesheet
+    [Export] public Rect2 HeartFullRegion { get; set; }
+    [Export] public Rect2 HeartHalfRegion { get; set; }
+    [Export] public Rect2 HeartEmptyRegion { get; set; }
+
+    // Digit images (individual PNGs, one per digit 0-9)
+    [Export] public Texture2D[] DigitTextures { get; set; } = new Texture2D[10];
+
+    // Strategy A fields (individual icons)
+    private TextureRect[] _heartIcons;
+    private TextureRect[] _lifeIcons;
+
+    // Strategy B fields (multiplier display)
+    private HBoxContainer _healthDigits;
+    private HBoxContainer _livesDigits;
+
+    // Score (always uses multiplier display)
+    private HBoxContainer _scoreDigits;
 
     public override void _Ready()
     {
-        var healthContainer = GetNode<HBoxContainer>(
-            "MarginContainer/HealthContainer");
+        _scoreDigits = GetNode<HBoxContainer>(
+            "MarginContainer/ScoreColumn/ScoreContainer/Digits");
 
-        _hearts = new TextureRect[healthContainer.GetChildCount()];
-        for (int i = 0; i < _hearts.Length; i++)
-        {
-            _hearts[i] = healthContainer.GetChild<TextureRect>(i);
-        }
+        // --- Choose your setup per display ---
+        // For HP, pick ONE:
+        SetupHealthIcons();      // Strategy A
+        // SetupHealthMultiplier(); // Strategy B
 
-        _scoreLabel = GetNode<Label>(
-            "MarginContainer/ScoreContainer/ScoreLabel");
+        // For lives, pick ONE:
+        SetupLivesIcons();       // Strategy A
+        // SetupLivesMultiplier(); // Strategy B
 
         // Initial state
         UpdateHealth(GameManager.Instance.PlayerHealth);
+        UpdateLives(GameManager.Instance.Lives);
         UpdateScore(GameManager.Instance.Score);
 
         // Listen for changes
         GameManager.Instance.HealthChanged += UpdateHealth;
+        GameManager.Instance.LivesChanged += UpdateLives;
         GameManager.Instance.ScoreChanged += UpdateScore;
     }
 
     public override void _ExitTree()
     {
-        // Disconnect signals to prevent errors when the scene is freed
         GameManager.Instance.HealthChanged -= UpdateHealth;
+        GameManager.Instance.LivesChanged -= UpdateLives;
         GameManager.Instance.ScoreChanged -= UpdateScore;
+    }
+
+    // --- Health ---
+
+    private void SetupHealthIcons()
+    {
+        var container = GetNode<HBoxContainer>(
+            "MarginContainer/HealthDisplay");
+        _heartIcons = new TextureRect[container.GetChildCount()];
+        for (int i = 0; i < _heartIcons.Length; i++)
+        {
+            _heartIcons[i] = container.GetChild<TextureRect>(i);
+        }
+    }
+
+    private void SetupHealthMultiplier()
+    {
+        _healthDigits = GetNode<HBoxContainer>(
+            "MarginContainer/HealthDisplay/Digits");
     }
 
     private void UpdateHealth(int currentHealth)
     {
-        for (int i = 0; i < _hearts.Length; i++)
+        if (_heartIcons != null)
         {
-            _hearts[i].Texture = i < currentHealth ? HeartFull : HeartEmpty;
+            // Strategy A — individual hearts
+            for (int i = 0; i < _heartIcons.Length; i++)
+            {
+                int heartHp = currentHealth - (i * 2);
+                Rect2 region;
+                if (heartHp >= 2)
+                    region = HeartFullRegion;
+                else if (heartHp == 1)
+                    region = HeartHalfRegion;
+                else
+                    region = HeartEmptyRegion;
+
+                _heartIcons[i].Texture = CreateAtlas(Spritesheet, region);
+            }
+        }
+        else if (_healthDigits != null)
+        {
+            // Strategy B — heart × number
+            UpdateDigits(_healthDigits, currentHealth);
         }
     }
 
+    // --- Lives ---
+
+    private void SetupLivesIcons()
+    {
+        var container = GetNode<HBoxContainer>(
+            "MarginContainer/LivesDisplay");
+        _lifeIcons = new TextureRect[container.GetChildCount()];
+        for (int i = 0; i < _lifeIcons.Length; i++)
+        {
+            _lifeIcons[i] = container.GetChild<TextureRect>(i);
+        }
+    }
+
+    private void SetupLivesMultiplier()
+    {
+        _livesDigits = GetNode<HBoxContainer>(
+            "MarginContainer/LivesDisplay/Digits");
+    }
+
+    private void UpdateLives(int currentLives)
+    {
+        if (_lifeIcons != null)
+        {
+            // Strategy A — individual character icons
+            for (int i = 0; i < _lifeIcons.Length; i++)
+            {
+                _lifeIcons[i].Modulate = i < currentLives
+                    ? Colors.White
+                    : new Color(1, 1, 1, 0.2f);
+            }
+        }
+        else if (_livesDigits != null)
+        {
+            // Strategy B — character × number
+            UpdateDigits(_livesDigits, currentLives);
+        }
+    }
+
+    // --- Score ---
+
     private void UpdateScore(int score)
     {
-        _scoreLabel.Text = score.ToString();
+        UpdateDigits(_scoreDigits, score);
     }
-}
-```
 
-**Why exported textures?** Instead of hardcoding paths like `GD.Load<Texture2D>("res://art/ui/heart_full.png")`, we export the textures and assign them in the Inspector. This means you can swap art without touching code — drag a different heart sprite and it just works.
+    // --- Shared Helpers ---
 
-### Updating GameManager with Signals
-
-The HUD needs to know when health or score changes. Right now, `GameManager` modifies values silently. We need signals:
-
-```csharp
-// Add to GameManager.cs
-
-[Signal]
-public delegate void HealthChangedEventHandler(int currentHealth);
-
-[Signal]
-public delegate void ScoreChangedEventHandler(int score);
-```
-
-Then emit them when values change:
-
-```csharp
-public void TakeDamage(int amount)
-{
-    PlayerHealth = Mathf.Max(0, PlayerHealth - amount);
-    EmitSignal(SignalName.HealthChanged, PlayerHealth);
-
-    if (PlayerHealth <= 0)
+    private AtlasTexture CreateAtlas(Texture2D sheet, Rect2 region)
     {
-        GameOver();
+        var atlas = new AtlasTexture();
+        atlas.Atlas = sheet;
+        atlas.Region = region;
+        return atlas;
     }
-}
 
-public void Heal(int amount)
-{
-    PlayerHealth = Mathf.Min(MaxHealth, PlayerHealth + amount);
-    EmitSignal(SignalName.HealthChanged, PlayerHealth);
-}
+    private void UpdateDigits(HBoxContainer container, int value)
+    {
+        foreach (var child in container.GetChildren())
+        {
+            child.QueueFree();
+        }
 
-public void AddScore(int amount)
-{
-    Score += amount;
-    EmitSignal(SignalName.ScoreChanged, Score);
+        string digits = value.ToString();
+        foreach (char c in digits)
+        {
+            int digit = c - '0';
+            var rect = new TextureRect();
+            rect.Texture = DigitTextures[digit];
+            rect.StretchMode = TextureRect.StretchModeEnum.Keep;
+            container.AddChild(rect);
+        }
+    }
 }
 ```
 
-Now any node can subscribe to `HealthChanged` or `ScoreChanged` — the HUD is just one listener. If you later add a health bar on a boss or a score popup, they subscribe to the same signals.
+**The script supports both strategies simultaneously** — one for HP, one for lives. Comment out the setup call you don't use. The `Update` methods check which fields were initialized and act accordingly.
+
+### Updating GameManager with Lives and Signals
+
+The HUD needs to know when health, lives, or score change. `GameManager` from Chapter 13 tracked health and score — now we add lives:
+
+```csharp
+// Updated GameManager.cs
+
+using Godot;
+
+public partial class GameManager : Node
+{
+    public static GameManager Instance { get; private set; }
+
+    public int Score { get; set; } = 0;
+    public int PlayerHealth { get; set; } = 3;
+    public int MaxHealth { get; private set; } = 3;
+    public int Lives { get; set; } = 3;
+    public int MaxLives { get; private set; } = 3;
+
+    [Signal]
+    public delegate void HealthChangedEventHandler(int currentHealth);
+
+    [Signal]
+    public delegate void LivesChangedEventHandler(int currentLives);
+
+    [Signal]
+    public delegate void ScoreChangedEventHandler(int score);
+
+    public override void _Ready()
+    {
+        Instance = this;
+    }
+
+    public void AddScore(int amount)
+    {
+        Score += amount;
+        EmitSignal(SignalName.ScoreChanged, Score);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        PlayerHealth = Mathf.Max(0, PlayerHealth - amount);
+        EmitSignal(SignalName.HealthChanged, PlayerHealth);
+
+        if (PlayerHealth <= 0)
+        {
+            LoseLife();
+        }
+    }
+
+    public void Heal(int amount)
+    {
+        PlayerHealth = Mathf.Min(MaxHealth, PlayerHealth + amount);
+        EmitSignal(SignalName.HealthChanged, PlayerHealth);
+    }
+
+    public void LoseLife()
+    {
+        Lives = Mathf.Max(0, Lives - 1);
+        EmitSignal(SignalName.LivesChanged, Lives);
+
+        if (Lives <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            // Respawn with full health
+            PlayerHealth = MaxHealth;
+            EmitSignal(SignalName.HealthChanged, PlayerHealth);
+
+            var level = GetTree().CurrentScene;
+            if (level is Level currentLevel)
+            {
+                currentLevel.RespawnPlayer();
+            }
+        }
+    }
+
+    private void GameOver()
+    {
+        var gameOverScreen = GetTree().CurrentScene
+            .GetNodeOrNull<GameOverScreen>("GameOver");
+
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.Show();
+        }
+    }
+
+    public void ResetState()
+    {
+        Score = 0;
+        PlayerHealth = MaxHealth;
+        Lives = MaxLives;
+        EmitSignal(SignalName.HealthChanged, PlayerHealth);
+        EmitSignal(SignalName.LivesChanged, Lives);
+        EmitSignal(SignalName.ScoreChanged, Score);
+    }
+}
+```
+
+**The death flow is now:** HP reaches 0 → lose a life → if lives remain, respawn with full HP → if no lives remain, game over.
+
+This replaces the old `GameOver()` call in `TakeDamage()`. The player no longer goes directly from "lost all HP" to "game over" — they get another chance if they have lives left. Score is preserved across deaths within a run and only resets on game over.
 
 ### Placing the HUD in Levels
 
@@ -221,11 +772,11 @@ Level01 (Node2D)
 
 The HUD's `CanvasLayer` renders on top of everything regardless of where it sits in the scene tree, but placing it last keeps the tree organized — game objects first, UI on top.
 
-**Don't forget** to assign `heart_full.png` and `heart_empty.png` to the exported texture slots on the HUD instance in the Inspector.
+**Don't forget** to assign the spritesheet and heart regions in the Inspector on the HUD instance, and drag each digit PNG (`digit_0.png` through `digit_9.png`) into the `DigitTextures` array slots.
 
 ### Testing
 
-Run the level. You should see hearts in the top-left and a crystal counter in the top-right. Take damage — hearts should empty. Collect a crystal — the score should increment. If nothing updates, check that `GameManager` is emitting signals and that the HUD is connected in `_Ready()`.
+Run the level. You should see your health display (hearts or heart × number) in the top-left, lives in the bottom-left, and a crystal counter in the top-right. Take damage — hearts should update. Lose all HP — a life should be lost and HP refilled. Collect a crystal — the score should increment. If nothing updates, check that `GameManager` is emitting signals and that the HUD is connected in `_Ready()`.
 
 ---
 
@@ -281,6 +832,12 @@ Theme Overrides → Constants:
 ```
 
 This centers the container in the screen. All children stack vertically with 8px spacing.
+
+### Pixel Fonts
+
+The HUD uses digit images (individual PNGs) for numbers, but menus use Godot's `Label` and `Button` nodes which need a font. Godot's default font is vector-based and looks out of place next to 18×18 pixel art tiles. Import a `.ttf` pixel font — plenty of free ones on itch.io and Google Fonts ("Press Start 2P", "Pixelify Sans", etc.). Set it per-node via Theme Overrides, or create a `Theme` resource and apply it to the root `Control` so all children inherit it.
+
+8px font size matches the 320×180 viewport scale for body text. 16px works for titles.
 
 ### Title Label
 
@@ -391,6 +948,31 @@ Main Scene: res://scenes/ui/main_menu.tscn
 ```
 
 Now launching the game shows the menu first, not Level 01 directly.
+
+### App Icon and Boot Splash
+
+Two small details that make the game feel like a real product instead of a Godot project.
+
+**App icon** — the icon that appears in the OS taskbar, window title bar, and desktop shortcut. In Project Settings → Application → Config:
+
+```
+Icon: res://art/ui/app_icon.png
+```
+
+Use a square image — 256×256 or 512×512 pixels. Godot scales it down for each platform. Your pixel art can be upscaled with nearest-neighbor filtering to keep it crisp (e.g., a 32×32 icon exported at 256×256 with no interpolation).
+
+**Boot splash** — the image displayed while the engine loads, before the main scene appears. In Project Settings → Application → Boot Splash:
+
+```
+Image: res://art/ui/boot_splash.png
+Fullsize: false
+Use Filter: false        — nearest-neighbor, keeps pixel art sharp
+Background Color: (0.08, 0.08, 0.15)    — match your game's dark theme
+```
+
+The boot splash shows for a fraction of a second on desktop — barely noticeable. On mobile or web exports it's more visible due to longer load times. A simple image works: your game logo centered on a dark background, or even just the title text from your spritesheet scaled up.
+
+If you skip these, Godot uses its default icon (the Godot robot) and a gray splash screen. Functional, but it screams "student project."
 
 ---
 
@@ -619,27 +1201,7 @@ public partial class GameOverScreen : CanvasLayer
 
 ### Triggering Game Over from GameManager
 
-Update `GameManager.GameOver()`:
-
-```csharp
-private void GameOver()
-{
-    // Find the game over screen in the current scene tree
-    var gameOverScreen = GetTree().CurrentScene
-        .GetNodeOrNull<GameOverScreen>("GameOver");
-
-    if (gameOverScreen != null)
-    {
-        gameOverScreen.Show();
-    }
-    else
-    {
-        GD.PrintErr("GameOver screen not found in current scene!");
-    }
-}
-```
-
-The `GameManager` looks for a `GameOverScreen` node in the current level scene. This is why we instance it in each level.
+The `GameOver()` method in `GameManager` (from section 17.1) already handles this — when lives reach 0, it finds the `GameOverScreen` in the current scene and shows it. No additional wiring needed. This is why we instance the game over screen in each level.
 
 ### Victory Screen
 
@@ -1120,7 +1682,7 @@ Note: `GetTree().CurrentScene.SceneFilePath` gives us the path of the current sc
 
 ## Summary
 
-**HUD (17.1):** `CanvasLayer` with `TextureRect` hearts and a `Label` for score. Connects to `GameManager` signals (`HealthChanged`, `ScoreChanged`) for reactive updates. Hearts swap between full and empty textures. Instanced in each level scene.
+**HUD (17.1):** `CanvasLayer` with health, lives, and score displays. Two strategies for HP and lives: individual icons (≤ 3 — hearts show full/half/empty, character sprites dim when lost) or icon × number (> 3 — single icon + X + digit images). `AtlasTexture` slices heart sprites from a spritesheet; digits use individual PNGs exported as a `Texture2D[10]` array. Score always uses the icon × number pattern (crystal + X + digits), consistent with the rest of the HUD. A conditional crystal requirement display appears only on levels where the exit door requires a minimum crystal count — hidden by default, shown by the level script when `RequiredCrystals > 0`. `GameManager` gains a lives system — HP reaching 0 costs a life and respawns; lives reaching 0 triggers game over. Signals (`HealthChanged`, `LivesChanged`, `ScoreChanged`) drive all HUD updates reactively.
 
 **Main Menu (17.2):** `Control` scene with title, Play, and Quit buttons. `VBoxContainer` for centered vertical layout. Focus neighbors set for keyboard/gamepad navigation. `GrabFocus()` on the Play button in `_Ready()`. Set as the project's main scene.
 
@@ -1142,7 +1704,7 @@ With this chapter complete, every item on the "done" checklist from Chapter 13 i
 4. ~~Enemy patrols and can be stomped~~ — Chapter 16
 5. ~~Spikes and hazards~~ — Chapter 15.2
 6. ~~Checkpoints save respawn~~ — Chapter 15.3
-7. ~~Health system with 3 HP and visual feedback~~ — Chapter 17.1
+7. ~~Health system with HP, lives, and visual feedback~~ — Chapter 17.1
 8. ~~Main menu with Play button~~ — Chapter 17.2
 9. ~~Pause menu with Resume and Quit~~ — Chapter 17.3
 10. ~~Game over screen with Restart~~ — Chapter 17.4

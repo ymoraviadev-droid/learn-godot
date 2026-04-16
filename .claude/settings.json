@@ -30,7 +30,8 @@
       "Bash(curl -s \"https://docs.godotengine.org/en/stable/tutorials/2d/2d_parallax.html\")",
       "WebFetch(domain:kenney.nl)",
       "Bash(head -1288 /home/ymoravia/Data/learn-godot/docs/chapters/chapter-16-enemies-and-ai.md)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(ls app/content/chapters/18-*.json)"
     ],
     "additionalDirectories": [
       "/tmp"

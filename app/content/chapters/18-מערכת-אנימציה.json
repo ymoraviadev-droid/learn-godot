@@ -4,7 +4,7 @@
   "slug": "מערכת-אנימציה",
   "order": 18,
   "createdAt": "2026-03-25T23:03:41.000Z",
-  "updatedAt": "2026-03-25T23:03:41.000Z",
+  "updatedAt": "2026-04-16T20:34:42.032Z",
   "tags": [],
   "content": {
     "type": "doc",
@@ -12,23 +12,93 @@
       {
         "type": "heading",
         "attrs": {
+          "textAlign": "right",
+          "dir": null,
           "level": 1
         },
         "content": [
           {
             "type": "text",
-            "text": "מערכת אנימציה"
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "פרק 18: מערכת אנימציה"
           }
         ]
       },
       {
         "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
+      },
+      {
+        "type": "heading",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null,
+          "level": 2
+        },
         "content": [
           {
             "type": "text",
-            "text": "בקרוב.."
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "18.1 AnimationPlayer Node"
           }
         ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        },
+        "content": [
+          {
+            "type": "text",
+            "text": "עד כה, כל האנימציות שכתבנו היו "
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Frame"
+          },
+          {
+            "type": "text",
+            "text": "-אחרי-"
+          },
+          {
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ],
+            "text": "Frame"
+          },
+          {
+            "type": "text",
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "attrs": {
+          "textAlign": "right",
+          "dir": null
+        }
       }
     ]
   }
